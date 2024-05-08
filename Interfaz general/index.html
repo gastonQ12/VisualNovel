@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(imagenes/fondocrimen.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        .cuadro_TextEI {
+            display: flex;
+            justify-content: space-between;
+            bottom: 0;
+        }
+
+        .cuadroDialogo {
+            background-image: url(imagenes/rectangulo.png);
+            width: 100%;
+            bottom: 0;
+            background-size: 100%;
+            height: 170px;
+            position: absolute;
+            margin-top: -200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cuadroDialogo * {
+            color: white;
+            text-align: center;
+            margin: 6px;
+        }
+
+        .PJ1 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            right: 0;
+            bottom: 0;
+            filter: brightness(20%);
+        }
+
+        .PJ2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            left: 0;
+            bottom: 0;
+
+        }
+
+        .JAJAS {
+            display: flex;
+            justify-content: center;
+        }
+        :root
+        .op1, .op2 {
+            background-color: rgb(48, 48, 48);
+            border: none;
+            height: 50px;
+            clip-path:var(--cl);
+            transition: 1s;
+
+            transform: skewX(-30deg);
+        }
+        .op1 p, .op2 p{
+            transform: skewX(30deg);
+            margin: 16px;
+            
+            
+        }
+        .op1:hover{
+            background-color: rgb(0, 0, 0);
+            clip-path: var(100% at);
+
+            border: 2px solid white;
+            cursor:pointer
+        }
+        .op2:hover{
+            background-color: rgb(0, 0, 0);
+            clip-path: var(100% at);
+
+            border: 2px solid white;
+            cursor:pointer
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cuadro_TextEI">
+        <img class="PJ1" src="imagenes/policia.png" alt="">
+        <div></div>
+        <img class="PJ2" src="imagenes/policia.png" alt="">
+    </div>
+    <div class="JAJAS">
+        <div class="cuadroDialogo">
+            <h3>NOMBRE PJ</h3>
+            <hr style="width: 150px;">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa nihil voluptatibus quae deserunt voluptate
+                placeat fugit non eos sapiente debitis! Iste hic totam sint in eos maxime mollitia minima id!</p>
+
+            <div style="display: flex;">
+                <button id="" class="op1"><p>¿Cuanto dedos te entran?</p></button>
+                <button id="" class="op2"><p>Que marica</p></button>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
