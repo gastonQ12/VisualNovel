@@ -42,9 +42,8 @@ function mostrarTexto(){
 };
 */
 
-//Click para cambiar de dialogo
 let aux = 0;
-const dialogos=["sisi", "ñan ñam", 'ewfa', 'ewfa']
+const dialogos=["sisi", "ñan ñam", 'ewfa', 'ewfa']//dialogos
 let size = dialogos.length;
 var boxD = document.getElementById('cuadroDialogo');
 var botonesOpciones = 
@@ -52,6 +51,7 @@ boxD.addEventListener('click', editarTexto);
 
 function editarTexto(event){    
     if(aux<=size){
+        //ocultar los botones y cambiar de dialogo al hacer click
         document.getElementById("botonOpcion").setAttribute('hidden', '');
         document.getElementById("botonOpcion2").setAttribute('hidden', '');
         document.getElementById("output").textContent = dialogos[aux];
@@ -59,6 +59,7 @@ function editarTexto(event){
         console.log(aux);
     }
     else{
+        //mostrar botones y desactivar el dialogo
         document.getElementById("botonOpcion").removeAttribute("hidden");
         document.getElementById("botonOpcion2").removeAttribute("hidden");
     }
