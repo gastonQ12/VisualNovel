@@ -45,12 +45,15 @@ function mostrarTexto(){
 //Click para cambiar de dialogo
 let aux = 0;
 const dialogos=["sisi", "ñan ñam"];
-
-var el = document.getElementById("cuadroDialogo");
-console.log(el);
-document.addEventListener('click', editarTexto);
+let size = dialogos.length;
+var boxD = document.getElementById('cuadroDialogo');
+boxD.addEventListener('click', editarTexto);
 
 function editarTexto(event){
+    
+    if(aux<=size){
     document.getElementById("output").textContent = dialogos[aux];
     aux++
+    console.log(aux);
+    }
 }
