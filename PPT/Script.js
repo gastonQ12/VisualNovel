@@ -44,16 +44,22 @@ function mostrarTexto(){
 
 //Click para cambiar de dialogo
 let aux = 0;
-const dialogos=["sisi", "ñan ñam"];
+const dialogos=["sisi", "ñan ñam", 'ewfa', 'ewfa']
 let size = dialogos.length;
 var boxD = document.getElementById('cuadroDialogo');
+var botonesOpciones = 
 boxD.addEventListener('click', editarTexto);
 
-function editarTexto(event){
-    
+function editarTexto(event){    
     if(aux<=size){
-    document.getElementById("output").textContent = dialogos[aux];
-    aux++
-    console.log(aux);
+        document.getElementById("botonOpcion").setAttribute('hidden', '');
+        document.getElementById("botonOpcion2").setAttribute('hidden', '');
+        document.getElementById("output").textContent = dialogos[aux];
+        aux++
+        console.log(aux);
+    }
+    else{
+        document.getElementById("botonOpcion").removeAttribute("hidden");
+        document.getElementById("botonOpcion2").removeAttribute("hidden");
     }
 }
