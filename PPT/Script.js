@@ -46,7 +46,10 @@ function mostrarTexto(){
 let aux = 0;
 const dialogos=["sisi", "ñan ñam"];
 
+var el = document.getElementById("cuadroDialogo");
+console.log(el);
 document.addEventListener('click', editarTexto);
+
 function editarTexto(event){
     document.getElementById("output").textContent = dialogos[aux];
     aux++
