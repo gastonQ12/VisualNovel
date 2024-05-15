@@ -40,20 +40,22 @@ function mostrarTexto(){
     }
 )
 };
-*/
+
 
 let aux = 0;
-const dialogos=["sisi", "ñan ñam", 'ewfa', 'ewfa']//dialogos
+const dialogos=['1.sisi', '1.ñan ñam', '2.ewfa', 'mama que dice'];//dialogos
+const nombrePj=["sujeto 1", "sujeto 2"];
 let size = dialogos.length;
 var boxD = document.getElementById('cuadroDialogo');
-var botonesOpciones = 
+
 boxD.addEventListener('click', editarTexto);
 
 function editarTexto(event){    
-    if(aux<=size){
+    if(aux<=size-1){
         //ocultar los botones y cambiar de dialogo al hacer click
         document.getElementById("botonOpcion").setAttribute('hidden', '');
         document.getElementById("botonOpcion2").setAttribute('hidden', '');
+        document.getElementById("PJname").textContent= "pibe";
         document.getElementById("output").textContent = dialogos[aux];
         aux++
         console.log(aux);
@@ -63,4 +65,44 @@ function editarTexto(event){
         document.getElementById("botonOpcion").removeAttribute("hidden");
         document.getElementById("botonOpcion2").removeAttribute("hidden");
     }
+}
+*/
+
+
+
+let aux = 0;
+const dialogos=['1.sisi', '1.ñan ñam', '2.ewfa', '1.mama que dice'];//dialogos
+const nombrePj=["sujeto 1", "sujeto 2"];
+let size = dialogos.length;
+var boxD = document.getElementById('cuadroDialogo');
+
+boxD.addEventListener('click', editarTexto);
+
+function editarTexto(event){    
+    if(aux<=size-1){
+        //ocultar los botones 
+        document.getElementById("botonOpcion").setAttribute('hidden', '');
+        document.getElementById("botonOpcion2").setAttribute('hidden', '');
+
+        //mostrar dialogos
+        mostrarDialogos(aux);
+        aux++
+    }
+    else{
+        //mostrar botones y desactivar el dialogo
+        document.getElementById("botonOpcion").removeAttribute("hidden");
+        document.getElementById("botonOpcion2").removeAttribute("hidden");
+    }
+}
+
+function mostrarDialogos( auxiliar ){
+
+    //extrae la posicion del personaje
+    let pjHablando = dialogos[auxiliar].substring(0,1)-1;
+    console.log(pjHablando);
+    
+    //muestra el nombre, barrita y el dialogo
+    document.getElementById("LineaDialogo").removeAttribute("hidden");
+    document.getElementById("PJname").textContent= nombrePj[pjHablando];
+    document.getElementById("output").textContent = dialogos[aux].substring(2);
 }
