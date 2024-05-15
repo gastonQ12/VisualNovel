@@ -105,4 +105,21 @@ function mostrarDialogos( auxiliar ){
     document.getElementById("LineaDialogo").removeAttribute("hidden");
     document.getElementById("PJname").textContent= nombrePj[pjHablando];
     document.getElementById("output").textContent = dialogos[aux].substring(2);
+    MostrarPjH(parseInt(pjHablando));
+}
+
+function MostrarPjH(lado){
+
+    switch(lado){
+        case 1, 3:
+            console.log("entro");
+        document.getElementById("izquierda").style.filter = "brightness(20%)";
+        document.getElementById("derecha").style.filter = "brightness(100%)";
+        
+        case 2:
+        document.getElementById("izquierda").style.filter = "brightness(100%)";
+        document.getElementById("derecha").style.filter = "brightness(20%)";
+        console.log("entro");
+        }
+
 }
