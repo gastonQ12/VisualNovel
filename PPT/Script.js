@@ -71,9 +71,9 @@ function editarTexto(event){
 
 
 let aux = 0;
-const dialogos=['1.sisi', '1.ñan ñam', '2.ewfa', '1.mama que dice'];//dialogos
-const nombrePj=["sujeto 1", "sujeto 2"];
-let size = dialogos.length;
+const dialogos=['1.sisi', '1.ñan ñam', '2.ewfa', '1.mama que dice'];//  dialogos
+const nombrePj=["sujeto 1", "sujeto 2"];                            // nombre de los personajes
+let size = dialogos.length; //tamaño de la lista de dialogos
 var boxD = document.getElementById('cuadroDialogo');
 
 boxD.addEventListener('click', editarTexto);
@@ -104,10 +104,12 @@ function mostrarDialogos( auxiliar ){
     //muestra el nombre, barrita y el dialogo
     document.getElementById("LineaDialogo").removeAttribute("hidden");
     document.getElementById("PJname").textContent= nombrePj[pjHablando];
-    console.log(pjHablando);
+    
     document.getElementById("output").textContent = dialogos[aux].substring(2);
     MostrarPjH(parseInt(pjHablando));
 }   
+
+
 
 function MostrarPjH(lado){
 
