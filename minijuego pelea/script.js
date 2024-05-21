@@ -1,51 +1,54 @@
-const enemyHP = document.getElementById('vida-enemigo');
-const playerHP = document.getElementById('vida-jugador');
-const messages = document.getElementById('mensajes');
+const vida_enemigo = document.getElementById('vida-enemigo');
+const vida_jugador = document.getElementById('vida-jugador');
+const mensajes = document.getElementById('mensajes');
 
-let enemyHealth = 100; let playerHealth = 100;
+let enemigoHP = 100; let jugadorHP = 100;
 
-const attackButton = document.getElementById('atacar');
-const defendButton = document.getElementById('defender');
-const healButton = document.getElementById('curar');
+const botonAtaque = document.getElementById('atacar');
+const botonDefensa = document.getElementById('defender');
+const botonCura = document.getElementById('curar');
 
-attackButton.addEventListener('click', attack);
-defendButton.addEventListener('click', defend);
-healButton.addEventListener('click', heal);
+botonAtaque.addEventListener('click', attack);
+botonDefensa.addEventListener('click', defend);
+botonCura.addEventListener('click', heal);
 
 function attack() {
   const damage = Math.floor(Math.random() * 20) + 10;
-  enemyHealth -= damage;
-  enemyHP.textContent = enemyHealth + ' HP';
+  enemigoHP -= damage;
+  vida_enemigo.textContent = enemigoHP + ' HP';
 
-  const enemyAttack = Math.floor(Math.random() * 15) + 5;
-  playerHealth -= enemyAttack;
-  playerHP.textContent = playerHealth + ' HP';
+  const ataque_enemigo = Math.floor(Math.random() * 15) + 5;
+  jugadorHP -= ataque_enemigo;
+  vida_jugador.textContent = jugadorHP + ' HP';
 
-  displayMessage(`Atacaste al enemigo por ${damage} HP. Recibiste ${enemyAttack} HP de daño.`);
+  displayMessage(`Atacaste al enemigo por ${damage} HP. Recibiste ${ataque_enemigo} HP de daño.`);
 
   checkVictory();
 }
 
 function defend() {
   displayMessage('Te has defendido. Recibes menos daño.');
-  playerHealth -= 5;
-  playerHP.textContent = playerHealth + ' HP';
+  jugadorHP -= 5;
+  vida_jugador.textContent = jugadorHP + ' HP';
 
-  const enemyAttack = Math.floor(Math.random() * 10) + 2;
-  playerHealth -= enemyAttack;
-  playerHP.textContent = playerHealth + ' HP';
+  const ataque_enemigo = Math.floor(Math.random() * 10) + 2;
+  jugadorHP -= ataque_enemigo;
+  vida_jugador.textContent = jugadorHP + ' HP';
 
-  displayMessage(`Recibiste ${enemyAttack} HP de daño.`);
+  displayMessage(`Atacaste al enemigo por ${damage} HP. Recibiste ${ataque_enemigo} HP de daño.`);
+
+  displayMessage(`Recibiste ${ataque_enemigo} HP de daño.`);
 
   checkVictory();
 }
 
 function heal() {
-  if (playerHealth < 100) {
+  if (jugadorHP < 100) {
     const healAmount = Math.floor(Math.random() * 20) + 10;
-    playerHealth += healAmount;
-    playerHP.textContent = playerHealth + ' HP';
+    jugadorHP += healAmount;
+    vida_jugador.textContent = jugadorHP + ' HP';
 
+    
     displayMessage(`Te has curado por ${healAmount} HP.`);
   } else {
     displayMessage('Ya estás con la salud completa.');
@@ -53,21 +56,20 @@ function heal() {
 }
 
 function displayMessage(message) {
-  messages.innerHTML = message + '<br>' + messages.innerHTML;
+  mensajes.innerHTML = message + '<br>' + mensajes.innerHTML;
 }
 
 function checkVictory() {
-  if (enemyHealth <= 0) {
+  if (enemigoHP<= 0) {
     displayMessage('¡Has ganado!');
     disableButtons();
-  } else if (playerHealth <= 0) {
+  } else if (jugadorHP <= 0) {
     displayMessage('¡te mato un gordojajjsja!');
     disableButtons();
   }
 }
-
 function disableButtons() {
-  attackButton.disabled = true;
-  defendButton.disabled = true;
-  healButton.disabled = true;
+  botonAtaque.disabled = true;
+  botonDefensa.disabled = true;
+  botonCura.disabled = true;
 }
