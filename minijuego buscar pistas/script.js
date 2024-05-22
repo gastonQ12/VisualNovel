@@ -5,7 +5,7 @@ prueba.addEventListener('click', encontrarPista);
 
 function encontrarPista(event){
 
+    alert('si');
     
-    alert('pista encontrada');
     
 }
