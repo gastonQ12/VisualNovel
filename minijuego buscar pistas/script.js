@@ -1,5 +1,3 @@
 
-
-
-
+const prueba = document.getElementById();
 
