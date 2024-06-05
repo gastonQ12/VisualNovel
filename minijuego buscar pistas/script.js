@@ -9,10 +9,7 @@ function cursorEntrar(event){
     prueba.style.cursor='url(imagenes/cursor/)';
     
 }
-
 function encontrarPista(event){
 
     alert('si');
-    
-    
 }
