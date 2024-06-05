@@ -6,7 +6,7 @@ prueba.addEventListener('mouseenter', cursorEntrar)
 
 function cursorEntrar(event){
 
-    prueba.style.cursor='url(imagenes/cursor/)';
+    document.style.cursor='url(/imagenes/cursor/)';
     
 }
 function encontrarPista(event){
