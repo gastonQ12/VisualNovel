@@ -108,13 +108,12 @@ button:hover{
 }
 
 
-button:hover:active{
-    transform: translateY(5px);
+.easterEgg{
+    margin-top: 50%;
+    width: 500px;
 }
 
-button:hover::after{
-    animation: move2 0.5s;
-}
+
 
 .coso{
     margin-bottom: 32%;
@@ -152,7 +151,7 @@ button:hover::after{
     }
 }
 
-@keyframes move2 {
+@keyframes move {
     from{
         transform: translateY(-5px);
     }
