@@ -26,7 +26,7 @@ body{
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    
+    background: linear-gradient(grey);
 }
 
 .np{
@@ -73,7 +73,7 @@ button {
     display: inline-block;
     font-size: 50px;
     border-radius: 15px;
-    
+
 }
 
 input{
