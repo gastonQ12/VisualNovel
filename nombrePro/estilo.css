@@ -103,6 +103,13 @@ input::selection{
 button:hover{
     background-color: white;
     color: #575757;
+    animation: move 1s;
+}
+
+button:hover::after{
+    background-color: white;
+    color: #575757;
+    animation: move2 1s;
 }
 
 .coso{
@@ -129,4 +136,26 @@ button:hover{
 .caja{
     position: absolute;
     margin-top: 0.5%;
+}
+
+@keyframes move {
+    from{
+        transform: translateY(0);
+
+    }
+    to{
+        transform: translateY(-5px);
+        
+    }
+}
+
+@keyframes move2 {
+    from{
+        transform: translateY(-5px);
+
+    }
+    to{
+        transform: translateY(0);
+        
+    }
 }
