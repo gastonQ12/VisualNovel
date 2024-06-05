@@ -26,7 +26,7 @@ body{
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(grey);
+    background: linear-gradient(#656565, rgba(0, 0, 0, 0.301));
 }
 
 .np{
@@ -40,7 +40,7 @@ body{
     font-style: normal;
     color: white;
     font-size: 100px;
-    margin-bottom: 10%;
+    margin-bottom: 15%;
     position: absolute;
     
 }
@@ -67,18 +67,35 @@ button {
     background-color: #575757; /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 50px;
-    border-radius: 15px;
-
+    border-radius: 25px;
+    width: 250px;
+    
 }
 
 input{
-    width: 550px;
-    height: 50px;
+    width: 600px;
+    height: 90px;
+    background: none;
+    border: none;
+    font-size: 75px;
+    color: white;
+    filter: drop-shadow(4px 4px 0px #797979);
+    outline: 10px;
+    border-color: black;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: "Karantina", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+input::selection{
+    border: none;
 }
 
 button:hover{
@@ -87,6 +104,27 @@ button:hover{
 }
 
 .coso{
-    margin-bottom: 55%;
+    margin-bottom: 32%;
+    position: absolute;
 }
 
+.l1{
+    width: 700px;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    margin-bottom: 25%;
+}
+
+.l2{
+    width: 700px;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    margin-top: 25%;
+}
+
+.caja{
+    position: absolute;
+    margin-top: 0.5%;
+}
