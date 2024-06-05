@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +48,36 @@
     .contenedor:hover img {
       transform: translateY(-150px); /* Desplaza la imagen hacia arriba */
   </style>
+=======
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+
+        cursor: url(imagenes/cursor.png), auto;
+
+      }
+        body {
+            background-image: url(imagenes/image\ 10\ 1\ copia2.png);
+            background-size: 100%;
+            background-position:top;
+            background-repeat: no-repeat;
+            user-select: none;  
+            
+        }
+
+        .prueba{
+            height: 20px;
+            width: 100px;
+            position: relative;
+            top: 400px;
+            left: 68%;
+        }
+    
+    </style>
+>>>>>>> f3fdf300ab9936340d0c0df1b4caef5ff34a70ec
 </head>
 
 <body>
@@ -58,6 +89,7 @@
   <button type="button" id="guardado">GUARDADO</button>
   <script>
     
+<<<<<<< HEAD
     document.getElementById("guardado").addEventListener('click', CrearCookie);
     function CrearCookie(e) {
       if (!e) e = window.event;
@@ -65,6 +97,13 @@
       document.cookie = "nombre = Renzo";
     }
   </script>
+=======
+    <div class="prueba" id="prueba1" >
+        <script src="script.js"></script>
+        
+    </div>
+
+>>>>>>> f3fdf300ab9936340d0c0df1b4caef5ff34a70ec
 </body>
 
 </html>
