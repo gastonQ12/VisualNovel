@@ -95,7 +95,7 @@ function editarTexto(event){
 
     }
 }
-function libretaAnotar (  ){
+function libretaAnotar(){
     var papel = document.getElementById("")
     document.getElementById("botonOpcion").addEventListener("click", function(){
         let pista1 = document.getElementById("pista1");
