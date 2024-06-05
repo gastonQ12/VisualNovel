@@ -75,7 +75,7 @@ document.body.onload = function () {
         mostrarDialogos(aux); // Mostrar el diálogo guardado
     }
 }
-const dialogos = ['1.sisi', '1.ñan ñam', '2.ewfa', '1.mama que dice'];//  dialogos
+const dialogos = ['1.sisi', '1.ñan ñam', '2.ewfa', '1.mama que dice', '2.NONONONO', '1.hohohoho'];//  dialogos
 const nombrePj = ["sujeto 1", "sujeto 2"];                            // nombre de los personajes
 let size = dialogos.length; //tamaño de la lista de dialogos
 var boxD = document.getElementById('cuadroDialogo');
