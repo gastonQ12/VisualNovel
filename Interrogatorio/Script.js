@@ -67,6 +67,7 @@ function editarTexto(event){
     }
 }
 */
+
 let aux = 0;
 document.body.onload = function () {
     var leer = getCookie("progresoDialogo");
@@ -75,12 +76,26 @@ document.body.onload = function () {
         mostrarDialogos(aux); // Mostrar el diálogo guardado
     }
 }
-const dialogos = ['1.sisi', '1.ñan ñam', '2.ewfa', '1.mama que dice', '2.NONONONO', '1.hohohoho'];//  dialogos
-const nombrePj = ["sujeto 1", "sujeto 2"];                            // nombre de los personajes
+const dialogos = ['1.¿De que se trata?', '2.Un asesinato, dicen que la victima es un taxista. Estiman que ocurrió esta mañana.',
+    '1.hmm, sabes no estamos teniendo mucho trabajo, podríamos echarles una mano con esto.',
+    '2.No lo sé, seguramente se trate de un simple intento de atraco, no deberíamos perder el tiempo con este tipo de casos.',
+    '1.Vamos, si de eso se trata no tardaremos mucho, no es como si tuviéramos mucho que hacer de todos modos.',
+    '2.Está bien']; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
+
+const nombrePj = ["(Protagonista)", "Ayudante", "Jhon Browns"];                            // nombre de los personajes
 let size = dialogos.length; //tamaño de la lista de dialogos
 var boxD = document.getElementById('cuadroDialogo');
 
 boxD.addEventListener('click', editarTexto);
+
+
+if (aux => 2) {
+    var img = document.getElementById('PJ2');
+
+    img.setAttribute('src', 'imagen/policia.png');
+    
+}
+
 
 //
 
@@ -123,7 +138,7 @@ function crearCookies(e) {
     if (e.target.id == "cuadroDialogo") {
         var cookies = document.cookie = "progresoDialogo=" + aux;
         console.log(cookies);
-        
+
     }
 }
 function libretaAnotar() {
