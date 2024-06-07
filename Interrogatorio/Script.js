@@ -74,6 +74,7 @@ document.body.onload = function () {
     if (leer !== "") {
         aux = parseInt(leer) - 1;
         mostrarDialogos(aux); // Mostrar el diálogo guardado
+        
     }
 }
 const dialogos = ['1.¿De que se trata?', '2.Un asesinato, dicen que la victima es un taxista. Estiman que ocurrió esta mañana.',
@@ -88,13 +89,6 @@ var boxD = document.getElementById('cuadroDialogo');
 
 boxD.addEventListener('click', editarTexto);
 
-
-if (aux => 2) {
-    var img = document.getElementById('PJ2');
-
-    img.setAttribute('src', 'imagen/policia.png');
-    
-}
 
 
 //
@@ -137,8 +131,6 @@ function crearCookies(e) {
     if (!e) e = window.event;
     if (e.target.id == "cuadroDialogo") {
         var cookies = document.cookie = "progresoDialogo=" + aux;
-        console.log(cookies);
-
     }
 }
 function libretaAnotar() {
