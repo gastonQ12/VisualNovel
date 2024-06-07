@@ -13,7 +13,11 @@ const dialogos = ['1.¿De que se trata?', '2.Un asesinato, dicen que la victima 
     '1.hmm, sabes no estamos teniendo mucho trabajo, podríamos echarles una mano con esto.',
     '2.No lo sé, seguramente se trate de un simple intento de atraco, no deberíamos perder el tiempo con este tipo de casos.',
     '1.Vamos, si de eso se trata no tardaremos mucho, no es como si tuviéramos mucho que hacer de todos modos.',
-    '2.Está bien']; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
+    '2.Está bien',
+    '1.Buen día muchachos, diganme quien de ustedes es el que encontró el cuerpo',
+    '3.Yo, señor.',
+    '1.Ok, dime, no tocaste el cuerpo, ¿Cierto?',
+    '3.No, señor. Solo la tapa del contenedor, el cuerpo sigue ahí.',]; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
 
 const nombrePj = ["(Protagonista)", "Ayudante", "Jhon Browns"];                            // nombre de los personajes
 let size = dialogos.length; //tamaño de la lista de dialogos
@@ -43,18 +47,18 @@ function editarTexto(event) {
 function cambiarSrc(aux) {
     var imagen = document.getElementById('izquierda');
     console.log('viva: ' + aux);
-    if( aux > 3){
-        
+    if (aux >= 7) {
+
         if (imagen) {
 
             imagen.src = 'imagenes/policia.png';
             imagen.addEventListener('click', imagen.onload);
-            
+
         } else {
             console.error('La imagen con el id "izquierda" no se encontró.');
-        }    
+        }
     }
-    
+
 }
 function getCookie(cname) {
     var name = cname + "=";
@@ -121,6 +125,14 @@ function MostrarPjH(lado) {
             break;
         case 1:
             console.log("entro 1");
+            document.getElementById("izquierda").style.filter = "brightness(100%)";
+            document.getElementById("derecha").style.filter = "brightness(20%)";
+
+            document.getElementById("izquierda").style.zIndex = "0";
+            document.getElementById("derecha").style.zIndex = "1";
+            break;
+        case 2:
+            console.log("entro 2");
             document.getElementById("izquierda").style.filter = "brightness(100%)";
             document.getElementById("derecha").style.filter = "brightness(20%)";
 
