@@ -1,82 +1,14 @@
-/*
-for (const aux of dialogos) {
-    document.addEventListener("click", a);
-}
-
-
-dialogos.forEach(aux => {
-    document.removeEventListener("click", a);
-    document.
-});
-
-function a(event, aux) {
-}
-
-var elementos = document.querySelectorAll('*');
-
-elementos.forEach(function(elemento) {
-    elemento.addEventListener('click', function(event) {
-        console.log('Se ha hecho clic en el elemento:', elemento);
-        document.write("si");
-    });
-});
-
-
-
-
-while(aux<=3){
-    var elementos = document.querySelector("#output");
-    console.log(elementos);
-    mostrarTexto();
-    aux++;
-    console.log(aux);
-};
-
-
-function mostrarTexto(){
-    elementos.addEventListener('click', function(event) {
-    console.log('Se ha hecho clic en el elemento:', elementos);
-    elementos.textContent = `sisi`;
-    }
-)
-};
-
-
-let aux = 0;
-const dialogos=['1.sisi', '1.ñan ñam', '2.ewfa', 'mama que dice'];//dialogos
-const nombrePj=["sujeto 1", "sujeto 2"];
-let size = dialogos.length;
-var boxD = document.getElementById('cuadroDialogo');
-
-boxD.addEventListener('click', editarTexto);
-
-function editarTexto(event){    
-    if(aux<=size-1){
-        //ocultar los botones y cambiar de dialogo al hacer click
-        document.getElementById("botonOpcion").setAttribute('hidden', '');
-        document.getElementById("botonOpcion2").setAttribute('hidden', '');
-        document.getElementById("PJname").textContent= "pibe";
-        document.getElementById("output").textContent = dialogos[aux];
-        aux++
-        console.log(aux);
-    }
-    else{
-        //mostrar botones y desactivar el dialogo
-        document.getElementById("botonOpcion").removeAttribute("hidden");
-        document.getElementById("botonOpcion2").removeAttribute("hidden");
-    }
-}
-*/
-
 let aux = 0;
 document.body.onload = function () {
     var leer = getCookie("progresoDialogo");
     if (leer !== "") {
         aux = parseInt(leer) - 1;
         mostrarDialogos(aux); // Mostrar el diálogo guardado
-        
+        cambiarSrc(aux);
     }
 }
+
+
 const dialogos = ['1.¿De que se trata?', '2.Un asesinato, dicen que la victima es un taxista. Estiman que ocurrió esta mañana.',
     '1.hmm, sabes no estamos teniendo mucho trabajo, podríamos echarles una mano con esto.',
     '2.No lo sé, seguramente se trate de un simple intento de atraco, no deberíamos perder el tiempo con este tipo de casos.',
@@ -89,10 +21,6 @@ var boxD = document.getElementById('cuadroDialogo');
 
 boxD.addEventListener('click', editarTexto);
 
-
-
-//
-
 function editarTexto(event) {
     if (aux <= size - 1) {
         //ocultar los botones 
@@ -103,7 +31,7 @@ function editarTexto(event) {
         mostrarDialogos(aux);
         boxD.addEventListener('click', crearCookies);
         aux++
-
+        cambiarSrc(aux);
     }
     else {
         //mostrar botones y desactivar el dialogo
@@ -112,7 +40,22 @@ function editarTexto(event) {
 
     }
 }
+function cambiarSrc(aux) {
+    var imagen = document.getElementById('izquierda');
+    console.log('viva: ' + aux);
+    if( aux > 3){
+        
+        if (imagen) {
 
+            imagen.src = 'imagenes/policia.png';
+            imagen.addEventListener('click', imagen.onload);
+            
+        } else {
+            console.error('La imagen con el id "izquierda" no se encontró.');
+        }    
+    }
+    
+}
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');

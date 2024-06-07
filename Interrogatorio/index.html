@@ -189,7 +189,7 @@
         #pista4 {
             opacity: 0%;
             color: rgb(0, 0, 0);
-            
+
             position: fixed;
             right: -65px;
             z-index: 30;
@@ -204,22 +204,20 @@
         #desplegamiento:checked~#pista4 {
             right: 700px;
         }
-
-  
     </style>
 </head>
 
 <body>
+    
     <div class="cuadro_TextEI">
         <img id="derecha" class="PJ1" src="imagenes/detective.png">
         <div></div>
-        <img id="izquierda" id="personaje2" class="PJ2" src="imagenes/ayudante.png">
+        <img id="izquierda" class="PJ2" src="imagenes/ayudante.png">
     </div>
     <div class="JAJAS">
         <div class="cuadroDialogo" id="cuadroDialogo">
             <h3 id="PJname"></h3>
             <hr id="LineaDialogo" style="width: 150px;" hidden>
-            <script src="Script.js"></script>
             <div id="output"></div>
             <div style="display: flex;">
                 <button id="botonOpcion" onclick="libretaAnotar();" value="1" class="op1" hidden>
@@ -232,7 +230,7 @@
 
         </div>
 
-        
+
         <div class="contLib">
             <div class="cajaFlechas">
                 <input id="desplegamiento" class="desp" type="checkbox">
@@ -253,6 +251,7 @@
 
         </div>
     </div>
-
+    <script src="Script.js" defer></script>
 </body>
+
 </html>
