@@ -8,9 +8,10 @@ document.body.onload = function () {
     }
     var fondo = getCookie("fondo");
     body.style.backgroundImage = fondo;
+    let pista1 = document.getElementById("pista1");
+    var pista1G = getCookie("opacidad");
+    pista1.style.opacity = pista1G;
 }
-
-
 const dialogos = ['1.¿De que se trata?', '2.Un asesinato, dicen que la victima es un taxista. Estiman que ocurrió esta mañana.',
     '1.hmm, sabes no estamoFs teniendo mucho trabajo, podríamos echarles una mano con esto.',
     '2.No lo sé, seguramente se trate de un simple intento de atraco, no deberíamos perder el tiempo con este tipo de casos.',
@@ -25,7 +26,9 @@ const dialogos = ['1.¿De que se trata?', '2.Un asesinato, dicen que la victima 
     '3.No le di mucha importancia, creí que solo era un taxista haciendo horas extra tratando de descansar un poco por lo que solo iba a seguir caminando cuando note que había dejado la puerta levemente abierta. ',
     '3.Cuando me asome para avisarle al taxista me encontré con la sangrienta escena. El asiento delantero estaba lleno de manchas de sangre, entre un poco en pánico, creía que el culpable podría estar cerca. ',
     '3.Note unas pequeñas gotas de sangre que me llevaron hasta el cuerpo.',
-    '1.Ya veo, le echaré un vistazo al lugar luego, ahora, ayudenme a sacar el cuerpo del contenedor.',
+    '1.¿Que dijo el forense respecto a esto?',
+    '2.Murió hace poco, se estima que hace una hora como mucho, el cuerpo seguía caliente cuando lo examinaron.',
+    '1.Actualmente marcan las 12:00 AM, entonces murió a las 11:00 AM.',
     '1.',
     '3.',
     '1.',
@@ -50,6 +53,7 @@ function editarTexto(event) {
         boxD.addEventListener('click', crearCookies);
         aux++
         cambiarFondo(aux);
+        libretaAnotar(aux);
     }
     else {
         //mostrar botones y desactivar el dialogo
@@ -77,11 +81,16 @@ function crearCookies(e) {
         var cookies = document.cookie = "progresoDialogo=" + aux;
     }
 }
-function libretaAnotar() {
-    var papel = document.getElementById("")
+function libretaAnotar(aux) {
+    let pista1 = document.getElementById("pista1");
+        if(aux == 17){
+
+            var opacidad = 100 + "%";
+            pista1.style.opacity = opacidad;
+            document.cookie = "opacidad=" + opacidad;
+        }
     document.getElementById("botonOpcion").addEventListener("click", function () {
-        let pista1 = document.getElementById("pista1");
-        pista1.style.opacity = 100 + "%";
+        
     });
     document.getElementById("botonOpcion2").addEventListener("click", function () {
 
@@ -132,7 +141,6 @@ function cambiarFondo(aux){
             break;
 
     }
-    
     
 }
 

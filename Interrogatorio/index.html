@@ -115,6 +115,17 @@
             transition: all 2s;
         }
 
+        #cajaLibreta {
+            position: fixed;
+            display: flex;
+            height: 500px;
+            width: 400px;
+            right: -350px;
+            bottom: 15%;
+            z-index: -1;
+            transition: all 2s;
+        }
+
         #desplegamiento {
             display: none;
         }
@@ -143,6 +154,10 @@
             right: 450px;
         }
 
+        #desplegamiento:checked~#cajaLibreta {
+            right: 450px;
+        }
+
         .cajaFlechas {
             position: absolute;
             right: 24px;
@@ -157,8 +172,7 @@
         #pista1 {
             opacity: 0%;
             color: rgb(0, 0, 0);
-            position: fixed;
-            right: -65px;
+            margin: 95px;
             z-index: 30;
             bottom: 500px;
             transition: all 2s;
@@ -208,7 +222,7 @@
 </head>
 
 <body id="body">
-    
+
     <div class="cuadro_TextEI">
         <img id="derecha" class="PJ1" src="imagenes/detective.png">
         <div></div>
@@ -242,13 +256,14 @@
                         arrow_forward_ios
                     </span></label>
                 <img id="libreta" src="imagenes/libreta.png" alt="">
-                <h2 id="pista1">Pista n1</h2>
-                <h2 id="pista2">Pista n2</h2>
-                <h2 id="pista3">Pista n3</h2>
-                <h2 id="pista4">Pista n4</h2>
+                <div id="cajaLibreta">
+                    <h3 id="pista1">Fecha y hora de muerte: 03/02/1910 a las 11:00AM</h3>
+                    <h3 id="pista2">Pista n2</h3>
+                    <h3 id="pista3">Pista n3</h3>
+                    <h3 id="pista4">Pista n4</h3>
+                </div>
+
             </div>
-
-
         </div>
     </div>
     <script src="Script.js" defer></script>
