@@ -4,16 +4,36 @@ document.body.onload = function () {
     if (leer !== "") {
         aux = parseInt(leer) - 1;
         mostrarDialogos(aux); // Mostrar el diálogo guardado
-        
+
     }
     var fondo = getCookie("fondo");
     body.style.backgroundImage = fondo;
-    
+
     let pista1 = document.getElementById("pista1");
     var pista1G = getCookie("opacidad");
     pista1.style.opacity = pista1G;
+
+    let estadoPJs = document.getElementById("imagenesPJ");
+    var estadoPJsC = getCookie("estadoPJs");
+    estadoPJs.style.display = estadoPJsC;
+
+    var pjHablandoS = getCookie("pjHablando");
+    var imagen = document.getElementById('izquierda');
+    imagen.src = pjHablandoS;
+    imagen.addEventListener('click', imagen.onload);
+
 }
-const dialogos = ['1.¿De que se trata?', '2.Un asesinato, dicen que la victima es un taxista. Estiman que ocurrió esta mañana.',
+
+
+const dialogos = [
+    '  3 de febrero de 1910 a las 11:45 AM, Londres.',
+    '  Un policia esta patrullando y al dar vuelta en una esquina el oficial se encuentra con un taxi estacionado de forma incorrecta. Pensando que se trata de un taxista tomando una siesta el policía decide ignorarlo y seguir a la siguiente calle.',
+    '  Sin embargo, al caminar por el lado del taxi el oficial nota que la puerta del conductor está ligeramente abierta por lo que decide despertar al taxista y decirle que tenga más cuidado. ',
+    '',
+    '',
+    '',
+
+    '1.¿De que se trata?', '2.Un asesinato, dicen que la victima es un taxista. Estiman que ocurrió esta mañana.',
     '1.hmm, sabes no estamoFs teniendo mucho trabajo, podríamos echarles una mano con esto.',
     '2.No lo sé, seguramente se trate de un simple intento de atraco, no deberíamos perder el tiempo con este tipo de casos.',
     '1.Vamos, si de eso se trata no tardaremos mucho, no es como si tuviéramos mucho que hacer de todos modos.',
@@ -55,6 +75,7 @@ function editarTexto(event) {
         aux++
         cambiarFondo(aux);
         libretaAnotar(aux);
+        pjOcultos(aux);
     }
     else {
         //mostrar botones y desactivar el dialogo
@@ -63,7 +84,6 @@ function editarTexto(event) {
 
     }
 }
-
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -82,19 +102,20 @@ function crearCookies(e) {
         var cookies = document.cookie = "progresoDialogo=" + aux;
     }
 }
+
 function libretaAnotar(aux) {
     let pista1 = document.getElementById("pista1");
-        if(aux == 17){
+    if (aux == 17) {
 
-            var opacidad = 100 + "%";
-            pista1.style.opacity = opacidad;
-            document.cookie = "opacidad=" + opacidad; //guardado de cookies, no tocar -Lau
-        }
+        var opacidad = 100 + "%";
+        pista1.style.opacity = opacidad;
+        document.cookie = "opacidad=" + opacidad; //guardado de cookies, no tocar -Lau
+    }
     document.getElementById("botonOpcion").addEventListener("click", function () {
-     //aca una pista luego de un click   
+        //aca una pista luego de un click   
     });
     document.getElementById("botonOpcion2").addEventListener("click", function () {
-    //aca una pista luego de un click  
+        //aca una pista luego de un click  
     });
 
 }
@@ -124,17 +145,40 @@ function cambiarSrc(aux) {
         case 2:
             imagen.src = 'imagenes/policia.png';
             imagen.addEventListener('click', imagen.onload);
+            document.cookie = "pjHablando=" + 'imagenes/policia.png';
             break;
         case 1:
             imagen.src = 'imagenes/ayudante.png';
             imagen.addEventListener('click', imagen.onload);
+            document.cookie = "pjHablando=" + 'imagenes/ayudante.png';
             break;
     }
 }
-
-function cambiarFondo(aux){
+function pjOcultos(aux) {
+    var imagenesPJ = document.getElementById('imagenesPJ');
+    if (aux <= 6) {
+        imagenesPJ.style.display = 'none';
+        document.cookie = "estadoPJs=" + 'none';
+    } else if (aux > 6) {
+        console.log('cosn' + aux);
+        imagenesPJ.style.display = 'flex';
+        document.cookie = "estadoPJs=" + 'flex';
+    }
+}
+function cambiarFondo(aux) {
     var fondo = document.getElementById('body');
-    switch (aux){
+    switch (aux) {
+        case 0:
+            var fondoGuardado = 'url(imagenes/intro1.png)'
+            fondo.style.backgroundImage = fondoGuardado;
+            document.cookie = "fondo=" + fondoGuardado; //guardado de cookies, no tocar -Lau
+            break;
+        case 2:
+            var fondoGuardado = 'url(imagenes/intro2.png)'
+            fondo.style.backgroundImage = fondoGuardado;
+            document.cookie = "fondo=" + fondoGuardado; //guardado de cookies, no tocar -Lau
+            break;
+
         case 8:
             var fondoGuardado = 'url(imagenes/prueba.png)'
             fondo.style.backgroundImage = fondoGuardado;
@@ -142,7 +186,7 @@ function cambiarFondo(aux){
             break;
 
     }
-    
+
 }
 
 function MostrarPjH(lado) {

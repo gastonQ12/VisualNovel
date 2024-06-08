@@ -10,7 +10,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         body {
-            background-image: url(imagenes/fondocrimen.png);
+            background-image: url(imagenes/intro1.png);
             background-size: 100%;
             background-repeat: no-repeat;
             user-select: none;
@@ -18,7 +18,7 @@
         }
 
         .cuadro_TextEI {
-            display: flex;
+            display: none;
             justify-content: space-between;
             bottom: 0;
         }
@@ -44,8 +44,8 @@
 
         .PJ1 {
             position: absolute;
-            width: 300px;
-            height: 400px;
+            width: 400px;
+            height: 500px;
             right: 0;
             bottom: 0;
             filter: brightness(20%);
@@ -53,8 +53,8 @@
 
         .PJ2 {
             position: absolute;
-            width: 350px;
-            height: 400px;
+            width: 450px;
+            height: 500px;
             left: 0;
             bottom: 0;
 
@@ -223,10 +223,10 @@
 
 <body id="body">
 
-    <div class="cuadro_TextEI">
+    <div id="imagenesPJ" class="cuadro_TextEI">
         <img id="derecha" class="PJ1" src="imagenes/detective.png">
         <div></div>
-        <img id="izquierda" class="PJ2" src="imagenes/ayudante.png">
+        <img id="izquierda" class="PJ2" src="">
     </div>
     <div class="JAJAS">
         <div class="cuadroDialogo" id="cuadroDialogo">
