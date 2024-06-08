@@ -8,6 +8,7 @@ document.body.onload = function () {
     }
     var fondo = getCookie("fondo");
     body.style.backgroundImage = fondo;
+    
     let pista1 = document.getElementById("pista1");
     var pista1G = getCookie("opacidad");
     pista1.style.opacity = pista1G;
@@ -87,13 +88,13 @@ function libretaAnotar(aux) {
 
             var opacidad = 100 + "%";
             pista1.style.opacity = opacidad;
-            document.cookie = "opacidad=" + opacidad;
+            document.cookie = "opacidad=" + opacidad; //guardado de cookies, no tocar -Lau
         }
     document.getElementById("botonOpcion").addEventListener("click", function () {
-        
+     //aca una pista luego de un click   
     });
     document.getElementById("botonOpcion2").addEventListener("click", function () {
-
+    //aca una pista luego de un click  
     });
 
 }
@@ -137,7 +138,7 @@ function cambiarFondo(aux){
         case 8:
             var fondoGuardado = 'url(imagenes/prueba.png)'
             fondo.style.backgroundImage = fondoGuardado;
-            document.cookie = "fondo=" + fondoGuardado;
+            document.cookie = "fondo=" + fondoGuardado; //guardado de cookies, no tocar -Lau
             break;
 
     }
