@@ -42,7 +42,7 @@ const dialogos = [
     '   Al mirar el piso cerca del taxi, logra notar un rastro de sangre que lo lleva hasta un callejón totalmente oscuro excepto por una pequeña luz al fondo del mismo.',
     '   Al principio el oficial lo considera demasiado peligroso ir solo pero decide ir de todos modos ya que si la víctima sigue con vida, es necesario darle ayuda médica inmediata.',
     '   El oficial se arma de valor y, sacando su pistola, se acerca suigiendo la sangre, este encuentra el cadaver y decide informar a la central.',
-    'Enseguida el detective y su ayudante acuden a la escena.',
+    '   Enseguida el detective y su ayudante acuden a la escena.',
 
 
     '1.¿De que se trata?', '2.Un asesinato, dicen que la victima es un taxista. Estiman que ocurrió esta mañana.',
@@ -62,9 +62,9 @@ const dialogos = [
     '1.¿Que dijo el forense respecto a esto?',
     '2.Murió hace poco, se estima que hace una hora como mucho, el cuerpo seguía caliente cuando lo examinaron.',
     '1.Actualmente marcan las 12:00 AM, entonces murió a las 11:00 AM.',
-    '1.',
-    '3.',
-    '1.',
+    '1.Le echaré un vistazo al taxi luego, ahora, veré el cadáver y sus alrededores. ',
+    '1.Bueno, esto es macabro.',
+    '2.Bastante.',
     '3.',
     '1.',
     '3.']; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
@@ -83,9 +83,9 @@ function editarTexto(event) {
 
         //mostrar dialogos
         mostrarDialogos(aux);
-        boxD.addEventListener('click', crearCookies);
         aux++
         cambiarFondo(aux);
+        boxD.addEventListener('click', crearCookies(aux));
         libretaAnotar(aux);
     }
     else {
@@ -107,10 +107,24 @@ function getCookie(cname) {
     return "";
 }
 
-function crearCookies(e) {
-    if (!e) e = window.event;
-    if (e.target.id == "cuadroDialogo") {
-        var cookies = document.cookie = "progresoDialogo=" + aux;
+function crearCookies(aux) {
+    var cookies = document.cookie = "progresoDialogo=" + aux;
+}
+
+function pista() {
+    var pruebaBasura = document.getElementById("pistaBasura");
+
+    prueba.addEventListener('click', encontrarPista);
+    prueba.addEventListener('mouseenter', cursorEntrar)
+
+    function cursorEntrar(event) {
+
+        document.style.cursor = 'url(/imagenes/cursor/)';
+
+    }
+    function encontrarPista(event) {
+
+        alert('si');
     }
 }
 
@@ -193,9 +207,6 @@ function pjOcultos(aux) {
             document.cookie = "estadoPJs=" + 'flex';
             break;
     }
-
-
-
 }
 function cambiarFondo(aux) {
     var fondo = document.getElementById('body');
@@ -211,11 +222,12 @@ function cambiarFondo(aux) {
             document.cookie = "fondo=" + fondoGuardado; //guardado de cookies, no tocar -Lau
             break;
 
-        case 8:
-            var fondoGuardado = 'url(imagenes/prueba.png)'
+        case 10:
+            var fondoGuardado = 'url(imagenes/fondocrimen.png)'
             fondo.style.backgroundImage = fondoGuardado;
             document.cookie = "fondo=" + fondoGuardado; //guardado de cookies, no tocar -Lau
             break;
+
 
     }
 
