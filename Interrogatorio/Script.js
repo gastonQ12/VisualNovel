@@ -13,14 +13,21 @@ document.body.onload = function () {
     var pista1G = getCookie("opacidad");
     pista1.style.opacity = pista1G;
 
-    let estadoPJs = document.getElementById("imagenesPJ");
-    var estadoPJsC = getCookie("estadoPJs");
-    estadoPJs.style.display = estadoPJsC;
 
     var pjHablandoS = getCookie("pjHablando");
     var imagen = document.getElementById('izquierda');
     imagen.src = pjHablandoS;
     imagen.addEventListener('click', imagen.onload);
+
+    let estadoPJs = document.getElementById("izquierda");
+    var estadoPJsC = getCookie("estadoPJs");
+    estadoPJs.style.display = estadoPJsC;
+
+
+    let estadoNPC = document.getElementById("derecha");
+    var estadoNPCs = getCookie("estadoPJs");
+    estadoNPC.style.display = 'estadoNPCs';
+
 
 }
 
@@ -29,9 +36,14 @@ const dialogos = [
     '  3 de febrero de 1910 a las 11:45 AM, Londres.',
     '  Un policia esta patrullando y al dar vuelta en una esquina el oficial se encuentra con un taxi estacionado de forma incorrecta. Pensando que se trata de un taxista tomando una siesta el policía decide ignorarlo y seguir a la siguiente calle.',
     '  Sin embargo, al caminar por el lado del taxi el oficial nota que la puerta del conductor está ligeramente abierta por lo que decide despertar al taxista y decirle que tenga más cuidado. ',
-    '',
-    '',
-    '',
+    '3.Disculpe, no quiero molestar pero debería tener más cuidado con la puerta, más aún en una calle como esta.  ',
+    '  Al abrir la puerta el oficial se sorprende al encontrar el taxi completamente vacío, pero más importante con manchas claramente de sangre cubriendo todo el asiento del conductor. ',
+    '3.¡Dios mio!',
+    '   Al mirar el piso cerca del taxi, logra notar un rastro de sangre que lo lleva hasta un callejón totalmente oscuro excepto por una pequeña luz al fondo del mismo.',
+    '   Al principio el oficial lo considera demasiado peligroso ir solo pero decide ir de todos modos ya que si la víctima sigue con vida, es necesario darle ayuda médica inmediata.',
+    '   El oficial se arma de valor y, sacando su pistola, se acerca suigiendo la sangre, este encuentra el cadaver y decide informar a la central.',
+    'Enseguida el detective y su ayudante acuden a la escena.',
+
 
     '1.¿De que se trata?', '2.Un asesinato, dicen que la victima es un taxista. Estiman que ocurrió esta mañana.',
     '1.hmm, sabes no estamoFs teniendo mucho trabajo, podríamos echarles una mano con esto.',
@@ -75,7 +87,6 @@ function editarTexto(event) {
         aux++
         cambiarFondo(aux);
         libretaAnotar(aux);
-        pjOcultos(aux);
     }
     else {
         //mostrar botones y desactivar el dialogo
@@ -105,7 +116,7 @@ function crearCookies(e) {
 
 function libretaAnotar(aux) {
     let pista1 = document.getElementById("pista1");
-    if (aux == 17) {
+    if (aux == 27) {
 
         var opacidad = 100 + "%";
         pista1.style.opacity = opacidad;
@@ -137,6 +148,9 @@ function mostrarDialogos(auxiliar) {
     document.getElementById("output").textContent = dialogos[aux].substring(2);
     MostrarPjH(parseInt(pjHablando));
     cambiarSrc(parseInt(pjHablando));
+    pjOcultos(parseInt(pjHablando));
+
+
 }
 
 function cambiarSrc(aux) {
@@ -155,15 +169,33 @@ function cambiarSrc(aux) {
     }
 }
 function pjOcultos(aux) {
-    var imagenesPJ = document.getElementById('imagenesPJ');
-    if (aux <= 6) {
-        imagenesPJ.style.display = 'none';
-        document.cookie = "estadoPJs=" + 'none';
-    } else if (aux > 6) {
-        console.log('cosn' + aux);
-        imagenesPJ.style.display = 'flex';
-        document.cookie = "estadoPJs=" + 'flex';
+    var imagenOtroPJ = document.getElementById('izquierda');
+    var imagenProtagonista = document.getElementById('derecha');
+    switch (aux) {
+        case -1:
+            imagenProtagonista.style.display = 'none';
+            imagenOtroPJ.style.display = 'none';
+            document.cookie = "estadoPJs=" + 'none';
+            document.cookie = "estadoNPCs=" + 'none';
+            break;
+        case 0:
+            imagenProtagonista.style.display = 'flex';
+            imagenOtroPJ.style.display = 'none';
+            document.cookie = "estadoPJs=" + 'flex';
+            document.cookie = "estadoNPCs=" + 'none';
+            break;
+        case 1:
+            imagenOtroPJ.style.display = 'flex';
+            document.cookie = "estadoPJs=" + 'flex';
+            break;
+        case 2:
+            imagenOtroPJ.style.display = 'flex';
+            document.cookie = "estadoPJs=" + 'flex';
+            break;
     }
+
+
+
 }
 function cambiarFondo(aux) {
     var fondo = document.getElementById('body');
