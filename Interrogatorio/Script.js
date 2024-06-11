@@ -87,6 +87,7 @@ function editarTexto(event) {
         cambiarFondo(aux);
         boxD.addEventListener('click', crearCookies(aux));
         libretaAnotar(aux);
+        cargadoPistas(aux);
     }
     else {
         //mostrar botones y desactivar el dialogo
@@ -111,22 +112,7 @@ function crearCookies(aux) {
     var cookies = document.cookie = "progresoDialogo=" + aux;
 }
 
-function pista() {
-    var pruebaBasura = document.getElementById("pistaBasura");
 
-    prueba.addEventListener('click', encontrarPista);
-    prueba.addEventListener('mouseenter', cursorEntrar)
-
-    function cursorEntrar(event) {
-
-        document.style.cursor = 'url(/imagenes/cursor/)';
-
-    }
-    function encontrarPista(event) {
-
-        alert('si');
-    }
-}
 
 function libretaAnotar(aux) {
     let pista1 = document.getElementById("pista1");
@@ -136,15 +122,27 @@ function libretaAnotar(aux) {
         pista1.style.opacity = opacidad;
         document.cookie = "opacidad=" + opacidad; //guardado de cookies, no tocar -Lau
     }
-    document.getElementById("botonOpcion").addEventListener("click", function () {
-        //aca una pista luego de un click   
-    });
+
     document.getElementById("botonOpcion2").addEventListener("click", function () {
         //aca una pista luego de un click  
     });
 
 }
+var pistaBasura = document.getElementById("pistaBasura");
+pistaBasura.addEventListener("click", encontrarPista);
 
+function cargadoPistas(aux){
+    if(aux => 30){
+        boxD.style.display = none;
+        pistaBasura.style.display = block;
+    }
+}
+
+
+function encontrarPista(event) {
+
+    alert('si');
+}
 function mostrarDialogos(auxiliar) {
 
     //extrae la posicion del personaje
