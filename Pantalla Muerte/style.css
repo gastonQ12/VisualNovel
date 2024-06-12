@@ -9,15 +9,49 @@
     user-select: none;
 
 }
+
+
 body{
 
     background-color: black;
-
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
+
+.container{
+    z-index: 0;
+}
+
 h1{
     text-align: center;
 }
 h2{
     text-align: center;
     color: white;
+}
+
+.menu{
+    font-size: 100px;
+}
+
+.retry{
+    font-size: 100px;
+
+}
+
+.death{
+
+    font-size: 200px;
+
+}
+
+.c1{
+    z-index: -5;
+    position: absolute;
+    margin-left: 30%;
+    margin-top: -45%;
+}
+
+.f1{
+    margin-top: 10%;
 }
