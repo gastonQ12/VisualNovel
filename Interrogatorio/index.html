@@ -186,8 +186,8 @@
             opacity: 0%;
             color: rgb(0, 0, 0);
             margin: 95px;
-            z-index: 30;
-            bottom: 500px;
+            z-index: 29;
+            bottom: -10px;
             transition: all 2s;
         }
 
@@ -248,11 +248,19 @@
         p, h1, h2, h3{
             user-select: none;
         }
+        #SaltarPistas{
+            display: none;
+        }
+        #contadorPistass{
+            color: white;
+            position: absolute;
+            right: 0px;
+            display: none;
+        }
     </style>
 </head>
 
 <body id="body">
-
     <div id="imagenesPJ" class="cuadro_TextEI">
         <img id="derecha" class="PJ1" src="imagenes/detective.png">
         <div></div>
@@ -291,11 +299,12 @@
                     </span></label>
                 <img id="libreta" src="imagenes/libreta.png" alt="">
                 <div id="cajaLibreta">
-                    <h3 id="pista1">Fecha y hora de muerte: 03/02/1910 a las 11:00AM</h3>
+
                     <h3 id="pista2">Pista n2</h3>
                     <h3 id="pista3">Pista n3</h3>
                     <h3 id="pista4">Pista n4</h3>
                     <h3 id="pista5">Pista n5</h3>
+                    <h3 id="pista1">Fecha y hora de muerte: 03/02/1910 a las 11:00AM</h3>
                 </div>
 
             </div>

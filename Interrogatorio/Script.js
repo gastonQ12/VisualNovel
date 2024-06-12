@@ -9,21 +9,20 @@ document.body.onload = function () {
     var fondo = getCookie("fondo");
     body.style.backgroundImage = fondo;
 
-    let pista1 = document.getElementById("pista1");
-    var pista1G = getCookie("opacidadP");
-    pista1.style.opacity = pista1G;
-
     var pistaBasuraG = getCookie("opacidadPBasurero");
     pista2.style.opacity = pistaBasuraG;
 
     var pistaTaxi = getCookie("opacidadPTaxi");
     pista3.style.opacity = pistaTaxi;
-    
+
     var pistaCadaver = getCookie("opacidadPCadaver");
     pista4.style.opacity = pistaCadaver;
 
     var pistaRadio = getCookie("opacidadPRadio");
     pista5.style.opacity = pistaRadio;
+    let pista1 = document.getElementById("pista1");
+    var pista1G = getCookie("opacidadP1");
+    pista1.style.opacity = pista1G;
 
     var pjHablandoS = getCookie("pjHablando");
     var imagen = document.getElementById('izquierda');
@@ -84,7 +83,6 @@ const nombrePj = ["(Protagonista)", "Ayudante", "Jhon Browns"];                 
 let size = dialogos.length; //tamaño de la lista de dialogos
 var boxD = document.getElementById('cuadroDialogo');
 
-var contadorPistas = 0;
 
 boxD.addEventListener('click', editarTexto);
 function editarTexto(event) {
@@ -145,12 +143,14 @@ function cargadoPistas(aux) {
     var pj1 = document.getElementById("derecha");
     var pj2 = document.getElementById("izquierda");
 
+
     pistaBasura.addEventListener("click", encontrarPistaBasurero);
     taxi.addEventListener("click", encontrarPistaTaxi);
     cuerpo.addEventListener("click", encontrarPistaCadaver);
     radio.addEventListener("click", encontrarPistaRadio);
 
-    if (aux == 20) {
+    if (aux == 30) {
+        SaltarPistas.style.display = 'block';
         pj1.style.display = 'none';
         pj2.style.display = 'none';
         boxD.style.display = 'none';
@@ -163,18 +163,18 @@ function cargadoPistas(aux) {
         document.cookie = "pistas=" + 'block';
         SaltarPistas.addEventListener("click", function () {
 
-                setTimeout(() => {
-                    document.location.reload();
-                }, "1000");
-                aux = aux + 1;
-                document.cookie = "progresoDialogo=" + aux;
+            setTimeout(() => {
+                document.location.reload();
+            }, "1000");
+            aux = aux + 1;
+            document.cookie = "progresoDialogo=" + aux;
 
-            });
-    
+        });
 
-} else {
-    pistas.style.display = 'none';
-}
+
+    } else {
+        pistas.style.display = 'none';
+    }
 }
 
 
@@ -182,25 +182,28 @@ function encontrarPistaBasurero(event) {
     var opacidad = 100 + '%';
     pista2.style.opacity = opacidad;
     document.cookie = "opacidadPBasurero=" + opacidad;
-    contadorPistas += 1;
+
+    
 }
 function encontrarPistaTaxi(event) {
     var opacidad = 100 + '%';
     pista3.style.opacity = opacidad;
     document.cookie = "opacidadPTaxi=" + opacidad;
-    contadorPistas += 1;
+
+
 }
 function encontrarPistaCadaver(event) {
     var opacidad = 100 + '%';
     pista4.style.opacity = opacidad;
     document.cookie = "opacidadPCadaver=" + opacidad;
-    contadorPistas += 1;
+ 
+
 }
 function encontrarPistaRadio(event) {
     var opacidad = 100 + '%';
     pista5.style.opacity = opacidad;
     document.cookie = "opacidadPRadio=" + opacidad;
-    contadorPistas += 1;
+
 }
 function mostrarDialogos(auxiliar) {
 
@@ -264,11 +267,10 @@ function pjOcultos(aux) {
         case 2:
             imagenOtroPJ.style.display = 'flex';
             document.cookie = "estadoPJs=" + 'flex';
-            imagenProtagonista.style.display = 'flex';
-            document.cookie = "estadoNPCs=" + 'flex';
-            if (aux < 18) {
-                imagenProtagonista.style.display = 'none';
-                document.cookie = "estadoNPCs=" + 'none';
+
+            if (aux > 17) {
+                imagenProtagonista.style.display = 'flex';
+                document.cookie = "estadoNPCs=" + 'flex';
             }
             break;
     }
