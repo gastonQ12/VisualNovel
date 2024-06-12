@@ -194,10 +194,10 @@
         #pista2 {
             opacity: 0%;
             color: rgb(0, 0, 0);
-            position: fixed;
-            right: -65px;
+            position: absolute;
             z-index: 30;
-            bottom: 60%;
+            margin: 95px;
+            bottom: 40%;
             transition: all 2s;
 
         }
@@ -205,10 +205,10 @@
         #pista3 {
             opacity: 0%;
             color: rgb(0, 0, 0);
-            position: fixed;
-            right: -65px;
+            position: absolute;
             z-index: 30;
-            bottom: 50%;
+            margin: 95px;
+            bottom: 30%;
             transition: all 2s;
 
         }
@@ -216,13 +216,21 @@
         #pista4 {
             opacity: 0%;
             color: rgb(0, 0, 0);
-
-            position: fixed;
-            right: -65px;
+            position: absolute;
             z-index: 30;
-            bottom: 40%;
+            margin: 95px;
+            bottom: 20%;
             transition: all 2s;
 
+        }
+        #pista5{
+            opacity: 0%;
+            color: rgb(0, 0, 0);
+            position: absolute;
+            z-index: 30;
+            margin: 95px;
+            bottom: 10%;
+            transition: all 2s;
         }
 
         #desplegamiento:checked~#pista1,
@@ -231,10 +239,11 @@
         #desplegamiento:checked~#pista4 {
             right: 700px;
         }
+        #pistas{
+            display: none;
+        }
         #pistaBasura , #taxi, #cuerpo, #radio{
             opacity: 10%;
-            cursor: pointer;
-            display: none;
         }
         p, h1, h2, h3{
             user-select: none;
@@ -264,11 +273,12 @@
             </div>
 
         </div>
-        <div id="pistaBasura" style="width: 100px; height: 100px; background-color: blue; position: fixed; bottom: 240px; right: 8%;"></div>
-        <div id="taxi" style="width: 100px; height: 100px; background-color: blue; position: absolute; bottom: 450px; right:25%;"></div>
-        <div id="cuerpo" style="width: 500px; height: 150px; background-color: blue; position: absolute; bottom: 130px; left: 30%;"></div>
-        <div id="radio" style="width: 140px; height: 70px; background-color: blue; position: absolute; bottom: 10px; right: 22%;"></div>
-
+        <div id="pistas">
+            <div id="pistaBasura" style="width: 100px; height: 100px; background-color: blue; position: fixed; bottom: 240px; right: 8%;"></div>
+            <div id="taxi" style="width: 100px; height: 100px; background-color: blue; position: absolute; bottom: 450px; right:25%;"></div>
+            <div id="cuerpo" style="width: 500px; height: 150px; background-color: blue; position: absolute; bottom: 130px; left: 30%;"></div>
+            <div id="radio" style="width: 140px; height: 70px; background-color: blue; position: absolute; bottom: 10px; right: 22%;"></div>    
+        </div>
         <div class="contLib">
             <div class="cajaFlechas">
                 <input id="desplegamiento" class="desp" type="checkbox">
@@ -285,9 +295,11 @@
                     <h3 id="pista2">Pista n2</h3>
                     <h3 id="pista3">Pista n3</h3>
                     <h3 id="pista4">Pista n4</h3>
+                    <h3 id="pista5">Pista n5</h3>
                 </div>
 
             </div>
+            <button id="SaltarPistas">SEGUIR ADELANTE</button>
         </div>
     </div>
     <script src="Script.js" defer></script>

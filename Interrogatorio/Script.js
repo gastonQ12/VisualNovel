@@ -10,9 +10,20 @@ document.body.onload = function () {
     body.style.backgroundImage = fondo;
 
     let pista1 = document.getElementById("pista1");
-    var pista1G = getCookie("opacidad");
+    var pista1G = getCookie("opacidadP");
     pista1.style.opacity = pista1G;
 
+    var pistaBasuraG = getCookie("opacidadPBasurero");
+    pista2.style.opacity = pistaBasuraG;
+
+    var pistaTaxi = getCookie("opacidadPTaxi");
+    pista3.style.opacity = pistaTaxi;
+    
+    var pistaCadaver = getCookie("opacidadPCadaver");
+    pista4.style.opacity = pistaCadaver;
+
+    var pistaRadio = getCookie("opacidadPRadio");
+    pista5.style.opacity = pistaRadio;
 
     var pjHablandoS = getCookie("pjHablando");
     var imagen = document.getElementById('izquierda');
@@ -73,20 +84,20 @@ const nombrePj = ["(Protagonista)", "Ayudante", "Jhon Browns"];                 
 let size = dialogos.length; //tamaño de la lista de dialogos
 var boxD = document.getElementById('cuadroDialogo');
 
-boxD.addEventListener('click', editarTexto);
+var contadorPistas = 0;
 
+boxD.addEventListener('click', editarTexto);
 function editarTexto(event) {
     if (aux <= size - 1) {
         //ocultar los botones 
         document.getElementById("botonOpcion").setAttribute('hidden', '');
         document.getElementById("botonOpcion2").setAttribute('hidden', '');
-
         //mostrar dialogos
         mostrarDialogos(aux);
         aux++
         cambiarFondo(aux);
         boxD.addEventListener('click', crearCookies(aux));
-        libretaAnotar(aux);
+        libretaAnotarComentarios(aux);
         cargadoPistas(aux);
     }
     else {
@@ -114,13 +125,12 @@ function crearCookies(aux) {
 
 
 
-function libretaAnotar(aux) {
+function libretaAnotarComentarios(aux) {
     let pista1 = document.getElementById("pista1");
     if (aux == 27) {
-
         var opacidad = 100 + "%";
         pista1.style.opacity = opacidad;
-        document.cookie = "opacidad=" + opacidad; //guardado de cookies, no tocar -Lau
+        document.cookie = "opacidadP1=" + opacidad; //guardado de cookies, no tocar -Lau
     }
 
     document.getElementById("botonOpcion2").addEventListener("click", function () {
@@ -128,20 +138,69 @@ function libretaAnotar(aux) {
     });
 
 }
-var pistaBasura = document.getElementById("pistaBasura");
-pistaBasura.addEventListener("click", encontrarPista);
 
-function cargadoPistas(aux){
-    if(aux => 30){
-        boxD.style.display = none;
-        pistaBasura.style.display = block;
-    }
+function cargadoPistas(aux) {
+    var pistas = document.getElementById("pistas");
+    var boxD = document.getElementById('cuadroDialogo');
+    var pj1 = document.getElementById("derecha");
+    var pj2 = document.getElementById("izquierda");
+
+    pistaBasura.addEventListener("click", encontrarPistaBasurero);
+    taxi.addEventListener("click", encontrarPistaTaxi);
+    cuerpo.addEventListener("click", encontrarPistaCadaver);
+    radio.addEventListener("click", encontrarPistaRadio);
+
+    if (aux == 20) {
+        pj1.style.display = 'none';
+        pj2.style.display = 'none';
+        boxD.style.display = 'none';
+        pistas.style.display = 'block';
+        document.cookie = "boxD=" + 'none';
+
+        document.cookie = "estadoPJs=" + 'none';
+        document.cookie = "estadoNPCs=" + 'none';
+        document.cookie = "boxD=" + 'none';
+        document.cookie = "pistas=" + 'block';
+        SaltarPistas.addEventListener("click", function () {
+
+                setTimeout(() => {
+                    document.location.reload();
+                }, "1000");
+                aux = aux + 1;
+                document.cookie = "progresoDialogo=" + aux;
+
+            });
+    
+
+} else {
+    pistas.style.display = 'none';
+}
 }
 
 
-function encontrarPista(event) {
-
-    alert('si');
+function encontrarPistaBasurero(event) {
+    var opacidad = 100 + '%';
+    pista2.style.opacity = opacidad;
+    document.cookie = "opacidadPBasurero=" + opacidad;
+    contadorPistas += 1;
+}
+function encontrarPistaTaxi(event) {
+    var opacidad = 100 + '%';
+    pista3.style.opacity = opacidad;
+    document.cookie = "opacidadPTaxi=" + opacidad;
+    contadorPistas += 1;
+}
+function encontrarPistaCadaver(event) {
+    var opacidad = 100 + '%';
+    pista4.style.opacity = opacidad;
+    document.cookie = "opacidadPCadaver=" + opacidad;
+    contadorPistas += 1;
+}
+function encontrarPistaRadio(event) {
+    var opacidad = 100 + '%';
+    pista5.style.opacity = opacidad;
+    document.cookie = "opacidadPRadio=" + opacidad;
+    contadorPistas += 1;
 }
 function mostrarDialogos(auxiliar) {
 
@@ -192,17 +251,25 @@ function pjOcultos(aux) {
             break;
         case 0:
             imagenProtagonista.style.display = 'flex';
-            imagenOtroPJ.style.display = 'none';
-            document.cookie = "estadoPJs=" + 'flex';
-            document.cookie = "estadoNPCs=" + 'none';
-            break;
-        case 1:
             imagenOtroPJ.style.display = 'flex';
             document.cookie = "estadoPJs=" + 'flex';
+            document.cookie = "estadoNPCs=" + 'flex';
+            break;
+        case 1:
+            imagenProtagonista.style.display = 'flex';
+            imagenOtroPJ.style.display = 'flex';
+            document.cookie = "estadoPJs=" + 'flex';
+            document.cookie = "estadoNPCs=" + 'flex';
             break;
         case 2:
             imagenOtroPJ.style.display = 'flex';
             document.cookie = "estadoPJs=" + 'flex';
+            imagenProtagonista.style.display = 'flex';
+            document.cookie = "estadoNPCs=" + 'flex';
+            if (aux < 18) {
+                imagenProtagonista.style.display = 'none';
+                document.cookie = "estadoNPCs=" + 'none';
+            }
             break;
     }
 }
