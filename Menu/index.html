@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title>ECHOES OF BLOOD</title>
+</head>
+
+
+<body>
+    <h1 class="titulo">ECHOES OF BLOOD</h1>
+    <img class="abajo-img" src="/Menu/img/abajo-img.png" alt="">
+
+    <button class="botones-menu" tabindex="-1">
+        <p class="opciones">NUEVA PARTIDA</p>
+    </button>
+    <button class="botones-menu" tabindex="-1">
+        <p class="opciones">CARGAR PARTIDA</p>
+    </button>
+    <button class="botones-menu" tabindex="-1">
+        <p class="opciones">RESUMENES DE CAPITULOS</p>
+    </button>
+    <button class="botones-menu" tabindex="-1" id="abrir_configuracion">
+        <p class="opciones">CONFIGURACION</p>
+    </button>
+    <button class="botones-menu" tabindex="-1" id="abrir_creditos">
+        <p class="opciones">CREDITOS</p>
+    </button>
+
+    <dialog id="creditos">
+        <button id="cerrar_creditos"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white"
+                class="bi bi-x" viewBox="0 0 16 16">
+                <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg>
+        </button>
+        <h2>CREDITOS</h2>
+
+        <p class="creditos-text">Renzo: programador, diseñador y jefe(GOAT)</p>
+        <p class="creditos-text">Gaston:Photoshopero</p>
+        <p class="creditos-text">Furro: Diseño, nada</p>
+        <p class="creditos-text">Mati: ...</p>
+    </dialog>
+
+
+    <dialog id="configuracion">
+        <button id="cerrar_configuracion"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white"
+                class="bi bi-x" viewBox="0 0 16 16">
+                <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg>
+        </button>
+        <h2>CONFIGURACION</h2>
+        <div class="volumen">
+            <button class="configuracion-btn">
+                <p class="btn-p">VOLUMEN</p>
+                <div id="player">
+                    <div id="volume"></div>
+                </div>
+        </div>
+        <div class="musica">
+            <button class="configuracion-btn">
+                <p class="btn-p">MUSICA</p>
+            </button>
+            
+
+        </div>
+        <div class="guradado">
+            <button class="configuracion-btn">
+                <p class="btn-p">GURADADO AUTOMATICO</p>
+            </button>
+        </div>
+        <div class="ayudas">
+            <button class="configuracion-btn">
+                <p class="btn-p">AYUDAS</p>
+            </button>
+        </div>
+        <div class="dificultad">
+            <button class="configuracion-btn">
+                <p class="btn-p">DIFICULTADAD</p>
+            </button>
+        </div>
+    </dialog>
+
+
+    <style>
+    
+        #player {
+            width: 140px;
+            height: 30px;
+        }
+    
+        #volume {
+            position: absolute;
+            left: 24px;
+            margin: 0 auto;
+            height: 5px;
+            width: 100px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 15px;
+            
+        }
+    
+        .ui-slider-range-min {
+            height: 5px;
+            width: 300px;
+            position: absolute;
+            background: #B3B3B3;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+        }
+    
+        .ui-slider-handle {
+            width: 16px;
+            height: 16px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 1);
+            position: absolute;
+            margin-left: -8px;
+            margin-top: -6px;
+            cursor: pointer;
+            outline: none;
+            display: none;
+        }
+    </style>
+    <script>
+        $(function () {
+            var audioElement = $("<audio>");
+    
+            function setVolume(myVolume) {
+                if (audioElement != undefined) {
+                    audioElement.volume = myVolume;
+                }
+            }
+    
+            $("#volume").slider({
+                min: 0,
+                max: 1,
+                value: 1,
+                step: 0.01,
+                range: "min",
+                slide: function (event, ui) {
+                    setVolume(ui.value);
+                }
+            });
+    
+            $("#player").hover(
+                function () {
+                    $('.ui-slider-range-min').css("background-color", "#000000")
+                    $('.ui-slider-handle').css("display", "block")
+                },
+    
+            );
+        });
+    </script>
+     
+
+    <script src="/Menu/script.js"></script>
+    <style>
+        .boton-actual p {
+            color: rgba(174, 9, 9, 1);
+            filter: drop-shadow(0px 0px 0px);
+            outline: none;
+        }
+
+        .boton-actual {
+            outline: none;
+        }
+    </style>
+</body>
+
+</html>
