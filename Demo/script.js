@@ -67,3 +67,7 @@ document.addEventListener('keydown', cambiar_opcion_tecla);
 //CODIGO PARA QUE EL USARIO NO PUEDA USAR EL MENU PARA ACCEDER A LA CONSOLA
 document.oncontextmenu = function () { return false }
 
+function nuevaPartida(){
+    
+}
+

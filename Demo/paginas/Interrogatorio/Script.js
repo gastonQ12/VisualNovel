@@ -1,11 +1,37 @@
 let aux = 0;
 document.body.onload = function () {
+    var paginaAnterior = document.referrer;
+    var nuevaPContador = 0;
+    document.cookie = "nuevaP=;" + nuevaPContador;
+    valorPC = getCookie("nuevaP");
+    if( paginaAnterior &&  valorPC == 1){
+        eliminarCookie("progresoDialogo");
+        eliminarCookie("boxD");
+        eliminarCookie("estadoNPCs");
+        eliminarCookie("estadoPJs");
+        eliminarCookie("fondo");
+        eliminarCookie("opacidadP1");
+        eliminarCookie("opacidadPBasurero");
+        eliminarCookie("opacidadPCadaver");
+        eliminarCookie("opacidadPRadio");
+        eliminarCookie("opacidadPTaxi");
+        eliminarCookie("pistas");
+        eliminarCookie("pjHablando");
+        console.log("cookie eliminada");
+        nuevaPContador++;
+    }
+
+    function eliminarCookie(nombre) {
+        console.log("elimi3");
+        document.cookie = nombre + "=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    }
     var leer = getCookie("progresoDialogo");
     if (leer !== "") {
         aux = parseInt(leer) - 1;
         mostrarDialogos(aux); // Mostrar el diálogo guardado
 
     }
+    
     var fondo = getCookie("fondo");
     body.style.backgroundImage = fondo;
 
@@ -40,7 +66,6 @@ document.body.onload = function () {
 
 
 }
-
 
 const dialogos = [
     '  3 de febrero de 1910 a las 11:45 AM, Londres.',
@@ -118,7 +143,7 @@ function getCookie(cname) {
 }
 
 function crearCookies(aux) {
-    var cookies = document.cookie = "progresoDialogo=" + aux;
+    document.cookie = "progresoDialogo=" + aux;
 }
 
 
