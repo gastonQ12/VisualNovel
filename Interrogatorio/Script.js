@@ -143,6 +143,7 @@ function cargadoPistas(aux) {
     var pj1 = document.getElementById("derecha");
     var pj2 = document.getElementById("izquierda");
 
+    var contador = 0;
 
     pistaBasura.addEventListener("click", encontrarPistaBasurero);
     taxi.addEventListener("click", encontrarPistaTaxi);
@@ -161,8 +162,55 @@ function cargadoPistas(aux) {
         document.cookie = "estadoNPCs=" + 'none';
         document.cookie = "boxD=" + 'none';
         document.cookie = "pistas=" + 'block';
-        SaltarPistas.addEventListener("click", function () {
 
+        var basureroC = null;
+        var taxiC = null;
+        var cadaverC = null;
+        var radioC = null;
+
+        var basureroC = null;
+        var taxiC = null;
+        var cadaverC = null;
+        var radioC = null;
+        
+        pistaBasura.addEventListener("click", function(){
+            basureroC = getCookie("opacidadPBasurero");
+            if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
+                recargoPag();
+            }
+        });
+        
+        taxi.addEventListener("click", function(){
+            taxiC = getCookie("opacidadPTaxi");
+            if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
+                recargoPag();
+            }
+        });
+        
+        cuerpo.addEventListener("click", function(){
+            cadaverC = getCookie("opacidadPCadaver");
+            if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
+                recargoPag();
+            }
+        });
+        
+        radio.addEventListener("click", function(){
+            radioC = getCookie("opacidadPRadio");
+            if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
+                recargoPag();
+            }
+        });
+        
+        function recargoPag() {
+            setTimeout(() => {
+                document.location.reload();
+            }, 1000);
+            aux += 2;
+            document.cookie = "progresoDialogo=" + aux;
+        }
+
+
+        SaltarPistas.addEventListener("click", function () {
             setTimeout(() => {
                 document.location.reload();
             }, "1000");
@@ -182,36 +230,31 @@ function encontrarPistaBasurero(event) {
     var opacidad = 100 + '%';
     pista2.style.opacity = opacidad;
     document.cookie = "opacidadPBasurero=" + opacidad;
-
-    
 }
 function encontrarPistaTaxi(event) {
     var opacidad = 100 + '%';
     pista3.style.opacity = opacidad;
     document.cookie = "opacidadPTaxi=" + opacidad;
 
-
 }
 function encontrarPistaCadaver(event) {
     var opacidad = 100 + '%';
     pista4.style.opacity = opacidad;
     document.cookie = "opacidadPCadaver=" + opacidad;
- 
 
 }
 function encontrarPistaRadio(event) {
     var opacidad = 100 + '%';
     pista5.style.opacity = opacidad;
     document.cookie = "opacidadPRadio=" + opacidad;
-
 }
 function mostrarDialogos(auxiliar) {
 
     //extrae la posicion del personaje
     let pjHablando = dialogos[auxiliar].substring(0, 1) - 1;
-    console.log(pjHablando);
+   // console.log(pjHablando);
 
-    console.log(auxiliar);
+   // console.log(auxiliar);
 
 
 
