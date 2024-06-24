@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+                body {
+            background-image: url(img/fondoDepa.png);
+            background-size:cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position-y:70%;
+
+        }
+        @media(max-width: 1373px){
+            body{
+                background-size:cover;
+            }
+        }
+
+        .cuadro_TextEI {
+            display: flex;
+            justify-content: space-between;
+            bottom: 0;
+        }
+
+        #izquierda{
+            display: none;
+        }
+
+
+        .cuadroDialogo {
+            background-image: url(img/rectangulo.png);
+            width: 100%;
+            bottom: 0;
+            background-size: 100%;
+            height: 170px;
+            position: absolute;
+            margin-top: -200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cuadroDialogo * {
+            color: white;
+            text-align: center;
+            margin: 6px;
+        }
+        .PJ1 {
+            position: absolute;
+            width: 400px;
+            height: 500px;
+            right: 0;
+            bottom: 0;
+
+        }
+        .PJ2 {
+            position: absolute;
+            width: 450px;
+            height: 500px;
+            left: 0;
+            bottom: 0;
+
+        }
+
+        .JAJAS {
+            display: flex;
+            justify-content: center;
+        }
+
+        :root .op1,
+        .op2 {
+            background-color: rgb(48, 48, 48);
+            border: none;
+            height: 50px;
+            clip-path: var(--cl);
+            transition: 1s;
+
+            transform: skewX(-30deg);
+        }
+
+        .op1 p,
+        .op2 p {
+            transform: skewX(30deg);
+            margin: 16px;
+
+
+        }
+
+        .op1:hover {
+            background-color: rgb(0, 0, 0);
+            clip-path: var(100% at);
+
+            border: 2px solid white;
+            cursor: pointer
+        }
+
+        .op2:hover {
+            background-color: rgb(0, 0, 0);
+            clip-path: var(100% at);
+
+            border: 2px solid white;
+            cursor: pointer
+        }
+        .escondites{
+
+        }
+        #escondite1{
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            background-size: 100%;
+            right: 68%;
+            top: 35%;
+        }
+        #escondite2{
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            background-size: 100%;
+            right: 65%;
+            top: 65%;
+        }
+        #escondite3{
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            background-size: 100%;
+            right: 45%;
+            top: 15%;
+        }
+        #escondite1:hover img,  #escondite2:hover img,  #escondite3:hover img{
+            filter: drop-shadow(0px 0px 20px red)
+        }
+    </style>
+</head>
+<body>
+    <div id="imagenesPJ" class="cuadro_TextEI">
+        <img id="derecha" class="PJ1" src="img/detective.png">
+        <div></div>
+        <img id="izquierda" class="PJ2" src="">
+    </div>
+    <div class="cuadroDialogo" id="cuadroDialogo">
+        <h2 id="PJname">¡ALERTA!</h2>
+        <hr id="LineaDialogo" style="width: 150px;" hidden>
+        <p style="font-size:20px; z-index: 100; width: 50%;" id="output">Alguien se acerca a la habitacion, escondete</p>
+        <div style="display: flex;">
+            <button id="botonOpcion" onclick="libretaAnotar();" value="1" class="op1" hidden>
+                <p>¿texto 1?</p>
+            </button>
+            <button id="botonOpcion2" onclick="libretaAnotar();" value="2" class="op2" hidden>
+                <p>texto 2</p>
+            </button>
+        </div>
+
+    </div>
+    <div class="escondites">
+        <div id="escondite1"><img src="img/Group 55.png" style="width:100%; height: 100%;" alt=""></div>
+        <div id="escondite2"><img src="img/Group 56.png" style="width:100%; height: 100%;" alt=""></div>
+        <div id="escondite3"><img src="img/Group 57.png" style="width:100%; height: 100%;" alt=""></div>
+
+    </div>
+</body>
+</html>
