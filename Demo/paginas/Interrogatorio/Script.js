@@ -1,3 +1,4 @@
+// import { cargarPartida } from '../../script.js';
 let aux = 0;
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
@@ -19,11 +20,28 @@ document.body.onload = function () {
             console.log("cookie eliminada");
             valorPC++;
         }
+        if(paginaAnterior == "http://127.0.0.1:5500/index.html"){
+            eliminarCookie("progresoDialogo");
+            eliminarCookie("boxD");
+            eliminarCookie("estadoNPCs");
+            eliminarCookie("estadoPJs");
+            eliminarCookie("fondo");
+            eliminarCookie("opacidadP1");
+            eliminarCookie("opacidadPBasurero");
+            eliminarCookie("opacidadPCadaver");
+            eliminarCookie("opacidadPRadio");
+            eliminarCookie("opacidadPTaxi");
+            eliminarCookie("pistas");
+            eliminarCookie("pjHablando");
+            
+            var cookieGuardadaDM = cargarPartida();
+
+            console.log(cookieGuardadaDM);
+        }
     }
     
 
     function eliminarCookie(nombre) {
-        console.log("elimi3");
         document.cookie = nombre + "=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
     }
     var leer = getCookie("progresoDialogo");

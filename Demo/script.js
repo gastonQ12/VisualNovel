@@ -70,4 +70,11 @@ document.oncontextmenu = function () { return false }
 function nuevaPartida(){
     
 }
-
+/*
+function cargarPartida() {
+    var GuardadoCookie1 = "progresoDialogo=" + 3;
+    return GuardadoCookie1;
+}
+*/
+export { cargarPartida };
+export const cargarPartida = "progresoDialogo=" + 3;
