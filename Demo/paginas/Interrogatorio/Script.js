@@ -1,25 +1,26 @@
 let aux = 0;
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
-    var nuevaPContador = 0;
-    document.cookie = "nuevaP=;" + nuevaPContador;
-    valorPC = getCookie("nuevaP");
-    if( paginaAnterior &&  valorPC == 1){
-        eliminarCookie("progresoDialogo");
-        eliminarCookie("boxD");
-        eliminarCookie("estadoNPCs");
-        eliminarCookie("estadoPJs");
-        eliminarCookie("fondo");
-        eliminarCookie("opacidadP1");
-        eliminarCookie("opacidadPBasurero");
-        eliminarCookie("opacidadPCadaver");
-        eliminarCookie("opacidadPRadio");
-        eliminarCookie("opacidadPTaxi");
-        eliminarCookie("pistas");
-        eliminarCookie("pjHablando");
-        console.log("cookie eliminada");
-        nuevaPContador++;
+    var valorPC = 0;
+    if(paginaAnterior == "http://127.0.0.1:5500/paginas/Interrogatorio/index.html"){
+        if( valorPC == 1){
+            eliminarCookie("progresoDialogo");
+            eliminarCookie("boxD");
+            eliminarCookie("estadoNPCs");
+            eliminarCookie("estadoPJs");
+            eliminarCookie("fondo");
+            eliminarCookie("opacidadP1");
+            eliminarCookie("opacidadPBasurero");
+            eliminarCookie("opacidadPCadaver");
+            eliminarCookie("opacidadPRadio");
+            eliminarCookie("opacidadPTaxi");
+            eliminarCookie("pistas");
+            eliminarCookie("pjHablando");
+            console.log("cookie eliminada");
+            valorPC++;
+        }
     }
+    
 
     function eliminarCookie(nombre) {
         console.log("elimi3");
@@ -397,4 +398,22 @@ function MostrarPjH(lado) {
             break;
     }
 
+    const pagina = document.querySelectorAll('.pagina');
+    let numeroPagina = 0;
+    function mostrarPagina(index){
+        pagina.forEach((pagina) => {
+            pagina.classList.remove('active');
+        })
+        pagina[index].classList.add('active');
+    }
+    function cambioPaginaT(event){
+        if(event.key === 'ArrowRight'){
+            numeroPagina = (numeroPagina + 1) % pagina.length;
+            mostrarPagina(numeroPagina);
+        }else if(event.key === 'ArrowLeft'){
+            numeroPagina = (numeroPagina - 1 + pagina.length)% pagina.length;
+            mostrarPagina(numeroPagina); 
+        }
+    }
+    document.addEventListener('keydown', cambioPaginaT);
 }

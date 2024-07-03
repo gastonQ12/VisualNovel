@@ -13,11 +13,14 @@ const intervalo = setInterval(() => {
     }  
     console.log(bajar);
     if(bajar == 0){
-        alert("Perdiste");
+        volver();
     }
 }, 200
 ); 
 
+function volver(event){
+    document.location.href="../../Pantalla Muerte/index.html";
+}
 
 
 cama.addEventListener('click', function(){ 
