@@ -236,6 +236,7 @@
             bottom: 10%;
             transition: all 2s;
         }
+
         #pista6 {
             /*    opacity: 0%; */
             color: rgb(0, 0, 0);
@@ -287,6 +288,7 @@
             bottom: 10%;
             transition: all 2s;
         }
+
         #desplegamiento:checked~#pista1,
         #desplegamiento:checked~#pista2,
         #desplegamiento:checked~#pista3,
@@ -341,17 +343,25 @@
             display: block;
             opacity: 1;
         }
-        #SaltarPistas{
+
+        #SaltarPistas {
             background-color: white;
             border: none;
             height: 40px;
             cursor: pointer;
 
         }
-        #SaltarPistas:hover{
+
+        #SaltarPistas:hover {
             background-color: black;
             color: white;
             border: 2px solid white;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: end;
+            align-items: center;
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -360,6 +370,20 @@
 </head>
 
 <body id="body">
+    <div class="menu">
+        <div
+            style="width: 60px; height: 60px; background-color: gray; border-radius: 100%; display: flex; justify-content: center; align-items: center; border-image: url(imagenes/anillo.png);">
+            <img style="width: 80%; height: 80%;" src="imagenes/mapaIcono.png" alt="mapaIcono">
+        </div>
+        <div>
+            <img src="imagenes/anillo.png" style="position: absolute; width: 80px; height: 80px;" alt="">
+            <div
+            style="margin-left: 30px; width: 68px; height: 68px; background-color: gray; border-radius: 100%; display: flex; justify-content: center; align-items: center; border-image: url(imagenes/anillo.png);">
+            <img style="width: 80%; height: 80%;" src="imagenes/mapaIcono.png" alt="mapaIcono">
+        </div>
+        </div>
+        
+    </div>
     <div id="imagenesPJ" class="cuadro_TextEI">
         <img id="derecha" class="PJ1" src="imagenes/detective.png">
         <div></div>
