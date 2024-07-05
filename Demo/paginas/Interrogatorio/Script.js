@@ -3,8 +3,8 @@ let aux = 0;
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
     var valorPC = 0;
-    if(paginaAnterior == "http://127.0.0.1:5500/paginas/Interrogatorio/index.html"){
-        if( valorPC == 1){
+    if(paginaAnterior == "http://127.0.0.1:5500/paginas/capituloCarga/index.html"){
+        if( valorPC == 0){
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
             eliminarCookie("estadoNPCs");

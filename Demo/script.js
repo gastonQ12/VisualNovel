@@ -3,6 +3,9 @@ const abrCreditos = document.querySelector("#abrir_creditos");
 const cerCreditos = document.querySelector("#cerrar_creditos");
 const creditos = document.querySelector("#creditos");
 
+window.localStorage.setItem("Dada", "HOLAAAAA");
+window.localStorage.setItem('miDato', 'Hola Mundo');
+
 abrCreditos.addEventListener("click", () => {
     creditos.showModal();
 })
@@ -76,5 +79,10 @@ function cargarPartida() {
     return GuardadoCookie1;
 }
 */
-export { cargarPartida };
-export const cargarPartida = "progresoDialogo=" + 3;
+function cargarPartida(){
+    if(localStorage.getItem("Escondite1") == 1){
+        location.href = "paginas/escondite/escondite.html";
+    }else{
+        location.href = "paginas/Interrogatorio/index.html";
+    }
+}

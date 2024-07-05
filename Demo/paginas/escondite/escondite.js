@@ -5,6 +5,9 @@ var reloj = document.getElementById("reloj");
 var probabilidadSalvarse = 0;
 
 var bajar = 360;
+
+localStorage.setItem("Escondite1", 1);
+
 const intervalo = setInterval(() => {
     reloj.style.background = `conic-gradient(red ${bajar}deg, white ${bajar}deg)`;
     bajar -= 9;
@@ -49,5 +52,6 @@ function salvado(probabilidad){
         alert("No te salvaste");
     }else{
         alert("te salvaste");
+        localStorage.removeItem("Escondite1");
     }
 }

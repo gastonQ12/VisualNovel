@@ -19,7 +19,7 @@
     <button class="botones-menu" tabindex="-1" onclick=" location.href='paginas/capituloCarga/index.html'" >
         <p class="opciones">NUEVA PARTIDA</p>
     </button>
-    <button class="botones-menu" onclick=" location.href = 'paginas/Interrogatorio/index.html'" tabindex="-1">
+    <button class="botones-menu" onclick="cargarPartida()" tabindex="-1">
         <p class="opciones">CARGAR PARTIDA</p>
     </button>
     <button class="botones-menu" tabindex="-1">
@@ -90,7 +90,6 @@
 
 
     <style>
-    
         #player {
             width: 140px;
             height: 30px;
@@ -129,6 +128,7 @@
             outline: none;
             display: none;
         }
+
     </style>
     <script>
         $(function () {

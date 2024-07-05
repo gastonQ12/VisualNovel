@@ -362,6 +362,59 @@
             display: flex;
             justify-content: end;
             align-items: center;
+            width: 100%;
+        }
+
+        .ContenedorGris {
+            width: 60px;
+            height: 60px;
+            margin: 20px;
+            background-color: gray;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-image: url(imagenes/anillo.png);
+        }
+
+        .ContenedorGris2 {
+            width: 70px;
+            height: 70px;
+            margin: 20px;
+            background-color: gray;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-image: url(imagenes/anillo.png);
+        }
+
+        .imgIcono {
+            width: 80%;
+            height: 80%;
+        }
+
+        .Anillo {
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            z-index: -2;
+
+        }
+
+        .ContenedorGris2:hover,
+        .ContenedorGris:hover {
+            background-color: black;
+
+        }
+
+        .menuHambur {
+            color: white;
+            font-size: 30px;
+            cursor: default;
+        }
+        .ContSup{
+            display: flex;
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -370,20 +423,22 @@
 </head>
 
 <body id="body">
-    <div class="menu">
-        <div
-            style="width: 60px; height: 60px; background-color: gray; border-radius: 100%; display: flex; justify-content: center; align-items: center; border-image: url(imagenes/anillo.png);">
-            <img style="width: 80%; height: 80%;" src="imagenes/mapaIcono.png" alt="mapaIcono">
+    <div class="ContSup">
+        <button id="SaltarPistas">SEGUIR ADELANTE</button>
+        <div class="menu">
+            <div class="ContenedorGris" onclick="location.href = '../Mapa/Mapa.html'">
+                <img class="imgIcono" src="imagenes/mapaIcono.png" alt="mapaIcono">
+            </div>
+            <div>
+                <img class="Anillo" src="imagenes/anillo.png" alt="">
+                <div class="ContenedorGris2" onclick="location.href = '../../index.html'">
+                    <span class="menuHambur">☰</span>
+                </div>
+            </div>
+
         </div>
-        <div>
-            <img src="imagenes/anillo.png" style="position: absolute; width: 80px; height: 80px;" alt="">
-            <div
-            style="margin-left: 30px; width: 68px; height: 68px; background-color: gray; border-radius: 100%; display: flex; justify-content: center; align-items: center; border-image: url(imagenes/anillo.png);">
-            <img style="width: 80%; height: 80%;" src="imagenes/mapaIcono.png" alt="mapaIcono">
-        </div>
-        </div>
-        
     </div>
+
     <div id="imagenesPJ" class="cuadro_TextEI">
         <img id="derecha" class="PJ1" src="imagenes/detective.png">
         <div></div>
@@ -447,7 +502,7 @@
                 </div>
 
             </div>
-            <button id="SaltarPistas">SEGUIR ADELANTE</button>
+
         </div>
     </div>
     <script src="Script.js" defer></script>
