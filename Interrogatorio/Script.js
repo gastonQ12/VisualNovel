@@ -173,28 +173,28 @@ function cargadoPistas(aux) {
         var cadaverC = null;
         var radioC = null;
         
-        pistaBasura.addEventListener("click", function(){
+        pistaBasura.addEventListener("click", pistaBasura=>{
             basureroC = getCookie("opacidadPBasurero");
             if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
                 recargoPag();
             }
         });
         
-        taxi.addEventListener("click", function(){
+        taxi.addEventListener("click", pistataxi=>{
             taxiC = getCookie("opacidadPTaxi");
             if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
                 recargoPag();
             }
         });
         
-        cuerpo.addEventListener("click", function(){
+        cuerpo.addEventListener("click", pistaCadaver =>{
             cadaverC = getCookie("opacidadPCadaver");
             if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
                 recargoPag();
             }
         });
         
-        radio.addEventListener("click", function(){
+        radio.addEventListener("click", pistaRadio=>{
             radioC = getCookie("opacidadPRadio");
             if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
                 recargoPag();

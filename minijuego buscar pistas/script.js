@@ -12,4 +12,4 @@ function cursorEntrar(event){
 function encontrarPista(event){
 
     alert('si');
-}
+} 
