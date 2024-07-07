@@ -347,7 +347,6 @@ function MostrarPjH(lado) {
 
     switch (lado) {
         case 0:
-            console.log("entro 0");
             document.getElementById("izquierda").style.filter = "brightness(20%)";
             document.getElementById("derecha").style.filter = "brightness(100%)";
 
@@ -355,7 +354,6 @@ function MostrarPjH(lado) {
             document.getElementById("derecha").style.zIndex = "0";
             break;
         case 1:
-            console.log("entro 1");
             document.getElementById("izquierda").style.filter = "brightness(100%)";
             document.getElementById("derecha").style.filter = "brightness(20%)";
 
@@ -363,7 +361,6 @@ function MostrarPjH(lado) {
             document.getElementById("derecha").style.zIndex = "1";
             break;
         case 2:
-            console.log("entro 2");
             document.getElementById("izquierda").style.filter = "brightness(100%)";
             document.getElementById("derecha").style.filter = "brightness(20%)";
 
