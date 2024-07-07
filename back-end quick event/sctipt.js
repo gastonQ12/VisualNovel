@@ -2,7 +2,7 @@
 let tecla = letraRandom();
 let boton = document.getElementById("botonPelea");
 var aux = true;
-document.write(tecla);
+boton.textContent = tecla;
 ingresarTecla(tecla);
 
 function ingresarTecla(tecla){
@@ -16,7 +16,15 @@ function ingresarTecla(tecla){
             aux=false;
         }
     })
+
 }
+setTimeout(function() {
+    document.getElementById('botonPelea').style.display = 'block';
+}, 1000);
+
+setTimeout(function() {
+    document.getElementById('botonPelea').style.display = 'none';
+}, 5000);
 
 function letraRandom() {
     const letras = ['a', 's', 'd', 'w', 'e', 'q', 'f', 'z', 'x', 'c'];
@@ -29,32 +37,32 @@ function letraRandom() {
 
 
 
-function inicioMinijuago(){
+// function inicioMinijuago(){
 
-    let tecla = letraRandom();
-    document.write(tecla);
+//     let tecla = letraRandom();
+//     document.write(tecla);
 
-    if(ingresarTecla == true){
-        alert("Tecla correcta")
-    }
-    else if(ingresarTecla==false){
-        alert("que tocaba el pibe");
-    }
+//     if(ingresarTecla == true){
+//         alert("Tecla correcta")
+//     }
+//     else if(ingresarTecla==false){
+//         alert("que tocaba el pibe");
+//     }
 
 
-}
-function ingresarTecla(){
+// }
+// function ingresarTecla(){
 
-    let teclaDetect = document.addEventListener('keydown', function(event) { if(event.key==tecla){
-        console.log("true");
-        return true;
-    }});
+//     let teclaDetect = document.addEventListener('keydown', function(event) { if(event.key==tecla){
+//         console.log("true");
+//         return true;
+//     }});
     
     
-}
+// }
 
-function letraRandom() {
-    const letras = ['a', 's', 'd', 'w', 'e', 'q', 'f', 'z', 'x', 'c'];
-    const indexRandom = Math.floor(Math.random() * letras.length);
-    return letras[indexRandom];
-}
+// function letraRandom() {
+//     const letras = ['a', 's', 'd', 'w', 'e', 'q', 'f', 'z', 'x', 'c'];
+//     const indexRandom = Math.floor(Math.random() * letras.length);
+//     return letras[indexRandom];
+// }
