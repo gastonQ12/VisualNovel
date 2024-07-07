@@ -1,5 +1,5 @@
 document.body.addEventListener('click', function(){
-    location.href='../Interrogatorio/index.html';
+    location.href='../Historia/index.html';
 })
 const datoGuardado = localStorage.getItem('miDato');
 console.log(datoGuardado);

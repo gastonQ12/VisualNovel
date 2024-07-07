@@ -83,6 +83,6 @@ function cargarPartida(){
     if(localStorage.getItem("Escondite1") == 1){
         location.href = "paginas/escondite/escondite.html";
     }else{
-        location.href = "paginas/Interrogatorio/index.html";
+        location.href = "paginas/Historia/index.html";
     }
 }

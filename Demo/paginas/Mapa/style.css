@@ -12,7 +12,7 @@ body{
     z-index: -2;
     height: 100%;
 }
-.casita1, .casita2, .casita3{
+.casita1, .casita3{
     width: 120px;
     height: 150px;
     position: absolute;
@@ -29,7 +29,10 @@ body{
 }
 
 .casita2{
+    position: absolute;
+    height: 150px;
     left: 70%;
+    width: 200px;
     bottom: 280px;
 }
 

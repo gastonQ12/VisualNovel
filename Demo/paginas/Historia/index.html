@@ -10,18 +10,16 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         body {
-            background-image: url(imagenes/escenarioDep.png);
+            background-image: url(imagenes/intro1.png);
             background-size: cover;
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-position-y: 70%;
 
         }
-
-        * {
+        *{
             user-select: none;
         }
-
         @media(max-width: 1373px) {
             body {
                 background-size: cover;
@@ -181,13 +179,6 @@
         .cajaFlechas {
             position: absolute;
             right: 24px;
-            z-index: 30;
-            bottom: 55%;
-        }
-
-        .cajaFlechas2 {
-            position: absolute;
-            right: -100px;
             z-index: 30;
             bottom: 55%;
         }
@@ -375,7 +366,17 @@
             align-items: center;
             width: 100%;
         }
-
+        .ContenedorGrisM {
+            width: 60px;
+            height: 60px;
+            margin: 20px;
+            background-color: gray;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-image: url(imagenes/audio.png);
+        }
         .ContenedorGris {
             width: 60px;
             height: 60px;
@@ -414,7 +415,8 @@
         }
 
         .ContenedorGris2:hover,
-        .ContenedorGris:hover {
+        .ContenedorGris:hover,
+        .ContenedorGrisM:hover {
             background-color: black;
 
         }
@@ -424,127 +426,9 @@
             font-size: 30px;
             cursor: default;
         }
-
-        .ContSup {
+        .ContSup{
             display: flex;
         }
-        #carpeta {
-                position: fixed;
-                display: flex;
-                height: 500px;
-                width: 410px;
-                left: -400px;
-
-                bottom: 15%;
-                transition: all 2s;
-            }
-
-            .dentro {
-                width: 100%;
-            }
-
-            #desplegamientoC {
-                display: none;
-            }
-
-            #IconoCerrarC {
-                opacity: 100%;
-                left: 44px;
-                z-index: 10;
-                bottom: 40%;
-                transition: all 2s;
-            }
-
-            #IconoAbrirC {
-                display: none;
-            }
-
-            #desplegamientoC:checked~#IconoCerrarC {
-                display: none;
-            }
-
-            #desplegamientoC:checked~#IconoAbrirC {
-                display: block;
-                left: 444px;
-                bottom: 40%;
-                z-index: 10;
-            }
-
-            #desplegamientoC:checked~#carpeta {
-                left: 0px;
-            }
-
-            .contHoja {
-
-                width: 500px;
-                margin-left: 20px;
-                margin-top: 100px;
-                height: 60%;
-                display: flex;
-
-                align-items: center;
-            }
-
-            .hojaSospechoso {
-                position: relative;
-
-                height: 480px;
-            }
-
-            .Sospechososs {
-                position: absolute;
-                display: flex;
-                overflow-x: scroll;
-                overflow-y: hidden;
-                scrollbar-color: black;
-                width: 444px;
-                height: 490px;
-            }
-
-            .flechaIZQ {
-                position: absolute;
-                bottom: 30px;
-                left: 45px;
-                z-index: 123;
-            }
-
-            .flechaDER {
-                position: absolute;
-                bottom: 30px;
-                right: -10px;
-                z-index: 123;
-            }
-
-            #izqS,
-            #derS {
-                display: none;
-            }
-
-            .pistas {
-                position: absolute;
-                z-index: 99;
-                width: 80%;
-            }
-
-            .pista input {
-                display: none;
-            }
-
-            .pista {
-                display: flex;
-            }
-
-            .pista h3 {
-                margin: 0;
-                margin-left: 20px;
-            }
-
-            .CajaL {
-                width: 25px;
-                height: 25px;
-                border: 2px solid black;
-                margin-left: 10px;
-            }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -553,7 +437,12 @@
 
 <body id="body">
     <div class="ContSup">
+        <button id="SaltarPistas">SEGUIR ADELANTE</button>
         <div class="menu">
+            <div id="callar" class="ContenedorGrisM" onclick="apagarSonido()">
+                <audio id="musicaA" src="../../audio/Sospechas.wav"></audio>
+                <img class="imgIcono" src="imagenes/audio.png" alt="mapaIcono">
+            </div>
             <div class="ContenedorGris" onclick="location.href = '../Mapa/Mapa.html'">
                 <img class="imgIcono" src="imagenes/mapaIcono.png" alt="mapaIcono">
             </div>
@@ -587,6 +476,20 @@
             </div>
 
         </div>
+        <div id="pistas">
+            <div id="pistaBasura"
+                style="width: 100px; height: 100px; cursor: pointer;  position: fixed; bottom: 240px; right: 8%;">
+            </div>
+            <div id="taxi"
+                style="width: 100px; height: 100px; cursor: pointer;  position: absolute; bottom: 450px; right:25%;">
+            </div>
+            <div id="cuerpo"
+                style="width: 500px; height: 150px; cursor: pointer;  position: absolute; bottom: 130px; left: 30%;">
+            </div>
+            <div id="radio"
+                style="width: 140px; height: 70px; cursor: pointer; position: absolute; bottom: 10px; right: 22%;">
+            </div>
+        </div>
         <div class="contLib">
             <div class="cajaFlechas">
                 <input id="desplegamiento" class="desp" type="checkbox">
@@ -617,43 +520,6 @@
 
             </div>
 
-        </div>
-
-        <div class="dentro">
-            <input id="desplegamientoC" class="desp" type="checkbox">
-            <label id="IconoAbrirC" for="desplegamientoC" class="desp"><span style="color:rgb(0, 0, 0);"
-                    class="material-symbols-outlined">arrow_back_ios</span></label>
-            <label id="IconoCerrarC" for="desplegamientoC" class="desp"><span style="color:rgb(0, 0, 0);"
-                    class="material-symbols-outlined">arrow_forward_ios</span></label>
-            <div class="carpeta" id="carpeta">
-                <img id="imagenC" src="imagenes/carpeta.png" alt="">
-
-                <input id="izqS" type="radio">
-                <input id="derS" type="radio">
-                <label class="flechaIZQ" for="izqS"><span style="color:rgb(0, 0, 0);"
-                        class="material-symbols-outlined">arrow_back_ios</span></label>
-                <label class="flechaDER" for="derS"><span style="color:rgb(0, 0, 0);"
-                        class="material-symbols-outlined">arrow_forward_ios</span></label>
-
-
-                <div class="Sospechososs">
-                    <div class="contHoja" id="ed">
-                        <img class="hojaSospechoso" src="imagenes/hoja.png" alt="">
-                        <div class="pistas">
-                            <div class="pista">
-                                <h3>Pista 1</h3><input id="P1Si" type="checkbox"><input id="P1No" type="checkbox"><label class="CajaL"
-                                    for="P1Si"></label><label class="CajaL" for="P1No"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contHoja" id="ed">
-                        <img class="hojaSospechoso" src="imagenes/hoja.png" alt="">
-                    </div>
-                    <div class="contHoja" id="ed">
-                        <img class="hojaSospechoso" src="imagenes/hoja.png" alt="">
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <script src="Script.js" defer></script>
