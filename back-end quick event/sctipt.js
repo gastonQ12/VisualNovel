@@ -22,19 +22,24 @@ function inicioMinijuago(){
 
     let tecla = letraRandom();
     document.write(tecla);
-    if(ingresarTecla(tecla)){
+
+    if(ingresarTecla == true){
         alert("Tecla correcta")
+    }
+    else if(ingresarTecla==false){
+        alert("que tocaba el pibe");
     }
 
 
-function ingresarTecla(tecla){
-    document.addEventListener('keydown', function(event) {
-        if(tecla==event.key){ return true;}
-        else{
-            else{
-                alert("que tocaba el pibe");}
-            }return false;}
-    })
+}
+function ingresarTecla(){
+
+    let teclaDetect = document.addEventListener('keydown', function(event) { if(event.key==tecla){
+        console.log("true");
+        return true;
+    }});
+    
+    
 }
 
 function letraRandom() {
