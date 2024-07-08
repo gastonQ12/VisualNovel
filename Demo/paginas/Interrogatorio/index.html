@@ -325,11 +325,13 @@
             user-select: none;
         }
 
-        h3 {
+        h4 {
             font-family: "La Belle Aurore", cursive;
-            font-size: 25px;
+            font-size: 23px;
             width: 100%;
             height: 40px;
+            margin: 0;
+            margin-left: 10px;
 
         }
 
@@ -428,125 +430,176 @@
         .ContSup {
             display: flex;
         }
+
         #carpeta {
-                position: fixed;
-                display: flex;
-                height: 500px;
-                width: 410px;
-                left: -400px;
+            position: fixed;
+            display: flex;
+            height: 500px;
+            width: 410px;
+            left: -400px;
 
-                bottom: 15%;
-                transition: all 2s;
-            }
+            bottom: 15%;
+            transition: all 2s;
+        }
 
-            .dentro {
-                width: 100%;
-            }
+        .dentro {
+            width: 100%;
+        }
 
-            #desplegamientoC {
-                display: none;
-            }
+        #desplegamientoC {
+            display: none;
+        }
 
-            #IconoCerrarC {
-                opacity: 100%;
-                left: 44px;
-                z-index: 10;
-                bottom: 40%;
-                transition: all 2s;
-            }
+        #IconoCerrarC {
+            opacity: 100%;
+            left: 44px;
+            z-index: 10;
+            bottom: 40%;
+            transition: all 2s;
+        }
 
-            #IconoAbrirC {
-                display: none;
-            }
+        #IconoAbrirC {
+            display: none;
+        }
 
-            #desplegamientoC:checked~#IconoCerrarC {
-                display: none;
-            }
+        #desplegamientoC:checked~#IconoCerrarC {
+            display: none;
+        }
 
-            #desplegamientoC:checked~#IconoAbrirC {
-                display: block;
-                left: 444px;
-                bottom: 40%;
-                z-index: 10;
-            }
+        #desplegamientoC:checked~#IconoAbrirC {
+            display: block;
+            left: 444px;
+            bottom: 40%;
+            z-index: 10;
+        }
 
-            #desplegamientoC:checked~#carpeta {
-                left: 0px;
-            }
+        #desplegamientoC:checked~#carpeta {
+            left: 0px;
+        }
 
-            .contHoja {
+        .contHoja {
 
-                width: 500px;
-                margin-left: 20px;
-                margin-top: 100px;
-                height: 60%;
-                display: flex;
+            width: 500px;
+            margin-left: 20px;
+            margin-top: 100px;
+            height: 60%;
+            display: flex;
 
-                align-items: center;
-            }
+            align-items: center;
+        }
 
-            .hojaSospechoso {
-                position: relative;
+        .hojaSospechoso {
+            position: relative;
 
-                height: 480px;
-            }
+            height: 480px;
+        }
 
-            .Sospechososs {
-                position: absolute;
-                display: flex;
-                overflow-x: hidden;
-                overflow-y: hidden;
-                scrollbar-color: black;
-                width: 444px;
-                height: 490px;
-            }
+        .Sospechososs {
+            position: absolute;
+            display: flex;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            scrollbar-color: black;
+            width: 444px;
+            height: 490px;
+        }
 
 
-            .flechaIZQ {
-                position: absolute;
-                bottom: 30px;
-                left: 45px;
-                z-index: 123;
-            }
+        .flechaIZQ {
+            position: absolute;
+            bottom: 30px;
+            left: 45px;
+            z-index: 123;
+        }
 
-            .flechaDER {
-                position: absolute;
-                bottom: 30px;
-                right: -10px;
-                z-index: 123;
-            }
+        .flechaDER {
+            position: absolute;
+            bottom: 30px;
+            right: -10px;
+            z-index: 123;
+        }
 
-            #izqS,
-            #derS {
-                display: none;
-            }
+        #izqS,
+        #derS {
+            display: none;
+        }
 
-            .pistas {
-                position: absolute;
-                z-index: 99;
-                width: 80%;
-                margin-top: 80px;
-            }
+        .pistas {
+            position: absolute;
+            z-index: 99;
+            width: 80%;
+            margin-top: 80px;
+        }
 
-            .pista input {
-                display: none;
-            }
+        .pista input {
+            display: none;
+        }
 
-            .pista {
-                display: flex;
-            }
+        .pista {
+            display: flex;
+        }
 
-            .pista h3 {
-                margin: 0;
-                margin-left: 20px;
-            }
+        .pista h3 {
+            margin: 0;
+            margin-left: 20px;
+        }
 
-            .CajaL {
-                width: 25px;
-                height: 25px;
-                border: 2px solid black;
-                margin-left: 10px;
-            }
+        .CajaL {
+            width: 25px;
+            height: 25px;
+            border: 2px solid black;
+            margin-left: 10px;
+        }
+
+        #contP1,
+        #contP2,
+        #contP3,
+        #contP4,
+        #contP5 {
+            opacity: 0%;
+        }
+
+        #P1Si:checked~#LP1Si {
+            background-color: rgb(18, 151, 1);
+        }
+
+        #P1No:checked~#LP1No {
+            background-color: rgb(151, 1, 1);
+        }
+
+        #P2Si:checked~#LP2Si {
+            background-color: rgb(18, 151, 1);
+        }
+
+        #P2No:checked~#LP2No {
+            background-color: rgb(151, 1, 1);
+        }
+
+        #P3Si:checked~#LP3Si {
+            background-color: rgb(18, 151, 1);
+        }
+
+        #P3No:checked~#LP3No {
+            background-color: rgb(151, 1, 1);
+        }
+
+        #P4Si:checked~#LP4Si {
+            background-color: rgb(18, 151, 1);
+        }
+
+        #P4No:checked~#LP4No {
+            background-color: rgb(151, 1, 1);
+        }
+
+        #P5Si:checked~#LP5Si {
+            background-color: rgb(18, 151, 1);
+        }
+
+        #P5No:checked~#LP5No {
+            background-color: rgb(151, 1, 1);
+        }
+
+
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -642,25 +695,41 @@
                     <div class="contHoja" id="ed">
                         <img class="hojaSospechoso" src="imagenes/hoja.png" alt="">
                         <div class="pistas">
-                            <div class="pista">
-                                <h3>Pista 1</h3><input id="P1Si" type="checkbox"><input id="P1No" type="checkbox"><label class="CajaL"
-                                    for="P1Si"></label><label class="CajaL" for="P1No"></label>
+                            <div id="contP1" class="pista">
+                                <h4 id="P1">Muerte: 03/02/1910 11:00AM</h4>
+                                <input name="P1" id="P1Si" type="radio">
+                                <input name="P1" id="P1No" type="radio">
+                                <label class="CajaL" for="P1Si" id="LP1Si"></label>
+                                <label id="LP1No" class="CajaL" for="P1No">
+                                </label>
                             </div>
-                            <div class="pista">
-                                <h3>Pista 2</h3><input id="P2Si" type="checkbox"><input id="P2No" type="checkbox"><label class="CajaL"
-                                    for="P2Si"></label><label class="CajaL" for="P2No"></label>
+                            <div id="contP2" class="pista">
+                                <h4 id="P2">Hoja con simbolo extraño</h4>
+                                <input name="P2" id="P2Si" type="radio">
+                                <input name="P2" id="P2No" type="radio">
+                                <label class="CajaL" id="LP2Si" for="P2Si"></label>
+                                <label class="CajaL" id="LP2No" for="P2No"></label>
                             </div>
-                            <div class="pista">
-                                <h3>Pista 3</h3><input id="P3Si" type="checkbox"><input id="P3No" type="checkbox"><label class="CajaL"
-                                    for="P3Si"></label><label class="CajaL" for="P3No"></label>
+                            <div id="contP3" class="pista">
+                                <h4 id="P3">Corbata del asesino</h4>
+                                <input name="P3" id="P3Si" type="radio">
+                                <input name="P3" id="P3No" type="radio">
+                                <label class="CajaL" id="LP3Si" for="P3Si"></label>
+                                <label class="CajaL" id="LP3No" for="P3No"></label>
                             </div>
-                            <div class="pista">
-                                <h3>Pista 4</h3><input id="P4Si" type="checkbox"><input id="P4No" type="checkbox"><label class="CajaL"
-                                    for="P4Si"></label><label class="CajaL" for="P4No"></label>
+                            <div id="contP4" class="pista">
+                                <h4 id="P4">Documentos de la victima</h4>
+                                <input name="P4" id="P4Si" type="radio">
+                                <input name="P4" id="P4No" type="radio">
+                                <label class="CajaL" id="LP4Si" for="P4Si"></label>
+                                <label class="CajaL" id="LP4No" for="P4No"></label>
                             </div>
-                            <div class="pista">
-                                <h3>Pista 5</h3><input id="P5Si" type="checkbox"><input id="P5No" type="checkbox"><label class="CajaL"
-                                    for="P5Si"></label><label class="CajaL" for="P5No"></label>
+                            <div id="contP5" class="pista">
+                                <h4 id="P5">Radio: Arma homicida</h4>
+                                <input name="P5" id="P5Si" type="radio">
+                                <input name="P5" id="P5No" type="radio">
+                                <label class="CajaL" id="LP5Si" for="P5Si"></label>
+                                <label class="CajaL" id="LP5No"for="P5No"></label>
                             </div>
                         </div>
                     </div>

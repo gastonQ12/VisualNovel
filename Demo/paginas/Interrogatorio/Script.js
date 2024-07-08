@@ -72,6 +72,7 @@ document.body.onload = function () {
     pista4.style.opacity = localStorage.getItem('opacidadPCadaver');
     pista5.style.opacity = localStorage.getItem('opacidadPRadio');
     pista1.style.opacity = localStorage.getItem('opacidadP1');
+    determinarPE();
 }
 
 var derecha = document.getElementById('derS');
@@ -85,6 +86,28 @@ izquierda.addEventListener("click", moverIzq);
 function moverDer(event){
     hoja.scrollLeft += 150;
 }
+
+// document.getElementById('P1').textContent = localStorage.getItem("opacidadP1").key;
+
+function determinarPE(){
+   
+    if(localStorage.getItem("opacidadP1") != null){
+        document.getElementById('contP1').style.opacity = 100 + "%";
+    }
+    if(localStorage.getItem("opacidadPCadaver") != null){
+        document.getElementById('contP2').style.opacity = 100 + "%";
+    }
+    if(localStorage.getItem("opacidadPBasurero") != null){
+        document.getElementById('contP3').style.opacity = 100 + "%";
+    }
+    if(localStorage.getItem("opacidadPTaxi") != null){
+        document.getElementById('contP4').style.opacity = 100 + "%";
+    }
+    if(localStorage.getItem("opacidadPRadio") != null){
+        document.getElementById('contP5').style.opacity = 100 + "%";
+    }
+}
+
 
 function moverIzq(event){
     hoja.scrollLeft += -150;
