@@ -74,6 +74,21 @@ document.body.onload = function () {
     pista1.style.opacity = localStorage.getItem('opacidadP1');
 }
 
+var derecha = document.getElementById('derS');
+var izquierda = document.getElementById('izqS');
+
+var hoja = document.querySelector(".Sospechososs");
+
+derecha.addEventListener("click", moverDer);
+izquierda.addEventListener("click", moverIzq);
+
+function moverDer(event){
+    hoja.scrollLeft += 150;
+}
+
+function moverIzq(event){
+    hoja.scrollLeft += -150;
+}
 const dialogos = [
     '  3 de febrero de 1910 a las 11:45 AM, Londres.',
     '2.Bastante.',
