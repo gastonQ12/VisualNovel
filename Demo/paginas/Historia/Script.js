@@ -1,9 +1,9 @@
-// import { cargarPartida } from '../../script.js';
+
 let aux = 0;
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
     var valorPC = 0;
-    if(paginaAnterior == "http://127.0.0.1:5500/paginas/capituloCarga/index.html"){
+    if(paginaAnterior == "http://127.0.0.1:5500/Demo/paginas/capituloCarga/index.html"){
         if( valorPC == 0){
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
