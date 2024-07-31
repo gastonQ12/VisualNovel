@@ -3,8 +3,8 @@ let aux = 0;
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
     var valorPC = 0;
-    if(paginaAnterior == "http://127.0.0.1:5500/Demo/paginas/capituloCarga/index.html"){
-        if( valorPC == 0){
+    if (paginaAnterior == "http://127.0.0.1:5500/Demo/paginas/capituloCarga/index.html") {
+        if (valorPC == 0) {
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
             eliminarCookie("estadoNPCs");
@@ -17,10 +17,17 @@ document.body.onload = function () {
             eliminarCookie("opacidadPTaxi");
             eliminarCookie("pistas");
             eliminarCookie("pjHablando");
+
+            localStorage.removeItem('opacidadP1');
+            localStorage.removeItem('opacidadPRadio');
+            localStorage.removeItem('opacidadPTaxi');
+            localStorage.removeItem('opacidadPBasurero');
+            localStorage.removeItem('opacidadPCadaver');
+
             console.log("cookie eliminada");
             valorPC++;
         }
-        if(paginaAnterior == "http://127.0.0.1:5500/index.html"){
+        if (paginaAnterior == "http://127.0.0.1:5500/index.html") {
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
             eliminarCookie("estadoNPCs");
@@ -33,13 +40,13 @@ document.body.onload = function () {
             eliminarCookie("opacidadPTaxi");
             eliminarCookie("pistas");
             eliminarCookie("pjHablando");
-            
+
             var cookieGuardadaDM = cargarPartida();
 
             console.log(cookieGuardadaDM);
         }
     }
-    
+
 
     function eliminarCookie(nombre) {
         document.cookie = nombre + "=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
@@ -50,7 +57,7 @@ document.body.onload = function () {
         mostrarDialogos(aux); // Mostrar el diálogo guardado
 
     }
-    
+
     var fondo = getCookie("fondo");
     body.style.backgroundImage = fondo;
 
@@ -65,7 +72,7 @@ document.body.onload = function () {
 
     var pistaRadio = getCookie("opacidadPRadio");
     pista5.style.opacity = pistaRadio;
-    
+
     let pista1 = document.getElementById("pista1");
     var pista1G = getCookie("opacidadP1");
     pista1.style.opacity = pista1G;
@@ -84,9 +91,32 @@ document.body.onload = function () {
     var estadoNPCs = getCookie("estadoPJs");
     estadoNPC.style.display = 'estadoNPCs';
 
-
+    arrayListSospechosos();
 }
-function apagarSonido(event){
+
+function arrayListSospechosos(){
+
+    var pistaBasura = false;
+    var pistaDialogo = false;
+    var pistaTaxi = false; 
+    var pistaRadio = false;
+    var pistaCadaver = false;
+
+    const EdgardM = [
+        pistaBasura, pistaDialogo 
+    ];
+    
+    localStorage.setItem('EdgardM', JSON.stringify(EdgardM));
+}
+
+
+var arrayConvertido = localStorage.getItem('EdgardM');
+arrayConvertido = JSON.parse(arrayConvertido);
+
+console.log(arrayConvertido);
+
+
+function apagarSonido(event) {
     const toggleMusicButton = document.getElementById('callar');
     const musica = document.getElementById('musicaA');
     toggleMusicButton.addEventListener('click', () => {
@@ -99,7 +129,6 @@ function apagarSonido(event){
 }
 
 
-    
 const dialogos = [
     '  3 de febrero de 1910 a las 11:45 AM, Londres.',
     '  Un policia esta patrullando y al dar vuelta en una esquina el oficial se encuentra con un taxi estacionado de forma incorrecta. Pensando que se trata de un taxista tomando una siesta el policía decide ignorarlo y seguir a la siguiente calle.',
@@ -231,35 +260,35 @@ function cargadoPistas(aux) {
         var taxiC = null;
         var cadaverC = null;
         var radioC = null;
-        
-        pistaBasura.addEventListener("click", function(){
+
+        pistaBasura.addEventListener("click", function () {
             basureroC = getCookie("opacidadPBasurero");
             if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
                 recargoPag();
             }
         });
-        
-        taxi.addEventListener("click", function(){
+
+        taxi.addEventListener("click", function () {
             taxiC = getCookie("opacidadPTaxi");
             if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
                 recargoPag();
             }
         });
-        
-        cuerpo.addEventListener("click", function(){
+
+        cuerpo.addEventListener("click", function () {
             cadaverC = getCookie("opacidadPCadaver");
             if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
                 recargoPag();
             }
         });
-        
-        radio.addEventListener("click", function(){
+
+        radio.addEventListener("click", function () {
             radioC = getCookie("opacidadPRadio");
             if (basureroC == "100%" && cadaverC == "100%" && radioC == "100%" && taxiC == "100%") {
                 recargoPag();
             }
         });
-        
+
         function recargoPag() {
             setTimeout(() => {
                 document.location.reload();
@@ -313,9 +342,9 @@ function mostrarDialogos(auxiliar) {
 
     //extrae la posicion del personaje
     let pjHablando = dialogos[auxiliar].substring(0, 1) - 1;
-   // console.log(pjHablando);
+    // console.log(pjHablando);
 
-   // console.log(auxiliar);
+    // console.log(auxiliar);
 
     //muestra el nombre, barrita y el dialogo
     document.getElementById("LineaDialogo").removeAttribute("hidden");
@@ -433,19 +462,19 @@ function MostrarPjH(lado) {
 
     const pagina = document.querySelectorAll('.pagina');
     let numeroPagina = 0;
-    function mostrarPagina(index){
+    function mostrarPagina(index) {
         pagina.forEach((pagina) => {
             pagina.classList.remove('active');
         })
         pagina[index].classList.add('active');
     }
-    function cambioPaginaT(event){
-        if(event.key === 'ArrowRight'){
+    function cambioPaginaT(event) {
+        if (event.key === 'ArrowRight') {
             numeroPagina = (numeroPagina + 1) % pagina.length;
             mostrarPagina(numeroPagina);
-        }else if(event.key === 'ArrowLeft'){
-            numeroPagina = (numeroPagina - 1 + pagina.length)% pagina.length;
-            mostrarPagina(numeroPagina); 
+        } else if (event.key === 'ArrowLeft') {
+            numeroPagina = (numeroPagina - 1 + pagina.length) % pagina.length;
+            mostrarPagina(numeroPagina);
         }
     }
     document.addEventListener('keydown', cambioPaginaT);
