@@ -1,10 +1,12 @@
 
+//declaro las variables
 let tecla = letraRandom();
 let boton = document.getElementById("botonPelea");
 var aux = true;
 boton.textContent = tecla;
 ingresarTecla(tecla);
 
+//funcion para ingresar la tecla
 function ingresarTecla(tecla){
     document.addEventListener('keydown', function(event) {
         if(tecla==event.key){
@@ -18,14 +20,20 @@ function ingresarTecla(tecla){
     })
 
 }
+
+
+//funcion para cambiar la letra
 setTimeout(function() {
     document.getElementById('botonPelea').style.display = 'block';
 }, 1000);
+
+//funcion para desaparecer el boton
 
 setTimeout(function() {
     document.getElementById('botonPelea').style.display = 'none';
 }, 5000);
 
+//funcion para generar la letra random
 function letraRandom() {
     const letras = ['a', 's', 'd', 'w', 'e', 'q', 'f', 'z', 'x', 'c'];
     const indexRandom = Math.floor(Math.random() * letras.length);
