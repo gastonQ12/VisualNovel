@@ -83,33 +83,33 @@ var hoja = document.querySelector(".Sospechososs");
 derecha.addEventListener("click", moverDer);
 izquierda.addEventListener("click", moverIzq);
 
-function moverDer(event){
+function moverDer(event) {
     hoja.scrollLeft += 150;
 }
 
 // document.getElementById('P1').textContent = localStorage.getItem("opacidadP1").key;
 
-function determinarPE(){
-   
-    if(localStorage.getItem("opacidadP1") != null){
+function determinarPE() {
+
+    if (localStorage.getItem("opacidadP1") != null) {
         document.getElementById('contP1').style.opacity = 100 + "%";
     }
-    if(localStorage.getItem("opacidadPCadaver") != null){
+    if (localStorage.getItem("opacidadPCadaver") != null) {
         document.getElementById('contP2').style.opacity = 100 + "%";
     }
-    if(localStorage.getItem("opacidadPBasurero") != null){
+    if (localStorage.getItem("opacidadPBasurero") != null) {
         document.getElementById('contP3').style.opacity = 100 + "%";
     }
-    if(localStorage.getItem("opacidadPTaxi") != null){
+    if (localStorage.getItem("opacidadPTaxi") != null) {
         document.getElementById('contP4').style.opacity = 100 + "%";
     }
-    if(localStorage.getItem("opacidadPRadio") != null){
+    if (localStorage.getItem("opacidadPRadio") != null) {
         document.getElementById('contP5').style.opacity = 100 + "%";
     }
 }
 
 
-function moverIzq(event){
+function moverIzq(event) {
     hoja.scrollLeft += -150;
 }
 const dialogos = [
@@ -313,3 +313,25 @@ function MostrarPjH(lado) {
     }
     document.addEventListener('keydown', cambioPaginaT);
 }
+
+
+/*todavia falta: Lau*/
+const radios = document.querySelectorAll('input[name="P1"]');
+
+radios.forEach(radio => {
+    radio.addEventListener('change', updateStatus);
+});
+function updateStatus() {
+    var arrayConvertido = localStorage.getItem('EdgardM');
+    var nuevoArray = JSON.parse(arrayConvertido);
+
+    var marcarEdgard = document.getElementById('P1Si');
+
+    if (marcarEdgard.checked) {
+        nuevoArray[0] = true;
+        localStorage.removeItem('EdgardM');
+        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
+        console.log("Si");
+    }
+}
+
