@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body {
+            background-image: url(imagenes/comisaria.png);
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position-y: 70%;
+
+        }
+        *{
+            user-select: none;
+        }
+        @media(max-width: 1373px) {
+            body {
+                background-size: cover;
+            }
+        }
+
+        .cuadro_TextEI {
+            display: flex;
+            justify-content: space-between;
+            bottom: 0;
+        }
+
+
+        #derecha {
+            display: none;
+        }
+        #output{
+            font-size:20px; 
+            z-index: 100;
+             width: 50%;
+        }
+        .cuadroDialogo {
+            background-image: url(imagenes/rectangulo.png);
+            width: 100%;
+            bottom: 0;
+            background-size: 100%;
+            height: 170px;
+            position: absolute;
+            margin-top: -200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cuadroDialogo * {
+            color: white;
+            text-align: center;
+            margin: 6px;
+        }
+
+        .PJ1 {
+            position: absolute;
+            width: 400px;
+            height: 500px;
+            right: 0;
+            bottom: 0;
+            filter: brightness(20%);
+        }
+
+        .PJ2 {
+            position: absolute;
+            width: 650px;
+            height: 700px;
+            left: 0;
+            bottom: 0;
+
+        }
+
+        .JAJAS {
+            display: flex;
+            justify-content: center;
+        }
+
+        :root .op1,
+        .op2 {
+            background-color: rgb(88, 88, 88);
+            border: none;
+            height: 50px;
+            width: 300px;
+            color: white;
+            clip-path: var(--cl);
+            transition: 1s;
+
+            transform: skewX(-30deg);
+        }
+
+        .op1 p,
+        .op2 p {
+            transform: skewX(30deg);
+            margin: 16px;
+        }
+
+        .op1:hover {
+            background-color: rgb(0, 0, 0);
+            clip-path: var(100% at);
+            color: white;
+            border: 2px solid white;
+            cursor: pointer
+        }
+
+        .op2:hover {
+            background-color: rgb(0, 0, 0);
+            clip-path: var(100% at);
+
+            border: 2px solid white;
+            cursor: pointer
+        }
+
+        .contLib {
+            width: 100%;
+        }
+
+        #libreta {
+            position: fixed;
+            display: flex;
+            height: 500px;
+            width: 410px;
+            right: -350px;
+            bottom: 15%;
+            z-index: -1;
+            transition: all 2s;
+        }
+
+        #cajaLibreta {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+            width: 400px;
+            right: -350px;
+            bottom: 15%;
+            z-index: -1;
+            transition: all 2s;
+        }
+
+        #desplegamiento {
+            display: none;
+        }
+
+        #IconoCerrar {
+            opacity: 0%;
+            transition: all 2s;
+        }
+
+        #IconoAbrir {
+            display: block;
+        }
+
+        #desplegamiento:checked~#IconoCerrar {
+            opacity: 100%;
+            right: 780px;
+        }
+
+
+
+        #desplegamiento:checked~#IconoAbrir {
+            display: none;
+        }
+
+        #desplegamiento:checked~#libreta {
+            right: 450px;
+        }
+
+        #desplegamiento:checked~#cajaLibreta {
+            right: 450px;
+        }
+
+        .cajaFlechas {
+            position: absolute;
+            right: 24px;
+            z-index: 30;
+            bottom: 55%;
+        }
+
+        .desp {
+            position: absolute;
+        }
+
+        #pista1 {
+            opacity: 0%;
+            color: rgb(0, 0, 0);
+            margin: 95px;
+            z-index: 29;
+            bottom: -10px;
+            transition: all 2s;
+        }
+
+        #pista2 {
+            opacity: 0%;
+            color: rgb(0, 0, 0);
+            position: absolute;
+            z-index: 30;
+            margin: 95px;
+            bottom: 40%;
+            transition: all 2s;
+
+        }
+
+        #pista3 {
+            opacity: 0%;
+            color: rgb(0, 0, 0);
+            position: absolute;
+            z-index: 30;
+            margin: 95px;
+            bottom: 30%;
+            transition: all 2s;
+
+        }
+
+        #pista4 {
+            opacity: 0%;
+            color: rgb(0, 0, 0);
+            position: absolute;
+            z-index: 30;
+            margin: 95px;
+            bottom: 20%;
+            transition: all 2s;
+
+        }
+
+        #pista5 {
+            opacity: 0%;
+            color: rgb(0, 0, 0);
+            position: absolute;
+            z-index: 30;
+            margin: 95px;
+            bottom: 10%;
+            transition: all 2s;
+        }
+
+        #pista6 {
+            /*    opacity: 0%; */
+            color: rgb(0, 0, 0);
+            margin: 95px;
+            z-index: 29;
+            bottom: -10px;
+            transition: all 2s;
+        }
+
+        #pista7 {
+            /*    opacity: 0%; */
+            color: rgb(0, 0, 0);
+            position: absolute;
+            z-index: 30;
+            margin: 95px;
+            bottom: 40%;
+            transition: all 2s;
+
+        }
+
+        #pista8 {
+            /*    opacity: 0%; */
+            color: rgb(0, 0, 0);
+            position: absolute;
+            z-index: 30;
+            margin: 95px;
+            bottom: 30%;
+            transition: all 2s;
+
+        }
+
+        #pista9 {
+            /*    opacity: 0%; */
+            color: rgb(0, 0, 0);
+            position: absolute;
+            z-index: 30;
+            margin: 95px;
+            bottom: 20%;
+            transition: all 2s;
+
+        }
+
+        #pista10 {
+            color: rgb(0, 0, 0);
+            position: absolute;
+            z-index: 30;
+            margin: 95px;
+            bottom: 10%;
+            transition: all 2s;
+        }
+
+        #desplegamiento:checked~#pista1,
+        #desplegamiento:checked~#pista2,
+        #desplegamiento:checked~#pista3,
+        #desplegamiento:checked~#pista4 {
+            right: 700px;
+        }
+
+        #pistas {
+            display: none;
+        }
+
+        #pistaBasura,
+        #taxi,
+        #cuerpo,
+        #radio {
+            opacity: 10%;
+        }
+
+        p,
+        h1,
+        h2,
+        h3 {
+            user-select: none;
+        }
+
+        h3 {
+            font-family: "La Belle Aurore", cursive;
+            font-size: 25px;
+            width: 100%;
+            height: 40px;
+
+        }
+
+        #SaltarPistas {
+            display: none;
+        }
+
+        #contadorPistass {
+            color: white;
+            position: absolute;
+            right: 0px;
+            display: none;
+        }
+
+        .pagina {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .pagina.active {
+            display: block;
+            opacity: 1;
+        }
+
+        #SaltarPistas {
+            background-color: white;
+            border: none;
+            height: 40px;
+            cursor: pointer;
+
+        }
+
+        #SaltarPistas:hover {
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            width: 100%;
+        }
+        .ContenedorGrisM {
+            width: 60px;
+            height: 60px;
+            margin: 20px;
+            background-color: gray;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-image: url(imagenes/audio.png);
+        }
+        .ContenedorGris {
+            width: 60px;
+            height: 60px;
+            margin: 20px;
+            background-color: gray;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-image: url(imagenes/anillo.png);
+        }
+
+        .ContenedorGris2 {
+            width: 70px;
+            height: 70px;
+            margin: 20px;
+            background-color: gray;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-image: url(imagenes/anillo.png);
+        }
+
+        .imgIcono {
+            width: 80%;
+            height: 80%;
+        }
+
+        .Anillo {
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            z-index: -2;
+
+        }
+
+        .ContenedorGris2:hover,
+        .ContenedorGris:hover,
+        .ContenedorGrisM:hover {
+            background-color: black;
+
+        }
+
+        .menuHambur {
+            color: white;
+            font-size: 30px;
+            cursor: default;
+        }
+        .ContSup{
+            display: flex;
+        }
+        .botonesOpciones{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+
+            right: 80px;
+            bottom: 100px;
+            z-index: 2222;
+        }
+        .op1, .op2{
+            margin: 20px;
+        }
+        p{
+            font-size: 18px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap" rel="stylesheet">
+</head>
+
+<body id="body">
+    <div class="ContSup">
+        <button id="SaltarPistas">SEGUIR ADELANTE</button>
+        <div class="menu">
+            <div id="callar" class="ContenedorGrisM" onclick="apagarSonido()">
+                <audio id="musicaA" src="../../audio/Sospechas.wav"></audio>
+                <img class="imgIcono" src="imagenes/audio.png" alt="mapaIcono">
+            </div>
+            <div class="ContenedorGris" onclick="location.href = '../Mapa/Mapa.html'">
+                <img class="imgIcono" src="imagenes/mapaIcono.png" alt="mapaIcono">
+            </div>
+            <div>
+                <img class="Anillo" src="imagenes/anillo.png" alt="">
+                <div class="ContenedorGris2" onclick="location.href = '../../index.html'">
+                    <span class="menuHambur">☰</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="imagenesPJ" class="cuadro_TextEI">
+        <img id="derecha" class="PJ1" src="imagenes/detective.png">
+        <div></div>
+        <img id="izquierda" class="PJ2" src="imagenes/policia.png">
+    </div>
+    <div class="JAJAS">
+        <div class="cuadroDialogo" id="cuadroDialogo">
+            <h2 id="PJname">Oficial de recepción</h2>
+            <hr id="LineaDialogo" style="width: 150px;">
+            <p id="output">Buenas detective, ¿En que lo puedo ayudar?</p>
+        </div>
+
+        <div class="botonesOpciones">
+            <button id="botonOpcion" onclick="libretaAnotar();" value="1" class="op1" >
+                <p>Pedir orden de arresto</p>
+            </button>
+            <button id="botonOpcion2" onclick="libretaAnotar();" value="2" class="op2" >
+                <p>Pedir orden de allanamiento</p>
+            </button>
+            <button id="botonOpcion3" onclick="libretaAnotar();" value="1" class="op1" >
+                <p>Interrogar sospechoso</p>
+            </button>
+            <button id="botonOpcion4" onclick="libretaAnotar();" value="2" class="op2" >
+                <p>Encerrar a alguien</p>
+            </button>
+        </div>
+
+        <div class="contLib">
+            <div class="cajaFlechas">
+                <input id="desplegamiento" class="desp" type="checkbox">
+                <label id="IconoAbrir" for="desplegamiento" class="desp"><span style="color:rgb(0, 0, 0) ;"
+                        class="material-symbols-outlined">
+                        arrow_back_ios</span></label>
+                <label id="IconoCerrar" for="desplegamiento" class="desp"><span style="color:rgb(0, 0, 0) ;"
+                        class="material-symbols-outlined">
+                        arrow_forward_ios
+                    </span></label>
+                <img id="libreta" src="imagenes/libreta.png" alt="">
+                <div id="cajaLibreta">
+                    <div id="pag1" class="pagina active">
+                        <h3 id="pista2">Hoja con simbolo extraño</h3>
+                        <h3 id="pista3">Corbata del asesino</h3>
+                        <h3 id="pista4">Documentos de la victima</h3>
+                        <h3 id="pista5">Radio: Arma homicida</h3>
+                        <h3 id="pista1">Muerte: 03/02/1910 11:00AM</h3>
+                    </div>
+                    <div id="pag2" class="pagina">
+                        <h3 id="pista6">Descripcion</h3>
+                        <h3 id="pista7">Descripcion</h3>
+                        <h3 id="pista8">Descripcion</h3>
+                        <h3 id="pista9">Descripcion</h3>
+                        <h3 id="pista10">Descripcion</h3>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="estacionP.js" defer></script>
+</body>
+
+</html>
