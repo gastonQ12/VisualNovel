@@ -42,7 +42,7 @@ document.body.onload = function () {
 
     var urlAnterior = new URL(window.location);
     var rutaAnterior = urlAnterior.pathname;
-    localStorage.clear('ub');
+    localStorage.removeItem('ub');
     localStorage.setItem('ub', rutaAnterior);
 
     function eliminarCookie(nombre) {
@@ -324,17 +324,40 @@ const radios = document.querySelectorAll('input[name="P1"]');
 radios.forEach(radio => {
     radio.addEventListener('change', updateStatus);
 });
+
+function cambiarColorLabel(){
+
+    var arrayConvertido = localStorage.getItem('EdgardM');
+    var nuevoArray = JSON.parse(arrayConvertido);
+    
+    if(nuevoArray.EdgardM[0] === true){
+        document.getElementById("LP1Si").style.backgroundColor="green";
+        document.getElementById("LP1No").style.backgroundColor="grey";
+    }else{
+        document.getElementById("LP1No").style.backgroundColor="Red";
+        document.getElementById("LP1Si").style.backgroundColor="grey";
+    
+    }
+}
+
 function updateStatus() {
     var arrayConvertido = localStorage.getItem('EdgardM');
     var nuevoArray = JSON.parse(arrayConvertido);
 
-    var marcarEdgard = document.getElementById('P1Si');
+    let marcarEdgardP1Si = document.getElementById('P1Si');
+    let marcarEdgardP1No = document.getElementById('P1No');
 
-    if (marcarEdgard.checked) {
-        nuevoArray[0] = true;
+    if (marcarEdgardP1Si.checked){
+        nuevoArray.EdgardM[0] = true
         localStorage.removeItem('EdgardM');
         localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
-        console.log("Si");
+        cambiarColorLabel();
+    }
+    else if (marcarEdgardP1No.checked){
+        nuevoArray.EdgardM[0] = false
+        localStorage.removeItem('EdgardM');
+        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
+        cambiarColorLabel();
     }
 }
 

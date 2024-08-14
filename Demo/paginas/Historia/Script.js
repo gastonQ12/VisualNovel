@@ -7,7 +7,7 @@ document.body.onload = function () {
 
     var urlP = new URL(window.location);
     var rutaP = urlP.pathname;
-    localStorage.clear('ub');
+    localStorage.removeItem('ub');
     localStorage.setItem('ub', rutaP);
     
     if (valorPC == 0) {
@@ -26,12 +26,12 @@ document.body.onload = function () {
                 eliminarCookie("opacidadPTaxi");
                 eliminarCookie("pistas");
                 eliminarCookie("pjHablando");
-
+                
                 localStorage.removeItem('opacidadP1');
                 localStorage.removeItem('opacidadPRadio');
-                localStorage.removeItem('opacidadPTaxi');
                 localStorage.removeItem('opacidadPBasurero');
-                localStorage.removeItem('opacidadPCadaver');
+                localStorage.removeItem('OpacidadPTaxi');
+                localStorage.removeItem('OpacidadPCadaver');
 
                 console.log("cookie eliminada");
                 
@@ -133,17 +133,18 @@ arrayListSospechosos();
 
 function arrayListSospechosos() {
 
-    var pistaBasura = false;
-    var pistaDialogo = false;
-    var pistaTaxi = false;
-    var pistaRadio = false;
-    var pistaCadaver = false;
+    var pistaBasuraZ = false;
+    var pistaDialogoZ = false;
+    var pistaTaxiZ = false;
+    var pistaRadioZ = false;
+    var pistaCadaverZ = false;
+    var sospechosos = new Object();
 
-    const EdgardM = [
-        pistaBasura, pistaDialogo
+    sospechosos.EdgardM = [
+        pistaBasuraZ, pistaDialogoZ
     ];
 
-    localStorage.setItem('EdgardM', JSON.stringify(EdgardM));
+    localStorage.setItem('EdgardM', JSON.stringify(sospechosos));
 }
 
 
@@ -313,6 +314,7 @@ function encontrarPistaBasurero(event) {
     pista2.style.opacity = opacidad;
     document.cookie = "opacidadPBasurero=" + opacidad;
     localStorage.setItem("opacidadPBasurero", 100);
+    return 
 }
 function encontrarPistaTaxi(event) {
     var opacidad = 100 + '%';

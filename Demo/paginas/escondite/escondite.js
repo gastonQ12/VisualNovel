@@ -27,7 +27,7 @@ function volver(event){
 
 var urlAnterior = new URL(window.location);
 var rutaAnterior = urlAnterior.pathname;
-localStorage.clear('ub');
+localStorage.removeItem('ub');
 localStorage.setItem('ub', rutaAnterior);
 
 cama.addEventListener('click', function(){ 

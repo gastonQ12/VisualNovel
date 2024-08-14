@@ -16,6 +16,7 @@
         var urlAnterior = new URL(window.location);
         var rutaAnterior = urlAnterior.pathname;
 
+        localStorage.removeItem('ub');
         localStorage.setItem('ub', rutaAnterior);
 
         var arrayConvertido = localStorage.getItem('EdgardM');
