@@ -5,6 +5,8 @@ const botonTexto = document.getElementById("txt");
 const barraVidaEnemigo = document.getElementById("hpChabon");
 const barraVidaJugador = document.getElementById("hpJugador");
 const shadow = document.querySelector('.shadow');
+const parent = shadow.parentNode;
+
 let vidaEnemigo = 100 ;
 let vidaJugador = 100 ;
 var aux = true;
@@ -20,13 +22,14 @@ shadow.addEventListener('animationiteration', function(event) {
     white ${vidaJugador - 100}%)`;
 });
 
-
-
-
 //timer dmg
 // setTimeout(function() {
 // }, 2000);
 
+// funcion para desaparecer el boton
+// setTimeout(function() {
+//     document.getElementById('button').style.display = 'none';
+// }, 5000);
 
 //funcion para ingresar la tecla
 function ingresarTecla(tecla){
@@ -35,7 +38,8 @@ function ingresarTecla(tecla){
         if(tecla == event.key){
             boton.style.backgroundColor = "green" 
             vidaEnemigo = vidaEnemigo - 2;
-            barraVidaEnemigo.style.background = `linear-gradient(to right, #AE0909 ${vidaEnemigo}%, white ${vidaEnemigo - 100}%)`;            
+            barraVidaEnemigo.style.background = `linear-gradient(to right, #AE0909 ${vidaEnemigo}%, white ${vidaEnemigo - 100}%)`;   
+            reiniciarTimer()         
             tecla = letraRandom()   
             botonTexto.textContent = tecla.toUpperCase();
         }
@@ -47,10 +51,9 @@ function ingresarTecla(tecla){
             white ${vidaJugador - 100}%)`;
             tecla = letraRandom()   
             botonTexto.textContent = tecla.toUpperCase();
-        
+            
         }
     })
-
 }
 
 //funcion para generar la letra random
@@ -58,12 +61,16 @@ function letraRandom() {
     const letras = ['a', 's', 'd', 'w', 'e', 'q', 'f', 'z', 'x', 'c'];
     const indexRandom = Math.floor(Math.random() * letras.length);
     return letras[indexRandom];
+}
 
 
+function reiniciarTimer() {
+    // Guardar el contenido o el elemento en sí
+    const shadowClonado = shadow.cloneNode(true);
 
-// funcion para desaparecer el boton
-// setTimeout(function() {
-//     document.getElementById('button').style.display = 'none';
-// }, 5000);
+    // Eliminar el elemento original
+    parent.removeChild(shadow);
 
+    // Volver a agregar el elemento al DOM
+    parent.appendChild(shadowClonado);
 }
