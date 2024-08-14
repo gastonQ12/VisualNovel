@@ -171,18 +171,6 @@ body{
   }
 }
 
-.cineGOD{
-  position: absolute;
-  height: 800px;
-  width: 500px;
-  opacity: 0;
-}
-
-
-.cineGOD:hover{
-  animation: muchoCINE 5s ease;
-}
-
 
 @keyframes muchoCINE {
   100%{
