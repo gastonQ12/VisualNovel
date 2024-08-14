@@ -35,12 +35,15 @@ document.body.onload = function () {
             eliminarCookie("pjHablando");
 
             var cookieGuardadaDM = cargarPartida();
-
             console.log(cookieGuardadaDM);
         }
 
     }
 
+    var urlAnterior = new URL(window.location);
+    var rutaAnterior = urlAnterior.pathname;
+    localStorage.clear('ub');
+    localStorage.setItem('ub', rutaAnterior);
 
     function eliminarCookie(nombre) {
         document.cookie = nombre + "=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";

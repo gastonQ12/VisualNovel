@@ -1,5 +1,5 @@
 body {
-    background-image: url(imagenes/comisaria.png);
+    background-image: url(imagenes/intro1.png);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -21,15 +21,14 @@ body {
     bottom: 0;
 }
 
+#izquierda {
+    display: none;
+}
 
 #derecha {
     display: none;
 }
-#output{
-    font-size:20px; 
-    z-index: 100;
-     width: 50%;
-}
+
 .cuadroDialogo {
     background-image: url(imagenes/rectangulo.png);
     width: 100%;
@@ -60,8 +59,8 @@ body {
 
 .PJ2 {
     position: absolute;
-    width: 650px;
-    height: 700px;
+    width: 450px;
+    height: 500px;
     left: 0;
     bottom: 0;
 
@@ -74,11 +73,9 @@ body {
 
 :root .op1,
 .op2 {
-    background-color: rgb(88, 88, 88);
+    background-color: rgb(48, 48, 48);
     border: none;
     height: 50px;
-    width: 300px;
-    color: white;
     clip-path: var(--cl);
     transition: 1s;
 
@@ -89,12 +86,14 @@ body {
 .op2 p {
     transform: skewX(30deg);
     margin: 16px;
+
+
 }
 
 .op1:hover {
     background-color: rgb(0, 0, 0);
     clip-path: var(100% at);
-    color: white;
+
     border: 2px solid white;
     cursor: pointer
 }
@@ -272,6 +271,7 @@ body {
 }
 
 #pista10 {
+    /*    opacity: 0%; */
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
@@ -417,20 +417,4 @@ h3 {
 }
 .ContSup{
     display: flex;
-}
-.botonesOpciones{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-
-    right: 80px;
-    bottom: 100px;
-    z-index: 2222;
-}
-.op1, .op2{
-    margin: 20px;
-}
-p{
-    font-size: 18px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
