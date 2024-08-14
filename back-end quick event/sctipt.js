@@ -74,3 +74,49 @@ function letraRandom() {
 //     const indexRandom = Math.floor(Math.random() * letras.length);
 //     return letras[indexRandom];
 // }
+// //declaro las variables
+const tecla = letraRandom();
+const boton = document.getElementById("button");
+const botonTexto = document.getElementById("txt");
+const barraVidaEnemigo = document.getElementById("hpChambon");
+var aux = true;
+
+txt.textContent = tecla;
+ingresarTecla(tecla);
+
+
+//timer
+setTimeout(function() {
+        barraVidaEnemigo( 
+}, 2000);
+
+
+//funcion para ingresar la tecla
+function ingresarTecla(tecla){
+    document.addEventListener('keydown', function(event) {
+        if(tecla==event.key){
+            boton.style.backgroundColor = "green" 
+            aux = true;
+        }
+        else{
+            boton.style.backgroundColor = "red"
+            aux=false;
+        }
+    })
+
+}
+
+
+
+
+// funcion para desaparecer el boton
+// setTimeout(function() {
+//     document.getElementById('button').style.display = 'none';
+// }, 5000);
+
+//funcion para generar la letra random
+function letraRandom() {
+    const letras = ['a', 's', 'd', 'w', 'e', 'q', 'f', 'z', 'x', 'c'];
+    const indexRandom = Math.floor(Math.random() * letras.length);
+    return letras[indexRandom];
+}
