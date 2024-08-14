@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
+
 *{
     margin: 0%;
     padding: 0%;
@@ -29,7 +31,7 @@ body{
     position: absolute;
 }
 
-.button {
+.buttonKey {
     font-size: 50px;
     display: flex;
     justify-content: center;
@@ -37,9 +39,9 @@ body{
     width: 80px;
     height: 80px;
     background: grey;
-    
     align-items: center;
     border: 0;
+    animation: pulsoTecla 0.5s ease infinite;
   }
 
   .hpChabon{
@@ -111,5 +113,79 @@ body{
 
       }
   }
-  
 
+
+
+
+.messageS{
+  margin-bottom: -10%;
+  position: absolute;
+  font-size: 50px;
+  color: green;
+  filter: drop-shadow(4px 4px 0px #000000);
+    outline: 10px;
+    border-color: black;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: "Karantina", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    animation: messageSuccess 1s ease infinite;
+}
+
+.messageF{
+  margin-bottom: -10%;
+  position: absolute;
+  font-size: 50px;
+  color: red;
+  filter: drop-shadow(4px 4px 0px #000000);
+    outline: 10px;
+    border-color: black;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: "Karantina", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    animation: messageSuccess 1s ease infinite;
+}
+
+
+@keyframes messageSuccess {
+  0%{
+    letter-spacing: 10px;
+    opacity: 0.5;
+    transform: translateY(100px);
+  }
+}
+
+
+@keyframes pulsoTecla {
+  0%{
+    transform: translateY(5px);
+  }
+}
+
+.cineGOD{
+  position: absolute;
+  height: 800px;
+  width: 500px;
+  opacity: 0;
+}
+
+
+.cineGOD:hover{
+  animation: muchoCINE 5s ease;
+}
+
+
+@keyframes muchoCINE {
+  100%{
+    opacity: 1;
+  }
+}
