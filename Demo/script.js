@@ -77,12 +77,21 @@ function nuevaPartida(){
 function cargarPartida() {
     var GuardadoCookie1 = "progresoDialogo=" + 3;
     return GuardadoCookie1;
-}
+}    var urlAnterior = new URL(window.location);
+    var rutaAnterior = urlAnterior.pathname;
 */
+if(localStorage.getItem('ub') !== null){
+    localStorage.setItem('ub');
+}
 function cargarPartida(){
-    if(localStorage.getItem("Escondite1") == 1){
-        location.href = "paginas/escondite/escondite.html";
-    }else{
-        location.href = localStorage.getItem('ub');
+    if(localStorage.getItem('ub') !== null){
+
+        if(localStorage.getItem("Escondite1") != 1){
+            location.href = localStorage.getItem('ub');
+        }else{
+            location.href = "paginas/escondite/escondite.html";
+        }
+    }else {
+        location.href = "paginas/partidaNoguardada/partidaN.html"
     }
 }

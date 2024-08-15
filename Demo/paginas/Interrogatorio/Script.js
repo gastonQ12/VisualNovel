@@ -76,6 +76,24 @@ document.body.onload = function () {
     pista5.style.opacity = localStorage.getItem('opacidadPRadio');
     pista1.style.opacity = localStorage.getItem('opacidadP1');
     determinarPE();
+
+    var arrayConvertido = localStorage.getItem('EdgardM');
+    var nuevoArray = JSON.parse(arrayConvertido);
+
+    for(let i = 0; i < nuevoArray.length; i++){
+
+        let subArray = nuevoArray[i];
+        for(let s = 0; s < subArray[i]; s++)
+        if(subArray[s].EdgardM[0] === true){
+          
+            document.getElementById("LP1Si").style.backgroundColor="green";
+            document.getElementById("LP1No").style.backgroundColor="grey";
+        }else{
+            document.getElementById("LP1No").style.backgroundColor="Red";
+            document.getElementById("LP1Si").style.backgroundColor="grey";
+        
+        }
+    }
 }
 
 var derecha = document.getElementById('derS');
