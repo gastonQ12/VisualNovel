@@ -76,7 +76,7 @@ document.body.onload = function () {
     pista5.style.opacity = localStorage.getItem('opacidadPRadio');
     pista1.style.opacity = localStorage.getItem('opacidadP1');
     determinarPE();
-
+/*
     var arrayConvertido = localStorage.getItem('EdgardM');
     var nuevoArray = JSON.parse(arrayConvertido);
 
@@ -94,6 +94,7 @@ document.body.onload = function () {
         
         }
     }
+    */
 }
 
 var derecha = document.getElementById('derS');
@@ -348,14 +349,30 @@ function cambiarColorLabel(){
     var arrayConvertido = localStorage.getItem('EdgardM');
     var nuevoArray = JSON.parse(arrayConvertido);
     
-    if(nuevoArray.EdgardM[0] === true){
+    if(nuevoArray[0] === true){
         document.getElementById("LP1Si").style.backgroundColor="green";
         document.getElementById("LP1No").style.backgroundColor="grey";
     }else{
-        document.getElementById("LP1No").style.backgroundColor="Red";
-        document.getElementById("LP1Si").style.backgroundColor="grey";
-    
+        document.getElementById("LP1No").style.backgroundColor="Red"; 
     }
+     /*
+Concepto
+    var arrayConvertido = localStorage.getItem('EdgardM');
+    var nuevoArray = JSON.parse(arrayConvertido);
+    var z = 1;
+    for(let i = 0; i < nuevoArray.length; i++){
+      
+        var LPString = 'LP' + z + 'Si';
+        console.log(LPString);
+        if(nuevoArray[i] === true){
+            document.getElementById(LPString).style.backgroundColor="green";
+        }else{
+            document.getElementById(LPString).style.backgroundColor="Red";
+        
+        }
+        z++;
+    }
+    */
 }
 
 function updateStatus() {
@@ -366,13 +383,13 @@ function updateStatus() {
     let marcarEdgardP1No = document.getElementById('P1No');
 
     if (marcarEdgardP1Si.checked){
-        nuevoArray.EdgardM[0] = true
+        nuevoArray[0] = true;
         localStorage.removeItem('EdgardM');
         localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
         cambiarColorLabel();
     }
     else if (marcarEdgardP1No.checked){
-        nuevoArray.EdgardM[0] = false
+        nuevoArray[0] = false
         localStorage.removeItem('EdgardM');
         localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
         cambiarColorLabel();

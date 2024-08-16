@@ -138,13 +138,27 @@ function arrayListSospechosos() {
     var pistaTaxiZ = false;
     var pistaRadioZ = false;
     var pistaCadaverZ = false;
-    var sospechosos = new Object();
 
-    sospechosos.EdgardM = [
-        pistaBasuraZ, pistaDialogoZ
+    var EdgardM = [
+        pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
+    ];
+    
+    var HenryW = [
+        pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
     ];
 
-    localStorage.setItem('EdgardM', JSON.stringify(sospechosos));
+    var RichardJ = [
+        pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
+    ];
+    
+    var SophieH = [
+        pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
+    ];
+
+    localStorage.setItem('EdgardM', JSON.stringify(EdgardM));
+    localStorage.setItem('HenryW', JSON.stringify(HenryW));
+    localStorage.setItem('RichardJ', JSON.stringify(RichardJ));
+    localStorage.setItem('SophieH', JSON.stringify(SophieH));
 }
 
 
