@@ -15,6 +15,8 @@ botonTexto.textContent = tecla.toUpperCase();
 
 ingresarTecla(tecla);
 shadow.addEventListener('animationiteration', function(event) {
+    tecla = letraRandom()   
+    botonTexto.textContent = tecla.toUpperCase();
     boton.style.backgroundColor = "red"
     vidaJugador = vidaJugador - 10;
     barraVidaJugador.style.background = `linear-gradient(to right, 
@@ -36,20 +38,25 @@ function ingresarTecla(tecla){
     botonTexto.textContent = tecla.toUpperCase();
     document.addEventListener('keydown', function(event) {
         if(tecla == event.key){
-            boton.style.backgroundColor = "green" 
+            boton.style.backgroundColor = "green";
             vidaEnemigo = vidaEnemigo - 2;
-            barraVidaEnemigo.style.background = `linear-gradient(to right, #AE0909 ${vidaEnemigo}%, white ${vidaEnemigo - 100}%)`;   
-            reiniciarTimer()         
+            barraVidaEnemigo.style.background = `linear-gradient(to right, #AE0909 ${vidaEnemigo}%, white ${vidaEnemigo - 100}%)`; 
             tecla = letraRandom()   
             botonTexto.textContent = tecla.toUpperCase();
         }
         else{
+            
             boton.style.backgroundColor = "red"
             vidaJugador = vidaJugador - 2;
+            //si el jugador muere, redireccciona a la pantalla de muerte
+            if(vidaJugador<=0){
+                location.href = "./Pantalla Muerte/index.html"
+            }
+            //sino baja la vida del jugador
             barraVidaJugador.style.background = `linear-gradient(to right, 
             #AE0909 ${vidaJugador}%, 
             white ${vidaJugador - 100}%)`;
-            tecla = letraRandom()   
+            tecla = letraRandom();
             botonTexto.textContent = tecla.toUpperCase();
             
         }
@@ -66,10 +73,10 @@ function letraRandom() {
 
 function reiniciarTimer() {
     // Guardar el contenido o el elemento en sí
-    const shadowClonado = shadow.cloneNode(true);
+    let shadowClonado = shadow.cloneNode(true);
 
     // Eliminar el elemento original
-    parent.removeChild(shadow);
+    parent.removeChild(shadow);   
 
     // Volver a agregar el elemento al DOM
     parent.appendChild(shadowClonado);
