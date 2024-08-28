@@ -1,0 +1,205 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.cover{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    background-image: url(imgs/fondo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content{
+    width: 900px;
+    height: 200px;
+    background-color: black;
+    background: linear-gradient( to left ,black, rgba(0, 0, 0, 0.3));
+
+}
+
+
+
+.d1{
+    position: absolute;
+    margin-left: -2%;
+    margin-top: -5%;
+    width: 175px;
+    height: 225px;
+    background-color: white;
+    transform: rotate(10deg);
+    background-image: url(imgs/sus1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: ease-in-out 2s sosA;
+}
+
+.d2{
+    position: absolute;
+    margin-left: 10%;
+    margin-top: -5%;
+    width: 175px;
+    height: 225px;
+    background-color: white;
+    transform: rotate(10deg);
+    background-image: url(imgs/sus2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: ease-in-out 1.5s sosA;
+}
+
+.d3{
+    position: absolute;
+    margin-left: 22%;
+    margin-top: -5%;
+    width: 175px;
+    height: 225px;
+    background-color: white;
+    transform: rotate(10deg);
+    background-image: url(imgs/sus3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: ease-in-out 1s sosA;
+}
+
+.d4{
+    position: absolute;
+    margin-left: 34%;
+    margin-top: -5%;
+    width: 175px;
+    height: 225px;
+    background-color: white;
+    transform: rotate(10deg);
+    background-image: url(imgs/sus4.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: ease-in-out 0.5s sosA;
+}
+
+
+
+.d1{
+    transition: all 0.1s;
+}
+.d2{
+    transition: all 0.1s;
+}
+.d3{
+    transition: all 0.1s;
+}
+.d4{
+    transition: all 0.1s;
+}
+
+.d1:hover{
+    transition: 0.1s ease-in-out;
+    transform: scale(1.1);
+    
+
+}
+
+.d2:hover{
+    
+    transition: 0.1s ease-in-out;
+    transform: scale(1.1);
+
+}
+
+.d3:hover{
+    transition: 0.1s ease-in-out;
+    transform: scale(1.1);
+
+}
+
+.d4:hover{
+    transition: 0.1s ease-in-out;
+    transform: scale(1.1);
+
+}
+
+.sus{
+    position: absolute;
+    font-size: 50px;
+    color: white;
+    bottom: 40%;
+    right: 27%;
+    font-family: "Vujahday Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.back{
+    transition: all 0.1s;
+}
+
+.back{
+    font-size: 50px;
+    width: 125px;
+    height: 50px;
+    position: absolute;
+    background-color: white;
+    bottom: 35%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Vujahday Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    border: none;
+}
+
+.back:hover{
+    background-color: black;
+    color: white;
+    transition: 0.1s ease-in-out;
+    transform: scale(1.25);
+
+}
+
+
+@keyframes backButton {
+    100%{
+        scale: 1.2;
+    }
+}
+
+@keyframes sosA {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.circulito{
+    width: 100px;
+    height: 100px;
+    margin-top: 30%;
+    transition: all 0.5s;
+}
+
+.circulito:hover{
+    transform: rotate(180deg);
+}
+
+
