@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
 body{
     background-image: url("img/fondo.png");
+    background-position: 20%;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;

@@ -1,10 +1,13 @@
+document.body.onload = function (){
+    
+}
 var cama = document.getElementById("escondite2");
 var cortinas = document.getElementById("escondite1");
 var balcon = document.getElementById("escondite3");
 var reloj = document.getElementById("reloj");
 var probabilidadSalvarse = 0;
 
-var bajar = 360;
+var bajar = 200000000;
 
 localStorage.setItem("Escondite1", 1);
 

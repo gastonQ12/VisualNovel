@@ -4,7 +4,7 @@ document.body.onload = function () {
     var urlAnterior = new URL(paginaAnterior);
     var rutaAnterior = urlAnterior.pathname;
     var valorPC = 0;
-
+    mapa();
     var urlP = new URL(window.location);
     var rutaP = urlP.pathname;
     localStorage.removeItem('ub');
@@ -40,7 +40,9 @@ document.body.onload = function () {
             }
         }
     }
-    
+    if(localStorage.getItem('EdgardM') == null){
+        arrayListSospechosos();
+    }
 }
 
 const dialogos = [
@@ -85,6 +87,7 @@ var protagonista = localStorage.getItem('NombrePJ');
 const nombrePj = [protagonista, "Ayudante", "Jhon Browns"];                            // nombre de los personajes
 let size = dialogos.length; //tamaño de la lista de dialogos
 var boxD = document.getElementById('cuadroDialogo');
+
 function eliminarCookie(nombre) {
     document.cookie = nombre + "=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 }
@@ -128,16 +131,14 @@ let estadoNPC = document.getElementById("derecha");
 var estadoNPCs = getCookie("estadoPJs");
 estadoNPC.style.display = 'estadoNPCs';
 
-arrayListSospechosos();
-
 
 function arrayListSospechosos() {
 
-    var pistaBasuraZ = false;
-    var pistaDialogoZ = false;
-    var pistaTaxiZ = false;
-    var pistaRadioZ = false;
-    var pistaCadaverZ = false;
+    var pistaBasuraZ = null;
+    var pistaDialogoZ = null;
+    var pistaTaxiZ = null;
+    var pistaRadioZ = null;
+    var pistaCadaverZ = null;
 
     var EdgardM = [
         pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
@@ -178,6 +179,15 @@ function apagarSonido(event) {
             musica.pause();
         }
     });
+}
+function mapa(){
+    let mapa = document.getElementById('ContenedorGris');
+    if(aux < 30){
+    
+        mapa.style.display = 'none';
+    }else{
+        mapa.style.display = 'flex'
+    }
 }
 
 boxD.addEventListener('click', editarTexto);

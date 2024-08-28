@@ -362,63 +362,20 @@ radios5.forEach(radio => {
 });
 
 function cambiarColorLabel(){
-
     var arrayConvertido = localStorage.getItem('EdgardM');
     var nuevoArray = JSON.parse(arrayConvertido);
-    
-    if(nuevoArray[0] === true){
-        document.getElementById("LP1Si").style.backgroundColor="green";
-        document.getElementById("LP1No").style.backgroundColor="grey";
-    }else{
-        document.getElementById("LP1No").style.backgroundColor="Red"; 
-        document.getElementById("LP1Si").style.backgroundColor="gray";
-    }
-    if(nuevoArray[1] === true){
-        document.getElementById("LP2Si").style.backgroundColor="green";
-        document.getElementById("LP2No").style.backgroundColor="grey";
-    }else{
-        document.getElementById("LP2No").style.backgroundColor="Red"; 
-        document.getElementById("LP2Si").style.backgroundColor="gray";
-    }
-    if(nuevoArray[2] === true){
-        document.getElementById("LP3Si").style.backgroundColor="green";
-        document.getElementById("LP3No").style.backgroundColor="grey";
-    }else{
-        document.getElementById("LP3No").style.backgroundColor="Red"; 
-        document.getElementById("LP3Si").style.backgroundColor="gray";
-    }
-    if(nuevoArray[3] === true){
-        document.getElementById("LP4Si").style.backgroundColor="green";
-        document.getElementById("LP4No").style.backgroundColor="grey";
-    }else{
-        document.getElementById("LP4No").style.backgroundColor="Red"; 
-        document.getElementById("LP4Si").style.backgroundColor="gray";
-    }
-    if(nuevoArray[4] === true){
-        document.getElementById("LP5Si").style.backgroundColor="green";
-        document.getElementById("LP5No").style.backgroundColor="grey";
-    }else{
-        document.getElementById("LP5No").style.backgroundColor="Red"; 
-        document.getElementById("LP5Si").style.backgroundColor="gray";
-    }
-     /*
-Concepto
-    var arrayConvertido = localStorage.getItem('EdgardM');
-    var nuevoArray = JSON.parse(arrayConvertido);
-    var z = 1;
     for(let i = 0; i < nuevoArray.length; i++){
-      
-        var LPString = 'LP' + z + 'Si';
-        console.log(LPString);
         if(nuevoArray[i] === true){
-            document.getElementById(LPString).style.backgroundColor="green";
-        }else{
-            document.getElementById(LPString).style.backgroundColor="Red";
-        
+            document.getElementById('LP'+(i+1)+'Si').style.backgroundColor="green";
+            document.getElementById('LP'+(i+1)+'No').style.backgroundColor="grey";
+        }else if(nuevoArray[i] === false){
+            document.getElementById('LP'+(i+1)+'No').style.backgroundColor="Red"; 
+            document.getElementById('LP'+(i+1)+'Si').style.backgroundColor="gray";
+        }else if(nuevoArray[i] === null){
+            document.getElementById('LP'+(i+1)+'No').style.backgroundColor="gray"; 
+            document.getElementById('LP'+(i+1)+'Si').style.backgroundColor="gray";
         }
-        z++;
     }
-    */
 }
 
 function updateStatus() {

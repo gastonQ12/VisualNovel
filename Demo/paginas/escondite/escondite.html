@@ -213,10 +213,32 @@
         .contSup {
             display: flex;
         }
+        #aviso{
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999;
+            background-color: rgb(27, 27, 27);
+        }
+        #aviso h2,#aviso h1,#aviso h3 {
+            color: white;
+        }
     </style>
 </head>
 
 <body>
+    <div id="aviso">
+        <h1>¡ATENCIÓN!</h1>
+        <h3>Estas por ingresar ilegalmente a la vivienda de un sospechoso del caso, ¿Estas seguro de querer hacerlo?</h3>
+        <div>
+            <button onclick="proseguir()" id="SiQ"><h2>PROSEGUIR</h2></button>
+            <button onclick="Irse()" id="NoQ"><h2>RETIRARME</h2></button>    
+        </div>
+    </div>
     <div class="contSup">
 
         <div id="reloj"></div>
