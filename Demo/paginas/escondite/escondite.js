@@ -3,11 +3,44 @@ function proseguir() {
     var aviso = document.getElementById('aviso');
     aviso.style.display = 'none';
     console.log(prob)
+
     if(50 <= prob){
-        esconderse();
+        esconderse(); 
+    }else{
+        sacarTodo();
+        nuv();
     }
 }
+function nuv(){
+    let tempo = 2000000;
 
+    const relojTodoTiempo = setInterval(() => {
+    tempo -= 30;
+    var prob2 = Math.floor(Math.random() * (100 - 10 + 1) + 10);
+    if(50 <= prob2){
+        esconderse(); 
+        ponerTodo();
+        clearInterval(relojTodoTiempo);
+    }
+}, 10000
+);
+}
+function sacarTodo(){
+    let iconosE = document.getElementById('iconosE');
+    let reloj = document.getElementById('reloj');
+    let cuadroDialogo = document.getElementById('cuadroDialogo');
+    cuadroDialogo.style.display = 'none';
+    iconosE.style.display = 'none';
+    reloj.style.display = 'none';
+}
+function ponerTodo(){
+    let iconosE = document.getElementById('iconosE');
+    let reloj = document.getElementById('reloj');
+    let cuadroDialogo = document.getElementById('cuadroDialogo');
+    cuadroDialogo.style.display = 'flex';
+    iconosE.style.display = 'block';
+    reloj.style.display = 'block';
+}
 function esconderse(){
     var cama = document.getElementById("escondite2");
     var cortinas = document.getElementById("escondite1");

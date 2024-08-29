@@ -219,6 +219,9 @@ body {
 #aviso h2,#aviso h1,#aviso h3 {
     color: white;
 }
+#aviso h1{
+    color: red;
+}
 #SiQ, #NoQ{
     background-color: rgb(71, 71, 71);
     
