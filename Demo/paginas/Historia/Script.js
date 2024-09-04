@@ -139,7 +139,7 @@ function arrayListSospechosos() {
     var pistaTaxiZ = null;
     var pistaRadioZ = null;
     var pistaCadaverZ = null;
-
+    
     var EdgardM = [
         pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
     ];
@@ -155,12 +155,10 @@ function arrayListSospechosos() {
     var SophieH = [
         pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
     ];
-
-    localStorage.setItem('EdgardM', JSON.stringify(EdgardM));
-    localStorage.setItem('HenryW', JSON.stringify(HenryW));
-    localStorage.setItem('RichardJ', JSON.stringify(RichardJ));
-    localStorage.setItem('SophieH', JSON.stringify(SophieH));
-}
+    var sospechososLista = [
+        EdgardM, HenryW, RichardJ, SophieH
+    ]
+    localStorage.setItem('Sospechosos', JSON.stringify(sospechososLista));
 
 
 var arrayConvertido = localStorage.getItem('EdgardM');
