@@ -159,7 +159,7 @@ function arrayListSospechosos() {
         EdgardM, HenryW, RichardJ, SophieH
     ]
     localStorage.setItem('Sospechosos', JSON.stringify(sospechososLista));
-
+}
 
 var arrayConvertido = localStorage.getItem('EdgardM');
 arrayConvertido = JSON.parse(arrayConvertido);

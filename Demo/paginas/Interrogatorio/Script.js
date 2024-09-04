@@ -78,25 +78,25 @@ document.body.onload = function () {
     determinarPE();
     cambiarColorLabel();
 
-/*
-    var arrayConvertido = localStorage.getItem('EdgardM');
-    var nuevoArray = JSON.parse(arrayConvertido);
-
-    for(let i = 0; i < nuevoArray.length; i++){
-
-        let subArray = nuevoArray[i];
-        for(let s = 0; s < subArray[i]; s++)
-        if(subArray[s].EdgardM[0] === true){
-          
-            document.getElementById("LP1Si").style.backgroundColor="green";
-            document.getElementById("LP1No").style.backgroundColor="grey";
-        }else{
-            document.getElementById("LP1No").style.backgroundColor="Red";
-            document.getElementById("LP1Si").style.backgroundColor="grey";
-        
+    /*
+        var arrayConvertido = localStorage.getItem('EdgardM');
+        var nuevoArray = JSON.parse(arrayConvertido);
+    
+        for(let i = 0; i < nuevoArray.length; i++){
+    
+            let subArray = nuevoArray[i];
+            for(let s = 0; s < subArray[i]; s++)
+            if(subArray[s].EdgardM[0] === true){
+              
+                document.getElementById("LP1Si").style.backgroundColor="green";
+                document.getElementById("LP1No").style.backgroundColor="grey";
+            }else{
+                document.getElementById("LP1No").style.backgroundColor="Red";
+                document.getElementById("LP1Si").style.backgroundColor="grey";
+            
+            }
         }
-    }
-    */
+        */
 }
 
 var derecha = document.getElementById('derS');
@@ -114,22 +114,24 @@ function moverDer(event) {
 // document.getElementById('P1').textContent = localStorage.getItem("opacidadP1").key;
 
 function determinarPE() {
-
-    if (localStorage.getItem("opacidadP1") != null) {
-        document.getElementById('contP1').style.opacity = 100 + "%";
+    for (let i = 1; i < 6; i++) {
+        if (localStorage.getItem("opacidadP1") != null) {
+            document.getElementById('contP1_'+(i)).style.opacity = 100 + "%";
+        }
+        if (localStorage.getItem("opacidadPCadaver") != null) {
+            document.getElementById('contP2_'+(i)).style.opacity = 100 + "%";
+        }
+        if (localStorage.getItem("opacidadPBasurero") != null) {
+            document.getElementById('contP3_'+(i)).style.opacity = 100 + "%";
+        }
+        if (localStorage.getItem("opacidadPTaxi") != null) {
+            document.getElementById('contP4_'+(i)).style.opacity = 100 + "%";
+        }
+        if (localStorage.getItem("opacidadPRadio") != null) {
+            document.getElementById('contP5_'+(i)).style.opacity = 100 + "%";
+        }
     }
-    if (localStorage.getItem("opacidadPCadaver") != null) {
-        document.getElementById('contP2').style.opacity = 100 + "%";
-    }
-    if (localStorage.getItem("opacidadPBasurero") != null) {
-        document.getElementById('contP3').style.opacity = 100 + "%";
-    }
-    if (localStorage.getItem("opacidadPTaxi") != null) {
-        document.getElementById('contP4').style.opacity = 100 + "%";
-    }
-    if (localStorage.getItem("opacidadPRadio") != null) {
-        document.getElementById('contP5').style.opacity = 100 + "%";
-    }
+    
 }
 
 
@@ -335,145 +337,74 @@ function MostrarPjH(lado) {
     document.addEventListener('keydown', cambioPaginaT);
 }
 
-const radios = document.querySelectorAll('input[name="P1"]');
-const radios2 = document.querySelectorAll('input[name="P2"]');
-const radios3 = document.querySelectorAll('input[name="P3"]');
-const radios4 = document.querySelectorAll('input[name="P4"]');
-const radios5 = document.querySelectorAll('input[name="P5"]');
+const radios = document.querySelectorAll('input[name="P1_1"]');
+const radios2 = document.querySelectorAll('input[name="P2_2"]');
+const radios3 = document.querySelectorAll('input[name="P3_3"]');
+const radios4 = document.querySelectorAll('input[name="P4_4"]');
+const radios5 = document.querySelectorAll('input[name="P5_5"]');
 
 radios.forEach(radio => {
     radio.addEventListener('change', updateStatus);
 });
 
 radios2.forEach(radio => {
-    radio.addEventListener('change', updateStatus2);
+    radio.addEventListener('change', updateStatus);
 });
 
 radios3.forEach(radio => {
-    radio.addEventListener('change', updateStatus3);
+    radio.addEventListener('change', updateStatus);
 });
 
 radios4.forEach(radio => {
-    radio.addEventListener('change', updateStatus4);
+    radio.addEventListener('change', updateStatus);
 });
 
 radios5.forEach(radio => {
-    radio.addEventListener('change', updateStatus5);
+    radio.addEventListener('change', updateStatus);
 });
 
-function cambiarColorLabel(){
-    var arrayConvertido = localStorage.getItem('EdgardM');
+function cambiarColorLabel() {
+    var arrayConvertido = localStorage.getItem('Sospechosos');
     var nuevoArray = JSON.parse(arrayConvertido);
-    for(let i = 0; i < nuevoArray.length; i++){
-        if(nuevoArray[i] === true){
-            document.getElementById('LP'+(i+1)+'Si').style.backgroundColor="green";
-            document.getElementById('LP'+(i+1)+'No').style.backgroundColor="grey";
-        }else if(nuevoArray[i] === false){
-            document.getElementById('LP'+(i+1)+'No').style.backgroundColor="Red"; 
-            document.getElementById('LP'+(i+1)+'Si').style.backgroundColor="gray";
-        }else if(nuevoArray[i] === null){
-            document.getElementById('LP'+(i+1)+'No').style.backgroundColor="gray"; 
-            document.getElementById('LP'+(i+1)+'Si').style.backgroundColor="gray";
+    for (let i = 0; i < nuevoArray.length; i++) {
+        var elemento = nuevoArray[i];
+        for (let g = 0; i < elemento.length; g++) {
+            if (elemento[i] === true) {
+                document.getElementById('LP' + (i + 1) + 'Si_' + (i + 1)).style.backgroundColor = "green";
+                document.getElementById('LP' + (i + 1) + 'No_' + (i + 1)).style.backgroundColor = "grey";
+            } else if (elemento[i] === false) {
+                document.getElementById('LP' + (i + 1) + 'No_' + (i + 1)).style.backgroundColor = "Red";
+                document.getElementById('LP' + (i + 1) + 'Si_' + (i + 1)).style.backgroundColor = "gray";
+            } else if (elemento[i] === null) {
+                document.getElementById('LP' + (i + 1) + 'No_' + (i + 1)).style.backgroundColor = "gray";
+                document.getElementById('LP' + (i + 1) + 'Si_' + (i + 1)).style.backgroundColor = "gray";
+            }
         }
     }
 }
 
 function updateStatus() {
-    var arrayConvertido = localStorage.getItem('EdgardM');
+    var arrayConvertido = localStorage.getItem('Sospechosos');
     var nuevoArray = JSON.parse(arrayConvertido);
+    for (let i = 0; i < nuevoArray.length; i++) {
+        var elemento = nuevoArray[i];
+        for (let g = 0; g < elemento.length; g++) {
+            var marcarEdgardSi = document.getElementById('P' + (i + 1) + 'Si_' + (g + 1));
+            var marcarEdgardNo = document.getElementById('P' + (i + 1) + 'No_' + (g + 1));
 
-    let marcarEdgardP1Si = document.getElementById('P1Si');
-    let marcarEdgardP1No = document.getElementById('P1No');
-
-    if (marcarEdgardP1Si.checked){
-        nuevoArray[0] = true;
-        localStorage.removeItem('EdgardM');
-        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
-        cambiarColorLabel();
-    }
-    else if (marcarEdgardP1No.checked){
-        nuevoArray[0] = false
-        localStorage.removeItem('EdgardM');
-        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
-        cambiarColorLabel();
-    }
-}
-function updateStatus2() {
-    var arrayConvertido = localStorage.getItem('EdgardM');
-    var nuevoArray = JSON.parse(arrayConvertido);
-    let marcarEdgardP2Si = document.getElementById('P2Si');
-    let marcarEdgardP2No = document.getElementById('P2No');
-
-    if (marcarEdgardP2Si.checked){
-        nuevoArray[1] = true;
-        localStorage.removeItem('EdgardM');
-        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
-        cambiarColorLabel();
-    }
-    else if (marcarEdgardP2No.checked){
-        nuevoArray[1] = false
-        localStorage.removeItem('EdgardM');
-        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
-        cambiarColorLabel();
-    }
-}
-
-function updateStatus3() {
-    var arrayConvertido = localStorage.getItem('EdgardM');
-    var nuevoArray = JSON.parse(arrayConvertido);
-    let marcarEdgardP3Si = document.getElementById('P3Si');
-    let marcarEdgardP3No = document.getElementById('P3No');
-
-    if (marcarEdgardP3Si.checked){
-        nuevoArray[2] = true;
-        localStorage.removeItem('EdgardM');
-        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
-        cambiarColorLabel();
-    }
-    else if (marcarEdgardP3No.checked){
-        nuevoArray[2] = false
-        localStorage.removeItem('EdgardM');
-        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
-        cambiarColorLabel();
-    }
-}
-function updateStatus4() {
-    var arrayConvertido = localStorage.getItem('EdgardM');
-    var nuevoArray = JSON.parse(arrayConvertido);
-    let marcarEdgardP4Si = document.getElementById('P4Si');
-    let marcarEdgardP4No = document.getElementById('P4No');
-
-    if (marcarEdgardP4Si.checked){
-        nuevoArray[3] = true;
-        localStorage.removeItem('EdgardM');
-        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
-        cambiarColorLabel();
-    }
-    else if (marcarEdgardP4No.checked){
-        nuevoArray[3] = false
-        localStorage.removeItem('EdgardM');
-        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
-        cambiarColorLabel();
-    }
-}
-
-function updateStatus5() {
-    var arrayConvertido = localStorage.getItem('EdgardM');
-    var nuevoArray = JSON.parse(arrayConvertido);
-    let marcarEdgardP5Si = document.getElementById('P5Si');
-    let marcarEdgardP5No = document.getElementById('P5No');
-
-    if (marcarEdgardP5Si.checked){
-        nuevoArray[4] = true;
-        localStorage.removeItem('EdgardM');
-        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
-        cambiarColorLabel();
-    }
-    else if (marcarEdgardP5No.checked){
-        nuevoArray[4] = false
-        localStorage.removeItem('EdgardM');
-        localStorage.setItem('EdgardM', JSON.stringify(nuevoArray));
-        cambiarColorLabel();
+            if (marcarEdgardSi.checked){
+                elemento[g] = true;
+                localStorage.removeItem('Sospechosos');
+                localStorage.setItem('Sospechosos', JSON.stringify(nuevoArray));
+                cambiarColorLabel();
+            }
+            else if (marcarEdgardNo.checked){
+                elemento[g] = false;
+                localStorage.removeItem('Sospechosos');
+                localStorage.setItem('Sospechosos', JSON.stringify(nuevoArray));
+                cambiarColorLabel();
+            }
+        }
     }
 }
 
