@@ -114,9 +114,9 @@ function moverDer(event) {
 // document.getElementById('P1').textContent = localStorage.getItem("opacidadP1").key;
 
 function determinarPE() {
-    for(let i = 0; i < 6; i++){
+    for(let i = 0; i < 5; i++){
         if (localStorage.getItem("opacidadP1") != null) {
-            document.getElementById('contP1_'+(i+1)).style.opacity = 100 + "%";
+            var contP1 =document.getElementById('contP1_'+(i+1)).style.opacity = 100 + "%";
         }
         if (localStorage.getItem("opacidadPCadaver") != null) {
             document.getElementById('contP2_'+(i+1)).style.opacity = 100 + "%";
