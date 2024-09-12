@@ -77,7 +77,7 @@ document.body.onload = function () {
     pista1.style.opacity = localStorage.getItem('opacidadP1');
     determinarPE();
     cambiarColorLabel();
-
+    determinarPersonajeExistente();
 /*
     var arrayConvertido = localStorage.getItem('EdgardM');
     var nuevoArray = JSON.parse(arrayConvertido);
@@ -145,19 +145,48 @@ function determinarPE() {
    
 }
 
+function determinarPersonajeExistente() {
+    for(let i = 0; i < 4; i++){
+        if (localStorage.getItem("Sophie") !== null) {
+            var contP1 =document.getElementById('sophie').style.opacity = 100 + "%";
+        }else{
+            document.getElementById('sophie').style.display= 'none';
+        }
+        if (localStorage.getItem("Henry") != null) {
+            document.getElementById('henry').style.opacity = 100 + "%";
+        }else{
+            document.getElementById('henry').style.display= 'none';
+        }
+        if (localStorage.getItem("Edgar") !== null) {
+            document.getElementById('edgar').style.opacity = 100 + "%";
+        }else{
+            document.getElementById('edgar').style.display= 'none';
+        }
+        if (localStorage.getItem("Richard") !== null) {
+            document.getElementById('richard').style.opacity = 100 + "%";
+        }else{
+            document.getElementById('richard').style.display= 'none';
+        }
+    }
+   
+}
 
 function moverIzq(event) {
     hoja.scrollLeft += -150;
 }
-const dialogos = [
-    '  3 de febrero de 1910 a las 11:45 AM, Londres.',
-    '2.Bastante.',
-    '3.',
-    '1.',
-    '3.']; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
-
 var protagonista = localStorage.getItem('NombrePJ');
-const nombrePj = [protagonista, "Sospechoso"];                            // nombre de los personajes
+const dialogos = [
+    '  3 de febrero de 1910 a las 12:45 AM, Londres.',
+    '1. Buenas noches señora (Apellido), soy el detective '+ protagonista+ ', ¿Tiene un minuto?',
+    '2. Claro, adelante... pase. '+ mostrarSophie(),
+    '2. Entonces, ¿Que sucede detective?',
+    '1. Sera mejor que tome asiento, la noticia puede ser muy fuerte.',
+    '2. Esta bien, acompañeme. ',
+    '1. Bueno, señora (Apellido), lamento informarle que su esposo, el señor (Apellido)',
+    '1. Sera mejor que tome asiento, la noticia puede ser muy fuerte.']; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
+
+
+const nombrePj = [protagonista, "Sophie (Apellido)"];                            // nombre de los personajes
 let size = dialogos.length; //tamaño de la lista de dialogos
 var boxD = document.getElementById('cuadroDialogo');
 
@@ -211,7 +240,10 @@ function libretaAnotarComentarios(aux) {
 
 }
 
-
+function mostrarSophie(){
+    localStorage.setItem("Sophie", true);
+    determinarPersonajeExistente();
+}
 function mostrarDialogos(auxiliar) {
 
     //extrae la posicion del personaje
@@ -238,12 +270,7 @@ function cambiarSrc(aux) {
         case 2:
             imagen.src = 'imagenes/policia.png';
             imagen.addEventListener('click', imagen.onload);
-            document.cookie = "pjHablando=" + 'imagenes/policia.png';
-            break;
-        case 1:
-            imagen.src = 'imagenes/ayudante.png';
-            imagen.addEventListener('click', imagen.onload);
-            document.cookie = "pjHablando=" + 'imagenes/ayudante.png';
+            document.cookie = "pjHablando=" + 'imagenes/SophieInd.png';
             break;
     }
 }
