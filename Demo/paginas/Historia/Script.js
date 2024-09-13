@@ -81,7 +81,8 @@ const dialogos = [
     '1.Necesito los datos de la victima, domicilio, familiares e indagar en esto.',
     '3. Claro, segun sus pertenencias se llama (Nombre), vive en Golden Lane, 57 y su estado civil es casado.',
     '1. Bueno, ire a visitar a la viuda entonces y a hacerle unas preguntas.',
-    '2. Yo ire a la comisaria a hacer papeleo... nos vemos luego.']; 
+    '2. Yo ire a la comisaria a hacer papeleo... nos vemos luego.',
+    location.href = '../Mapa/Mapa.html']; 
 //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
 
 var protagonista = localStorage.getItem('NombrePJ');
