@@ -9,7 +9,7 @@ document.body.onload = function () {
     var rutaP = urlP.pathname;
     localStorage.removeItem('ub');
     localStorage.setItem('ub', rutaP);
-    
+
     if (valorPC == 0) {
         if (rutaAnterior.includes("capituloCarga/index.html")) {
             if (valorPC == 0) {
@@ -26,7 +26,7 @@ document.body.onload = function () {
                 eliminarCookie("opacidadPTaxi");
                 eliminarCookie("pistas");
                 eliminarCookie("pjHablando");
-                
+
                 localStorage.removeItem('opacidadP1');
                 localStorage.removeItem('opacidadPRadio');
                 localStorage.removeItem('opacidadPBasurero');
@@ -34,15 +34,17 @@ document.body.onload = function () {
                 localStorage.removeItem('OpacidadPCadaver');
 
                 console.log("cookie eliminada");
-                
+
                 document.location.reload();
                 valorPC++;
             }
         }
     }
-    if(localStorage.getItem('EdgardM') == null){
+    if (localStorage.getItem('EdgardM') == null) {
         arrayListSospechosos();
     }
+
+
 }
 
 const dialogos = [
@@ -81,8 +83,9 @@ const dialogos = [
     '1.Necesito los datos de la victima, domicilio, familiares e indagar en esto.',
     '3. Claro, segun sus pertenencias se llama (Nombre), vive en Golden Lane, 57 y su estado civil es casado.',
     '1. Bueno, ire a visitar a la viuda entonces y a hacerle unas preguntas.',
-    '2. Yo ire a la comisaria a hacer papeleo... nos vemos luego.',
-    location.href = '../Mapa/Mapa.html']; 
+    '2. Yo ire a la comisaria a hacer papeleo... nos vemos luego.'
+
+];
 //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
 
 var protagonista = localStorage.getItem('NombrePJ');
@@ -141,11 +144,11 @@ function arrayListSospechosos() {
     var pistaTaxiZ = null;
     var pistaRadioZ = null;
     var pistaCadaverZ = null;
-    
+
     var EdgardM = [
         pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
     ];
-    
+
     var HenryW = [
         pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
     ];
@@ -153,7 +156,7 @@ function arrayListSospechosos() {
     var RichardJ = [
         pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
     ];
-    
+
     var SophieH = [
         pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
     ];
@@ -180,12 +183,11 @@ function apagarSonido(event) {
         }
     });
 }
-function mapa(){
+function mapa() {
     let mapa = document.getElementById('ContenedorGris');
-    if(aux < 30){
-    
+    if (aux < 30) {
         mapa.style.display = 'none';
-    }else{
+    } else {
         mapa.style.display = 'flex'
     }
 }
@@ -338,7 +340,7 @@ function encontrarPistaBasurero(event) {
     pista2.style.opacity = opacidad;
     document.cookie = "opacidadPBasurero=" + opacidad;
     localStorage.setItem("opacidadPBasurero", 100);
-    return 
+    return
 }
 function encontrarPistaTaxi(event) {
     var opacidad = 100 + '%';
