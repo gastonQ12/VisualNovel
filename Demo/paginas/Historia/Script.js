@@ -1,4 +1,5 @@
 let aux = 0;
+localStorage.setItem('codigoPartidaActual', localStorage.getItem('codigoPartida'));
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
     var urlAnterior = new URL(paginaAnterior);
@@ -102,6 +103,10 @@ if (leer !== "") {
     mostrarDialogos(aux); // Mostrar el diálogo guardado
 
 }
+if(aux > 27){
+    localStorage.setItem('OpacidadP1', 100)
+}
+
 
 var fondo = getCookie("fondo");
 body.style.backgroundImage = fondo;
@@ -119,7 +124,7 @@ var pistaRadio = getCookie("opacidadPRadio");
 pista5.style.opacity = pistaRadio;
 
 let pista1 = document.getElementById("pista1");
-var pista1G = getCookie("opacidadP1");
+var pista1G = localStorage.getItem('OpacidadP1') + "%";
 pista1.style.opacity = pista1G;
 
 var pjHablandoS = getCookie("pjHablando");
@@ -193,24 +198,23 @@ function mapa() {
 }
 
 boxD.addEventListener('click', editarTexto);
+
+descubrirSophieC();
+
+function descubrirSophieC(){
+    if(aux > 30){
+        localStorage.setItem('SophieCasa', true);
+    }
+}
+
 function editarTexto(event) {
     if (aux <= size - 1) {
-        //ocultar los botones 
-        document.getElementById("botonOpcion").setAttribute('hidden', '');
-        document.getElementById("botonOpcion2").setAttribute('hidden', '');
         //mostrar dialogos
         mostrarDialogos(aux);
         aux++
         cambiarFondo(aux);
         boxD.addEventListener('click', crearCookies(aux));
-        libretaAnotarComentarios(aux);
         cargadoPistas(aux);
-    }
-    else {
-        //mostrar botones y desactivar el dialogo
-        var op1 = document.getElementById("botonOpcion").removeAttribute("hidden");
-        var op2 = document.getElementById("botonOpcion2").removeAttribute("hidden");
-
     }
 }
 function getCookie(cname) {
@@ -229,22 +233,6 @@ function crearCookies(aux) {
     document.cookie = "progresoDialogo=" + aux;
 }
 
-
-
-function libretaAnotarComentarios(aux) {
-    let pista1 = document.getElementById("pista1");
-    if (aux == 27) {
-        var opacidad = 100 + "%";
-        pista1.style.opacity = opacidad;
-        document.cookie = "opacidadP1=" + opacidad; //guardado de cookies, no tocar -Lau
-        localStorage.setItem("opacidadP1", 100);
-    }
-
-    document.getElementById("botonOpcion2").addEventListener("click", function () {
-        //aca una pista luego de un click  
-    });
-
-}
 
 function cargadoPistas(aux) {
     var pistas = document.getElementById("pistas");

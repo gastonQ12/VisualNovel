@@ -1,10 +1,14 @@
 // import { cargarPartida } from '../../script.js';
 let aux = 0;
+
+const partidaA = localStorage.getItem('codigoPartidaActual');
+const partidaAnti = localStorage.getItem('codigoPartida');
+
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
-    var valorPC = 0;
-    if (paginaAnterior == "http://127.0.0.1:5500/paginas/capituloCarga/index.html") {
-        if (valorPC == 0) {
+    var valorPC = 1;
+    if(partidaA !== partidaAnti){
+        if (valorPC == 1) {
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
             eliminarCookie("estadoNPCs");
@@ -39,7 +43,8 @@ document.body.onload = function () {
         }
 
     }
-
+        
+    
     var urlAnterior = new URL(window.location);
     var rutaAnterior = urlAnterior.pathname;
     localStorage.removeItem('ub');
@@ -74,7 +79,7 @@ document.body.onload = function () {
     pista3.style.opacity = localStorage.getItem('opacidadPTaxi');
     pista4.style.opacity = localStorage.getItem('opacidadPCadaver');
     pista5.style.opacity = localStorage.getItem('opacidadPRadio');
-    pista1.style.opacity = localStorage.getItem('opacidadP1');
+    pista1.style.opacity = localStorage.getItem('OpacidadP1');
     determinarPE();
     cambiarColorLabel();
     determinarPersonajeExistente();
@@ -115,7 +120,7 @@ function moverDer(event) {
 
 function determinarPE() {
     for(let i = 0; i < 4; i++){
-        if (localStorage.getItem("opacidadP1") !== null) {
+        if (localStorage.getItem("OpacidadP1") !== null) {
             var contP1 =document.getElementById('contP1_'+(i+1)).style.opacity = 100 + "%";
         }else{
             document.getElementById('contP1_'+(i+1)).style.opacity = 0 + "%";
@@ -168,7 +173,6 @@ function determinarPersonajeExistente() {
             document.getElementById('richard').style.display= 'none';
         }
     }
-   
 }
 
 function moverIzq(event) {
@@ -183,7 +187,16 @@ const dialogos = [
     '1. Sera mejor que tome asiento, la noticia puede ser muy fuerte.',
     '2. Esta bien, acompañeme. ',
     '1. Bueno, señora (Apellido), lamento informarle que su esposo, el señor (Apellido)',
-    '1. Sera mejor que tome asiento, la noticia puede ser muy fuerte.']; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
+    '1. Debo informarle que su esposo, el Señor (Apellido), lamentablemente fallecio hace pocas horas',
+    '2. Oh... ¿Cuando...? ¿Como?, lo vi hace apenas unas horas...',
+    '1. Murio en un callejon a pocas cuadras, la teoria es que fue emboscado, ¿Sabe de algun sujeto que le guarde rencor?',
+    '2. Ah... no, el no era una mala persona o una que buscara conflictos innecesarios, era tierno, comprensivo y amoroso...',
+    '1. ¿Algo que deba contarnos sobre su intimidad?',
+    '2. ¿Que insinua detective?',
+    '1. Necesito saber si hubo alguien fuera del matrimonio que podria tener celos, algun amante resentido.',
+    '2. No detective, no ofenda nuestro matrimonio puro, eramos el uno para el otro',
+    '1. Bueno... necesito un indicio'
+]; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
 
 
 const nombrePj = [protagonista, "Sophie (Apellido)"];                            // nombre de los personajes
@@ -231,7 +244,7 @@ function libretaAnotarComentarios(aux) {
     if (aux == 27) {
         var opacidad = 100 + "%";
         pista1.style.opacity = opacidad;
-        document.cookie = "opacidadP1=" + opacidad; //guardado de cookies, no tocar -Lau
+        document.cookie = "OpacidadP1=" + opacidad; //guardado de cookies, no tocar -Lau
     }
 
     document.getElementById("botonOpcion2").addEventListener("click", function () {
@@ -264,14 +277,21 @@ function mostrarDialogos(auxiliar) {
 
 }
 
-function cambiarSrc(aux) {
+function cambiarSrc(auxs) {
     var imagen = document.getElementById('izquierda');
-    switch (aux) {
-        case 2:
-            imagen.src = 'imagenes/policia.png';
+    switch (auxs) {
+        case 1:
+            imagen.src = 'imagenes/SophieInd.png';
             imagen.addEventListener('click', imagen.onload);
             document.cookie = "pjHablando=" + 'imagenes/SophieInd.png';
+           /* 
+            if(aux >= 4 ){
+                imagen.src = 'imagenes/SophieTriste.jpg';
+                imagen.addEventListener('click', imagen.onload);
+                document.cookie = "pjHablando=" + 'imagenes/SophieTriste.jpg';
+            }
             break;
+            */
     }
 }
 function pjOcultos(aux) {
@@ -410,7 +430,6 @@ function updateStatus() {
 
         if (Array.isArray(ind)) {
             for(let g = 0; g < ind.length; g++){
-                console.log(g)
                 let marcarEdgardP1Si = document.getElementById('P'+(g+1)+'Si_'+(i+1));
                 let marcarEdgardP1No = document.getElementById('P'+(g+1)+'No_'+(i+1));
                 if (marcarEdgardP1Si && marcarEdgardP1Si.checked){
