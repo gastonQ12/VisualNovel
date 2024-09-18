@@ -3,9 +3,6 @@ const abrCreditos = document.querySelector("#abrir_creditos");
 const cerCreditos = document.querySelector("#cerrar_creditos");
 const creditos = document.querySelector("#creditos");
 
-window.localStorage.setItem("Dada", "HOLAAAAA");
-window.localStorage.setItem('miDato', 'Hola Mundo');
-
 abrCreditos.addEventListener("click", () => {
     creditos.showModal();
 })

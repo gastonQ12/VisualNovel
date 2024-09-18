@@ -1,5 +1,22 @@
 let aux = 0;
-localStorage.setItem('codigoPartidaActual', localStorage.getItem('codigoPartida'));
+function generarClaveAleatoria(longitud) {
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let clave = '';
+    for (let i = 0; i < longitud; i++) {
+        const randomIndex = Math.floor(Math.random() * caracteres.length);
+        clave += caracteres[randomIndex];
+    }
+    return clave;
+}
+
+if(localStorage.getItem('codigoPartida') !== null){
+    console.log(new URL(document.referrer).pathname);
+    if( new URL(document.referrer).pathname !== '/Demo/index.html' ){
+        localStorage.setItem('codigoPartidaActual', generarClaveAleatoria(7));
+    }
+}else{
+    localStorage.setItem('codigoPartidaActual', localStorage.getItem('codigoPartida'));
+}
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
     var urlAnterior = new URL(paginaAnterior);
