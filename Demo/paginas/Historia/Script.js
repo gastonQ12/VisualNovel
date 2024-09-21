@@ -1,4 +1,5 @@
 let aux = 0;
+
 localStorage.setItem('codigoPartidaActual', localStorage.getItem('codigoPartida'));
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
