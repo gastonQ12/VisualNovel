@@ -1,6 +1,65 @@
 let aux = 0;
 
 localStorage.setItem('codigoPartidaActual', localStorage.getItem('codigoPartida'));
+
+function generarClaveAleatoria(longitud) {
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let clave = '';
+    for (let i = 0; i < longitud; i++) {
+        const randomIndex = Math.floor(Math.random() * caracteres.length);
+        clave += caracteres[randomIndex];
+    }
+    return clave;
+}
+
+if(localStorage.getItem('partidasGuardadasLista') == null){
+    localStorage.setItem('partidasGuardadasLista', "[]");
+}
+
+if (localStorage.getItem('codigoPartida') !== null) {
+    if (new URL(document.referrer).pathname == '/Demo/paginas/capituloCarga/index.html') {
+        localStorage.setItem('codigoPartidaActual', generarClaveAleatoria(7));
+        const codigoActual = localStorage.getItem('codigoPartidaActual')
+
+        const Partida = {
+            partida: codigoActual,
+            fechaCreacion: new Date().toISOString(),
+            DatosPartida: {}
+        };
+
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i); 
+            const value = localStorage.getItem(key); 
+            Partida.DatosPartida[key] = value;
+        }
+        var partidasGuardadas = JSON.parse(localStorage.getItem('partidasGuardadasLista'))
+
+        partidasGuardadas.push(Partida);
+       
+        localStorage.setItem('partidasGuardadasLista', JSON.stringify(partidasGuardadas));
+    
+    }
+    /*
+    if(localStorage.getItem("PartidasArray") !== null){
+        localStorage.setItem("PartidasArray", JSON.stringify(partidasGuardadas));
+    }else{
+        partidas recuepradas = localStorage.getItem("PartidasArray");
+        JSON.parse
+    }
+    */
+} else {
+    localStorage.setItem('codigoPartidaActual', localStorage.getItem('codigoPartida'));
+}
+localStorage.setItem('DatosGenerales', '[]');
+
+function guardarDatosLocal(){
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i); 
+        const value = localStorage.getItem(key); 
+    }
+}
+
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
     var urlAnterior = new URL(paginaAnterior);
@@ -104,7 +163,7 @@ if (leer !== "") {
     mostrarDialogos(aux); // Mostrar el diálogo guardado
 
 }
-if(aux > 27){
+if (aux > 27) {
     localStorage.setItem('OpacidadP1', 100)
 }
 
@@ -202,8 +261,8 @@ boxD.addEventListener('click', editarTexto);
 
 descubrirSophieC();
 
-function descubrirSophieC(){
-    if(aux > 30){
+function descubrirSophieC() {
+    if (aux > 30) {
         localStorage.setItem('SophieCasa', true);
     }
 }
@@ -490,4 +549,4 @@ function MostrarPjH(lado) {
     }
     document.addEventListener('keydown', cambioPaginaT);
 }
-
+guardarDatosLocal();

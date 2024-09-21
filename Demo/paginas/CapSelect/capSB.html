@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Capitulos</title>
+</head>
+<body>
+    <div class="cover">
+        <h1 class="titulo">ECHOES OF BLOOD</h1>
+        <h3 class="res">RESUMENES</h3>
+        <img class="dec" src="imgs/dec.png" alt="">
+        <div class="capS">
+            <div class="capB2">
+                <img class="no" src="imgs/Group 136.png" alt="">
+                <img class="c2" src="imgs/secayoElporton.png" alt="">
+            </div>
+            <div class="capB3">
+                <img class="no2" src="imgs/Group 136.png" alt="">
+                <img class="c3" src="imgs/secayoElporton.png" alt="">
+            </div>
+            <div class="capB4">
+                <img class="no4" src="imgs/Group 136.png" alt="">
+                <img class="c4" src="imgs/secayoElporton.png" alt="">
+            </div>
+            <div class="capB5">
+                <img class="no5" src="imgs/Group 136.png" alt="">
+                <img class="c5" src="imgs/secayoElporton.png" alt="">
+            </div>
+            
+            <div class="cap1"> <p class="capN">CAPITULO I:   <span>NOMBRE DEL CAPITULO</span></p> </div>
+            <div class="cap2"> <p class="capN">CAPITULO II:  <span>NOMBRE DEL CAPITULO</span></p> </div>
+            <div class="cap3"> <p class="capN">CAPITULO III: <span>NOMBRE DEL CAPITULO</span></p> </div>
+            <div class="cap4"> <p class="capN">CAPITULO IV:  <span>NOMBRE DEL CAPITULO</span></p> </div>
+            <div class="cap5"> <p class="capN">CAPITULO V:   <span>NOMBRE DEL CAPITULO</span></p> </div>
+        </div>
+        <script>
+            const cine = document.querySelector(".capB2");
+            const candado = document.querySelector(".no");
+            const candado2 = document.querySelector(".c2");
+            
+
+            const cine1 = document.querySelector(".capB3");
+            const candadoB = document.querySelector(".no2");
+            const candadoB2 = document.querySelector(".c3");
+
+
+            const cine2 = document.querySelector(".capB4");
+            const candadoC = document.querySelector(".no4");
+            const candadoC2 = document.querySelector(".c4");
+
+            const cine3 = document.querySelector(".capB5");
+            const candadoD = document.querySelector(".no5");
+            const candadoD2 = document.querySelector(".c5");
+
+            candado.addEventListener("click", () => {
+                candado.classList.toggle("desbloqueado")
+                cine.classList.toggle("chauPibe")
+                candado2.classList.toggle("holaPibe")
+            })
+
+            candadoB.addEventListener("click", () => {
+                candadoB.classList.toggle("desbloqueado")
+                cine1.classList.toggle("chauPibe")
+                candadoB2.classList.toggle("holaPibe")
+            })
+
+            candadoC.addEventListener("click", () => {
+                candadoC.classList.toggle("desbloqueado")
+                cine2.classList.toggle("chauPibe")
+                candadoC2.classList.toggle("holaPibe")
+            })
+
+            candadoD.addEventListener("click", () => {
+                candadoD.classList.toggle("desbloqueado")
+                cine3.classList.toggle("chauPibe")
+                candadoD2.classList.toggle("holaPibe")
+            })
+            
+
+            
+        </script>
+    </div>
+</body>
+</html>
