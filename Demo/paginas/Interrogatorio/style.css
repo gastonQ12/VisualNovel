@@ -1,5 +1,5 @@
 body {
-    background-image: url(imagenes/escenarioDep.png);
+    background-image: url(imagenes/casaMaria.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -10,7 +10,35 @@ body {
 * {
     user-select: none;
 }
+#iconosE{
+}
+#escondite1{
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+    left: 45%;
+    top: 32%;
+}
 
+#escondite2{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    position: absolute;
+    left: 25%;
+    top: 30%;
+}
+
+#reloj {
+    display: none;
+    width: 80px;
+    height: 80px;
+    border: 4px solid black;
+    margin: 20px;
+    border-radius: 100px;
+    background: conic-gradient(red, 360deg, white 0deg);
+}
 @media(max-width: 1373px) {
     body {
         background-size: cover;
