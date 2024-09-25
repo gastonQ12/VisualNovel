@@ -83,6 +83,7 @@ function esconderse(){
         salvado(probabilidadSalvarse);
     });
 }
+
 function volver(event) {
     document.location.href = "../../Pantalla Muerte/index.html";
 }

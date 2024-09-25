@@ -53,21 +53,6 @@
             document.cookie = "progresoDialogo=" + aux;
         }
 
-        function libretaAnotarComentarios(aux) {
-            let pista1 = document.getElementById("pista1");
-            if (aux == 27) {
-                var opacidad = 100 + "%";
-                pista1.style.opacity = opacidad;
-                document.cookie = "opacidadP1=" + opacidad; //guardado de cookies, no tocar -Lau
-                localStorage.setItem("opacidadP1", 100);
-            }
-
-            document.getElementById("botonOpcion2").addEventListener("click", function () {
-                //aca una pista luego de un click  
-            });
-
-        }
-
         function cargadoPistas(aux) {
             var pistas = document.getElementById("pistas");
             var boxD = document.getElementById('cuadroDialogo');

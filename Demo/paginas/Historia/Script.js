@@ -203,32 +203,34 @@ estadoNPC.style.display = 'estadoNPCs';
 
 
 function arrayListSospechosos() {
-
-    var pistaBasuraZ = null;
-    var pistaDialogoZ = null;
-    var pistaTaxiZ = null;
-    var pistaRadioZ = null;
-    var pistaCadaverZ = null;
-
-    var EdgardM = [
-        pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
-    ];
-
-    var HenryW = [
-        pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
-    ];
-
-    var RichardJ = [
-        pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
-    ];
-
-    var SophieH = [
-        pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
-    ];
-    var sospechososLista = [
-        EdgardM, HenryW, RichardJ, SophieH
-    ]
-    localStorage.setItem('Sospechosos', JSON.stringify(sospechososLista));
+    if(localStorage.getItem('Sospechosos') == null){
+        var pistaBasuraZ = null;
+        var pistaDialogoZ = null;
+        var pistaTaxiZ = null;
+        var pistaRadioZ = null;
+        var pistaCadaverZ = null;
+    
+        var EdgardM = [
+            pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
+        ];
+    
+        var HenryW = [
+            pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
+        ];
+    
+        var RichardJ = [
+            pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
+        ];
+    
+        var SophieH = [
+            pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
+        ];
+        var sospechososLista = [
+            EdgardM, HenryW, RichardJ, SophieH
+        ]
+        localStorage.setItem('Sospechosos', JSON.stringify(sospechososLista));
+    
+    }
 }
 
 var arrayConvertido = localStorage.getItem('EdgardM');
