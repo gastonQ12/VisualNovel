@@ -35,7 +35,7 @@ if (localStorage.getItem('codigoPartida') !== null) {
         var partidasGuardadas = JSON.parse(localStorage.getItem('partidasGuardadasLista'))
 
         partidasGuardadas.push(Partida);
-       
+
         localStorage.setItem('partidasGuardadasLista', JSON.stringify(partidasGuardadas));
     
     }
