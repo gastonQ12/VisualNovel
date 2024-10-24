@@ -24,15 +24,6 @@ shadow.addEventListener('animationiteration', function(event) {
     white ${vidaJugador - 100}%)`;
 });
 
-//timer dmg
-// setTimeout(function() {
-// }, 2000);
-
-// funcion para desaparecer el boton
-// setTimeout(function() {
-//     document.getElementById('button').style.display = 'none';
-// }, 5000);
-
 //funcion para ingresar la tecla
 function ingresarTecla(tecla){
     botonTexto.textContent = tecla.toUpperCase();
@@ -43,6 +34,7 @@ function ingresarTecla(tecla){
             barraVidaEnemigo.style.background = `linear-gradient(to right, #AE0909 ${vidaEnemigo}%, white ${vidaEnemigo - 100}%)`; 
             tecla = letraRandom()   
             botonTexto.textContent = tecla.toUpperCase();
+            reiniciarTimer();
         }
         else{
             
@@ -52,6 +44,7 @@ function ingresarTecla(tecla){
             if(vidaJugador<=0){
                 location.href = "./Pantalla Muerte/index.html"
             }
+
             //sino baja la vida del jugador
             barraVidaJugador.style.background = `linear-gradient(to right, 
             #AE0909 ${vidaJugador}%, 
@@ -70,14 +63,21 @@ function letraRandom() {
     return letras[indexRandom];
 }
 
-
 function reiniciarTimer() {
-    // Guardar el contenido o el elemento en sí
-    let shadowClonado = shadow.cloneNode(true);
-
-    // Eliminar el elemento original
-    parent.removeChild(shadow);   
-
-    // Volver a agregar el elemento al DOM
-    parent.appendChild(shadowClonado);
+    shadow.style.animation = 'none'; // Pausar animación
+    void shadow.offsetWidth; // Forzar reflow (reinicio de estilo)
+    shadow.style.animation = ''; // Volver a añadir animación CSS
 }
+
+
+
+
+
+//timer dmg
+// setTimeout(function() {
+// }, 2000);
+
+// funcion para desaparecer el boton
+// setTimeout(function() {
+//     document.getElementById('button').style.display = 'none';
+// }, 5000);

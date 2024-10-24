@@ -114,6 +114,9 @@ body{
   }
 
 
+  .pulso {
+    animation: pulsoTecla 0.5s ease infinite;
+  }
 
 
 .messageS{
