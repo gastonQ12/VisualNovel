@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(imagenes/fondo.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: 0;
+
+        }
+
+        .filtro {
+            margin: 0;
+            width: 100%;
+            z-index: -1;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.527);
+        }
+
+        .contMesa {
+          
+            
+            height: 870px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2;
+           
+        }
+        .mesa{
+            position: absolute;
+            z-index: -1;
+            margin-top: 30px;
+        }
+        /* .carpetasInc{
+            
+        }
+        */
+    </style>
+    <link rel="icon" href="../../img/icono.png">
+</head>
+
+<body>
+    <div class="filtro"></div>
+    
+    <div class="contMesa">
+        <img class="mesa" src="imagenes/mesa.png" alt="">
+        <div class="Sup">
+            <img  src="imagenes/CarpetaCompleto.png" alt="">
+            <img class="carpetasInc" src="imagenes/carpetaIncompleto.png" alt="">
+            <img class="carpetasInc" src="imagenes/carpetaIncompleto.png" alt="">
+        </div>
+        <div class="Inf">
+            <img class="carpetasInc" src="imagenes/carpetaIncompleto.png" alt="">
+            <img class="carpetasInc" src="imagenes/carpetaIncompleto.png" alt="">
+            <img class="carpetasInc" src="imagenes/carpetaIncompleto.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>

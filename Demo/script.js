@@ -68,7 +68,10 @@ document.addEventListener('keydown', cambiar_opcion_tecla);
 document.oncontextmenu = function () { return false }
 
 function nuevaPartida(){
-    
+    let codViejo = localStorage.getItem('codigoPartidaActual');
+    localStorage.clear();
+    localStorage.setItem("codigoViejo", codViejo)
+    location.href = "acto1/nombrePro/index.html";
 }
 /*
 function cargarPartida() {
@@ -82,13 +85,13 @@ if(localStorage.getItem('ub') !== null){
 }
 function cargarPartida(){
     if(localStorage.getItem('ub') !== null){
-
         if(localStorage.getItem("Escondite1") != 1){
-            location.href = localStorage.getItem('ub');
+            let ubicacion = localStorage.getItem('ub');
+            location.href = ubicacion;
         }else{
             location.href = "paginas/escondite/escondite.html";
         }
     }else {
-        location.href = "paginas/partidaNoguardada/partidaN.html"
+        location.href = "acto1/partidaNoguardada/partidaN.html"
     }
 }
