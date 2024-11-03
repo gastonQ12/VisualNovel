@@ -1,37 +1,154 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Minijuego de Pelea</title>
 </head>
-<body>
 
-    <div id="contenedor-personajes">
-        <div id="jugador">
-            <h2>Chabon</h2>
-            <div id="vida-jugador">100 HP</div>
-            <img src="/img/jug2.png" alt="Jugador">
-        </div>
-        <div id="enemigo">
-            <div id="vida-enemigo">100 HP</div>
-            <img src="/img/enem.png" alt="Enemigo">
+<body>
+    <div id="enemigo">
+        <div id="enemigo-vida-fondo">
+            <!-- <div id="vida-enemigo">200 HP</div> -->
+            <!-- <h2 class="nombre-enemigo">GORDO CdP</h2> -->
+            <p id="vida-enemigo">200 HP</p>
+            <div class="barra-vida-enemigo" id="barra-vida-enemigo"></div>
             
         </div>
-        
+        <img src="img/enem.png" class="img-enemigo" alt="Enemigo">
     </div>
-<!-- 
-    <div id="contenedor-acciones">
-        <button id="atacar">Atacar</button>
-      <button id="defender">Defender</button>
-      <button id="curar">Curar</button>
+    <style>
+        #enemigo{
+        }
+        #enemigo-vida-fondo{
+            width: 100%;
+            position: relative;
+            height: 30px;
+            display:inline-block;
+            background-color: #1f1f1f;
+            z-index: 10;
+        }
+        .barra-vida-enemigo{
+            background-color: #330000;
+            width: 100%;
+            height: 30px;
+            position:absolute;
+            /* position: relative; */
+            display:inline-block;   
+        }
+        #vida-enemigo {
+            font-size: 20px;
+            color: white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);  
+            z-index: 11;
+        }
+        #nombre-enemigo{
+
+        }
+
+    </style>
+    <div class="interfaz">
+        <div class="jugador-grid">
+            <div class="botones-rest">
+                <button id="defender" class="op1">
+                    <p>Defender</p>
+                </button>
+                <button id="cambiar-arma" class="op1">
+                    <p>Cambiar Arma</p>
+                </button>
+            </div>
+            <style>
+                .botones-rest{
+                    /* background-color: aqua; */
+                    width: 150px;
+                    height: 100%;
+                    position: absolute;
+                    display: flex;
+                    right: 0;
+                    bottom: 0;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            </style>
+            <div id="jugador">
+                <button id="curar"></button>
+                <div class="info-jugador">
+                    </button>
+                    <h2 class="nombre-jugador">Chabon</h2>
+                    <div class="cont-vida-jugador">
+                        <div class="barra-vida-fondo">
+                            <p id="vida-jugador">100 HP</p>
+                            <div class="barra-vida" id="barra-vida"></div>
+                        </div>
+                        <div id="mana-jugador" hidden>Maná: 10</div>
+                    </div>
+                </div>
+                <img src="img/jug2.png" class="img-jugador" alt="Jugador">
+            </div>
+        </div>
+        <div class="acciones-grid">
+            <button id="atacar" class="boton-atacar"></button>
+        </div>
+        <div class="mana-grid">
+            <div id="mana-circles-container"></div>
+        </div>
+        <div class="mensajes-grid">
+            <div id="mensajes"></div>
+        </div>
     </div>
+
+    <style>
+        .interfaz {
+            background-image: url("img/textura-madera.png");      
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+            bottom: 0;
+            height: 34vh;
+            width:100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 50px 1fr;
+            grid-column-gap: 30px;
+            grid-row-gap: px;
+        }
+
+        .jugador-grid {
+            grid-area: 1 / 1 / 3 / 2;
+            position: relative;
+        }
+
+        .acciones-grid {
+            grid-area: 2 / 2 / 3 / 3;
+            /* background-color: blue; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mana-grid {
+            grid-area: 1 / 2 / 2 / 3;
+            
+        }
+
+        .mensajes-grid {
+            grid-area: 1 / 3 / 3 / 4;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <div id="mana-jugador" hidden>Maná: 10</div>
     
-    <div id="mensajes"></div>
-    -->
+    <script src="./jquery-2.2.1.min.js"></script>
     <script src="script.js"></script>
-</body>
+    </body>
+
 </html>
