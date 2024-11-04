@@ -11,10 +11,18 @@
         <img class="random2" src="imgs/chabonTino.png" alt="">
         <img class="random" src="imgs/chabonCP.png" alt="">
         <h1 class="pete2">CASO FALLIDO</h1>
-        <span class="cum1">Reintentar</span>
-        <span class="cum2">Volver al menu</span>
+        <span id="reintentar" class="cum1">Reintentar</span>
+        <span id="irMenu" class="cum2">Volver al menu</span>
     </div>
     <div class="cover"></div>
     <div class="cover2"></div>
+    <script>
+        document.getElementById('reintentar').addEventListener("click", function(){
+            location.href = localStorage.getItem('ub')
+        })
+        document.getElementById('irMenu').addEventListener("click", function(){
+            location.href = '../../index.html'
+        })
+    </script>
 </body>
 </html>

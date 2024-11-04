@@ -89,7 +89,7 @@ function cargarPartida(){
             let ubicacion = localStorage.getItem('ub');
             location.href = ubicacion;
         }else{
-            location.href = "paginas/escondite/escondite.html";
+            location.href = "acto1/escondite/escondite.html";
         }
     }else {
         location.href = "acto1/partidaNoguardada/partidaN.html"

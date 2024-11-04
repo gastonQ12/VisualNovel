@@ -59,7 +59,6 @@ body {
 }
 
 .PJ2 {
-    background-image: url(imagenes/policia.png);
     position: absolute;
     width: 650px;
     height: 700px;
@@ -179,7 +178,7 @@ body {
 }
 
 #pista1 {
-    opacity: 0%;
+    
     color: rgb(0, 0, 0);
     margin: 80px;
     z-index: 29;
@@ -188,7 +187,7 @@ body {
 }
 
 #pista2 {
-    opacity: 0%;
+    
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
@@ -199,39 +198,37 @@ body {
 }
 
 #pista3 {
-    opacity: 0%;
+    
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
     margin: 80px;
     bottom: 30%;
     transition: all 2s;
-
 }
 
 #pista4 {
-    opacity: 0%;
+    
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
     margin: 80px;
-    bottom: 20%;
+    bottom: 15%;
     transition: all 2s;
-
 }
 
 #pista5 {
-    opacity: 0%;
+   
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
     margin: 80px;
-    bottom: 10%;
+    bottom: 5%;
     transition: all 2s;
 }
 
 #pista6 {
-    /*    opacity: 0%; */
+    
     color: rgb(0, 0, 0);
     margin: 80px;
     z-index: 29;
@@ -240,44 +237,90 @@ body {
 }
 
 #pista7 {
-    /*    opacity: 0%; */
+    
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
     margin: 80px;
     bottom: 40%;
     transition: all 2s;
-
 }
 
 #pista8 {
-    /*    opacity: 0%; */
+    
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
     margin: 80px;
     bottom: 30%;
     transition: all 2s;
-
 }
 
 #pista9 {
-    /*    opacity: 0%; */
-    color: rgb(0, 0, 0);
-    position: absolute;
-    z-index: 30;
-    margin: 80px;
-    bottom: 20%;
-    transition: all 2s;
-
-}
-
-#pista10 {
+   
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
     margin: 80px;
     bottom: 10%;
+    transition: all 2s;
+}
+
+#pista10 {
+
+
+    color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 30;
+    margin: 80px;
+    bottom: -10%;
+    transition: all 2s;
+    
+}
+/*nuevasPistas */
+#pista11 {
+ 
+    color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 30;
+    margin: 80px;
+    transition: all 2s;
+}
+
+#pista12 {
+
+    color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 30;
+    margin: 80px;
+    bottom: 37%;
+    transition: all 2s;
+}
+
+#pista13 {
+
+    color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 30;
+    margin: 80px;
+    bottom: 25%;
+    transition: all 2s;
+}
+
+#pista14 {
+
+    color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 30;
+    margin: 80px;
+    bottom: 4%;
+    transition: all 2s;
+}
+#pista15 {
+    color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 30;
+    bottom: -10%;
     transition: all 2s;
 }
 
@@ -306,12 +349,9 @@ h3 {
     user-select: none;
 }
 
-h3 {
+h3{
     font-family: "La Belle Aurore", cursive;
     font-size: 23px;
-    width: 100%;
-    height: 40px;
-
 }
 
 #SaltarPistas {
@@ -410,6 +450,41 @@ h3 {
     background-color: black;
 
 }
+/* barra karma*/
+.progress-bar{
+    position: relative;
+    left: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+#rojo{
+    position: relative;
+    height: 100%;
+    z-index: 10;
+    right: 0px;
+    background-color: brown;
+}
+.icon{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-radius: 100px;
+    height: 70px;
+    width: 70px;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bar{
+    background-color: aliceblue;
+    margin-left: -20px;
+    z-index: -10;
+    height: 50px;
+    width: 200px;
+    align-items: center;
+    display: flex;
+}
 
 .menuHambur {
     color: white;
@@ -418,6 +493,29 @@ h3 {
 }
 .ContSup{
     display: flex;
+}
+#papelGuia{
+    background-color: antiquewhite;
+    padding: 20px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#papelGuia *{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#papelGuia p{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.botonesOpciones div{
+    margin-right: -220px;
 }
 .botonesOpciones{
     position: absolute;
@@ -619,10 +717,221 @@ h4 {
     background-color: rgb(151, 1, 1);
 }
 
-#pista6{
+
+
+/* sospechosos lista seleccionar allanamiento*/
+
+#cover{
     display: none;
-    width: 56%;
 }
-#pista7{
+
+*{
+    padding: 0;
+    margin: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.cover{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#d2{
     display: none;
+    cursor: pointer;
 }
+#d1{
+    display: none;
+    cursor: pointer;
+}
+body{
+    background-image: url(imagenes/comisaria.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content{
+    width: 900px;
+    height: 200px;
+    background-color: black;
+    background: linear-gradient( to left ,black, rgba(0, 0, 0, 0.3));
+
+}
+
+
+
+.d1{
+    position: absolute;
+    margin-left: -2%;
+    margin-top: -5%;
+    width: 175px;
+    height: 225px;
+    background-color: white;
+    transform: rotate(10deg);
+    background-image: url(imagenes/sus1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: ease-in-out 2s sosA;
+}
+
+.d2{
+    position: absolute;
+    margin-left: 10%;
+    margin-top: -5%;
+    width: 175px;
+    height: 225px;
+    background-color: white;
+    transform: rotate(10deg);
+    background-image: url(imagenes/sus2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: ease-in-out 1.5s sosA;
+}
+
+.d3{
+    position: absolute;
+    margin-left: 22%;
+    margin-top: -5%;
+    width: 175px;
+    height: 225px;
+    background-color: white;
+    transform: rotate(10deg);
+    background-image: url(imagenes/sus3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: ease-in-out 1s sosA;
+}
+
+.d4{
+    position: absolute;
+    margin-left: 34%;
+    margin-top: -5%;
+    width: 175px;
+    height: 225px;
+    background-color: white;
+    transform: rotate(10deg);
+    background-image: url(imagenes/sus4.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: ease-in-out 0.5s sosA;
+}
+
+
+
+.d1{
+    transition: all 0.1s;
+}
+.d2{
+    transition: all 0.1s;
+}
+.d3{
+    transition: all 0.1s;
+}
+.d4{
+    transition: all 0.1s;
+}
+
+.d1:hover{
+    transition: 0.1s ease-in-out;
+    transform: scale(1.1);
+    
+
+}
+
+.d2:hover{
+    
+    transition: 0.1s ease-in-out;
+    transform: scale(1.1);
+
+}
+
+.d3:hover{
+    transition: 0.1s ease-in-out;
+    transform: scale(1.1);
+
+}
+
+.d4:hover{
+    transition: 0.1s ease-in-out;
+    transform: scale(1.1);
+
+}
+
+.sus{
+    position: absolute;
+    font-size: 50px;
+    color: white;
+    bottom: 40%;
+    right: 27%;
+    font-family: "Vujahday Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.back{
+    transition: all 0.1s;
+}
+
+.back{
+    font-size: 50px;
+    width: 125px;
+    height: 50px;
+    position: absolute;
+    background-color: white;
+    bottom: 35%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Vujahday Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    border: none;
+}
+
+.back:hover{
+    background-color: black;
+    color: white;
+    transition: 0.1s ease-in-out;
+    transform: scale(1.25);
+
+}
+
+
+@keyframes backButton {
+    100%{
+        scale: 1.2;
+    }
+}
+
+@keyframes sosA {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.circulito{
+    width: 100px;
+    height: 100px;
+    margin-top: 30%;
+    transition: all 0.5s;
+}
+
+.circulito:hover{
+    transform: rotate(180deg);
+}
+
+

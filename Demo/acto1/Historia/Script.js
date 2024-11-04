@@ -1,4 +1,5 @@
 let aux = 0;
+localStorage.setItem('karma', 0);
 var paginaAnterior = document.referrer;
 var urlAnterior = new URL(paginaAnterior);
 var rutaAnterior = urlAnterior.pathname;
@@ -70,6 +71,9 @@ function generarClaveAleatoria(longitud) {
 if(localStorage.getItem('borrado1') == null){
     localStorage.setItem("borrado1", false)    
 }
+if(localStorage.getItem('borrado2') == null){
+    localStorage.setItem("borrado2", false)    
+}
 
 
 if (new URL(document.referrer).pathname == '/Demo/acto1/capituloCarga/index.html') {
@@ -139,6 +143,10 @@ if (aux > 27) {
     localStorage.setItem('OpacidadP1', 100)
 }
 
+function irMapaBorr(){
+    localStorage.setItem('escenaDelCrimen', 'Terminado')
+    location.href = '../Mapa/Mapa.html'
+}
 
 var fondo = getCookie("fondo");
 body.style.backgroundImage = fondo;
@@ -177,34 +185,51 @@ estadoNPC.style.display = 'estadoNPCs';
 
 function arrayListSospechosos() {
     if (localStorage.getItem('Sospechosos') == null) {
-        var pistaBasuraZ = null;
-        var pistaDialogoZ = null;
-        var pistaTaxiZ = null;
-        var pistaRadioZ = null;
-        var pistaCadaverZ = null;
+        var EdgardM = {
+            pistaBasuraZ: null,
+            pistaDialogoZ: null,
+            pistaTaxiZ: null,
+            pistaRadioZ: null,
+            pistaCadaverZ: null,
+            pistaAmorio: null,
+            motivo: null
+        };
 
-        var EdgardM = [
-            pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
-        ];
+        var HenryW = {
+            pistaBasuraZ: null,
+            pistaDialogoZ: null,
+            pistaTaxiZ: null,
+            pistaRadioZ: null,
+            pistaCadaverZ: null,
+            pistaAmorio: null,
+            motivo: null
+        };
 
-        var HenryW = [
-            pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
-        ];
+        var RichardJ = {
+            pistaBasuraZ: null,
+            pistaDialogoZ: null,
+            pistaTaxiZ: null,
+            pistaRadioZ: null,
+            pistaCadaverZ: null,
+            pistaAmorio: null,
+            motivo: null
+        };
 
-        var RichardJ = [
-            pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
-        ];
+        var SophieH = {
+            pistaBasuraZ: null,
+            pistaDialogoZ: null,
+            pistaTaxiZ: null,
+            pistaRadioZ: null,
+            pistaCadaverZ: null,
+            pistaAmorio: null,
+            motivo: null
+        };
 
-        var SophieH = [
-            pistaBasuraZ, pistaDialogoZ, pistaTaxiZ, pistaRadioZ, pistaCadaverZ
-        ];
-        var sospechososLista = [
-            EdgardM, HenryW, RichardJ, SophieH
-        ]
+        var sospechososLista = [EdgardM, HenryW, RichardJ, SophieH];
         localStorage.setItem('Sospechosos', JSON.stringify(sospechososLista));
-
     }
 }
+
 
 var arrayConvertido = localStorage.getItem('EdgardM');
 arrayConvertido = JSON.parse(arrayConvertido);
@@ -472,6 +497,100 @@ function pjOcultos(aux) {
             break;
     }
 }
+
+cargadoDePIstas();
+    function cargadoDePIstas(){
+        if(localStorage.getItem('OpacidadP1') == 100){
+            document.getElementById("pista1").style.display = "Block";
+        }else{
+            document.getElementById("pista1").style.display = "none";
+        }
+        
+        if(localStorage.getItem('opacidadPBasurero') == 100){
+            document.getElementById("pista2").style.display = "Block";
+        }else{
+            document.getElementById("pista2").style.display = "none";
+        }
+        
+        if(localStorage.getItem('opacidadPTaxi') == 100){
+            document.getElementById("pista3").style.display = "Block";
+        }else{
+            document.getElementById("pista3").style.display = "none";
+        }
+    
+        if(localStorage.getItem('opacidadPCadaver') == 100){
+            document.getElementById("pista4").style.display = "Block";
+        }else{
+            document.getElementById("pista4").style.display = "none";
+        }
+        
+        if(localStorage.getItem('opacidadPRadio') == 100){
+            document.getElementById("pista5").style.display = "Block";
+        }else{
+            document.getElementById("pista5").style.display = "none";
+        }
+        
+        if(localStorage.getItem('Restaurante') == 100 || localStorage.getItem('Restaurante') == 'Terminado'){
+            document.getElementById("pista6").style.display = "Block";
+        }else{
+            document.getElementById("pista6").style.display = "none";
+        }
+        if(localStorage.getItem('letras') == 100){
+            document.getElementById("pista7").style.display = "Block";
+        }else{
+            document.getElementById("pista7").style.display = "none";
+        }
+
+        if(localStorage.getItem('pistaCorbataHenry') == 100){
+            document.getElementById("pista8").style.display = "Block";
+        }else{
+            document.getElementById("pista8").style.display = "none";
+        }
+        
+        if(localStorage.getItem('pistaBoletos') == 100){
+            document.getElementById("pista9").style.display = "Block";
+        }else{
+            document.getElementById("pista9").style.display = "none";
+        }
+        
+        if(localStorage.getItem('pistaCarta') == 100){
+            document.getElementById("pista10").style.display = "Block";
+        }else{
+            document.getElementById("pista10").style.display = "none";
+        }
+
+        /* tercera */
+        if(localStorage.getItem('RadioPropietario') == 100 || localStorage.getItem('Restaurante') == 'Terminado'){
+            document.getElementById("pista11").style.display = "Block";
+        }else{
+            document.getElementById("pista11").style.display = "none";
+        }
+        if(localStorage.getItem('EdgardSocio') == 100){
+            document.getElementById("pista12").style.display = "Block";
+        }else{
+            document.getElementById("pista12").style.display = "none";
+        }
+
+        if(localStorage.getItem('edgardCoartada') == 100){
+            document.getElementById("pista13").style.display = "Block";
+        }else{
+            document.getElementById("pista13").style.display = "none";
+        }
+        
+        if(localStorage.getItem('edgardConoceLetras') == 100){
+            document.getElementById("pista14").style.display = "Block";
+        }else{
+            document.getElementById("pista14").style.display = "none";
+        }
+        /*
+        if(localStorage.getItem('librePorahora') == 100){
+            document.getElementById("pista15").style.display = "Block";
+        }else{
+            document.getElementById("pista15").style.display = "none";
+        }
+        */
+    }
+
 function cambiarFondo(aux) {
     var fondo = document.getElementById('body');
     switch (aux) {

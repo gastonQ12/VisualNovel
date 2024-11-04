@@ -5,44 +5,44 @@ const partidaA = localStorage.getItem('codigoPartidaActual');
 const partidaAnti = localStorage.getItem('codigoViejo');
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
-    
-        if (partidaA !== partidaAnti && localStorage.getItem("borrado1") == "false") {
-                eliminarCookie("progresoDialogo");
-                eliminarCookie("boxD");
-                eliminarCookie("estadoNPCs");
-                eliminarCookie("estadoPJs");
-                eliminarCookie("fondo");
-                eliminarCookie("opacidadP1");
-                eliminarCookie("opacidadPBasurero");
-                eliminarCookie("opacidadPCadaver");
-                eliminarCookie("opacidadPRadio");
-                eliminarCookie("opacidadPTaxi");
-                eliminarCookie("pistas");
-                eliminarCookie("pjHablando");
-                console.log("cookie eliminada");
-                localStorage.removeItem("borrado1");
-                localStorage.setItem("borrado1", true)
 
-            if (paginaAnterior == "http://127.0.0.1:5500/index.html") {
-                eliminarCookie("progresoDialogo");
-                eliminarCookie("boxD");
-                eliminarCookie("estadoNPCs");
-                eliminarCookie("estadoPJs");
-                eliminarCookie("fondo");
-                eliminarCookie("opacidadP1");
-                eliminarCookie("opacidadPBasurero");
-                eliminarCookie("opacidadPCadaver");
-                eliminarCookie("opacidadPRadio");
-                eliminarCookie("opacidadPTaxi");
-                eliminarCookie("pistas");
-                eliminarCookie("pjHablando");
-    
-                var cookieGuardadaDM = cargarPartida();
-                console.log(cookieGuardadaDM);
-            }
+    if (partidaA !== partidaAnti && localStorage.getItem("borrado1") == "false") {
+        eliminarCookie("progresoDialogo");
+        eliminarCookie("boxD");
+        eliminarCookie("estadoNPCs");
+        eliminarCookie("estadoPJs");
+        eliminarCookie("fondo");
+        eliminarCookie("opacidadP1");
+        eliminarCookie("opacidadPBasurero");
+        eliminarCookie("opacidadPCadaver");
+        eliminarCookie("opacidadPRadio");
+        eliminarCookie("opacidadPTaxi");
+        eliminarCookie("pistas");
+        eliminarCookie("pjHablando");
+        console.log("cookie eliminada");
+        localStorage.removeItem("borrado1");
+        localStorage.setItem("borrado1", true)
+
+        if (paginaAnterior == "http://127.0.0.1:5500/index.html") {
+            eliminarCookie("progresoDialogo");
+            eliminarCookie("boxD");
+            eliminarCookie("estadoNPCs");
+            eliminarCookie("estadoPJs");
+            eliminarCookie("fondo");
+            eliminarCookie("opacidadP1");
+            eliminarCookie("opacidadPBasurero");
+            eliminarCookie("opacidadPCadaver");
+            eliminarCookie("opacidadPRadio");
+            eliminarCookie("opacidadPTaxi");
+            eliminarCookie("pistas");
+            eliminarCookie("pjHablando");
+
+            var cookieGuardadaDM = cargarPartida();
+            console.log(cookieGuardadaDM);
         }
+    }
 
-    if(localStorage.getItem('partidasGuardadasLista') == null){
+    if (localStorage.getItem('partidasGuardadasLista') == null) {
         localStorage.setItem('partidasGuardadasLista', "[]");
     }
     var urlAnterior = new URL(window.location);
@@ -122,8 +122,20 @@ function determinarPE() {
             document.getElementById('contP5_' + (i + 1)).style.opacity = 100 + "%";
         } else {
             document.getElementById('contP5_' + (i + 1)).style.opacity = 0 + "%";
-
         }
+
+        if (localStorage.getItem("pistaBoletos") !== null) {
+            document.getElementById('contP7_' + (i + 1)).style.opacity = 100 + "%";
+        } else {
+            document.getElementById('contP7_' + (i + 1)).style.opacity = 0 + "%";
+        }
+        if (localStorage.getItem("pistaCarta") !== null) {
+            document.getElementById('contP6_' + (i + 1)).style.opacity = 100 + "%";
+        } else {
+            document.getElementById('contP6_' + (i + 1)).style.opacity = 0 + "%";
+        }
+
+
     }
 
 }
@@ -166,7 +178,6 @@ function getCookie(cname) {
         var c = ca[i];
         while (c.charAt(0) == ' ') c = c.substring(1);
         if (c.indexOf(name) == 0) return unescape(c.substring(name.length, c.length));
-
     }
     return "";
 }
@@ -196,6 +207,7 @@ function cambiarFondo(aux) {
 
 const pagina = document.querySelectorAll('.pagina');
 let numeroPagina = 0;
+
 function mostrarPagina(index) {
     pagina.forEach((pagina) => {
         pagina.classList.remove('active');
@@ -218,54 +230,65 @@ function cambiarColorLabel() {
     var arrayConvertido = localStorage.getItem('Sospechosos');
     var nuevoArray = JSON.parse(arrayConvertido);
 
-    for (let i = 0; i <= nuevoArray.length; i++) {
-        var ind = nuevoArray[i];
-        if (Array.isArray(ind)) {
-            for (let g = 0; g <= ind.length; g++) {
-                if (ind[g] === true) {
-                    document.getElementById('LP' + (g + 1) + 'Si_' + (i + 1)).style.backgroundColor = "green";
-                    document.getElementById('LP' + (g + 1) + 'No_' + (i + 1)).style.backgroundColor = "grey";
-                } else if (ind[g] === false) {
-                    document.getElementById('LP' + (g + 1) + 'No_' + (i + 1)).style.backgroundColor = "Red";
-                    document.getElementById('LP' + (g + 1) + 'Si_' + (i + 1)).style.backgroundColor = "gray";
-                } else if (ind[g] === null) {
-                    document.getElementById('LP' + (g + 1) + 'No_' + (i + 1)).style.backgroundColor = "gray";
-                    document.getElementById('LP' + (g + 1) + 'Si_' + (i + 1)).style.backgroundColor = "gray";
+    for (let i = 0; i < nuevoArray.length; i++) {
+        var sospechoso = nuevoArray[i];
+
+        // Lista de claves de las propiedades a verificar en cada sospechoso
+        var pistas = ["pistaBasuraZ", "pistaDialogoZ", "pistaTaxiZ", "pistaRadioZ", "pistaCadaverZ", "pistaAmorio", "motivo"];
+
+        for (let g = 0; g < pistas.length; g++) {
+            let propiedad = pistas[g];
+            let siElement = document.getElementById('LP' + (g + 1) + 'Si_' + (i + 1));
+            let noElement = document.getElementById('LP' + (g + 1) + 'No_' + (i + 1));
+
+            if (siElement && noElement) { // Verifica si los elementos existen
+                if (sospechoso[propiedad] === true) {
+                    siElement.style.backgroundColor = "green";
+                    noElement.style.backgroundColor = "grey";
+                } else if (sospechoso[propiedad] === false) {
+                    noElement.style.backgroundColor = "Red";
+                    siElement.style.backgroundColor = "gray";
+                } else {
+                    noElement.style.backgroundColor = "gray";
+                    siElement.style.backgroundColor = "gray";
                 }
             }
         }
-
-
     }
 }
+
 
 function updateStatus() {
     var arrayConvertido = localStorage.getItem('Sospechosos');
     var nuevoArray = JSON.parse(arrayConvertido);
 
     for (let i = 0; i < nuevoArray.length; i++) {
-        var ind = nuevoArray[i];
+        var sospechoso = nuevoArray[i];
 
-        if (Array.isArray(ind)) {
-            for (let g = 0; g < ind.length; g++) {
-                let marcarEdgardP1Si = document.getElementById('P' + (g + 1) + 'Si_' + (i + 1));
-                let marcarEdgardP1No = document.getElementById('P' + (g + 1) + 'No_' + (i + 1));
-                if (marcarEdgardP1Si && marcarEdgardP1Si.checked) {
-                    ind[g] = true;
-                }
-                else if (marcarEdgardP1No && marcarEdgardP1No.checked) {
-                    ind[g] = false
-                }
+        // Lista de claves de las propiedades a verificar en cada sospechoso
+        var pistas = ["pistaBasuraZ", "pistaDialogoZ", "pistaTaxiZ", "pistaRadioZ", "pistaCadaverZ", "pistaAmorio", "motivo"];
+
+        for (let g = 0; g < pistas.length; g++) {
+            let propiedad = pistas[g];
+            let marcarSi = document.getElementById('P' + (g + 1) + 'Si_' + (i + 1));
+            let marcarNo = document.getElementById('P' + (g + 1) + 'No_' + (i + 1));
+
+            if (marcarSi && marcarSi.checked) {
+                sospechoso[propiedad] = true;
+            } else if (marcarNo && marcarNo.checked) {
+                sospechoso[propiedad] = false;
             }
         }
-
-        localStorage.setItem('Sospechosos', JSON.stringify(nuevoArray));
-        cambiarColorLabel();
     }
+
+    localStorage.setItem('Sospechosos', JSON.stringify(nuevoArray));
+
+    cambiarColorLabel();
 }
 document.querySelectorAll('input[type="radio"]').forEach(radio => {
     radio.addEventListener('change', updateStatus);
 });
+
 
 
 function getAllCookies() {
@@ -275,24 +298,149 @@ function getAllCookies() {
     const cookieObj = {
         ubicacion: rutaAnterior
     };
-    
+
     cookies.forEach(cookie => {
-      const [name, value] = cookie.split("=");
-      cookieObj[name] = value;
+        const [name, value] = cookie.split("=");
+        cookieObj[name] = value;
     });
-  
+
     return cookieObj;
-  }
-
-  if(localStorage.getItem('Restaurante') == 100 || localStorage.getItem('Restaurante') == "Terminado"){
-    document.getElementById("pista6").style.display = "Block";
 }
-if(localStorage.getItem('letras') == 100){
-    document.getElementById("pista7").style.display = "Block";
+cargadoDePIstas();
+function cargadoDePIstas() {
+    if (localStorage.getItem('OpacidadP1') == 100) {
+        document.getElementById("pista1").style.display = "Block";
+    } else {
+        document.getElementById("pista1").style.display = "none";
+    }
+
+    if (localStorage.getItem('opacidadPBasurero') == 100) {
+        document.getElementById("pista2").style.display = "Block";
+    } else {
+        document.getElementById("pista2").style.display = "none";
+    }
+
+    if (localStorage.getItem('opacidadPTaxi') == 100) {
+        document.getElementById("pista3").style.display = "Block";
+    } else {
+        document.getElementById("pista3").style.display = "none";
+    }
+
+    if (localStorage.getItem('opacidadPCadaver') == 100) {
+        document.getElementById("pista4").style.display = "Block";
+    } else {
+        document.getElementById("pista4").style.display = "none";
+    }
+
+    if (localStorage.getItem('opacidadPRadio') == 100) {
+        document.getElementById("pista5").style.display = "Block";
+    } else {
+        document.getElementById("pista5").style.display = "none";
+    }
+
+    if (localStorage.getItem('Restaurante') == 100 || localStorage.getItem('Restaurante') == 'Terminado') {
+        document.getElementById("pista6").style.display = "Block";
+    } else {
+        document.getElementById("pista6").style.display = "none";
+    }
+    if (localStorage.getItem('letras') == 100) {
+        document.getElementById("pista7").style.display = "Block";
+    } else {
+        document.getElementById("pista7").style.display = "none";
+    }
+
+    if (localStorage.getItem('pistaCorbataHenry') == 100) {
+        document.getElementById("pista8").style.display = "Block";
+    } else {
+        document.getElementById("pista8").style.display = "none";
+    }
+
+    if (localStorage.getItem('pistaBoletos') == 100) {
+        document.getElementById("pista9").style.display = "Block";
+    } else {
+        document.getElementById("pista9").style.display = "none";
+    }
+
+    if (localStorage.getItem('pistaCarta') == 100) {
+        document.getElementById("pista10").style.display = "Block";
+    } else {
+        document.getElementById("pista10").style.display = "none";
+    }
+
+    /* tercera */
+    if (localStorage.getItem('RadioPropietario') == 100 || localStorage.getItem('Restaurante') == 'Terminado') {
+        document.getElementById("pista11").style.display = "Block";
+    } else {
+        document.getElementById("pista11").style.display = "none";
+    }
+    if (localStorage.getItem('EdgardSocio') == 100) {
+        document.getElementById("pista12").style.display = "Block";
+    } else {
+        document.getElementById("pista12").style.display = "none";
+    }
+
+    if (localStorage.getItem('edgardCoartada') == 100) {
+        document.getElementById("pista13").style.display = "Block";
+    } else {
+        document.getElementById("pista13").style.display = "none";
+    }
+
+    if (localStorage.getItem('edgardConoceLetras') == 100) {
+        document.getElementById("pista14").style.display = "Block";
+    } else {
+        document.getElementById("pista14").style.display = "none";
+    }
+    /*
+    if(localStorage.getItem('librePorahora') == 100){
+        document.getElementById("pista15").style.display = "Block";
+    }else{
+        document.getElementById("pista15").style.display = "none";
+    }
+    */
 }
 
 
-function pedirOrdenAllanamiento(){
-    
+
+document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
+
+function pedirOrdenAllanamiento() {
+    let henryPedirAllanamiento = document.getElementById('d2');
+    let arraySospechosos = JSON.parse(localStorage.getItem('Sospechosos'));
+
+    const henry = arraySospechosos[1];
+    const pistas = ["pistaBasuraZ", "pistaDialogoZ", "pistaTaxiZ", "pistaRadioZ", "pistaCadaverZ", "pistaAmorio", "motivo"];
+
+    const trueCount = pistas.reduce((count, propiedad) => {
+        return henry[propiedad] === true ? count + 1 : count;
+    }, 0);
+
+    henryPedirAllanamiento.addEventListener("click", function () {
+        if (trueCount >= 3) {
+            localStorage.setItem('allanamientoHenry', "true");
+            alert("La orden de allanamiento fue aprobada");
+        } else {
+            localStorage.setItem('allanamientoHenry', "false");
+            alert("La orden de allanamiento fue rechazada");
+        }
+    });
+
+    document.getElementById('cover').style.display = "flex";
+    document.getElementById('ContSup').style.display = "none";
+    document.getElementById('JAJAS').style.display = "none";
+    document.getElementById('imagenesPJ').style.display = "none";
+
+    if (localStorage.getItem('Henry') !== null) {
+        document.getElementById('d2').style.display = "block";
+    }
+    if (localStorage.getItem('Richard') !== null) {
+        document.getElementById('d1').style.display = "block";
+    }
 }
 
+
+function volverAtras() {
+    document.getElementById('cover').style.display = "none"
+    document.getElementById('ContSup').style.display = "flex";
+    document.getElementById('JAJAS').style.display = "flex";
+    document.getElementById('imagenesPJ').style.display = "flex";
+}

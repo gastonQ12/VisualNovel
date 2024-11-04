@@ -13,8 +13,8 @@ document.getElementById('casa2').addEventListener("mouseover", PARestauranteOver
 document.getElementById('casa2').addEventListener("mouseout", PARestauranteOut);
 //hospital
 
-document.getElementById('casa5').addEventListener("mouseover", PAHospitalOver);
-document.getElementById('casa5').addEventListener("mouseout", PAHospitalOut);
+document.getElementById('casa5').addEventListener("mouseover", PAClubOver);
+document.getElementById('casa5').addEventListener("mouseout", PAClubOut);
 
 //PANEL AVISO == PA
 function PARestauranteOver(){
@@ -25,11 +25,11 @@ function PARestauranteOut(){
     document.getElementById("aviso").style.display = 'none';
 }
 
-function PAHospitalOver(){
+function PAClubOver(){
     document.getElementById("aviso").style.display = 'flex';
-    document.getElementById("aviso").innerHTML = '<h1> HOSPITAL </h1>'
+    document.getElementById("aviso").innerHTML = '<h1> CLUB (EDGARD) </h1>'
 }
-function PAHospitalOut(){
+function PAClubOut(){
     document.getElementById("aviso").style.display = 'none';
 }
 
@@ -86,12 +86,46 @@ function determinarPresionarRestaurante(){
         alert('Ya no puedes visitar la casa')
     }
 }
+
+function irCallejon(){
+    location.href = '../Historia/index.html'
+}
+
+
+if(localStorage.getItem('escenaDelCrimen') === 'Terminado'){
+    document.getElementById('callejon').style.opacity = "65%"
+}
+
+function determinarPresionarCallejon(){
+    if(localStorage.getItem('escenaDelCrimen') !== 'Terminado'){
+        MDN ();
+    }else{
+        alert('Ya no puedes visitar la casa')
+    }
+}
 function irRestaurante(){
     location.href = '../restaurante/index.html'
 }
 
+function irCallejon(){
+    location.href = '../Historia/index.html'
+}
 
 
+if(localStorage.getItem('clubEdgard') === 'Terminado'){
+    document.getElementById('clubEdgard').style.opacity = "65%"
+}
+
+function determinarPresionarClub(){
+    if(localStorage.getItem('clubEdgard') !== 'Terminado'){
+        irClubEdgard();
+    }else{
+        alert('Ya no puedes visitar la casa')
+    }
+}
+function irClubEdgard(){
+    location.href = '../clubEdgard/index.html'
+}
 
 verZonas();
 function verZonas(){
@@ -99,7 +133,7 @@ function verZonas(){
     let estacionpolicia = document.getElementById('casa1');
     let casaAmigo = document.getElementById('casa4');
     let restaurante = document.getElementById('casa2');
-    let hospital = document.getElementById('casa5');
+    let club = document.getElementById('casa5');
     
     if(localStorage.getItem('SophieCasa') != null){
         casaSophie.style.display = 'block';
@@ -111,10 +145,10 @@ function verZonas(){
     }else{
         casaAmigo.style.display = 'none';
     }
-    if(localStorage.getItem('Hospital') != null){
-        hospital.style.display = 'block';
+    if(localStorage.getItem('clubEdgard') != null){
+        club.style.display = 'block';
     }else{
-        hospital.style.display = 'none';
+        club.style.display = 'none';
     }
     if(localStorage.getItem('Restaurante') != null){
         restaurante.style.display = 'block';

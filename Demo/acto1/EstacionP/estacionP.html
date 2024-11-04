@@ -16,9 +16,26 @@
 </head>
 
 <body id="body">
-    <div class="ContSup">
+    <div id="cover" class="cover">
+        <div class="content">
+            <p class="sus">Sospechosos</p>
+            <div id="d1" class="d1"></div>
+            <div id="d2" class="d2"></div>
+            <button onclick="volverAtras()" class="back">Atras</button>
+        </div>
+    </div>
+    <div id="ContSup" class="ContSup">
         <button id="SaltarPistas">SEGUIR ADELANTE</button>
         <div class="menu">
+            <div class="progress-bar">
+                <div class="icon">
+                    <img src="imagenes/calavera.png" alt="Skull Icon">
+                </div>
+                <div class="bar">
+                    <div id="rojo">
+                    </div>
+                </div>
+            </div>
             <div id="callar" class="ContenedorGrisM" onclick="apagarSonido()">
                 <audio id="musicaA" src="../../audio/Sospechas.wav"></audio>
                 <img class="imgIcono" src="imagenes/audio.png" alt="mapaIcono">
@@ -41,7 +58,7 @@
         <div></div>
         <img id="izquierda" class="PJ2" src="imagenes/policia.png">
     </div>
-    <div class="JAJAS">
+    <div id="JAJAS" class="JAJAS">
         <div class="cuadroDialogo" id="cuadroDialogo">
             <h2 id="PJname">Oficial de recepción</h2>
             <hr id="LineaDialogo" style="width: 150px;">
@@ -49,9 +66,10 @@
         </div>
 
         <div class="botonesOpciones">
-            <button id="botonOpcion" onclick="libretaAnotar();" value="1" class="op1" >
-                <p>Pedir orden de arresto</p>
-            </button>
+            <div id="papelGuia">
+                <p>Para pedir una orden de <span style="color:red">allanamiento</span> debes tener minimo 3 sospechas </p>
+                <p>Puedes encarcelar a cualquiera pero encarcelar antes de finalizar el caso <span style="color:red"> puedes obtener puntos de karma</span></p>
+            </div>
             <button id="botonOpcion2" onclick="pedirOrdenAllanamiento();" value="2" class="op2" >
                 <p>Pedir orden de allanamiento</p>
             </button>
@@ -85,14 +103,19 @@
                     <div id="pag2" class="pagina">
                         <h3 id="pista6">Cuadro de la victima junto a un hombre</h3>
                         <h3 id="pista7">Libro con simbolos raros</h3>
-                        <h3 id="pista8"></h3>
-                        <h3 id="pista9"></h3>
-                        <h3 id="pista10"></h3>
+                        <h3 id="pista8">Herny: Traje sin corbata</h3>
+                        <h3 id="pista9">Herny: Boletos de viaje largo</h3>
+                        <h3 id="pista10">Herny: Carta de amor a Sophie</h3>
+                    </div>
+                    <div id="pag3" class="pagina">
+                        <h3 id="pista11">Radio de Edgard</h3>
+                        <h3 id="pista12">Edgard: Socio que perdio dinero</h3>
+                        <h3 id="pista13">Edgard: Coartada solida</h3>
+                        <h3 id="pista14">Edgard: Inversor en letras antiguas</h3>
+                        <h3 id="pista15"></h3>
                     </div>
                 </div>
-
             </div>
-
         </div>
         <div class="dentro">
             <input id="desplegamientoC" class="desp" type="checkbox">
@@ -136,7 +159,7 @@
                                 <label class="CajaL" id="LP3No_1" for="P3No_1"></label>
                             </div>
                             <div id="contP4_1" class="pista">
-                                <h4 id="P4_1">Documentos de la victima</h4>
+                                <h4 id="P4_1">Mal Coartada</h4>
                                 <input name="P4_1" id="P4Si_1" type="radio">
                                 <input name="P4_1" id="P4No_1" type="radio">
                                 <label class="CajaL" id="LP4Si_1" for="P4Si_1"></label>
@@ -148,6 +171,20 @@
                                 <input name="P5_1" id="P5No_1" type="radio">
                                 <label class="CajaL" id="LP5Si_1" for="P5Si_1"></label>
                                 <label class="CajaL" id="LP5No_1" for="P5No_1"></label>
+                            </div>
+                            <div id="contP6_1" class="pista">
+                                <h4 id="P6_1">Amorio secreto</h4>
+                                <input name="P6_1" id="P6Si_1" type="radio">
+                                <input name="P6_1" id="P6No_1" type="radio">
+                                <label class="CajaL" id="LP6Si_1" for="P6Si_1"></label>
+                                <label class="CajaL" id="LP6No_1" for="P6No_1"></label>
+                            </div>
+                            <div id="contP7_1" class="pista">
+                                <h4 id="P7_1">Presunto a escapar</h4>
+                                <input name="P7_1" id="P7Si_1" type="radio">
+                                <input name="P7_1" id="P7No_1" type="radio">
+                                <label class="CajaL" id="LP7Si_1" for="P7Si_1"></label>
+                                <label class="CajaL" id="LP7No_1" for="P7No_1"></label>
                             </div>
                         </div>
                     </div>
@@ -176,7 +213,7 @@
                                 <label class="CajaL" id="LP3No_2" for="P3No_2"></label>
                             </div>
                             <div id="contP4_2" class="pista">
-                                <h4 id="P4_2">Documentos de la victima</h4>
+                                <h4 id="P4_2">Mal Coartada</h4>
                                 <input name="P4_2" id="P4Si_2" type="radio">
                                 <input name="P4_2" id="P4No_2" type="radio">
                                 <label class="CajaL" id="LP4Si_2" for="P4Si_2"></label>
@@ -188,6 +225,21 @@
                                 <input name="P5_2" id="P5No_2" type="radio">
                                 <label class="CajaL" id="LP5Si_2" for="P5Si_2"></label>
                                 <label class="CajaL" id="LP5No_2" for="P5No_2"></label>
+                            </div>
+
+                            <div id="contP6_2" class="pista">
+                                <h4 id="P6_2">Amorio secreto</h4>
+                                <input name="P6_2" id="P6Si_2" type="radio">
+                                <input name="P6_2" id="P6No_2" type="radio">
+                                <label class="CajaL" id="LP6Si_2" for="P6Si_2"></label>
+                                <label class="CajaL" id="LP6No_2" for="P6No_2"></label>
+                            </div>
+                            <div id="contP7_2" class="pista">
+                                <h4 id="P7_2">Presunto a escapar</h4>
+                                <input name="P7_2" id="P7Si_2" type="radio">
+                                <input name="P7_2" id="P7No_2" type="radio">
+                                <label class="CajaL" id="LP7Si_2" for="P7Si_2"></label>
+                                <label class="CajaL" id="LP7No_2" for="P7No_2"></label>
                             </div>
                         </div>
                     </div>
@@ -217,7 +269,7 @@
                                 <label class="CajaL" id="LP3No_3" for="P3No_3"></label>
                             </div>
                             <div id="contP4_3" class="pista">
-                                <h4 id="P4_3">Documentos de la victima</h4>
+                                <h4 id="P4_3">Mal Coartada</h4>
                                 <input name="P4_3" id="P4Si_3" type="radio">
                                 <input name="P4_3" id="P4No_3" type="radio">
                                 <label class="CajaL" id="LP4Si_3" for="P4Si_3"></label>
@@ -231,7 +283,20 @@
                                 <label class="CajaL" id="LP5No_3" for="P5No_3"></label>
                             </div>
                         </div>
-
+                        <div id="contP6_3" class="pista">
+                            <h4 id="P6_3">Amorio secreto</h4>
+                            <input name="P6_3" id="P6Si_3" type="radio">
+                            <input name="P6_3" id="P6No_3" type="radio">
+                            <label class="CajaL" id="LP6Si_3" for="P6Si_3"></label>
+                            <label class="CajaL" id="LP6No_3" for="P6No_3"></label>
+                        </div>
+                        <div id="contP7_3" class="pista">
+                            <h4 id="P7_3">Presunto a escapar</h4>
+                            <input name="P7_3" id="P7Si_3" type="radio">
+                            <input name="P7_3" id="P7No_3" type="radio">
+                            <label class="CajaL" id="LP7Si_3" for="P7Si_3"></label>
+                            <label class="CajaL" id="LP7No_3" for="P7No_3"></label>
+                        </div>
                     </div>
                     <div class="contHoja" id="sophie">
                         <img class="hojaSospechoso" src="imagenes/Sophie.png" alt="">
@@ -258,7 +323,7 @@
                                 <label class="CajaL" id="LP3No_4" for="P3No_4"></label>
                             </div>
                             <div id="contP4_4" class="pista">
-                                <h4 id="P4_4">Documentos de la victima</h4>
+                                <h4 id="P4_4">Mal Coartada</h4>
                                 <input name="P4_4" id="P4Si_4" type="radio">
                                 <input name="P4_4" id="P4No_4" type="radio">
                                 <label class="CajaL" id="LP4Si_4" for="P4Si_4"></label>
@@ -270,6 +335,21 @@
                                 <input name="P5_4" id="P5No_4" type="radio">
                                 <label class="CajaL" id="LP5Si_4" for="P5Si_4"></label>
                                 <label class="CajaL" id="LP5No_4" for="P5No_4"></label>
+                            </div>
+
+                            <div id="contP6_4" class="pista">
+                                <h4 id="P6_4">Amorio secreto</h4>
+                                <input name="P6_4" id="P6Si_4" type="radio">
+                                <input name="P6_4" id="P6No_4" type="radio">
+                                <label class="CajaL" id="LP6Si_4" for="P6Si_4"></label>
+                                <label class="CajaL" id="LP6No_4" for="P6No_4"></label>
+                            </div>
+                            <div id="contP7_4" class="pista">
+                                <h4 id="P7_4">Presunto a escapar</h4>
+                                <input name="P7_4" id="P7Si_4" type="radio">
+                                <input name="P7_4" id="P7No_4" type="radio">
+                                <label class="CajaL" id="LP7Si_4" for="P7Si_4"></label>
+                                <label class="CajaL" id="LP7No_4" for="P7No_4"></label>
                             </div>
                         </div>
                     </div>
