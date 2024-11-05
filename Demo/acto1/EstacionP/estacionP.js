@@ -418,7 +418,7 @@ function pedirOrdenAllanamiento() {
     henryPedirAllanamiento.addEventListener("click", function () {
         if (trueCount >= 3) {
             localStorage.setItem('allanamientoHenry', "true");
-            alert("");
+            alert("La orden de allanamiento fue aprobada");
         } else {
             localStorage.setItem('allanamientoHenry', "false");
             alert("La orden de allanamiento fue rechazada");
@@ -451,18 +451,18 @@ function interrogarSospechosoC() {
 
 
     henryPedirAllanamiento.addEventListener("click", function () {
-        localStorage.setItem('ainterrogar', "Henry")
+        localStorage.setItem('ainterrogar', "Henry Whalls")
         location.href = "../interrogarComisaria/interrogarC.html"
     });
 
     edgardinterrogar.addEventListener("click", function () {
-        localStorage.setItem('ainterrogar', "Edgard")
+        localStorage.setItem('ainterrogar', "Edgard Mindguard")
         location.href = "../interrogarComisaria/interrogarC.html"
 
     });
 
     sophieinterrogar.addEventListener("click", function () {
-        localStorage.setItem('ainterrogar', "Sophie")
+        localStorage.setItem('ainterrogar', "Sophie Hawks")
         location.href = "../interrogarComisaria/interrogarC.html"
     });
     document.getElementById('cover').style.display = "flex";
@@ -480,3 +480,46 @@ function interrogarSospechosoC() {
         document.getElementById('d1').style.display = "block";
     }
 }
+
+
+function encerrarAalguien() {
+    let henryPedirAllanamiento = document.getElementById('d2');
+    let edgardinterrogar = document.getElementById('d1');
+    let sophieinterrogar = document.getElementById('d4');
+    let arraySospechosos = JSON.parse(localStorage.getItem('Sospechosos'));
+
+    henryPedirAllanamiento.addEventListener("click", function () {
+        localStorage.setItem('encerrar', "Henry Whalls")
+        localStorage.setItem('Acto1T', "true")
+        location.href = "../interrogarComisaria/interrogarC.html"
+    });
+
+    edgardinterrogar.addEventListener("click", function () {
+        localStorage.setItem('encerrar', "Edgard Mindguard")
+        localStorage.setItem('Acto1T', "true")
+        location.href = "../interrogarComisaria/interrogarC.html"
+
+    });
+
+    sophieinterrogar.addEventListener("click", function () {
+        localStorage.setItem('encerrar', "Sophie Hawks")
+        localStorage.setItem('Acto1T', "true")
+        location.href = "../interrogarComisaria/interrogarC.html"
+    });
+
+    document.getElementById('cover').style.display = "flex";
+    document.getElementById('ContSup').style.display = "none";
+    document.getElementById('JAJAS').style.display = "none";
+    document.getElementById('imagenesPJ').style.display = "none";
+
+    if (localStorage.getItem('Henry') !== null) {
+        document.getElementById('d2').style.display = "block";
+    }
+    if (localStorage.getItem('Sophie') !== null) {
+        document.getElementById('d4').style.display = "block";
+    }
+    if (localStorage.getItem('Edgar') !== null) {
+        document.getElementById('d1').style.display = "block";
+    }
+}
+

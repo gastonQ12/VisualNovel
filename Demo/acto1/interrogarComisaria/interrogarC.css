@@ -1,5 +1,5 @@
 body {
-    background-image: url(imagenes/comisaria.png);
+    background-image: url(imagenes/fondoInterrogatorioSala.jpg) !important;
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;

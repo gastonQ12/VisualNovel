@@ -61,7 +61,7 @@ document.body.onload = function () {
 
     }
 
-
+    
     let estadoPJs = document.getElementById("izquierda");
     var estadoPJsC = getCookie("estadoPJs");
     estadoPJs.style.display = estadoPJsC;
@@ -139,7 +139,15 @@ function determinarPE() {
     }
 
 }
+function mostrarDialogos(auxiliar) {
 
+    let pjHablando = dialogos[auxiliar].substring(0, 1) - 1;
+
+    document.getElementById("LineaDialogo").removeAttribute("hidden");
+    document.getElementById("PJname").textContent = nombrePj[pjHablando];
+
+    document.getElementById("output").textContent = dialogos[aux].substring(2);
+}
 function determinarPersonajeExistente() {
     for (let i = 0; i < 4; i++) {
         if (localStorage.getItem("Sophie") !== null) {
@@ -164,13 +172,50 @@ function determinarPersonajeExistente() {
         }
     }
 }
-
 function moverIzq(event) {
     hoja.scrollLeft += -150;
 }
 let protagonista = localStorage.getItem('NombrePJ')
-const nombrePj = [protagonista, "Henry Whalls"];                            // nombre de los personajes
+let nombreInterrogado = localStorage.getItem('ainterrogar')
+const dialogos = [
+    '1. Buenas tardes, señora '+ nombreInterrogado +'. Gracias por venir. Sabemos que esto es difícil, pero su ayuda puede ser fundamental para resolver el caso. ¿Le gustaría algo de beber antes de empezar?',
+    '2. No, gracias… prefiero empezar de inmediato.',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+]; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
 
+const nombrePj = [protagonista, nombreInterrogado];  // nombre de los personajes
+let size = dialogos.length; //tamaño de la lista de dialogos
+var boxD = document.getElementById('cuadroDialogo');
+var fondo = getCookie("fondo");
+body.style.backgroundImage = fondo;
+boxD.addEventListener('click', editarTexto);
+function editarTexto(event) {
+    if (aux <= size - 1) {
+
+        mostrarDialogos(aux);
+        aux++
+        boxD.addEventListener('click', crearCookies(aux));
+        console.log(aux)
+
+    }
+}
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -187,23 +232,6 @@ function crearCookies(aux) {
 }
 
 
-
-
-function cambiarFondo(aux) {
-    var fondo = document.getElementById('body');
-    switch (aux) {
-        case 0:
-            var fondoGuardado = 'url(imagenes/restaurante.png)'
-            fondo.style.backgroundImage = fondoGuardado;
-            document.cookie = "fondo=" + fondoGuardado; //guardado de cookies, no tocar -Lau
-            break;
-        case 3:
-            var fondoGuardado = 'url(imagenes/restPuerta.jpg)'
-            fondo.style.backgroundImage = fondoGuardado;
-            document.cookie = "fondo=" + fondoGuardado; //guardado de cookies, no tocar -Lau
-            break;
-    }
-}
 
 const pagina = document.querySelectorAll('.pagina');
 let numeroPagina = 0;
@@ -377,20 +405,81 @@ function cargadoDePIstas() {
         document.getElementById("pista14").style.display = "none";
     }
 }
+
+
 document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
 interrogarS();
+
+/* interrogar */
 function interrogarS(){
-    if (localStorage.getItem('ainterrogar') == "Edgard") {
+    if (localStorage.getItem('ainterrogar') == "Edgard Mindguard") {
         EdgarAcciones();
     }
-    if (localStorage.getItem('ainterrogar') == "Sophie") {
-
+    if (localStorage.getItem('ainterrogar') == "Sophie Hawks") {
+        SophieAcciones();
     }
-    if (localStorage.getItem('ainterrogar') == "Henry") {
-
+    if (localStorage.getItem('ainterrogar') == "Henry Whalls") {
+        HenryAcciones();
     }
 }
 function EdgarAcciones(){
     let estadoPJs = document.getElementById("izquierda");
-    estadoPJs.src = 'imagenes/anillo.png'
+    estadoPJs.src = 'imagenes/mindguard.png'
+    
+}
+function SophieAcciones(){
+    let estadoPJs = document.getElementById("izquierda");
+    estadoPJs.src = 'imagenes/sophieInd.png'
+    if(localStorage.getItem('pistaCarta') == null){
+        document.getElementById('botonOpcion3').style.display = "None";
+        document.getElementById('botonOpcion4').style.display = "None";
+    }
+    else if(localStorage.getItem('opacidadPBasurero') == null){
+        document.getElementById('botonOpcion2').style.display = "None";
+    }
+    document.getElementById('botonOpcion2').addEventListener('click', function(){
+        localStorage.setItem('preguntaLetras', "true")
+        preguntasInterrogatorio()
+    })
+    document.getElementById('botonOpcion3').addEventListener('click', function(){
+        localStorage.setItem('amorioSecretoP', "true")
+        preguntasInterrogatorio()
+    })
+    
+}
+let preguntasRespondidas = {
+    letras: "",
+    amoriosecreto: "",
+    presuntarasesino: ""
+}
+
+if(localStorage.getItem("respondidas") == null){
+    localStorage.setItem("respondidas", JSON.stringify(preguntasRespondidas))
+}
+
+preguntasInterrogatorio()
+function preguntasInterrogatorio(){
+    if(localStorage.getItem('ainterrogar') == "Sophie Hawks"){
+        if(localStorage.getItem("preguntaLetras") !== null){
+            dialogos[2] ='1. Entendido. Empecemos. ¿Podría contarnos cómo ha sido su relación en los últimos meses?'
+            dialogos[3] ='2. Bueno… como en cualquier matrimonio, tenemos nuestros altibajos, pero… lo amaba.'
+            dialogos[4] ='1. Claro. Pero… Algo que nos llamó la atención: encontramos un papel con letras antiguas en la escena del crimen. En su casa también encontramos un libro con letras similares. ¿Le dice algo esta coincidencia?'
+            dialogos[5] = '2. Oh… eso… sí, es solo un viejo libro de la biblioteca de mi esposo. Él coleccionaba ese tipo de cosas, ya sabe, antigüedades.'
+            dialogos[6] = '1. Entiendo. Me imagino que entre los amigos de su esposo también compartían gustos similares. Hemos oído que pasaba bastante tiempo con su amigo cercano, Henry Whalls. ¿Diría usted que su esposo confiaba mucho en él?'
+            dialogos[7] = '2. Sí… eran amigos de toda la vida. Muy cercanos.'
+            dialogos[8] = ' Tras mencionar el nombre del amigo se nota bastante nerviosa y desvia la mirada constantemente.'
+            if(aux == 8){
+                respondidas = JSON.parse(localStorage.getItem('respondidas'))
+                respondidas.letras = "true"
+                localStorage.setItem("respondidas", JSON.stringify(respondidas))
+            }
+            aux = 3 
+        }
+    }
+    
+}
+
+function HenryAcciones(){
+    let estadoPJs = document.getElementById("izquierda");
+    estadoPJs.src = 'imagenes/henryImg.png'
 }
