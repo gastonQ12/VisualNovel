@@ -121,9 +121,8 @@ const dialogos = [
     
 
 ];
+
 //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
-
-
 
 var protagonista = localStorage.getItem('NombrePJ');
 const nombrePj = [protagonista, "Ayudante", "Jhon Browns"];                            // nombre de los personajes

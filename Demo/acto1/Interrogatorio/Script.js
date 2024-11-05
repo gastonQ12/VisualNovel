@@ -120,6 +120,7 @@ function moverDer(event) {
 
 // document.getElementById('P1').textContent = localStorage.getItem("opacidadP1").key;
 
+
 function determinarPE() {
     for (let i = 0; i < 4; i++) {
         if (localStorage.getItem("OpacidadP1") !== null) {

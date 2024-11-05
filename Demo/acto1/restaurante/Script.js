@@ -614,7 +614,6 @@ document.querySelectorAll('input[type="radio"]').forEach(radio => {
     radio.addEventListener('change', updateStatus);
 });
 
-
 /* Esconderse */
 function esconditeEvento(aux) {
     if (aux == 22) {

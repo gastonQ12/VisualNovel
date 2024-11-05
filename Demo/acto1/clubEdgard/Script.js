@@ -347,6 +347,9 @@ function editarTexto(event) {
         } else if (aux == 17) {
             console.log("guardad")
             localStorage.setItem('EdgardSocio', 100);
+        }else if(aux == 27){
+            localStorage.setItem('clubEdgard', "Terminado")
+            location.href = '../Mapa/Mapa.html';
         }
         boxD.addEventListener('click', crearCookies(aux));
         libretaAnotarComentarios(aux);
