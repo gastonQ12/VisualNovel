@@ -96,7 +96,6 @@ function moverDer(event) {
 
 // document.getElementById('P1').textContent = localStorage.getItem("opacidadP1").key;
 
-
 function determinarPE() {
     for (let i = 0; i < 4; i++) {
         if (localStorage.getItem("OpacidadP1") !== null) {
@@ -215,6 +214,7 @@ function mostrarPagina(index) {
     })
     pagina[index].classList.add('active');
 }
+
 function cambioPaginaT(event) {
     if (event.key === 'ArrowRight') {
         numeroPagina = (numeroPagina + 1) % pagina.length;
@@ -224,6 +224,7 @@ function cambioPaginaT(event) {
         mostrarPagina(numeroPagina);
     }
 }
+
 document.addEventListener('keydown', cambioPaginaT);
 
 
@@ -291,22 +292,6 @@ document.querySelectorAll('input[type="radio"]').forEach(radio => {
 });
 
 
-
-function getAllCookies() {
-    var urlAnterior = new URL(window.location);
-    var rutaAnterior = urlAnterior.pathname;
-    const cookies = document.cookie.split("; ");
-    const cookieObj = {
-        ubicacion: rutaAnterior
-    };
-
-    cookies.forEach(cookie => {
-        const [name, value] = cookie.split("=");
-        cookieObj[name] = value;
-    });
-
-    return cookieObj;
-}
 cargadoDePIstas();
 function cargadoDePIstas() {
     if (localStorage.getItem('OpacidadP1') == 100) {
@@ -391,92 +376,21 @@ function cargadoDePIstas() {
     } else {
         document.getElementById("pista14").style.display = "none";
     }
-    /*
-    if(localStorage.getItem('librePorahora') == 100){
-        document.getElementById("pista15").style.display = "Block";
-    }else{
-        document.getElementById("pista15").style.display = "none";
-    }
-    */
 }
-
-
-
 document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
+interrogarS();
+function interrogarS(){
+    if (localStorage.getItem('ainterrogar') == "Edgard") {
+        EdgarAcciones();
+    }
+    if (localStorage.getItem('ainterrogar') == "Sophie") {
 
-function pedirOrdenAllanamiento() {
-    let henryPedirAllanamiento = document.getElementById('d2');
-    let arraySospechosos = JSON.parse(localStorage.getItem('Sospechosos'));
+    }
+    if (localStorage.getItem('ainterrogar') == "Henry") {
 
-    const henry = arraySospechosos[1];
-    const pistas = ["pistaBasuraZ", "pistaDialogoZ", "pistaTaxiZ", "pistaRadioZ", "pistaCadaverZ", "pistaAmorio", "motivo"];
-
-    const trueCount = pistas.reduce((count, propiedad) => {
-        return henry[propiedad] === true ? count + 1 : count;
-    }, 0);
-
-    henryPedirAllanamiento.addEventListener("click", function () {
-        if (trueCount >= 3) {
-            localStorage.setItem('allanamientoHenry', "true");
-            alert("");
-        } else {
-            localStorage.setItem('allanamientoHenry', "false");
-            alert("La orden de allanamiento fue rechazada");
-        }
-    });
-
-    document.getElementById('cover').style.display = "flex";
-    document.getElementById('ContSup').style.display = "none";
-    document.getElementById('JAJAS').style.display = "none";
-    document.getElementById('imagenesPJ').style.display = "none";
-
-    if (localStorage.getItem('Henry') !== null) {
-        document.getElementById('d2').style.display = "block";
     }
 }
-
-
-function volverAtras() {
-    document.getElementById('cover').style.display = "none"
-    document.getElementById('ContSup').style.display = "flex";
-    document.getElementById('JAJAS').style.display = "flex";
-    document.getElementById('imagenesPJ').style.display = "flex";
-}
-
-function interrogarSospechosoC() {
-    let henryPedirAllanamiento = document.getElementById('d2');
-    let edgardinterrogar = document.getElementById('d1');
-    let sophieinterrogar = document.getElementById('d4');
-    let arraySospechosos = JSON.parse(localStorage.getItem('Sospechosos'));
-
-
-    henryPedirAllanamiento.addEventListener("click", function () {
-        localStorage.setItem('ainterrogar', "Henry")
-        location.href = "../interrogarComisaria/interrogarC.html"
-    });
-
-    edgardinterrogar.addEventListener("click", function () {
-        localStorage.setItem('ainterrogar', "Edgard")
-        location.href = "../interrogarComisaria/interrogarC.html"
-
-    });
-
-    sophieinterrogar.addEventListener("click", function () {
-        localStorage.setItem('ainterrogar', "Sophie")
-        location.href = "../interrogarComisaria/interrogarC.html"
-    });
-    document.getElementById('cover').style.display = "flex";
-    document.getElementById('ContSup').style.display = "none";
-    document.getElementById('JAJAS').style.display = "none";
-    document.getElementById('imagenesPJ').style.display = "none";
-
-    if (localStorage.getItem('Henry') !== null) {
-        document.getElementById('d2').style.display = "block";
-    }
-    if (localStorage.getItem('Sophie') !== null) {
-        document.getElementById('d4').style.display = "block";
-    }
-    if (localStorage.getItem('Edgar') !== null) {
-        document.getElementById('d1').style.display = "block";
-    }
+function EdgarAcciones(){
+    let estadoPJs = document.getElementById("izquierda");
+    estadoPJs.src = 'imagenes/anillo.png'
 }

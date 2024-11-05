@@ -216,6 +216,9 @@ function partida() {
     } else if (jugador.vida <= 0) {
       mostrarMensaje('¡Te ha derrotado el enemigo!');
       disableButtons();
+      setTimeout(() => {
+        location.href = "../muerteREMASTER/Morir.html";
+    }, 3000);
     }
   }
   function disableButtons() {

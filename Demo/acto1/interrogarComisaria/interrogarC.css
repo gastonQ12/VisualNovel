@@ -62,7 +62,7 @@ body {
     position: absolute;
     width: 650px;
     height: 700px;
-    left: 0;
+    left: 20%;
     bottom: 0;
 
 }
@@ -782,7 +782,6 @@ body{
 }
 
 .d2{
-    display: none;
     position: absolute;
     margin-left: 10%;
     margin-top: -5%;
@@ -797,10 +796,24 @@ body{
     animation: ease-in-out 1.5s sosA;
 }
 
-.d4{
-    display: none;
+.d3{
     position: absolute;
     margin-left: 22%;
+    margin-top: -5%;
+    width: 175px;
+    height: 225px;
+    background-color: white;
+    transform: rotate(10deg);
+    background-image: url(imagenes/sus3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: ease-in-out 1s sosA;
+}
+
+.d4{
+    position: absolute;
+    margin-left: 34%;
     margin-top: -5%;
     width: 175px;
     height: 225px;
@@ -810,10 +823,8 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    animation: ease-in-out 1s sosA;
+    animation: ease-in-out 0.5s sosA;
 }
-
-
 
 
 

@@ -9,22 +9,13 @@
     <link rel="icon" href="../../img/icono.png">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="estacionP.css">
+    <link rel="stylesheet" href="interrogarC.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap" rel="stylesheet">
 </head>
 
 <body id="body">
-    <div id="cover" class="cover">
-        <div class="content">
-            <p class="sus">Sospechosos</p>
-            <div id="d1" class="d1"></div>
-            <div id="d2" class="d2"></div>
-            <div id="d4" class="d4"></div>
-            <button onclick="volverAtras()" class="back">Atras</button>
-        </div>
-    </div>
     <div id="ContSup" class="ContSup">
         <button id="SaltarPistas">SEGUIR ADELANTE</button>
         <div class="menu">
@@ -37,6 +28,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="ContenedorGris" onclick="location.href = '../Mapa/Mapa.html'">
                 <img class="imgIcono" src="imagenes/mapaIcono.png" alt="mapaIcono">
             </div>
@@ -64,17 +56,17 @@
 
         <div class="botonesOpciones">
             <div id="papelGuia">
-                <p>Para pedir una orden de <span style="color:red">allanamiento</span> debes tener minimo 3 sospechas </p>
-                <p>Puedes encarcelar a cualquiera pero encarcelar antes de finalizar el caso <span style="color:red"> puedes obtener puntos de karma</span></p>
+                <p>Hacer las preguntas agresivas te <span style="color:red">sumara karma</span>, pero tienes mas posibilidad de obtener una respuesta buena</p>
+                <p>Puedes irte del interrogatorio cuando gustes tocando la opcion de volver</span></p>
             </div>
-            <button id="botonOpcion2" onclick="pedirOrdenAllanamiento();" value="2" class="op2" >
-                <p>Pedir orden de allanamiento</p>
+            <button id="botonOpcion2" onclick="" value="2" class="op2" >
+                <p></p>
             </button>
-            <button id="botonOpcion3" onclick="interrogarSospechosoC();" value="1" class="op1" >
-                <p>Interrogar sospechoso</p>
+            <button id="botonOpcion3" onclick="" value="1" class="op1" >
+                <p></p>
             </button>
-            <button id="botonOpcion4" onclick="libretaAnotar();" value="2" class="op2" >
-                <p>Encerrar a alguien</p>
+            <button id="botonOpcion4" onclick="" value="2" class="op2" >
+                <p></p>
             </button>
         </div>
 
@@ -354,7 +346,7 @@
             </div>
         </div>
     </div>
-    <script src="estacionP.js" defer></script>
+    <script src="interrogarC.js" defer></script>
 </body>
 
 </html>

@@ -328,6 +328,11 @@ function editarTexto(event) {
         mostrarPistas(aux)
         opcionesPreguntar(aux);
         aux++
+        if (aux === 4) {
+            opcionesPreguntar();
+        }else{
+            document.getElementById('opcionesPreguntar').style.display = "none";
+        }
         if (aux == 16 && localStorage.getItem("GanadorPelea") === "false") {
             location.href = "../minijuego pelea/index.html";
         }
@@ -428,8 +433,6 @@ function caminoElegido() {
 
 
 function opcionesPreguntar(aux) {
-    if (aux === 4) {
-        console.log(aux);
         const opcionesPreguntar = document.getElementById('opcionesPreguntar').style.display = "flex";
         const botonOpcion2 = document.getElementById('botonOpcion2');
         const botonOpcion1 = document.getElementById('botonOpcion');
@@ -450,10 +453,6 @@ function opcionesPreguntar(aux) {
             localStorage.setItem('caminoPelear', "false")
             caminoElegido();
         });
-    } else {
-        document.getElementById('opcionesPreguntar').style.display = "none";
-    }
-
 }
 
 function getCookie(cname) {
