@@ -58,90 +58,142 @@
             </svg>
         </button>
         <h2>CONFIGURACION</h2>
-        <div class="volumen">
-            <button class="configuracion-btn">
-                <p class="btn-p">VOLUMEN</p>
-                <div id="player">
-                    <div id="volume"></div>
-                </div>
-        </div>
-        <div class="musica">
-            <button class="configuracion-btn">
-                <p class="btn-p">MUSICA</p>
-            </button>
-            
 
-        </div>
-        <div class="guradado">
-            <button class="configuracion-btn">
-                <p class="btn-p">GURADADO AUTOMATICO</p>
-            </button>
-        </div>
-        <div class="ayudas">
-            <button class="configuracion-btn">
-                <p class="btn-p">AYUDAS</p>
-            </button>
-        </div>
-        <div class="dificultad">
-            <button class="configuracion-btn">
-                <p class="btn-p">DIFICULTADAD</p>
-            </button>
+        <div class="cont-config">
+
+            <div class="musica">
+                <p class="config-p" style="font-size: 65px;padding-top: 13px;">MUSICA</p>
+                <div class="control-sonido">
+                    <p id="volume-percentage-1" class="config-p" style="text-align: center;">100%</p>
+                    <div id="player-1">
+                        <div id="volume-1"></div>
+                    </div>
+                </div>
+                <audio id="audio-player-1" autoplay loop>
+                    <source src="/Menu/audio/Sospechas.wav" type="audio/mpeg">
+                    Tu navegador no soporta la reproducción de audio.
+                </audio>
+            </div>
+
+            <div class="volumen">
+                <p class="config-p" style="font-size: 65px;">VOLUMEN</p>
+
+                <div class="control-sonido" style="padding-top: 8px;">
+                    <p id="volume-percentage-2" class="config-p" style="text-align: center;">100%</p>
+                    <div id="player-2">
+                        <div id="volume-2"></div>
+                    </div>
+                    <audio id="audio-player-2" autoplay loop>
+                        <source src="/Menu/audio/Sospechas.wav" type="audio/mpeg">
+                        Tu navegador no soporta la reproducción de audio.
+                    </audio>
+                </div>
+
+            </div>
+            <div class="guradado">
+                <p class="config-p">GURADADO AUTOMATICO</p>
+            </div>
+            <div class="ayudas">
+                <p class="config-p">AYUDAS</p>
+            </div>
+            <div class="dificultad">
+                <p class="config-p">DIFICULTADAD</p>
+            </div>
+
         </div>
     </dialog>
 
 
     <style>
-    
+        .musica,
+        .volumen {
+            padding-top: 14px;
+
+        }
+
+        .control-sonido {
+            position: absolute;
+            top: 0;
+            right: 10%;
+
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+
+        }
+
+        .volumen .control-sonido {
+            right: 10%;
+            top: 81px;
+        }
+
         #player {
-            width: 140px;
+            width: 100%;
             height: 30px;
         }
-    
+
         #volume {
-            position: absolute;
-            left: 24px;
-            margin: 0 auto;
-            height: 5px;
-            width: 100px;
+            position: relative;
+            height: 15px;
+            width: 100%;
             background: rgba(255, 255, 255, 1);
             border-radius: 15px;
-            
+            border: 2px solid white;
         }
-    
+
         .ui-slider-range-min {
-            height: 5px;
+            height: 15px;
             width: 300px;
-            position: absolute;
+            position: relative;
             background: #B3B3B3;
             border: none;
             border-radius: 10px;
             outline: none;
         }
-    
+
         .ui-slider-handle {
-            width: 16px;
-            height: 16px;
+            width: 30px;
+            height: 30px;
             border-radius: 20px;
             background: rgba(0, 0, 0, 1);
             position: absolute;
             margin-left: -8px;
-            margin-top: -6px;
+            margin-top: -24px;
             cursor: pointer;
             outline: none;
             display: none;
+            border: 2px solid white;
         }
     </style>
     <script>
-        $(function () {
-            var audioElement = $("<audio>");
-    
+        function createVolumeControl(playerId, volumeSliderId, volumePercentageId, audioPlayerId) {
+            var audioElement = document.getElementById(audioPlayerId);
+
+            var savedVolume = localStorage.getItem(audioPlayerId + "-volume");
+
+            if (savedVolume !== null) {
+                savedVolume = parseFloat(savedVolume);  // Convertir el valor almacenado a número
+            } else {
+                savedVolume = 1;  // Volumen por defecto si no hay nada en localStorage
+            }
+
             function setVolume(myVolume) {
                 if (audioElement != undefined) {
                     audioElement.volume = myVolume;
+                    if (myVolume === 0) {
+                        audioElement.pause();
+                    } else if (audioElement.paused) {
+                        audioElement.play();
+                    }
+                    localStorage.setItem(audioPlayerId + "-volume", myVolume);
                 }
             }
-    
-            $("#volume").slider({
+            function updateVolumePercentage(value) {
+                var percentage = Math.round(value * 100);
+                $("#" + volumePercentageId).text(percentage + "%");
+            }
+
+            $("#" + volumeSliderId).slider({
                 min: 0,
                 max: 1,
                 value: 1,
@@ -149,19 +201,34 @@
                 range: "min",
                 slide: function (event, ui) {
                     setVolume(ui.value);
+                    updateVolumePercentage(ui.value);
                 }
             });
-    
-            $("#player").hover(
+            $("#" + volumeSliderId).slider("value", savedVolume);  // Ajustar el valor visualmente
+    updateVolumePercentage(savedVolume);
+            $("#" + playerId).hover(
                 function () {
-                    $('.ui-slider-range-min').css("background-color", "#000000")
-                    $('.ui-slider-handle').css("display", "block")
-                },
-    
+                    $('.ui-slider-range-min').css("background-color", "#000000");
+                    $('.ui-slider-handle').css("display", "block");
+                }
             );
+            updateVolumePercentage(savedVolume);
+
+            
+
+        }
+
+        $(document).ready(function () {
+            createVolumeControl("player-1", "volume-1", "volume-percentage-1", "audio-player-1");
+
         });
+        $(document).ready(function () {
+            createVolumeControl("player-1", "volume-1", "volume-percentage-1", "audio-player-1");
+            createVolumeControl("player-2", "volume-2", "volume-percentage-2", "audio-player-2");
+        });
+
     </script>
-     
+
 
     <script src="/Menu/script.js"></script>
     <style>

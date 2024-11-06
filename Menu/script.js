@@ -13,7 +13,7 @@ cerCreditos.addEventListener("click", () => {
 const abrconfiguracion = document.querySelector("#abrir_configuracion");
 const cerconfiguracion = document.querySelector("#cerrar_configuracion");
 const configuracion = document.querySelector("#configuracion");
-
+configuracion.showModal()
 abrconfiguracion.addEventListener("click", () => {
     configuracion.showModal();
     
@@ -24,7 +24,6 @@ cerconfiguracion.addEventListener("click", () => {
 })
 
 //CODIGO PARA MOVERTE ENTRE LAS OPCIONES
-var audio = new Audio();
 const botones = document.querySelectorAll('.botones-menu');
 const textoboton = document.querySelectorAll('.opciones');
 
@@ -45,6 +44,7 @@ function cambiar_opcion_tecla(event) {
 
     }
 }
+document.addEventListener('keydown', cambiar_opcion_tecla);
 function cambiarColorBoton(indiceBoton) {
     const botonActual = document.querySelector('.boton-actual');
     if (botonActual) {
@@ -61,7 +61,8 @@ window.onload = function () {
     }
 };
 
-document.addEventListener('keydown', cambiar_opcion_tecla);
+
+
 
 
 //CODIGO PARA QUE EL USARIO NO PUEDA USAR EL MENU PARA ACCEDER A LA CONSOLA
