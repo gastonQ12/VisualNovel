@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
+
+*{
+    margin: 0%;
+}
+
+body{
+    background-image: url(imgs/fondo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+    overflow-y: hidden; 
+    overflow-x: hidden; 
+    user-select: none;
+}
+
+.con{
+    margin-left: 10%;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.a1{
+    width: 1500px;
+    position: absolute;
+    animation-name: moveA1;
+    animation-duration: 5s;
+    
+}
+
+.a2{
+    width: 1500px;
+    position: absolute;
+    margin-top: 35%;
+    animation-name: moveA2;
+    animation-duration: 5s;
+}
+
+
+.t{
+    position: absolute;
+    filter: drop-shadow(4px 4px 0px #797979);
+    outline: 10px;
+    border-color: black;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: "Karantina", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 250px;
+    margin-left: 15%;
+    margin-top: 20%;
+    animation-name: textoT;
+    animation-duration: 8s;
+    
+}
+
+.c{
+    position: absolute;
+    filter: drop-shadow(4px 4px 0px #797979);
+    outline: 10px;
+    border-color: black;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: "Karantina", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 125px;
+    margin-left: 30%;
+    margin-top: 15%;
+    animation-name: textoC;
+    animation-duration: 4s;
+}
+
+.h{
+    position: absolute;
+    filter: drop-shadow(4px 4px 0px #797979);
+    outline: 10px;
+    border-color: black;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: "Karantina", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 50px;
+    margin-left: 25%;
+    margin-top: 45%;
+    opacity: 50%;
+    animation: textoH 2s infinite;
+}
+
+.hh{
+    animation: Holder 30s;
+}
+
+.l1{
+    background-color: white;
+    width: 200px;
+    height: 1px;
+    position: absolute;
+    margin-top: 18%;
+    margin-left: 27%;
+    animation-name: movel1;
+    animation-duration: 3s;
+}
+
+.l2{
+    background-color: white;
+    width: 200px;
+    height: 1px;
+    position: absolute;
+    margin-top: 18%;
+    margin-left: 59%;
+    animation-name: movel2;
+    animation-duration: 3s;
+}
+
+
+
+@keyframes moveA2 {
+    from{ 
+        opacity: 0%;
+        transform: translateY(150px); 
+    }
+    to{ 
+        opacity: 100%;
+        transform: translateY(0); 
+    }
+  }
+
+  @keyframes moveA1 {
+    from{ 
+        opacity: 0%;
+        transform: translateY(-150px); 
+    }
+    to{ 
+        opacity: 100%;
+        transform: translateY(0); 
+    }
+  }
+
+  @keyframes movel1 {
+    from{ 
+        opacity: 0%;
+        transform: translateX(-150px); 
+    }
+    to{ 
+        opacity: 100%;
+        transform: translateX(0); 
+    }
+  }
+
+  @keyframes movel2 {
+    from{ 
+        opacity: 0%;
+        transform: translateX(150px); 
+    }
+    to{ 
+        opacity: 100%;
+        transform: translateX(0); 
+    }
+  }
+
+  @keyframes textoT {
+    from{ 
+        opacity: 0%;
+        
+    }
+    to{ 
+        opacity: 100%;
+        
+    }
+  }
+
+  @keyframes textoC {
+    from{ 
+        opacity: 0%;
+        
+    }
+    to{ 
+        opacity: 100%;
+        
+    }
+  }
+
+  @keyframes textoH {
+
+
+    0%{ 
+        
+        opacity: 80%;
+        
+    }
+
+    50%{ 
+        opacity: 20%;
+        
+    }
+
+    100%{ 
+        opacity: 80%;
+        
+    }
+
+  }
+
+  @keyframes Holder {
+
+
+    0%{ 
+        
+        opacity: 0%;
+        
+    }
+
+    100%{ 
+        opacity: 100%;
+        
+    }
+
+  }
+
+  @media (min-width: 600px) and (max-width: 800px){
+    .conseguiteMONITOR{
+        opacity: 1;
+    }
+
+
+}
+
+    @media (min-width: 800px) and (max-width: 1000px){
+        .t{
+            font-size: 120px;
+            margin-left: 10%;
+
+        }
+        .c{
+            font-size: 60px;
+
+        }
+        .h{
+            font-size: 50px;
+
+            margin-left: 7%;
+        }
+        .a1{
+            width: 650px;
+
+        }
+        .a2{
+            width: 650px;
+
+        }
+        .l1{
+            width: 175px;
+
+            margin-left: 18%;
+
+        }
+        .l2{
+            width: 175px;
+
+            margin-right: 18%;
+        }
+
+
+    }
+
+    @media (min-width: 1000px) and (max-width: 1200px){
+        .t{
+            font-size: 150px;
+            margin-left: 10%;
+
+        }
+        .c{
+            font-size: 70px;
+
+        }
+        .h{
+            font-size: 60px;
+
+            margin-left: 10%;
+        }
+        .a1{
+            width: 825px;
+
+        }
+        .a2{
+            width: 825px;
+
+        }
+        .l1{
+            width: 175px;
+
+            margin-left: 22%;
+
+        }
+        .l2{
+            width: 175px;
+
+            margin-right: 22%;
+        }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1400px){
+        .t{
+            font-size: 180px;
+            margin-left: 10%;
+
+        }
+        .c{
+            font-size: 90px;
+
+        }
+        .h{
+            font-size: 70px;
+
+            margin-left: 10%;
+        }
+        .a1{
+            width: 950px;
+
+        }
+        .a2{
+            width: 950px;
+
+        }
+        .l1{
+            width: 175px;
+
+            margin-left: 26%;
+
+        }
+        .l2{
+            width: 175px;
+
+            margin-right: 26%;
+        }
+    }
+
+    @media (min-width: 1400px) and (max-width: 1600px){
+        .t{
+            font-size: 200px;
+            margin-left: 10%;
+
+        }
+        .c{
+            font-size: 100px;
+
+        }
+        .h{
+            font-size: 70px;
+
+            margin-left: 15%;
+        }
+        .a1{
+            width: 1100px;
+
+        }
+        .a2{
+            width: 1100px;
+
+        }
+        .l1{
+            width: 175px;
+
+            margin-left: 26%;
+
+        }
+        .l2{
+            width: 175px;
+
+            margin-right: 26%;
+        }
+    }
