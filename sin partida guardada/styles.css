@@ -1,0 +1,32 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    text-shadow: 2px 2px 0px black;
+    color: #fff;
+}
+
+body {
+    background-image: url(img/fondo.png);
+    text-align: center;
+    margin: 0;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: Kaisei Tokumin;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: Karantina;
+    font-size: 100px;
+}
