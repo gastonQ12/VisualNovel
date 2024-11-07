@@ -1,4 +1,13 @@
-if (localStorage.getItem('allanamientoHenry') == "true") {
+let aux = localStorage.getItem("pistasLocalStorage");
+let pistasEncontradas = aux !== null ? Number(aux) : 0;
+if (pistasEncontradas >= 3){
+
+
+    document.getElementById("Pistas").style.display = "none";
+
+}
+
+    if (localStorage.getItem('allanamientoHenry') == "true") {
     document.getElementById('aviso').style.display = 'none';
     document.getElementById('derecha').style.display = 'none';
     sacarTodo();
@@ -20,7 +29,6 @@ function proseguir() {
         nuv();
     }
 }
-var pistasEncontradas = 0;
 document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
 
 function nuv() {
@@ -53,7 +61,7 @@ function ponerTodo() {
     iconosE.style.display = 'block';
     reloj.style.display = 'block';
 }
-let intervaloReloj; // Variable global para el intervalo del reloj
+var intervaloReloj; // Variable global para el intervalo del reloj
 
 function esconderse() {
     var cama = document.getElementById("escondite2");
@@ -114,7 +122,7 @@ function salvado(probabilidad) {
     if (probabilidad <= random) {
         location.href = '../muerteREMASTER/casoFallido.html'
     } else {
-        alert("te salvaste");
+        alert("te salvaste"); //cambiar esto 
         clearInterval(intervaloReloj); // Detén el reloj al salvarse
         localStorage.removeItem("Escondite1");
 
@@ -123,42 +131,48 @@ function salvado(probabilidad) {
     }
 }
 let insertarPistas = document.getElementById("insertarPistas");
+insertarPistas.innerHTML = 'Pistas encontradas: ' + pistasEncontradas + "/3";
 document.getElementById("pistaCorbata").addEventListener("click", function () {
     const audio = new Audio("./correct-choice-43861.mp3");
     audio.play();
     localStorage.setItem('pistaCorbataHenry', 100);
-    pistasEncontradas += 1;
+    pistasEncontradas ++;
     if (pistasEncontradas == 3) {
-        replandecer()
+        replandecer()   
     }
     insertarPistas.innerHTML = 'Pistas encontradas: ' + pistasEncontradas + "/3";
+    document.getElementById("pistaCorbata").style.display = 'none';
 })
 document.getElementById("pistaBoletos").addEventListener("click", function () {
     const audio = new Audio("./correct-choice-43861.mp3");
     audio.play();
     localStorage.setItem('pistaBoletos', 100);
-    pistasEncontradas += 1;
+    pistasEncontradas ++;
     if (pistasEncontradas == 3) {
         replandecer()
     }
     insertarPistas.innerHTML = 'Pistas encontradas: ' + pistasEncontradas + "/3";
+    document.getElementById("pistaBoletos").style.display = 'none';
 
 })
 document.getElementById("pistaCarta").addEventListener("click", function () {
     const audio = new Audio("./correct-choice-43861.mp3");
     audio.play();
     localStorage.setItem('pistaCarta', 100);
-    pistasEncontradas += 1;
+    pistasEncontradas ++;
     if (pistasEncontradas == 3) {
         replandecer()
     }
     insertarPistas.innerHTML = 'Pistas encontradas: ' + pistasEncontradas + "/3";
+    document.getElementById("pistaCarta").style.display = 'none';
 })
 function replandecer() {
+    localStorage.setItem("pistasLocalStorage" , pistasEncontradas); 
     document.getElementById('contenedorMapa').style.boxShadow = "0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6)";
 }
 
 function irMapa() {
+    localStorage.setItem("pistasLocalStorage" , pistasEncontradas); 
     localStorage.setItem('allanamientoHenry', false)
     location.href = '../Mapa/Mapa.html'
 }
@@ -172,3 +186,4 @@ function ocultarOpcionesEsconderse() {
     document.getElementById('derecha').style.display = 'none';
     sacarTodo();
 }
+
