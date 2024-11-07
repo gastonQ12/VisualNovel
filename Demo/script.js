@@ -92,6 +92,6 @@ function cargarPartida(){
             location.href = "acto1/escondite/escondite.html";
         }
     }else {
-        location.href = "acto1/partidaNoguardada/partidaN.html"
+        location.href = "acto1/sin partida guardada/index.html"
     }
 }
