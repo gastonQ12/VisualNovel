@@ -2,7 +2,6 @@
 const abrCreditos = document.querySelector("#abrir_creditos");
 const cerCreditos = document.querySelector("#cerrar_creditos");
 const creditos = document.querySelector("#creditos");
-
 abrCreditos.addEventListener("click", () => {
     creditos.showModal();
 })
@@ -20,7 +19,6 @@ abrconfiguracion.addEventListener("click", () => {
 })
 cerconfiguracion.addEventListener("click", () => {
     configuracion.close();
-    
 })
 
 //CODIGO PARA MOVERTE ENTRE LAS OPCIONES
@@ -32,8 +30,8 @@ let botonActual = 0;
 
 function cambiar_opcion_tecla(event) {
     const key = event.key;
-
     if (key === 'ArrowUp' || key === 'Up') {
+
         botonActual = (botonActual - 1 + botones.length) % botones.length;
         botones[botonActual].focus();
         cambiarColorBoton(botonActual);
@@ -46,12 +44,18 @@ function cambiar_opcion_tecla(event) {
     }
 }
 function cambiarColorBoton(indiceBoton) {
-    const botonActual = document.querySelector('.boton-actual');
-    if (botonActual) {
-        botonActual.classList.remove('boton-actual');
-    }
+    if(indiceBoton != 10){
+        const botonActual = document.querySelector('.boton-actual');
+        if (botonActual) {
+            botonActual.classList.remove('boton-actual');
+        }
 
-    botones[indiceBoton].classList.add('boton-actual');
+        botones[indiceBoton].classList.add('boton-actual');
+    }
+    else{
+        botonActual.classList.remove('boton-actual');
+        
+    }
 }
 
 window.onload = function () {
@@ -61,11 +65,17 @@ window.onload = function () {
     }
 };
 
+
+//CODIGO FIX BOTONES DUPLICADOS
+document.addEventListener("mousemove", function(event) {
+    cambiarColorBoton(9);
+});
+
+
 document.addEventListener('keydown', cambiar_opcion_tecla);
 
-
 //CODIGO PARA QUE EL USARIO NO PUEDA USAR EL MENU PARA ACCEDER A LA CONSOLA
-document.oncontextmenu = function () { return false }
+// document.oncontextmenu = function () { return false }
 
 function nuevaPartida(){
     let codViejo = localStorage.getItem('codigoPartidaActual');
@@ -95,3 +105,11 @@ function cargarPartida(){
         location.href = "acto1/sin partida guardada/index.html"
     }
 }
+
+
+
+// function movimientoTecla(){
+//         console.log("riko");
+//         cambiarColorBoton(0);
+
+// }
