@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <audio id="audio-player-1" autoplay loop>
-                    <source src="/Menu/audio/Sospechas.wav" type="audio/mpeg">
+                    <source src="audio/Sospechas.wav" type="audio/mpeg">
                     Tu navegador no soporta la reproducción de audio.
                 </audio>
             </div>
@@ -106,28 +106,47 @@
 
         </div>
     </dialog>
-
     <style>
+        .musica,
+        .volumen {
+            padding-top: 14px;
+
+        }
+
+        .control-sonido {
+            position: absolute;
+            top: 0;
+            right: 10%;
+
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+
+        }
+
+        .volumen .control-sonido {
+            right: 10%;
+            top: 81px;
+        }
+
         #player {
-            width: 140px;
+            width: 100%;
             height: 30px;
         }
 
         #volume {
-            position: absolute;
-            left: 24px;
-            margin: 0 auto;
-            height: 5px;
-            width: 100px;
+            position: relative;
+            height: 15px;
+            width: 100%;
             background: rgba(255, 255, 255, 1);
             border-radius: 15px;
-
+            border: 2px solid white;
         }
 
         .ui-slider-range-min {
-            height: 5px;
+            height: 15px;
             width: 300px;
-            position: absolute;
+            position: relative;
             background: #B3B3B3;
             border: none;
             border-radius: 10px;
@@ -135,16 +154,17 @@
         }
 
         .ui-slider-handle {
-            width: 16px;
-            height: 16px;
+            width: 30px;
+            height: 30px;
             border-radius: 20px;
             background: rgba(0, 0, 0, 1);
             position: absolute;
             margin-left: -8px;
-            margin-top: -6px;
+            margin-top: -24px;
             cursor: pointer;
             outline: none;
             display: none;
+            border: 2px solid white;
         }
     </style>
     <script>
