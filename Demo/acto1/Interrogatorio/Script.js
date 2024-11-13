@@ -1,8 +1,22 @@
 // import { cargarPartida } from '../../script.js';
 let aux = 0;
-
+let iconosE = document.getElementById('iconosE');
 const partidaA = localStorage.getItem('codigoPartidaActual');
 const partidaAnti = localStorage.getItem('codigoViejo');
+
+let cuadro = document.getElementById("cuadro")
+let libroLetras = document.getElementById("libroLetras")
+
+cuadro.addEventListener('click', () => {
+    cPruebas ++
+    cuadro.style.display = 'none'
+});
+
+libroLetras.addEventListener('click', () => {
+    cPruebas ++
+    libroLetras.style.display = 'none'
+});
+
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
     console.log(paginaAnterior)
@@ -226,6 +240,7 @@ function cargadoDePIstas() {
         document.getElementById("pista8").style.display = "none";
     }
 
+
     if (localStorage.getItem('pistaBoletos') == 100) {
         document.getElementById("pista9").style.display = "Block";
     } else {
@@ -318,7 +333,8 @@ var fondo = getCookie("fondo");
 body.style.backgroundImage = fondo;
 boxD.addEventListener('click', editarTexto);
 function editarTexto(event) {
-    if (aux <= size - 1) {
+    // if (aux <= 23 || aux > 23) {
+    if(aux <= size -1){
         //ocultar los botones 
         document.getElementById("botonOpcion").setAttribute('hidden', '');
         document.getElementById("botonOpcion2").setAttribute('hidden', '');
@@ -372,8 +388,14 @@ function caminoElegido() {
     }
 
 }
-function opcionesPreguntar(aux) {
-    if (aux === 22) {
+
+const divP = document.getElementById('opcionesPreguntar');
+// const cuadroDialogo = document.getElementById("cuadroDialogo");
+function opcionesPreguntar(auxiliary) {
+    if (auxiliary === 24) {
+        divP.style.display = "flex";
+        boxD.style.display = 'none';
+
         console.log(aux);
         const opcionesPreguntar = document.getElementById('opcionesPreguntar').style.display = "flex";
         const botonOpcion2 = document.getElementById('botonOpcion2');
@@ -386,12 +408,21 @@ function opcionesPreguntar(aux) {
         parrafoDentroDelBoton1.innerHTML = '¿Que sabe de aquel libro?';
         // Añade eventos de clic para actualizar el diálogo y continuar
         botonOpcion2.addEventListener("click", function () {
+            boxD.style.display = "flex";
+            divP.style.display = 'none';
             localStorage.setItem('cam1Preg', "true");
+            aux = 24;
             caminoElegido()
         });
 
         botonOpcion1.addEventListener("click", function () {
+            aux = 24;
+            boxD.style.display = "flex";
+            divP.style.display = 'none';
+
+
             localStorage.setItem('cam1Preg', "false");
+            
             caminoElegido()
         });
     } else {
@@ -642,18 +673,15 @@ function esconditeEvento(aux) {
 function sacarTodo() {
     let audioTic = document.getElementById('audioTic');
     audioTic.play();
-    let iconosE = document.getElementById('iconosE');
     let reloj = document.getElementById('reloj');
     let cuadroDialogo = document.getElementById('cuadroDialogo');
     let imgPjs = document.getElementById('imagenesPJ');
     imgPjs.style.display = 'none';
     cuadroDialogo.style.display = 'none';
     iconosE.style.display = 'block';
-
     reloj.style.display = 'block';
 }
 function ponerTodo() {
-    let iconosE = document.getElementById('iconosE');
     let reloj = document.getElementById('reloj');
     let cuadroDialogo = document.getElementById('cuadroDialogo');
     let imgPjs = document.getElementById('imagenesPJ');
@@ -664,6 +692,9 @@ function ponerTodo() {
     let audioTic = document.getElementById('audioTic');
     audioTic.pause()
 }
+
+let cPruebas = 0;
+
 function pistas(aux) {
     var cuadro = document.getElementById("cuadro");
     var libroLetras = document.getElementById("libroLetras");
@@ -673,12 +704,12 @@ function pistas(aux) {
 
     const intervalo = setInterval(() => {
         reloj.style.background = `conic-gradient(red ${bajar}deg, white ${bajar}deg)`;
-        bajar -= 9;
+        bajar = cPruebas==2 ? 0 : bajar -= 9
+
         console.log(bajar)
         if (bajar <= 0) {
             clearInterval(intervalo)
             ponerTodo();
-
         }
     }, 500
     );
