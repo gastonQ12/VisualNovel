@@ -20,23 +20,23 @@ body{
 }
 
 .PlayerTHING{
-    height: 200px;
-    width: 2000px;
+    height: 100px;
+    width: 100%;
     background-image: url(imgs/madera.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: 40%;
+    bottom: 0;
     position: absolute;
 }
 
 .pCircle{
-    width: 50rem;
-    height: 30rem;
+    width: 23rem;
+    height: 12rem;
     background-color: #79604A;
     border-radius: 30rem 30rem 0 0;
     position: absolute;
-    margin-top: 35%;
+    bottom:0;
     background-image: url(imgs/madera.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -44,12 +44,12 @@ body{
 }
 
 .pCircle2{
-    width: 40rem;
-    height: 25rem;
+    width: 18rem;
+    height: 10rem;
     background-color: #ffffff;
     border-radius: 25rem 25rem 0 0;
     position: absolute;
-    margin-top: 35%;
+    bottom: 0;
     background-image: url(imgs/esencia.webp);
     background-position: center;
     background-repeat: no-repeat;
@@ -59,7 +59,8 @@ body{
 
 .elpeak{
     position: absolute;
-    margin-top: 31%;
+    bottom: 0;
+    width: 250px;
     z-index: 1;
 }
 
@@ -206,7 +207,7 @@ h1{
 }
 
 .score{
-    position: absolute;
+    /* position: absolute; */
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: black;
     font-family: "Karantina", system-ui;
@@ -214,10 +215,12 @@ h1{
     font-style: normal;
     font-size: 100px;
     color: white;
-    margin-top: -40%;
+    left: 0;
+    /* margin-top: -40%; */
 }
 
 .scoreN{
+    /* position: absolute; */
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: black;
     font-family: "Karantina", system-ui;
@@ -225,5 +228,6 @@ h1{
     font-style: normal;
     font-size: 100px;
     color: white;
-    margin-top: -30%;
+    /* left: 0; */
+    /* margin-top: 70px; */
 }
