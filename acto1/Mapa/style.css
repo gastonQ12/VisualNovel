@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
+#aviso{
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.692);
+    left: 40%;
+    z-index: 22222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    display: none;
+}
+
+#aviso h1{
+    font-family: "Karantina", system-ui;
+    font-size: 70px;
+    color: red;
+    text-align: center;
+}
+body{
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+}
+
+.fondo{
+    width: 100%;
+    position: absolute;
+    z-index: -2;
+    height: 100%;
+}
+.casita1{
+    width: 120px;
+    height: 150px;
+    position: absolute;
+}
+#callejon{
+    width: 120px;
+    height: 150px;
+    position: absolute;
+    left: 40%;
+    top: 5%;
+}
+.casita4{
+    width: 120px;
+    height: 150px;
+    position: absolute;
+    left: 70%;
+    bottom: 70%;
+}
+.casita5{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 45%;
+    bottom: 45%;
+}
+.casita1 img, #callejon img, .casita4 img, .casita5 img, .casita2 img, .casita3 img{
+    width: 100%;
+    height: 100%;
+}
+
+.casita1{
+    left: 40%;
+    bottom: 150px;
+}
+
+.casita2, .casita3{
+    position: absolute;
+    height: 150px;
+    left: 70%;
+    width: 200px;
+    bottom: 280px;
+}
+.casita2{
+    left: 65%;
+    bottom: 200px;
+}
+.casita3{
+    left: 18%;
+    bottom: 180px;
+}
+
+div img{
+    cursor: pointer;
+}
+img:hover{
+    filter: drop-shadow(1px 1px 20px gold)
+}

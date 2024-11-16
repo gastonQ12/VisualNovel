@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+body {
+  background-image: url("img/fondo.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 100vh;
+  color: white;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+/* CONTENEDOR DE DIVS DE PERSONAJES */
+#jugador {
+  position: absolute;
+  bottom: 0;
+  width: 500px;
+  width: auto;
+  left: 4%;
+  background-color: #5F3B27;
+  border-radius: 20px;
+  bottom: 2%;
+}
+#enemigo {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+/* IMGS DE JUGADORES */
+#jugador img {
+  margin-bottom: -3px;
+}
+#enemigo img {
+  position: relative;
+  width:  60%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -10%);  
+}
+#jugador img {
+  width: 250px;
+  border-radius: 20px;
+}
+/* VIDA DE JUGADORES */
+
+/* BOTON CURAR */
+#curar{
+  position:absolute;
+  background-color: transparent;
+  top:-30px;
+  right: -30px;
+  width: 90px;
+  height: 90px;
+  background-image: url("img/curacion-img.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  transition: 1s;
+  outline: none;
+  cursor: pointer;
+}
+/* MANA CIRCULOS */
+#mana-circles-container {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  /* background-color: aqua; */
+}
+
+.mana-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: green;
+  /* Color para el mana disponible */
+}
+
+.mana-circle.empty {
+  background-color: black;
+  /* Color para el mana agotado */
+}
+
+/* JUGADOR INFO */
+.info-jugador {
+  height: auto;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  margin-left: 10%;
+}
+
+.nombre-jugador {
+  position: relative;
+  background-color: #422d1a;
+  display: inline-block;
+  border-radius: 10px;
+  width: 100px;
+  padding: 2px;
+  text-align: center;
+  border: 5px solid #6F5237;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-left: 20px;
+  bottom: -5px;
+}
+
+.barra-vida-fondo {
+  background-color: #422d1a;
+  border-radius: 20px;
+  height: 22px;
+  border: 5px solid #6F5237;
+  position: relative;
+
+}
+
+.barra-vida {
+  background-color: #330000;
+  border-radius: 20px;
+  height: 22px;
+  width: 100%;
+}
+
+#vida-jugador {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* BOTONES ÑAPIAS */
+.cont-acciones {
+  display: flex;
+  justify-content: center;
+}
+.op1 {
+  background-color: #513623;
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+  border: none;
+  transition: 1s;
+  /* transform: skewX(-30deg); */
+  color: white;
+  text-align: center;
+  margin: 6px;
+  cursor: pointer;
+}
+/* 
+.op1 p {
+  /* transform: skewX(30deg); 
+  
+} */
+
+.boton-atacar:hover {
+  background-color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+.boton-atacar {
+  background-image: url('img/garrote-img.svg');
+  background-position: center;
+  background-size: cover;
+  border: none;
+  height: 85%;
+  width: 85%;
+  /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
+  transition: 1s;
+  transform: skewX(-10deg);  
+  
+}
+
+/* MENSAJES DE LA PELEA */
+p {
+  
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+#mensajes {
+  background-image: url("img/papel.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-inline: hidden;
+  overflow-y: auto;
+  height: 240px;
+  width: 450px;
+  color: black;
+  font-size: 23px;
+  /* font-family: "La Belle Aurore", cursive;
+  font-weight: 400;
+  font-style:italic; */
+  font-size: 20px;
+  font-family:'Times New Roman', Times, serif;
+  /* font-family: "Cedarville Cursive", cursive; */
+  font-weight: 400;
+  font-style: normal;
+}
+/* BARRITA OVERFLOW */
+#mensajes::-webkit-scrollbar{
+  width: 10px;
+}
+#mensajes::-webkit-scrollbar-track{
+  width: 10px;
+}
+#mensajes::-webkit-scrollbar-thumb{
+  width: 10px;
+  background-color: #513623;
+  border-radius: 10px;
+}

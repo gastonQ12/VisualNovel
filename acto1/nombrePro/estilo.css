@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    background-image: url(imgs/nombre.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    user-select: none;
+}
+
+.cont{
+    margin-left: 25%;
+    margin-top: 5%;
+    background-color: rgba(92, 89, 89, 0.671);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 950px;
+    height: 750px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#656565, rgba(0, 0, 0, 0.301));
+}
+
+.np{
+    filter: drop-shadow(4px 4px 0px #797979);
+    outline: 10px;
+    border-color: black;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: "Karantina", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 100px;
+    margin-bottom: 15%;
+    position: absolute;
+    
+}
+
+.cn{
+    position: absolute;
+}
+
+.bc{
+    position: absolute;
+    margin-top: 15%;
+    filter: drop-shadow(4px 4px 0px #797979);
+    outline: 10px;
+    border-color: black;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: "Karantina", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    
+    
+}
+
+button {
+    background-color: #575757; /* Green */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50px;
+    border-radius: 25px;
+    width: 250px;
+    
+}
+
+input{
+    width: 600px;
+    height: 90px;
+    background: none;
+    border: none;
+    font-size: 75px;
+    color: white;
+    filter: drop-shadow(4px 4px 0px #797979);
+    outline: 10px;
+    border-color: black;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: "Karantina", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    
+}
+
+input::selection{
+    border: none;
+}
+
+button:hover{
+    background-color: white;
+    color: #575757;
+    transform: translateY(-5px);
+    animation: move1 0.5s;
+}
+
+
+.easterEgg{
+    margin-top: 50%;
+    width: 500px;
+}
+
+
+
+.coso{
+    margin-bottom: 32%;
+    position: absolute;
+}
+
+.l1{
+    width: 700px;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    margin-bottom: 25%;
+}
+
+.l2{
+    width: 700px;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    margin-top: 25%;
+}
+
+.caja{
+    position: absolute;
+    margin-top: 0.5%;
+}
+
+
+@keyframes move1 {
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes move {
+    from{
+        transform: translateY(-5px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}

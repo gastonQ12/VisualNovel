@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: "Karantina", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    background-image: url(imgs/fondo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    user-select: none;
+}
+
+.cover{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.titulo{
+    margin-top: 1%;
+    font-size: 150px;
+    color: white;
+}
+
+.res{
+    margin-top: 8.5%;
+    position: absolute;
+    font-size: 75px;
+    color: white;
+}
+
+.dec{
+    position: absolute;
+    margin-top: 12%;
+}
+
+span{
+    transition: all 0.3s;
+}
+
+span:hover{
+    letter-spacing: 2.5px;
+    color: #AE0909;
+}
+
+.capS{
+    font-size: 50px;
+    width: 500px;
+    margin-top: 20%;    
+    margin-left: 5%;
+    position: absolute;
+    color: white;
+}
+
+.capN{
+    position: absolute;
+}
+
+.cap2{
+    margin-top: 20%;
+}
+
+.cap3{
+    margin-top: 40%;
+}
+
+.cap4{
+    margin-top: 60%;
+}
+
+.cap5{
+    margin-top: 80%;
+}
+
+.capB2{
+    transition: all 1s;
+}
+
+.capB2{
+    margin-left: -5%;
+    margin-top: 20%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 50px;
+    width: 500px;
+    background-color: black;
+    position: absolute;
+
+}
+
+.capB3{
+    transition: all 1s;
+}
+
+.capB3{
+    margin-left: -5%;
+    margin-top: 40%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 50px;
+    width: 500px;
+    background-color: black;
+}
+
+.capB4{
+    transition: all 1s;
+}
+
+.capB4{
+    margin-left: -5%;
+    margin-top: 60%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 50px;
+    width: 500px;
+    background-color: black;
+}
+
+.capB5{
+    transition: all 1s;
+}
+
+.capB5{
+    margin-left: -5%;
+    margin-top: 80%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 50px;
+    width: 500px;
+    background-color: black;
+}
+
+.no{
+    position: absolute;
+    z-index: 999;
+}
+
+.no::after{
+    opacity: 0;
+}
+
+.no{
+    transition: all 0.1s;
+}
+
+.no:hover{
+    animation: linear NoNo 0.1s;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.no2{
+    position: absolute;
+    z-index: 999;
+}
+
+.no2::after{
+    opacity: 0;
+}
+
+.no2{
+    transition: all 0.1s;
+}
+
+.no2:hover{
+    animation: linear NoNo 0.1s;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.no4{
+    position: absolute;
+    z-index: 999;
+}
+
+.no4::after{
+    opacity: 0;
+}
+
+.no4{
+    transition: all 0.1s;
+}
+
+.no4:hover{
+    animation: linear NoNo 0.1s;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.no5{
+    position: absolute;
+    z-index: 999;
+}
+
+.no5::after{
+    opacity: 0;
+}
+
+.no5{
+    transition: all 0.1s;
+}
+
+.no5:hover{
+    animation: linear NoNo 0.1s;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+@keyframes NoNo {
+    0%{
+        transform: rotate(10deg);
+    }
+    100%{
+        transform: rotate(-10deg);
+    }
+    
+}
+
+
+.desbloqueado{
+    opacity: 0;
+}
+
+.chauPibe{
+    width: 0px;
+}
+
+.holaPibe{
+    z-index: 998;
+    opacity: 0;
+    animation: MUCHOcine linear 0.5s;
+}
+
+.c2{
+    position: absolute;
+    z-index: 997;
+    margin-top: -1.2%;
+    height: 85px;
+    width: 65px;
+    opacity: 0;
+}
+
+.c2{
+    transition: all 0.5s;
+}
+
+.c3{
+    position: absolute;
+    z-index: 997;
+    margin-top: -1.2%;
+    height: 85px;
+    width: 65px;
+    opacity: 0;
+}
+
+.c3{
+    transition: all 0.5s;
+}
+
+.c4{
+    position: absolute;
+    z-index: 997;
+    margin-top: -1.2%;
+    height: 85px;
+    width: 65px;
+    opacity: 0;
+}
+
+.c4{
+    transition: all 0.5s;
+}
+
+.c5{
+    position: absolute;
+    z-index: 997;
+    margin-top: -1.2%;
+    height: 85px;
+    width: 65px;
+    opacity: 0;
+}
+
+.c5{
+    transition: all 0.5s;
+}
+
+.c1:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+@keyframes MUCHOcine {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
