@@ -1,128 +1,122 @@
-// declaracion de variables
-const puntaje = document.getElementById('puntaje');
+const puntajeJugador = document.getElementById('puntaje');
+const puntajeEnemigo = document.getElementById('puntaje-enemigo');
 const pedir = document.getElementById('pedir');
+const contenedorJugador = document.getElementById('contenedor-cartas');
+const contenedorEnemigo = document.getElementById('contenedor-cartas-enemigo');
 const quedarse = document.getElementById('quedarse');
 const vale_11 = document.getElementById('vale11');
 const vale_1 = document.getElementById('vale1');
+const pantallaMuerte = document.getElementById("cont-pantalla-muerte");
+const pantallaVivo = document.getElementById("cont-pantalla-vivo")
 
-let cartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let tipoCarta = ["picas", "corazon", "trebol", "diamante"];
-let manoUser = [];
-let manoEnemigo = [];
-let manoCompleta = [];
-// const manoJugador ={
-// Pica: [],
-// Corazon: [],
-// Trebol: [],
-// Diamante: []
-// }
-//contadores para saber en que posicion la numCarta
-//No se puede poner dentro de la funcion donde deberia estar
-//porque se llama varias veces
-// contPica = 0, contCor = 0, contTre = 0, contDiam = 0;
-let contadorCartas = 0;
-let total = 0;
-let aux = 0;
-
-//obtener Carta aleatoria
+let cartasJugador = crear_Cartas();
+let cartasCrupier = crear_Cartas();
+let totalJugador = 0;
+let totalEnemigo = 0;
+let contadorCartasJugador = 0;
+let contadorCartasCrupier = 0;
 function obtenerCartaAleatoria() {
-  let numCarta = Math.floor(Math.random() * 10) + 1;
-  let tipo = Math.floor(Math.random() * 4);
-  let CartaGenerada = tipoCarta[tipo];
+  let cartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let tipoCarta = ["picas", "corazon", "trebol", "diamante"];
+  let cartaAleatoria = [tipoCarta[Math.floor(Math.random() * 4)], cartas[Math.floor(Math.random() * 10)]];
+  return cartaAleatoria;
+};
 
-  manoCompleta[contadorCartas] = [CartaGenerada, numCarta];
-  console.log(CartaGenerada, numCarta+"\n");
-  contadorCartas++;
+function crear_Cartas() {
+  let cartas = [];
+  for (i = 0; i < 21; i++) {
+    cartas.push(obtenerCartaAleatoria());
+  }
+  return cartas;
+};
 
-  return numCarta;
-
-}
-
-
-
-//muestra el puntaje del usuario
-function mostrarPuntaje(manoUser) {
-  total = 0;
-  manoUser.forEach(function (numCarta) { total += numCarta; });
-  puntaje.textContent = total;
-}
-
-
-//pedir numCarta
-pedir.addEventListener("click", () => {
-  numCarta = obtenerCartaAleatoria();
-  manoUser.push(numCarta);
-  mostrarPuntaje(manoUser);
-  checkPuntaje();
-});
-
-
-//actualizar el puntaje y verificar si gana o pierde
-function checkPuntaje() {
-  if (total > 21) {
-    location.href = "muerte.html";
-  } else if (total === 21) {
-    location.href = "vivo.html";
+function mostrar_Cartas(carta, usuario) {
+  const img = document.createElement('img');
+  img.setAttribute("class", "cartas");
+  //*carta = ["tipo","numero"]
+  if (carta[1] == 1) {
+    img.src = `imgs/img-cartas/${carta[0]}-A.svg`;
+  } else {
+    img.src = `imgs/img-cartas/${carta[0]}-${carta[1]}.svg`;
+  };
+  switch (usuario) {
+    case "crupier":
+      contenedorEnemigo.appendChild(img);
+      break;
+    case "jugador":
+      contenedorJugador.appendChild(img);
+      break;
   }
 }
+function sumarCartas(cantCartas, arrayCartas) {
+  for (i = 0; i < cantCartas; i++) {
+    arrayCartas == cartasJugador ? totalJugador += arrayCartas[i][1]: totalEnemigo += arrayCartas[i][1];
+  }
+  arrayCartas == cartasJugador ? puntajeJugador.textContent = totalJugador: puntajeEnemigo.textContent = totalEnemigo;
+}
+function desactiva_Botones(){
+  quedarse.disabled = true;
+  pedir.disabled = true;
+}
 
-// boton quedarse
+function mostrar_Cart_Iniciar() {
+  mostrar_Cartas(cartasCrupier[0], "crupier");
+  sumarCartas(1,cartasCrupier);
+  contadorCartasCrupier = 1;
+  mostrar_Cartas(cartasJugador[0], "jugador");
+  mostrar_Cartas(cartasJugador[1], "jugador");
+  sumarCartas(2,cartasJugador);
+  contadorCartasJugador = 2;
+};
+mostrar_Cart_Iniciar();
+
 quedarse.addEventListener("click", () => {
 
-  puntajeCrupier();
+  while(totalEnemigo <= totalJugador){
+    totalEnemigo = 0;
+    mostrar_Cartas(cartasCrupier[contadorCartasCrupier], "crupier");
+    contadorCartasCrupier++;
+    sumarCartas(contadorCartasCrupier, cartasCrupier);
+    console.log(totalEnemigo)
+  }
+  const razon_p = document.createElement('p');
+  razon_p.setAttribute("class", "razon");
+  
+  if(totalJugador == 21){
+    razon_p.textContent = "Llegaste a 21"
+    pantallaVivo.appendChild(razon_p);  
+    pantallaVivo.removeAttribute("style")
+  }else if(totalJugador <  totalEnemigo && totalEnemigo <= 21){
+    console.log("El enemigo suma más");
+    razon_p.textContent = "El enemigo suma más";
+    pantallaMuerte.appendChild(razon_p);
+    pantallaMuerte.removeAttribute("style")
+  }else if(totalEnemigo > 21){
+    console.log("El enemigo se paso")
+    razon_p.textContent = "El enemigo se paso";
+    pantallaVivo.appendChild(razon_p);
+    pantallaVivo.removeAttribute("style")
+  }else if(totalEnemigo == totalJugador){
+    console.log("Empate")
+  }
 
 });
 
-
-function puntajeCrupier() {
-  while (aux < 17) {
-    numCarta = obtenerCartaAleatoria();
-    manoEnemigo.push(numCarta);
-    manoEnemigo.forEach(function (numCarta) { aux += numCarta; });
-    if (aux == 17 || aux > 21) {
-      location.href = "vivo.html";
-    }
-    else if (aux == 21 || total < aux) {
-      location.href = "muerte.html";
-    }
-  }
-  if (total > aux) {
-    location.href = "vivo.html";
-  }
-}
-function checkPuntajeCrupier() {
-
-}
-
-//goat  
-let contadorr = 0;
 pedir.addEventListener("click", () => {
-  
-  // for (i = 0; i < manoCompleta.length; i++) {
-  
-    let tipoCarta = manoCompleta[contadorr][0];
-    let numeroCarta = manoCompleta[contadorr][1];
-    const img = document.createElement('img');
-    switch(numeroCarta){
-      case 1:
-        img.src = `imgs/img-cartas/${tipoCarta}-A.svg`;
-      break;
-      default:
-        img.src = `imgs/img-cartas/${tipoCarta}-${numeroCarta}.svg`;
-    }
-    img.setAttribute("class", "cartas")
-    const contenedor = document.getElementById('contenedor-cartas');
-    contenedor.appendChild(img);
-    console.log("tamaño: "+manoCompleta.length);
-    
-    
-  // }
-  contadorr++;
-});
-// boton pedir numCarta
-// function pedirCarta() {
-//   numCarta = obtenerCartaAleatoria();
-//   manoUser.push(numCarta); 
-//   mostrarPuntaje(manoUser);
-//   return 
-// }
+  totalJugador = 0;
+  console.log()
+  mostrar_Cartas(cartasJugador[contadorCartasJugador], "jugador");
+  contadorCartasJugador++;
+  sumarCartas(contadorCartasJugador, cartasJugador);
+
+  const razon_p = document.createElement('p');
+  if(totalJugador > 21){
+    razon_p.textContent = "Te pasaste de 21"
+    pantallaMuerte.appendChild(razon_p);
+    pantallaMuerte.removeAttribute("style");
+  }else if(totalJugador == 21){
+    razon_p.textContent = "Llgaste a 21"
+    pantallaVivo.appendChild(razon_p);
+    pantallaVivo.removeAttribute("style");
+  }
+})
