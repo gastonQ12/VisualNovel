@@ -1,8 +1,115 @@
-// import { cargarPartida } from '../../script.js';
-let aux = 0;
+const lists = {
+    button1: [
+        "1. Muy bien. Empecemos. Sabemos que su coartada no es del todo sólida, y eso nos ha llevado a investigar más a fondo. Encontramos una de sus corbatas y en la escena del crimen, se halló una corbata. ¿Puede explicarnos esa discrepancia?", 
+        "2. Eh… bueno… eso… realmente no sé qué decir. Es un traje viejo, tal vez olvidé la corbata. No tiene nada que ver con lo que pasó.", 
+        "1. Piensa: Lo veo nervioso, este se relame los labios constantemente.", 
+        "1. Entiendo, pero además encontramos una carta de amor y arrepentimiento en su casa. En ella, se menciona un amorío secreto con la esposa del fallecido. ¿Le suena familiar esa carta?", 
+        "1. Piensa: Notarías que este se pone a la defensiva, su mirada parece perdida y balbucea un poco.", 
+        "2. Eso… no es lo que parece. Era algo del pasado, algo que… que nunca debió haber ocurrido, la corbata seguramente la deje en algún lugar donde tuvimos un encuentro casual.", 
+        "1. Según la carta, parecía que sus sentimientos por ella eran profundos. Sin embargo, su arrepentimiento también está claro. ¿Por qué pensó que era necesario confesar esos sentimientos en esa carta?", 
+        "2. Estaba confundido… y me sentía culpable. Pero no… no fue por eso que pasó todo esto."
+    ]
+,
+button2: [
+    "1. También encontramos un boleto de viaje en su casa. Un boleto de avión con destino a un lugar lejano, fechado justo después del crimen. ¿Qué puede decirnos al respecto?", 
+    "2. Eso… eso no tiene nada que ver con esto. Compré ese boleto antes, hace tiempo, pero no… no tiene conexión con lo que pasó con Michael.", 
+    "1. Entonces, ¿cómo explicaría la coincidencia? ¿Un boleto comprado justo después del crimen, una carta de arrepentimiento y la falta de la corbata?", 
+    "2. No lo sé… No sé qué más decir.", 
+    "1. Señor Whells, debe entender que estamos tratando de entender la situación. Las pruebas que tenemos nos señalan a usted. ¿Cree que algo de lo que ha sucedido podría haber llevado a la tragedia?", 
+    "2. No… no creo que haya sido por eso… Si algo pasó, no fue por mi culpa.", 
+    "1. ¿Cree que alguien más podría haber hecho esto?", 
+    "2. No… no sé qué pensar."
+]
+,
+button3: [
+    "1. ¿Entonces qué?, ¿lo mató por celos o para quedarse con su esposa?", 
+    "2. ¡¿Qué?! Jamás, admito que amaba a Sophie, pero no lo mataría, era mi amigo… mi mejor amigo.", 
+    "1. Bueno, está muerto ahora y estoy seguro que algo tienes que ver."
+],
+  };
 
+  const name1 = localStorage.getItem("NombrePJ") || "policia";
+  const name2 = "Henry";
+  const buttonsDiv = document.getElementById("buttons");
+  const listContainer = document.getElementById("list-container");
+  const listItem = document.getElementById("list-item");
+
+  let currentList = [];
+  let currentIndex = 0;
+
+  document.getElementById("button1").addEventListener("click", () => {
+    localStorage.setItem('preguntaLibro', "true");
+    startList("button1")});
+  document.getElementById("button2").addEventListener("click", () =>{
+    localStorage.setItem('preguntaLetras', "true");
+    startList("button2")
+});
+  document.getElementById("button3").addEventListener("click", () => {
+    localStorage.setItem('amorioSecretoP', "true");
+    startList("button3");
+    
+});
+
+  // Función para iniciar la lista
+  function startList(buttonId) {
+    currentList = lists[buttonId];
+    currentIndex = 0;
+    buttonsDiv.style.display = "none";
+    listContainer.style.display = "block";
+    
+    listItem.textContent = currentList[currentIndex].slice(3).trim();
+  }
+
+  // Mostrar siguiente elemento de la lista
+  listContainer.addEventListener("click", () => {
+    let indicador = currentList[currentIndex].substring(0, 2).trim(); // Obtiene "1." o "2."
+    pjHablando = indicador === "1." ? name2 : name1;
+    let estadoPJs = document.getElementById("izquierda");
+    estadoPJs.src = './imagenes/HenryImg.png'
+    document.getElementById("PJname").textContent = pjHablando;
+    console.log(pjHablando);
+    currentIndex++;
+    if (currentIndex < currentList.length) {
+        listItem.textContent = currentList[currentIndex].slice(3).trim();
+    } else {
+      // Terminar y volver a mostrar botones
+      listContainer.style.display = "none";
+      buttonsDiv.style.display = "flex";
+    }
+  });
+
+
+//   resto
+
+// import { cargarPartida } from '../../script.js';
+
+let aux = 0;
+var boxD = document.getElementById('cuadroDialogo');
+var fondo = getCookie("fondo");
+const pagina = document.querySelectorAll('.pagina');
+let numeroPagina = 0;
+let estadoNPC = document.getElementById("derecha");
+var estadoNPCs = getCookie("estadoPJs");
+let estadoPJs = document.getElementById("izquierda");
+var estadoPJsC = getCookie("estadoPJs");
 const partidaA = localStorage.getItem('codigoPartidaActual');
 const partidaAnti = localStorage.getItem('codigoViejo');
+let preguntasRespondidas = {
+    letras: "",
+    amoriosecreto: "",
+    presuntarasesino: ""
+};
+let protagonista = localStorage.getItem('NombrePJ')
+let nombreInterrogado = localStorage.getItem('ainterrogar')
+; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
+var derecha = document.getElementById('derS');
+var izquierda = document.getElementById('izqS');
+var hoja = document.querySelector(".Sospechososs");
+
+
+
+body.style.backgroundImage = fondo;
+boxD.addEventListener('click', editarTexto);
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
 
@@ -58,17 +165,11 @@ document.body.onload = function () {
     if (leer !== "") {
         aux = parseInt(leer) - 1;
         mostrarDialogos(aux); // Mostrar el diálogo guardado
-
-    }
+    };
 
     
-    let estadoPJs = document.getElementById("izquierda");
-    var estadoPJsC = getCookie("estadoPJs");
     estadoPJs.style.display = estadoPJsC;
 
-
-    let estadoNPC = document.getElementById("derecha");
-    var estadoNPCs = getCookie("estadoPJs");
     estadoNPC.style.display = 'estadoNPCs';
 
     pista2.style.opacity = localStorage.getItem('opacidadPBasurero');
@@ -82,10 +183,7 @@ document.body.onload = function () {
 
 }
 
-var derecha = document.getElementById('derS');
-var izquierda = document.getElementById('izqS');
 
-var hoja = document.querySelector(".Sospechososs");
 
 derecha.addEventListener("click", moverDer);
 izquierda.addEventListener("click", moverIzq);
@@ -93,6 +191,8 @@ izquierda.addEventListener("click", moverIzq);
 function moverDer(event) {
     hoja.scrollLeft += 150;
 }
+
+// document.getElementById('P1').textContent = localStorage.getItem("opacidadP1").key;
 
 function determinarPE() {
     for (let i = 0; i < 4; i++) {
@@ -121,6 +221,7 @@ function determinarPE() {
         } else {
             document.getElementById('contP5_' + (i + 1)).style.opacity = 0 + "%";
         }
+
         if (localStorage.getItem("pistaBoletos") !== null) {
             document.getElementById('contP7_' + (i + 1)).style.opacity = 100 + "%";
         } else {
@@ -131,13 +232,24 @@ function determinarPE() {
         } else {
             document.getElementById('contP6_' + (i + 1)).style.opacity = 0 + "%";
         }
-}}
+
+
+    }
+
+}
+
 function mostrarDialogos(auxiliar) {
+
     let pjHablando = dialogos[auxiliar].substring(0, 1) - 1;
+
     document.getElementById("LineaDialogo").removeAttribute("hidden");
     document.getElementById("PJname").textContent = nombrePj[pjHablando];
+
     document.getElementById("output").textContent = dialogos[aux].substring(2);
-}
+};
+
+
+
 function determinarPersonajeExistente() {
     for (let i = 0; i < 4; i++) {
         if (localStorage.getItem("Sophie") !== null) {
@@ -161,41 +273,15 @@ function determinarPersonajeExistente() {
             document.getElementById('richard').style.display = 'none';
         }
     }
-}
+};
+
 function moverIzq(event) {
     hoja.scrollLeft += -150;
-}
-let protagonista = localStorage.getItem('NombrePJ')
-let nombreInterrogado = localStorage.getItem('ainterrogar')
-const dialogos = [
-    '1. Buenas tardes, señora '+ nombreInterrogado +'. Gracias por venir. Sabemos que esto es difícil, pero su ayuda puede ser fundamental para resolver el caso. ¿Le gustaría algo de beber antes de empezar?',
-    '2. No, gracias… prefiero empezar de inmediato.',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-]; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
+};
 
-const nombrePj = [protagonista, nombreInterrogado];  // nombre de los personajes
-let size = dialogos.length; //tamaño de la lista de dialogos
-var boxD = document.getElementById('cuadroDialogo');
-var fondo = getCookie("fondo");
-body.style.backgroundImage = fondo;
-boxD.addEventListener('click', editarTexto);
+
+
+
 function editarTexto(event) {
     if (aux <= size - 1) {
 
@@ -205,7 +291,8 @@ function editarTexto(event) {
         console.log(aux)
 
     }
-}
+};
+
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -215,21 +302,18 @@ function getCookie(cname) {
         if (c.indexOf(name) == 0) return unescape(c.substring(name.length, c.length));
     }
     return "";
-}
+};
 
 function crearCookies(aux) {
     document.cookie = "progresoDialogo=" + aux;
-}
-
-const pagina = document.querySelectorAll('.pagina');
-let numeroPagina = 0;
+};
 
 function mostrarPagina(index) {
     pagina.forEach((pagina) => {
         pagina.classList.remove('active');
     })
     pagina[index].classList.add('active');
-}
+};
 
 function cambioPaginaT(event) {
     if (event.key === 'ArrowRight') {
@@ -239,7 +323,7 @@ function cambioPaginaT(event) {
         numeroPagina = (numeroPagina - 1 + pagina.length) % pagina.length;
         mostrarPagina(numeroPagina);
     }
-}
+};
 
 document.addEventListener('keydown', cambioPaginaT);
 
@@ -273,7 +357,10 @@ function cambiarColorLabel() {
             }
         }
     }
-}
+};
+
+
+
 function updateStatus() {
     var arrayConvertido = localStorage.getItem('Sospechosos');
     var nuevoArray = JSON.parse(arrayConvertido);
@@ -300,7 +387,8 @@ function updateStatus() {
     localStorage.setItem('Sospechosos', JSON.stringify(nuevoArray));
 
     cambiarColorLabel();
-}
+};
+
 document.querySelectorAll('input[type="radio"]').forEach(radio => {
     radio.addEventListener('change', updateStatus);
 });
@@ -390,82 +478,9 @@ function cargadoDePIstas() {
     } else {
         document.getElementById("pista14").style.display = "none";
     }
-}
+};
 
 
 document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
 interrogarS();
 
-/* interrogar */
-function interrogarS(){
-    if (localStorage.getItem('ainterrogar') == "Edgard Mindguard") {
-        EdgarAcciones();
-    }
-    if (localStorage.getItem('ainterrogar') == "Sophie Hawks") {
-        SophieAcciones();
-    }
-    if (localStorage.getItem('ainterrogar') == "Henry Whalls") {
-        HenryAcciones();
-    }
-}
-function EdgarAcciones(){
-    let estadoPJs = document.getElementById("izquierda");
-    estadoPJs.src = 'imagenes/mindguard.png'
-    
-}
-function SophieAcciones(){
-    let estadoPJs = document.getElementById("izquierda");
-    estadoPJs.src = 'imagenes/sophieInd.png'
-    if(localStorage.getItem('pistaCarta') == null){
-        document.getElementById('botonOpcion3').style.display = "None";
-        document.getElementById('botonOpcion4').style.display = "None";
-    }
-    else if(localStorage.getItem('opacidadPBasurero') == null){
-        document.getElementById('botonOpcion2').style.display = "None";
-    }
-    document.getElementById('botonOpcion2').addEventListener('click', function(){
-        localStorage.setItem('preguntaLetras', "true")
-        preguntasInterrogatorio()
-    })
-    document.getElementById('botonOpcion3').addEventListener('click', function(){
-        localStorage.setItem('amorioSecretoP', "true")
-        preguntasInterrogatorio()
-    })
-    
-}
-let preguntasRespondidas = {
-    letras: "",
-    amoriosecreto: "",
-    presuntarasesino: ""
-}
-
-if(localStorage.getItem("respondidas") == null){
-    localStorage.setItem("respondidas", JSON.stringify(preguntasRespondidas))
-}
-
-preguntasInterrogatorio()
-function preguntasInterrogatorio(){
-    if(localStorage.getItem('ainterrogar') == "Sophie Hawks"){
-        if(localStorage.getItem("preguntaLetras") !== null){
-            dialogos[2] ='1. Entendido. Empecemos. ¿Podría contarnos cómo ha sido su relación en los últimos meses?'
-            dialogos[3] ='2. Bueno… como en cualquier matrimonio, tenemos nuestros altibajos, pero… lo amaba.'
-            dialogos[4] ='1. Claro. Pero… Algo que nos llamó la atención: encontramos un papel con letras antiguas en la escena del crimen. En su casa también encontramos un libro con letras similares. ¿Le dice algo esta coincidencia?'
-            dialogos[5] = '2. Oh… eso… sí, es solo un viejo libro de la biblioteca de mi esposo. Él coleccionaba ese tipo de cosas, ya sabe, antigüedades.'
-            dialogos[6] = '1. Entiendo. Me imagino que entre los amigos de su esposo también compartían gustos similares. Hemos oído que pasaba bastante tiempo con su amigo cercano, Henry Whalls. ¿Diría usted que su esposo confiaba mucho en él?'
-            dialogos[7] = '2. Sí… eran amigos de toda la vida. Muy cercanos.'
-            dialogos[8] = ' Tras mencionar el nombre del amigo se nota bastante nerviosa y desvia la mirada constantemente.'
-            if(aux == 8){
-                respondidas = JSON.parse(localStorage.getItem('respondidas'))
-                respondidas.letras = "true"
-                localStorage.setItem("respondidas", JSON.stringify(respondidas))
-            }
-            aux = 3 
-        }
-    }
-    
-}
-
-function HenryAcciones(){
-    let estadoPJs = document.getElementById("izquierda");
-    estadoPJs.src = 'imagenes/henryImg.png'
-}
