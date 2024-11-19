@@ -94,8 +94,6 @@ function moverDer(event) {
     hoja.scrollLeft += 150;
 }
 
-// document.getElementById('P1').textContent = localStorage.getItem("opacidadP1").key;
-
 function determinarPE() {
     for (let i = 0; i < 4; i++) {
         if (localStorage.getItem("OpacidadP1") !== null) {
@@ -123,7 +121,6 @@ function determinarPE() {
         } else {
             document.getElementById('contP5_' + (i + 1)).style.opacity = 0 + "%";
         }
-
         if (localStorage.getItem("pistaBoletos") !== null) {
             document.getElementById('contP7_' + (i + 1)).style.opacity = 100 + "%";
         } else {
@@ -134,18 +131,11 @@ function determinarPE() {
         } else {
             document.getElementById('contP6_' + (i + 1)).style.opacity = 0 + "%";
         }
-
-
-    }
-
-}
+}}
 function mostrarDialogos(auxiliar) {
-
     let pjHablando = dialogos[auxiliar].substring(0, 1) - 1;
-
     document.getElementById("LineaDialogo").removeAttribute("hidden");
     document.getElementById("PJname").textContent = nombrePj[pjHablando];
-
     document.getElementById("output").textContent = dialogos[aux].substring(2);
 }
 function determinarPersonajeExistente() {
@@ -231,8 +221,6 @@ function crearCookies(aux) {
     document.cookie = "progresoDialogo=" + aux;
 }
 
-
-
 const pagina = document.querySelectorAll('.pagina');
 let numeroPagina = 0;
 
@@ -286,8 +274,6 @@ function cambiarColorLabel() {
         }
     }
 }
-
-
 function updateStatus() {
     var arrayConvertido = localStorage.getItem('Sospechosos');
     var nuevoArray = JSON.parse(arrayConvertido);
