@@ -65,8 +65,6 @@ if(localStorage.getItem('SophieCasa') === 'Terminado'){
 function determinarPresionarCasaSophia(){
     if(localStorage.getItem('SophieCasa') !== 'Terminado'){
         irCasaSophia();
-    }else{
-        alert('Ya no puedes visitar la casa')
     }
 }
 
@@ -82,8 +80,6 @@ if(localStorage.getItem('Restaurante') === 'Terminado'){
 function determinarPresionarRestaurante(){
     if(localStorage.getItem('Restaurante') !== 'Terminado'){
         irRestaurante();
-    }else{
-        alert('Ya no puedes visitar la casa')
     }
 }
 
@@ -99,8 +95,6 @@ if(localStorage.getItem('escenaDelCrimen') === 'Terminado'){
 function determinarPresionarCallejon(){
     if(localStorage.getItem('escenaDelCrimen') !== 'Terminado'){
         MDN ();
-    }else{
-        alert('Ya no puedes visitar la casa')
     }
 }
 function irRestaurante(){
@@ -119,8 +113,6 @@ if(localStorage.getItem('clubEdgard') === 'Terminado'){
 function determinarPresionarClub(){
     if(localStorage.getItem('clubEdgard') !== 'Terminado'){
         irClubEdgard();
-    }else{
-        alert('Ya no puedes visitar la casa')
     }
 }
 function irClubEdgard(){

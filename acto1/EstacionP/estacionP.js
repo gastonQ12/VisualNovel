@@ -418,10 +418,8 @@ function pedirOrdenAllanamiento() {
     henryPedirAllanamiento.addEventListener("click", function () {
         if (trueCount >= 3) {
             localStorage.setItem('allanamientoHenry', "true");
-            alert("La orden de allanamiento fue aprobada");
         } else {
             localStorage.setItem('allanamientoHenry', "false");
-            alert("La orden de allanamiento fue rechazada");
         }
     });
 

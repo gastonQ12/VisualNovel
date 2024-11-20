@@ -196,7 +196,6 @@ function cargadoDePIstas() {
 
 function ganadorPeleaKarma() {
     let karmaAct = parseInt(localStorage.getItem('karma'))
-    alert("Las peleas que puedes evitar te generan Karma")
     karmaAct += 20
     localStorage.setItem('karma', karmaAct)
     document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
