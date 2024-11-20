@@ -7,9 +7,7 @@ const partidaAnti = localStorage.getItem('codigoViejo');
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
     let op = getCookie("progresoDialogo");
-    if (op === "" || parseInt(op) <= 1) {
-        alert("Cuando descubres a un nuevo sospechoso se registra automaticamente en la carpeta de sospechosos.")
-    }
+    
     if (partidaA !== partidaAnti && localStorage.getItem("borrado1") == "false") {
         eliminarCookie("progresoDialogo");
         eliminarCookie("boxD");

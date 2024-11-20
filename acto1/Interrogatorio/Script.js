@@ -392,7 +392,7 @@ function caminoElegido() {
 const divP = document.getElementById('opcionesPreguntar');
 // const cuadroDialogo = document.getElementById("cuadroDialogo");
 function opcionesPreguntar(auxiliary) {
-    if (auxiliary === 24) {
+    if (auxiliary === true) {
         divP.style.display = "flex";
         boxD.style.display = 'none';
 

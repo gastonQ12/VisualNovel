@@ -1,7 +1,6 @@
 //Policia c1
 document.getElementById('casa1').addEventListener("mouseover", PAPoliciaOver);
 document.getElementById('casa1').addEventListener("mouseout", PAPoliciaOut);
-
 //Sophie c3
 document.getElementById('casa3').addEventListener("mouseover", PASophieHouseOver);
 document.getElementById('casa3').addEventListener("mouseout", PASophieHouseOut);
@@ -12,9 +11,12 @@ document.getElementById('casa4').addEventListener("mouseout", PACasaAmigoOut);
 document.getElementById('casa2').addEventListener("mouseover", PARestauranteOver);
 document.getElementById('casa2').addEventListener("mouseout", PARestauranteOut);
 //hospital
-
 document.getElementById('casa5').addEventListener("mouseover", PAClubOver);
 document.getElementById('casa5').addEventListener("mouseout", PAClubOut);
+//callejon
+document.getElementById('Callejon').addEventListener("mouseover", callejonOver);
+document.getElementById('Callejon').addEventListener("mouseout", callejonOut);
+
 
 //PANEL AVISO == PA
 function PARestauranteOver(){
@@ -23,6 +25,7 @@ function PARestauranteOver(){
 }
 function PARestauranteOut(){
     document.getElementById("aviso").style.display = 'none';
+    
 }
 
 function PAClubOver(){
@@ -30,6 +33,22 @@ function PAClubOver(){
     document.getElementById("aviso").innerHTML = '<h1> CLUB (EDGARD) </h1>'
 }
 function PAClubOut(){
+    document.getElementById("aviso").style.display = 'none';
+}
+
+function PAPoliciaOver() {
+    document.getElementById("aviso").style.display = 'flex';
+    document.getElementById("aviso").innerHTML = '<h1> ESTACION DE POLICIA </h1>'
+}
+function PAPoliciaOut() {
+    document.getElementById("aviso").style.display = 'none';
+}
+function callejonOver(){
+    document.getElementById("aviso").style.display = 'flex';
+    document.getElementById("aviso").innerHTML = '<h1> CALLEJON </h1>'
+}
+
+function callejonOut(){
     document.getElementById("aviso").style.display = 'none';
 }
 
