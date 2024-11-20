@@ -20,23 +20,23 @@ body{
 }
 
 .PlayerTHING{
-    height: 200px;
-    width: 2000px;
+    height: 100px;
+    width: 100%;
     background-image: url(imgs/madera.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: 40%;
+    bottom: 0;
     position: absolute;
 }
 
 .pCircle{
-    width: 50rem;
-    height: 30rem;
+    width: 23rem;
+    height: 12rem;
     background-color: #79604A;
     border-radius: 30rem 30rem 0 0;
     position: absolute;
-    margin-top: 35%;
+    bottom:0;
     background-image: url(imgs/madera.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -44,12 +44,12 @@ body{
 }
 
 .pCircle2{
-    width: 40rem;
-    height: 25rem;
+    width: 18rem;
+    height: 10rem;
     background-color: #ffffff;
     border-radius: 25rem 25rem 0 0;
     position: absolute;
-    margin-top: 35%;
+    bottom: 0;
     background-image: url(imgs/esencia.webp);
     background-position: center;
     background-repeat: no-repeat;
@@ -59,7 +59,8 @@ body{
 
 .elpeak{
     position: absolute;
-    margin-top: 31%;
+    bottom: 0;
+    width: 250px;
     z-index: 1;
 }
 
@@ -119,44 +120,11 @@ body{
     margin-left: 65%;
 }
 
-.pete{
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(255, 0, 0, 0.3) 0%, rgba(0,0,0,0) 50%, rgba(255, 0, 0, 0.3) 100%);
-    position: absolute;
-    z-index: 9;
-    height: 2000px;
-    width: 2000px;
-    animation: 2s pete1 linear infinite;
-}
 
-.pete2{
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(9, 255, 0, 0.3) 0%, rgba(0,0,0,0) 50%, rgba(9, 255, 0, 0.3) 100%);
-    position: absolute;
-    z-index: 9;
-    height: 2000px;
-    width: 2000px;
-    animation: 2s pete1 linear infinite;
-    background-image: url(imgs/BIEN.gif);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
-@keyframes pete1 {
-    0%{
-        opacity: 0.5;
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0.5;
-    }
-}
+
 
 h1{
-
     font-family: "Karantina", system-ui;
     font-weight: 400;
     font-style: normal;
@@ -182,7 +150,6 @@ h1{
 
 
 .Tv{
-
     font-family: "Karantina", system-ui;
     font-weight: 400;
     font-style: normal;
@@ -206,7 +173,7 @@ h1{
 }
 
 .score{
-    position: absolute;
+    /* position: absolute; */
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: black;
     font-family: "Karantina", system-ui;
@@ -214,10 +181,12 @@ h1{
     font-style: normal;
     font-size: 100px;
     color: white;
-    margin-top: -10%;
+    left: 0;
+    /* margin-top: -40%; */
 }
 
 .scoreN{
+    /* position: absolute; */
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: black;
     font-family: "Karantina", system-ui;
@@ -225,27 +194,103 @@ h1{
     font-style: normal;
     font-size: 100px;
     color: white;
-    margin-top: -0%;
-}
-.score2{
-    position: absolute;
-    -webkit-text-stroke: 1px;
-    -webkit-text-stroke-color: black;
-    font-family: "Karantina", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 100px;
-    color: white;
-    margin-top: -40%;
+    /* left: 0; */
+    /* margin-top: 70px; */
 }
 
-.scoreN2{
-    -webkit-text-stroke: 1px;
-    -webkit-text-stroke-color: black;
+#cont-pantalla-muerte {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000e2;
+    color: #880303
+    /* display: none; */
+}
+
+.pantalla-muerte {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(255, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 50%, rgba(255, 0, 0, 0.3) 100%);
+    position: absolute;
+    z-index: 9;
+    height: 100%;
+    width: 100%;
+    animation: 2s animacionTitilar linear infinite;
+    
+    ;
+}
+
+@keyframes animacionTitilar {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+#cont-pantalla-vivo {
+    background-color: #000000e2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+    color: #128803;
+}
+#cont-pantalla-vivo p,#cont-pantalla-muerte p{
     font-family: "Karantina", system-ui;
     font-weight: 400;
-    font-style: normal;
-    font-size: 100px;
-    color: white;
-    margin-top: -30%;
+    position: absolute;
+    margin-top: 200px;
+    font-size: 50px;
+}
+.pantalla-vivo {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(9, 255, 0, 0.3) 0%, rgba(0, 0, 0, 0) 50%, rgba(9, 255, 0, 0.3) 100%);
+    position: absolute;
+    z-index: 9;
+    height: 100%;
+    width: 100%;
+    animation: 2s animacionTitilar linear infinite;
+    background-image: url(imgs/BIEN.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#contenedor-cartas-enemigo {
+    width: auto;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 2%;
+}
+
+#contenedor-cartas {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    width: auto;
+    height: 170px;
+}
+.cont-puntaje-enemigo{
+    position: absolute;
+    top:0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+.cartas {
+    width: auto;
+    height: auto;
 }
