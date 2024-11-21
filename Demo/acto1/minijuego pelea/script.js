@@ -23,12 +23,13 @@ function partida() {
     curaciones: 3,
     armaActual: 'garrote',
     mana_acciones: {
-      garrote: 3,
+      garrote: Math.random() * 3  + 1 ,
       pistola: 5,
       cambiarArma: 4,
       curacion: 2,
     },
   });
+  console.log("Valor aleatorio de garroteMana:", jugador);
   // GUARDANDO LAS ESTADISTICAS DE LA PARTIDA
   const datos_partida = Object.seal({
     jugador:{
