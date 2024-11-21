@@ -402,6 +402,37 @@ function cargadoPistas(aux) {
     }
 }
 
+/*            NICO              */
+
+const pistas = document.querySelectorAll('.pt');
+
+//Este codigo  es parte de la animación de las pistas
+pistas.forEach(pista => {
+    pista.addEventListener('click', () => {
+        if (!pista.classList.contains('animate')) {
+            pista.classList.add('animate');  
+            setTimeout(() => {
+                pista.classList.remove('animate');
+            }, 500); 
+        }
+    });
+});
+
+//Este código es parte de la aparición y la animación del texto dentro de la pista
+pistas.forEach(pista => {
+    let hasClicked = false;
+    pista.addEventListener('click', () => {
+        if (!hasClicked) {
+            pista.classList.add('animate');
+            const texto = pista.querySelector('.texto-pista');
+            texto.style.opacity = '1'; 
+            texto.style.animation = 'textDesaparece 1s forwards'; 
+            hasClicked = true;
+        }
+    });
+});
+
+/*                HASTA ACA                       */
 
 function encontrarPistaBasurero(event) {
     var opacidad = 100 + '%';
