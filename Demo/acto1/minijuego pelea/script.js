@@ -23,7 +23,7 @@ function partida() {
     curaciones: 3,
     armaActual: 'garrote',
     mana_acciones: {
-      garrote: Math.random() * 3  + 1 ,
+      garrote: Math.random() * 3  + 1 , //actualizado <-------------
       pistola: 5,
       cambiarArma: 4,
       curacion: 2,
