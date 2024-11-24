@@ -130,6 +130,45 @@ function salvado(probabilidad) {
         ocultarOpcionesEsconderse();
     }
 }
+
+/* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+- */
+
+function animarBorde(elemento) {
+    // Añadir la clase para la animación
+    elemento.classList.add("animar-borde");
+    setTimeout(() => {
+        elemento.classList.remove("animar-borde");
+    }, 500);
+}
+
+const clues = document.querySelectorAll('.pt');
+
+clues.forEach(pista => {
+    pista.addEventListener('click', () => {
+        if (!pista.classList.contains('anime')) {
+            pista.classList.add('anime'); 
+        }
+        setTimeout(() => {
+            pista.classList.remove('anime');  
+        }, 500);
+    });
+});
+
+clues.forEach(pista => {
+    let hasClicked = false;
+    pista.addEventListener('click', () => {
+        if (!hasClicked) {
+            pista.classList.add('animate');
+            const texto = pista.querySelector('.texto-pista');
+            texto.style.opacity = '1'; 
+            texto.style.animation = 'textDesaparece .2s forwards'; 
+            hasClicked = true;
+        }
+    });
+});
+
+/* -+-+-+-+-+-+-+--+-++-+---+ */
+
 let insertarPistas = document.getElementById("insertarPistas");
 insertarPistas.innerHTML = 'Pistas encontradas: ' + pistasEncontradas + "/3";
 document.getElementById("pistaCorbata").addEventListener("click", function () {
@@ -141,7 +180,11 @@ document.getElementById("pistaCorbata").addEventListener("click", function () {
         replandecer()   
     }
     insertarPistas.innerHTML = 'Pistas encontradas: ' + pistasEncontradas + "/3";
-    document.getElementById("pistaCorbata").style.display = 'none';
+    document.getElementById("pistaCorbata").classList.add('anime');
+
+    setTimeout(() => {
+        document.getElementById('pistaCorbata').style.display = 'none';
+    }, 200);
 })
 document.getElementById("pistaBoletos").addEventListener("click", function () {
     const audio = new Audio("./correct-choice-43861.mp3");
@@ -152,7 +195,11 @@ document.getElementById("pistaBoletos").addEventListener("click", function () {
         replandecer()
     }
     insertarPistas.innerHTML = 'Pistas encontradas: ' + pistasEncontradas + "/3";
-    document.getElementById("pistaBoletos").style.display = 'none';
+    document.getElementById("pistaBoletos").classList.add('anime');
+
+    setTimeout(() => {
+        document.getElementById('pistaBoletos').style.display = 'none';
+    }, 200);
 
 })
 document.getElementById("pistaCarta").addEventListener("click", function () {
@@ -164,7 +211,11 @@ document.getElementById("pistaCarta").addEventListener("click", function () {
         replandecer()
     }
     insertarPistas.innerHTML = 'Pistas encontradas: ' + pistasEncontradas + "/3";
-    document.getElementById("pistaCarta").style.display = 'none';
+    document.getElementById("pistaCarta"). classList.add('anime');
+
+    setTimeout(() => {
+        document.getElementById('pistaCarta').style.display = 'none';
+    }, 200);
 })
 function replandecer() {
     localStorage.setItem("pistasLocalStorage" , pistasEncontradas); 
