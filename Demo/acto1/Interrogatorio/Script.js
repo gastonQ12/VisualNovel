@@ -8,13 +8,17 @@ let cuadro = document.getElementById("cuadro")
 let libroLetras = document.getElementById("libroLetras")
 
 cuadro.addEventListener('click', () => {
-    cPruebas ++
-    cuadro.style.display = 'none'
+    cPruebas++;
+    setTimeout(() => {
+        cuadro.style.display = 'none';
+    }, 500); 
 });
 
 libroLetras.addEventListener('click', () => {
     cPruebas ++
-    libroLetras.style.display = 'none'
+    setTimeout(() => {
+        libroLetras.style.display = 'none';
+    }, 500);
 });
 
 document.body.onload = function () {
@@ -388,6 +392,62 @@ function caminoElegido() {
     }
 
 }
+
+/* NICO */
+
+function animarBorde(elemento) {
+    // Añadir la clase para la animación
+    elemento.classList.add("animar-borde");
+    setTimeout(() => {
+        elemento.classList.remove("animar-borde");
+    }, 500);
+}
+
+const clues = document.querySelectorAll('.pt');
+
+clues.forEach(pista => {
+    pista.addEventListener('click', () => {
+        if (!pista.classList.contains('anime')) {
+            pista.classList.add('anime'); 
+        }
+        setTimeout(() => {
+            pista.classList.remove('anime');  
+        }, 500);
+    });
+});
+
+clues.forEach(pista => {
+    let hasClicked = false;
+    pista.addEventListener('click', () => {
+        if (!hasClicked) {
+            pista.classList.add('animate');
+            const texto = pista.querySelector('.texto-pista');
+            texto.style.opacity = '1'; 
+            texto.style.animation = 'textDesaparece .5s forwards'; 
+            hasClicked = true;
+        }
+    });
+});
+
+/* error */
+// Agregar los eventos de clic
+/*
+const clues = document.querySelectorAll('.pt');
+
+//Este codigo  es parte de la animación de las pistas
+clues.forEach(pista => {
+    pista.addEventListener('click', () => {
+        if (!pista.classList.contains('animate')) {
+            pista.classList.add('animate');  
+            setTimeout(() => {
+                pista.classList.remove('animate');
+            }, 500); 
+        }
+    });
+});
+
+
+/* HASTA ACA */
 
 const divP = document.getElementById('opcionesPreguntar');
 // const cuadroDialogo = document.getElementById("cuadroDialogo");
