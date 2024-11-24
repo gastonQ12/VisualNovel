@@ -31,13 +31,15 @@ body {
 #jugador img {
   margin-bottom: -3px;
 }
+
 #enemigo img {
-  position: relative;
-  width:  60%;
+  position: absolute;  /* Necesario para mover la imagen */
+  width: 60%;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -10%);  
+  transform: translate(-50%, -10%);
 }
+
 #jugador img {
   width: 250px;
   border-radius: 20px;
@@ -212,3 +214,5 @@ p {
   background-color: #513623;
   border-radius: 10px;
 }
+
+
