@@ -401,7 +401,6 @@ function cargadoPistas(aux) {
         pistas.style.display = 'none';
     }
 }
-
 /*            NICO              */
 
 const pistas = document.querySelectorAll('.pt');
@@ -431,7 +430,6 @@ pistas.forEach(pista => {
         }
     });
 });
-
 /*                HASTA ACA                       */
 
 function encontrarPistaBasurero(event) {

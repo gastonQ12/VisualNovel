@@ -28,7 +28,7 @@ body {
 #output{
     font-size:20px; 
     z-index: 100;
-     width: 50%;
+    width: 50%;
 }
 .cuadroDialogo {
     background-image: url(imagenes/rectangulo.png);
@@ -218,7 +218,6 @@ body {
 }
 
 #pista5 {
-   
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
@@ -257,7 +256,6 @@ body {
 }
 
 #pista9 {
-   
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
@@ -279,7 +277,6 @@ body {
 }
 /*nuevasPistas */
 #pista11 {
- 
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
