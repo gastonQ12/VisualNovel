@@ -25,6 +25,17 @@ body{
     margin: 0;
 }
 
+.plc img{
+    width: 100%;
+    height: 100%;
+    transition: transform .8s ease;
+    transition: box-shadow .3 ease;
+}
+
+.plc img:hover{
+    transform: scale(1.15);
+}
+
 .fondo{
     width: 100%;
     position: absolute;
@@ -43,6 +54,12 @@ body{
     left: 40%;
     top: 5%;
 }
+
+#callejon img{
+    animation: none;
+    filter: none;
+}
+
 .casita4{
     width: 120px;
     height: 150px;
@@ -56,10 +73,6 @@ body{
     position: absolute;
     left: 45%;
     bottom: 45%;
-}
-.casita1 img, #callejon img, .casita4 img, .casita5 img, .casita2 img, .casita3 img{
-    width: 100%;
-    height: 100%;
 }
 
 .casita1{
@@ -78,14 +91,38 @@ body{
     left: 65%;
     bottom: 200px;
 }
+
+.casita2.no-hover:hover{
+    transform: none;
+    cursor: default;
+}
+
 .casita3{
     left: 18%;
     bottom: 180px;
 }
 
 div img{
+    width: 100%;
+    height: 100%;
     cursor: pointer;
+    filter: drop-shadow(1px 1px 20px gold);
+    animation: parpadeo 1.5s infinite;
 }
-img:hover{
-    filter: drop-shadow(1px 1px 20px gold)
+
+.no-shadow{
+    filter: none;
+    animation: none;
+}
+
+@keyframes parpadeo {
+    0%{
+        filter: drop-shadow(1px 1px 20px rgba(255, 215, 0 , 0));
+    }
+    50%{
+        filter: drop-shadow(1px 1px 20px gold);
+    }
+    100%{
+        filter: drop-shadow(1px 1px 20px rgba(255, 215, 0, 0));
+    }
 }

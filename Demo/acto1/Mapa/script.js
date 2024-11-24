@@ -77,13 +77,15 @@ function irCasaSophia(){
 
 if(localStorage.getItem('Restaurante') === 'Terminado'){
     document.getElementById('restauranteAmigo').style.opacity = "45%"
+    document.getElementById('restauranteAmigo').style.transform = "none"
+    document.getElementById('restauranteAmigo').style.cursor = "default"
 }
 
 function determinarPresionarRestaurante(){
     if(localStorage.getItem('Restaurante') !== 'Terminado'){
         irRestaurante();
     }else{
-        alert('Ya no puedes visitar la casa')
+        alert('Ya no puedes visitar el restaurante')
     }
 }
 
@@ -91,16 +93,61 @@ function irCallejon(){
     location.href = '../Historia/index.html'
 }
 
+/* nico */
+
+document.addEventListener("DOMContentLoaded", function() {
+    const casas = ['casa1', 'casa2', 'casa3', 'casa4', 'casa5'];
+
+    casas.forEach(casaId => {
+        const casa = document.getElementById(casaId).querySelector('img'); 
+
+        if (localStorage.getItem(casaId) === 'clicked') {
+            casa.classList.add('no-shadow'); 
+        }
+
+        document.getElementById(casaId).addEventListener("click", function() {
+            if (!localStorage.getItem(casaId)) {
+                casa.classList.add('no-shadow'); 
+                localStorage.setItem(casaId, 'clicked');
+            }
+
+            switch(casaId) {
+                case 'casa1':
+                    window.location.href = '../EstacionP/estacionP.html'; 
+                    break;
+                case 'casa2':
+                    determinarPresionarRestaurante(); 
+                    break;
+                case 'casa3':
+                    determinarPresionarCasaSophia(); 
+                    break;
+                case 'casa4':
+                    window.location.href = '../escondite/escondite.html'; 
+                    break;
+                case 'casa5':
+                    determinarPresionarClub(); 
+                    break;
+                default:
+                    console.error("Casa desconocida: " + casaId);
+                    break;
+            }
+        });
+    });
+});
+
+/* agdsahdafwa */
 
 if(localStorage.getItem('escenaDelCrimen') === 'Terminado'){
     document.getElementById('callejon').style.opacity = "65%"
+    document.getElementById('callejon').style.transform = "none"
+    document.getElementById('callejon').style.cursor = "default"
 }
 
 function determinarPresionarCallejon(){
     if(localStorage.getItem('escenaDelCrimen') !== 'Terminado'){
         MDN ();
     }else{
-        alert('Ya no puedes visitar la casa')
+        alert('Ya no puedes visitar el callejón')
     }
 }
 function irRestaurante(){
@@ -114,6 +161,8 @@ function irCallejon(){
 
 if(localStorage.getItem('clubEdgard') === 'Terminado'){
     document.getElementById('clubEdgard').style.opacity = "65%"
+    document.getElementById('clubEdgard').style.transform = "none"
+    document.getElementById('clubEdgard').style.cursor = "default"
 }
 
 function determinarPresionarClub(){
