@@ -7,6 +7,8 @@ const partidaAnti = localStorage.getItem('codigoViejo');
 let cuadro = document.getElementById("cuadro")
 let libroLetras = document.getElementById("libroLetras")
 
+/* NICO TUVO QUE CAMBIAR UNOS VALORES ACÁ */
+
 cuadro.addEventListener('click', () => {
     cPruebas++;
     setTimeout(() => {
@@ -20,6 +22,8 @@ libroLetras.addEventListener('click', () => {
         libroLetras.style.display = 'none';
     }, 500);
 });
+
+/* HASTA ACA */
 
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
@@ -428,24 +432,6 @@ clues.forEach(pista => {
         }
     });
 });
-
-/* error */
-// Agregar los eventos de clic
-/*
-const clues = document.querySelectorAll('.pt');
-
-//Este codigo  es parte de la animación de las pistas
-clues.forEach(pista => {
-    pista.addEventListener('click', () => {
-        if (!pista.classList.contains('animate')) {
-            pista.classList.add('animate');  
-            setTimeout(() => {
-                pista.classList.remove('animate');
-            }, 500); 
-        }
-    });
-});
-
 
 /* HASTA ACA */
 
