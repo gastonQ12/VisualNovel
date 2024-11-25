@@ -75,6 +75,8 @@ function irCasaSophia(){
     location.href = '../Interrogatorio/index.html'
 }
 
+/* NICO CAMBIO VALORES */
+
 if(localStorage.getItem('Restaurante') === 'Terminado'){
     document.getElementById('restauranteAmigo').style.opacity = "45%"
     document.getElementById('restauranteAmigo').style.transform = "none"
@@ -88,6 +90,8 @@ function determinarPresionarRestaurante(){
         alert('Ya no puedes visitar el restaurante')
     }
 }
+
+/* HASTA ACÁ */
 
 function irCallejon(){
     location.href = '../Historia/index.html'
@@ -137,6 +141,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* agdsahdafwa */
 
+/* NICO CAMBIO VALORES */
+
 if(localStorage.getItem('escenaDelCrimen') === 'Terminado'){
     document.getElementById('callejon').style.opacity = "65%"
     document.getElementById('callejon').style.transform = "none"
@@ -150,6 +156,7 @@ function determinarPresionarCallejon(){
         alert('Ya no puedes visitar el callejón')
     }
 }
+
 function irRestaurante(){
     location.href = '../restaurante/index.html'
 }
@@ -175,7 +182,7 @@ function determinarPresionarClub(){
 function irClubEdgard(){
     location.href = '../clubEdgard/index.html'
 }
-
+/* HASTA ACA */
 verZonas();
 function verZonas(){
     let casaSophie = document.getElementById('casa3');

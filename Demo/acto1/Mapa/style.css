@@ -25,6 +25,8 @@ body{
     margin: 0;
 }
 
+/* NICO */
+
 .plc img{
     width: 100%;
     height: 100%;
@@ -35,6 +37,8 @@ body{
 .plc img:hover{
     transform: scale(1.15);
 }
+
+/* HASTA ACÁ */
 
 .fondo{
     width: 100%;
@@ -47,6 +51,9 @@ body{
     height: 150px;
     position: absolute;
 }
+
+/* NICO ACÁ tambien  */
+
 #callejon{
     width: 120px;
     height: 150px;
@@ -59,7 +66,7 @@ body{
     animation: none;
     filter: none;
 }
-
+/* hasta acá */
 .casita4{
     width: 120px;
     height: 150px;
@@ -80,6 +87,7 @@ body{
     bottom: 150px;
 }
 
+/* nico */
 .casita2, .casita3{
     position: absolute;
     height: 150px;
@@ -96,11 +104,13 @@ body{
     transform: none;
     cursor: default;
 }
-
+/* HASTA ACA */
 .casita3{
     left: 18%;
     bottom: 180px;
 }
+
+/*  NICO  */
 
 div img{
     width: 100%;
@@ -126,3 +136,5 @@ div img{
         filter: drop-shadow(1px 1px 20px rgba(255, 215, 0, 0));
     }
 }
+
+/*   HASTA ACA   */
