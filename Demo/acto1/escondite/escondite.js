@@ -131,10 +131,9 @@ function salvado(probabilidad) {
     }
 }
 
-/* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+- */
+/* +-+-+-+-+-+-+-+-+-    NICO     +-+-+-+-+-+-+-+-++-+- */
 
 function animarBorde(elemento) {
-    // Añadir la clase para la animación
     elemento.classList.add("animar-borde");
     setTimeout(() => {
         elemento.classList.remove("animar-borde");
@@ -168,6 +167,8 @@ clues.forEach(pista => {
 });
 
 /* -+-+-+-+-+-+-+--+-++-+---+ */
+
+/* NICO - TUVO QUE CAMBIAR UNOS RESULTADOS DE ACA */
 
 let insertarPistas = document.getElementById("insertarPistas");
 insertarPistas.innerHTML = 'Pistas encontradas: ' + pistasEncontradas + "/3";
@@ -217,6 +218,9 @@ document.getElementById("pistaCarta").addEventListener("click", function () {
         document.getElementById('pistaCarta').style.display = 'none';
     }, 200);
 })
+
+/* -+-+-+-+-+-+-+-+-+-+-        HASTA ACA         +-+-+-+-+-+-+-+-+-+-+- */
+
 function replandecer() {
     localStorage.setItem("pistasLocalStorage" , pistasEncontradas); 
     document.getElementById('contenedorMapa').style.boxShadow = "0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6)";

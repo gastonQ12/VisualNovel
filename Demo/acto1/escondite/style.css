@@ -120,9 +120,9 @@ body {
     }
 }
 
-
 /* hasta aca */
 
+/* NICO CAAMBIO COSAS ACA */
 #pistaCorbata{
     position: relative;
     width: 100px;
@@ -153,6 +153,9 @@ body {
     border: 2px solid transparent;
     transition: border 1s ease-in-out;
 }
+
+/* HASTA ACÁ */
+
 .cuadro_TextEI {
     display: flex;
     justify-content: space-between;
