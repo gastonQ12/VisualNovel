@@ -54,6 +54,12 @@ botonAtaque.on('click', () => {
         enemigo.vida = Math.max(enemigo.vida, 0);
         vida_enemigo.text(`${enemigo.vida} HP`);
         mostrarMensaje(`Atacaste al enemigo con el garrote por ${daño} HP.`);
+
+        $('#enemigo img').addClass('mover');  
+
+        setTimeout(() => {
+          $('#enemigo img').removeClass('mover');
+        }, 100);
       }
       actualizar_vida();
     } else {
@@ -73,6 +79,12 @@ botonAtaque.on('click', () => {
         enemigo.vida = Math.max(enemigo.vida, 0);
         vida_enemigo.text(`${enemigo.vida} HP`);
         mostrarMensaje(`Atacaste al enemigo con la pistola por ${daño} HP.`);
+
+        $('#enemigo img').addClass('mover');  
+
+        setTimeout(() => {
+          $('#enemigo img').removeClass('mover');
+        }, 100);
       }
       actualizar_vida();
     } else {
