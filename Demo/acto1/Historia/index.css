@@ -573,3 +573,7 @@ h3{
     display: flex;
 }
 
+.pt.disabled {
+    pointer-events: none; 
+    opacity: 0.5; 
+}

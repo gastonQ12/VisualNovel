@@ -405,16 +405,20 @@ function cargadoPistas(aux) {
 
 const pistas = document.querySelectorAll('.pt');
 
-//Este codigo  es parte de la animación de las pistas
+// Este código es parte de la animación de las pistas
 pistas.forEach(pista => {
-    pista.addEventListener('click', () => {
+    const handleClick = () => {
         if (!pista.classList.contains('animate')) {
+
             pista.classList.add('animate');  
+            
+            pista.classList.add('disabled'); 
             setTimeout(() => {
                 pista.classList.remove('animate');
             }, 500); 
         }
-    });
+    };
+    pista.addEventListener('click', handleClick);
 });
 
 //Este código es parte de la aparición y la animación del texto dentro de la pista
