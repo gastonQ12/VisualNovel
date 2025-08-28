@@ -488,13 +488,17 @@ function encerrarAalguien() {
     let sophieinterrogar = document.getElementById('d4');
     let arraySospechosos = JSON.parse(localStorage.getItem('Sospechosos'));
 
+/* NICO */
+
     henryPedirAllanamiento.addEventListener("click", function () {
+        localStorage.setItem('Acto1T', true)
         localStorage.setItem('encerrar', "Henry Whalls")
         localStorage.setItem('Acto1T', "true")
         location.href = "../../index.html"
     });
 
     edgardinterrogar.addEventListener("click", function () {
+        localStorage.setItem('Acto1T', true)
         localStorage.setItem('encerrar', "Edgard Mindguard")
         localStorage.setItem('Acto1T', "true")
         location.href = "../../index.html"
@@ -502,10 +506,13 @@ function encerrarAalguien() {
     });
 
     sophieinterrogar.addEventListener("click", function () {
+        localStorage.setItem('Acto1T', true)
         localStorage.setItem('encerrar', "Sophie Hawks")
         localStorage.setItem('Acto1T', "true")
         location.href = "../../index.html"
     });
+
+/* HASTA ACÁ */
 
     document.getElementById('cover').style.display = "flex";
     document.getElementById('ContSup').style.display = "none";

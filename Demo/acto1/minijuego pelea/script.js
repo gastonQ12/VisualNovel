@@ -8,7 +8,6 @@ function partida() {
   const botonDefensa = $('#defender');
   const botonCura = $('#curar');
   const botonCambiarArma = $('#cambiar-arma');
-
   var paginaAnterior = new URL(document.referrer).pathname;
 
   // OBJETO ENEMIGO
@@ -17,6 +16,8 @@ function partida() {
     enemigoMana: 10,
     puñoMana: 3,
   });
+
+/* nico cambio esto */
   // OBJETO JUGADOR
   const jugador = Object.seal({
     vida: 100,
@@ -24,12 +25,85 @@ function partida() {
     curaciones: 3,
     armaActual: 'garrote',
     mana_acciones: {
-      garrote: 3,
+      garrote: 0,
       pistola: 5,
       cambiarArma: 4,
       curacion: 2,
     },
-  });
+  })
+/* HASTA ACA */
+
+/* NICO */
+
+botonAtaque.on('click', () => {
+  if (enemigoAtacando) return;
+  botonAtaque.prop('disabled', true);
+
+  const manaGastado = Math.floor(Math.random() * 3) + 2; 
+
+  if (jugador.armaActual === 'garrote') {
+    if (jugador.Mana >= manaGastado) {
+      jugador.Mana -= manaGastado; 
+      actualizarMana(); 
+      const probabilidadFallida = Math.random();
+      if (probabilidadFallida > 0.8) {
+        mostrarMensaje('¡Fallaste el ataque con el garrote!');
+      } else {
+        const daño = 10;
+        enemigo.vida -= daño;
+        enemigo.vida = Math.max(enemigo.vida, 0);
+        vida_enemigo.text(`${enemigo.vida} HP`);
+        mostrarMensaje(`Atacaste al enemigo con el garrote por ${daño} HP.`);
+
+        $('#enemigo img').addClass('mover');  
+
+        setTimeout(() => {
+          $('#enemigo img').removeClass('mover');
+        }, 100);
+      }
+      actualizar_vida();
+    } else {
+      mostrarMensaje('No tienes suficiente maná para usar el garrote.');
+      jugador.Mana = 0;
+    }
+  } else if (jugador.armaActual === 'pistola') {
+    if (jugador.Mana >= manaGastado) {
+      jugador.Mana -= manaGastado; 
+      actualizarMana(); 
+      const probabilidadFallida = Math.random();
+      if (probabilidadFallida > 0.45) {
+        mostrarMensaje('¡Fallaste el disparo con la pistola!');
+      } else {
+        const daño = Math.floor(Math.random() * 16) + 20;
+        enemigo.vida -= daño;
+        enemigo.vida = Math.max(enemigo.vida, 0);
+        vida_enemigo.text(`${enemigo.vida} HP`);
+        mostrarMensaje(`Atacaste al enemigo con la pistola por ${daño} HP.`);
+
+        $('#enemigo img').addClass('mover');  
+
+        setTimeout(() => {
+          $('#enemigo img').removeClass('mover');
+        }, 100);
+      }
+      actualizar_vida();
+    } else {
+      mostrarMensaje('No tienes suficiente maná para usar la pistola.');
+      jugador.Mana = 0;
+    }
+  }
+
+  if (jugador.Mana <= 0 && !enemigoAtacando) {
+    enemigoAtaca();
+    verificarVictoria();
+  } else {
+    botonAtaque.prop('disabled', false);
+  }
+});
+
+/* HASTA ACA */
+
+  console.log("Valor aleatorio de garroteMana:", jugador);
   // GUARDANDO LAS ESTADISTICAS DE LA PARTIDA
   const datos_partida = Object.seal({
     jugador:{
@@ -42,7 +116,7 @@ function partida() {
       
     }
   });
-
+  let enemigoAtacando = false;
   // FUNCION PARA ACTUALIZAR EL MANA Y CIRCULOS
   const actualizarMana = () => {
     mana_jugador.text(`Maná: ${jugador.Mana}`);
@@ -56,67 +130,26 @@ function partida() {
       circulosMana.append(circulo);
     }
   };
+
   // EVENTOS DE LOS BOTONES CON FUNCIONES
-  botonAtaque.on('click', () => {
-    if (jugador.armaActual === 'garrote') {
-      if (jugador.Mana >= jugador.mana_acciones.garrote) {
-        jugador.Mana -= jugador.mana_acciones.garrote;
-        actualizarMana();
-        const probabilidadFallida = Math.random();
-        if (probabilidadFallida > 0.8) {
-          mostrarMensaje('¡Fallaste el ataque con el garrote!');
-        } else {
-          const daño = 10;
-          enemigo.vida -= daño;
-          vida_enemigo.text(`${enemigo.vida} HP`);
-          mostrarMensaje(`Atacaste al enemigo con el garrote por ${daño} HP.`);
-          
-        }
-        actualizar_vida()
-      } else {
-        mostrarMensaje('No tienes suficiente maná para usar el garrote.');
-        jugador.Mana = 0;
-      }
-    } else if (jugador.armaActual === 'pistola') {
-      if (jugador.Mana >= jugador.mana_acciones.pistola) {
-        jugador.Mana -= jugador.mana_acciones.pistola;
-        actualizarMana();
-        const probabilidadFallida = Math.random();
-        if (probabilidadFallida > 0.45) {
-          mostrarMensaje('¡Fallaste el disparo con la pistola!');
-        } else {
-          const daño = Math.floor(Math.random() * 16) + 20; // Daño entre 20-35
-          enemigo.vida -= daño;
-          vida_enemigo.text(`${enemigo.vida} HP`);
-          mostrarMensaje(`Atacaste al enemigo con la pistola por ${daño} HP.`);
-          
-        }
-      } else {
-        mostrarMensaje('No tienes suficiente maná para usar la pistola.');
-        jugador.Mana = 0;
+
+  botonDefensa.on('click', () => {
+    if (jugador.vida > 0) {
+      jugador.Mana = 10;
+      actualizarMana();
+      mostrarMensaje('Te has defendido y tu maná se ha restablecido.');
+  
+      const ataque_enemigo = Math.floor(Math.random() * 10) + 2;
+      jugador.vida -= ataque_enemigo;
+      if (jugador.vida < 0) {
+        jugador.vida = 0;
       }
       
+      vida_jugador.text(`${jugador.vida} HP`);
+      mostrarMensaje(`Recibiste ${ataque_enemigo} HP de daño al defenderte.`);
+      verificarVictoria();
+      actualizar_vida();
     }
-
-    if (jugador.Mana <= 0) {
-      setTimeout(() => {
-        enemigoAtaca();
-        verificarVictoria();
-      }, 1000);
-    }
-    
-  });
-  botonDefensa.on('click', () => {
-    jugador.Mana = 10;
-    actualizarMana();
-    mostrarMensaje('Te has defendido y tu maná se ha restablecido.');
-
-    const ataque_enemigo = Math.floor(Math.random() * 10) + 2;
-    jugador.vida -= ataque_enemigo;
-    vida_jugador.text(`${jugador.vida} HP`);
-    mostrarMensaje(`Recibiste ${ataque_enemigo} HP de daño al defenderte.`);
-    verificarVictoria();
-    actualizar_vida();
   });
   botonCura.on('click', () => {
     if (jugador.curaciones > 0 && jugador.vida < 100) {
@@ -163,8 +196,11 @@ function partida() {
   });
   // LLAMAR A LA FUNCIÓN actualizarMana AL INICIAR
   function enemigoAtaca() {
+    enemigoAtacando = true; // Marca que el enemigo está atacando
+    disableButtons(); // Desactiva todos los botones mientras el enemigo ataca
+  
     let ataquesRealizados = 0;
-
+  
     function realizarAtaque() {
       if (enemigo.enemigoMana >= enemigo.puñoMana && jugador.vida > 0) {
         enemigo.enemigoMana -= enemigo.puñoMana;
@@ -172,8 +208,9 @@ function partida() {
         if (probabilidadFallida > 0.75) {
           mostrarMensaje('¡El enemigo falló el ataque con el puño!');
         } else {
-          const ataque_enemigo = 12;
+          const ataque_enemigo = 15;
           jugador.vida -= ataque_enemigo;
+          jugador.vida = Math.max(jugador.vida, 0); 
           vida_jugador.text(`${jugador.vida} HP`);
           mostrarMensaje(`El enemigo te ha atacado con su puño por ${ataque_enemigo} HP.`);
         }
@@ -190,12 +227,16 @@ function partida() {
         jugador.Mana = 10;
         actualizarMana();
         verificarVictoria();
+        enableButtons(); // Reactiva los botones cuando el enemigo termina de atacar
+        enemigoAtacando = false; // Marca que el enemigo terminó su turno
+        botonAtaque.prop('disabled', false); // Reactiva el botón de ataque para el jugador
       }
       actualizar_vida();
     }
-    
+  
     realizarAtaque();
   }
+  
   function mostrarMensaje(message) {
     const mensajes = $('#mensajes');
     const mensaje_P = $('<p></p>').text(message);
@@ -207,8 +248,8 @@ function partida() {
       localStorage.setItem("GanadorPelea", "true");
       mostrarMensaje('¡Has ganado!');
       disableButtons();
-
       //remplacen la ruta de regreso a la historia aca
+
       setTimeout(() => {
         location.href = "../clubEdgard/index.html";
     }, 3000);
@@ -216,16 +257,25 @@ function partida() {
     } else if (jugador.vida <= 0) {
       mostrarMensaje('¡Te ha derrotado el enemigo!');
       disableButtons();
+      
       setTimeout(() => {
         location.href = "../muerteREMASTER/Morir.html";
     }, 3000);
     }
+    actualizar_vida()
   }
   function disableButtons() {
     botonAtaque.prop('disabled', true);
     botonDefensa.prop('disabled', true);
     botonCura.prop('disabled', true);
     botonCambiarArma.prop('disabled', true);
+  }
+
+  function enableButtons() {
+    botonAtaque.prop('disabled', false);
+    botonDefensa.prop('disabled', false);
+    botonCura.prop('disabled', false);
+    botonCambiarArma.prop('disabled', false);
   }
   function actualizar_arma() {
     if (jugador.armaActual === 'garrote') {
@@ -236,13 +286,22 @@ function partida() {
   }
   // BARRA DE VIDA
   function actualizar_vida() {
-    if(jugador.vida < 100 || enemigo.vida < 200){
-      const PorcenVidaJug = $('#barra-vida');
-      const PorcenVidaEnem = $('#barra-vida-enemigo');
+    const PorcenVidaJug = $('#barra-vida');
+    const PorcenVidaEnem = $('#barra-vida-enemigo');
+    if (jugador.vida >= 0) {
       PorcenVidaJug.css('width', `${jugador.vida}%`);
-      PorcenVidaEnem.css('width', `${enemigo.vida-(enemigo.vida/2)}%`);
-      console.log(enemigo.vida-(enemigo.vida/2));
+    } else {
+      // PorcenVidaJug.style.display = none;
+      PorcenVidaJug.css('width', '0px'); 
     }
+  
+    const vidaEnemigoPorcentaje = (enemigo.vida / 200) * 100;
+    if (enemigo.vida >= 0) {
+      PorcenVidaEnem.css('width', `${vidaEnemigoPorcentaje}%`);
+    } else {
+      PorcenVidaEnem.css('width', '0px');
+    }
+    console.log(PorcenVidaEnem.css('width', `${vidaEnemigoPorcentaje}%`))
   }
   
   actualizar_arma();

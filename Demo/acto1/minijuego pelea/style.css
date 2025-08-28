@@ -31,13 +31,40 @@ body {
 #jugador img {
   margin-bottom: -3px;
 }
+
 #enemigo img {
-  position: relative;
-  width:  60%;
+  position: absolute;  
+  width: 60%;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -10%);  
+  transform: translate(-50%, -10%);
 }
+
+@keyframes moverAlLado{
+  0%{
+    transform: translate(-50%, -10%) translateX(-50px);
+  }
+  20%{
+    transform: translate(-50%, -10%) translateX(50px);
+  }
+  40%{
+    transform: translate(-50%, -10%) translateX(-50px);
+  }
+  60%{
+    transform: translate(-50%, -10%) translateX(50px);
+  }
+  80%{
+    transform: translate(-50%, -10%) translateX(-50px);
+  }
+  100%{
+    transform: translate(-50%, -10%) translateX(50px);
+  }
+}
+
+.mover{
+  animation: moverAlLado .1s ease-in-out;
+}
+
 #jugador img {
   width: 250px;
   border-radius: 20px;
@@ -212,3 +239,5 @@ p {
   background-color: #513623;
   border-radius: 10px;
 }
+
+
