@@ -142,7 +142,6 @@ document.getElementById("pistaBoletos").addEventListener("click", function () {
         replandecer()
     }
     insertarPistas.innerHTML = 'Pistas encontradas: ' + pistasEncontradas + "/3";
-
 })
 document.getElementById("pistaCarta").addEventListener("click", function () {
     const audio = new Audio("./correct-choice-43861.mp3");

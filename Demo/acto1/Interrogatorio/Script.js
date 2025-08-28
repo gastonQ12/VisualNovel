@@ -519,7 +519,6 @@ function cambiarFondo(aux) {
 }
 
 function MostrarPjH(lado) {
-
     switch (lado) {
         case 0:
             console.log("entro 0");
@@ -649,7 +648,6 @@ function sacarTodo() {
     imgPjs.style.display = 'none';
     cuadroDialogo.style.display = 'none';
     iconosE.style.display = 'block';
-
     reloj.style.display = 'block';
 }
 function ponerTodo() {
@@ -682,7 +680,6 @@ function pistas(aux) {
         }
     }, 500
     );
-
 }
 
 function getAllCookies() {

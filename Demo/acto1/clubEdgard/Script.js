@@ -442,7 +442,7 @@ function opcionesPreguntar(aux) {
 
         parrafoDentroDelBoton.innerHTML = '¿Por que esta herido señor? (Pelear)';
         parrafoDentroDelBoton1.innerHTML = '¿Conoce a Michael Hawks? (Conversar)';
-        // Añade eventos de clic para actualizar el diálogo y continuar
+        // añade eventos de clic para actualizar el diálogo y continuar
         botonOpcion2.addEventListener("click", function () {
             localStorage.setItem('caminoPelear', "true")
             localStorage.setItem("GanadorPelea", "false");

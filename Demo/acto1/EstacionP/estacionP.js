@@ -491,20 +491,20 @@ function encerrarAalguien() {
     henryPedirAllanamiento.addEventListener("click", function () {
         localStorage.setItem('encerrar', "Henry Whalls")
         localStorage.setItem('Acto1T', "true")
-        location.href = "../interrogarComisaria/interrogarC.html"
+        location.href = "../../index.html"
     });
 
     edgardinterrogar.addEventListener("click", function () {
         localStorage.setItem('encerrar', "Edgard Mindguard")
         localStorage.setItem('Acto1T', "true")
-        location.href = "../interrogarComisaria/interrogarC.html"
+        location.href = "../../index.html"
 
     });
 
     sophieinterrogar.addEventListener("click", function () {
         localStorage.setItem('encerrar', "Sophie Hawks")
         localStorage.setItem('Acto1T', "true")
-        location.href = "../interrogarComisaria/interrogarC.html"
+        location.href = "../../index.html"
     });
 
     document.getElementById('cover').style.display = "flex";
