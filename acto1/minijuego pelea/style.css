@@ -31,7 +31,6 @@ body {
 #jugador img {
   margin-bottom: -3px;
 }
-
 #enemigo img {
   position: absolute;  
   width: 60%;
@@ -239,5 +238,3 @@ p {
   background-color: #513623;
   border-radius: 10px;
 }
-
-

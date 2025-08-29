@@ -132,6 +132,57 @@ botonAtaque.on('click', () => {
   };
 
   // EVENTOS DE LOS BOTONES CON FUNCIONES
+  botonAtaque.on('click', () => {
+    if (enemigoAtacando) return;
+    botonAtaque.prop('disabled', true);
+  
+    if (jugador.armaActual === 'garrote') {
+      if (jugador.Mana >= jugador.mana_acciones.garrote) {
+        jugador.Mana -= jugador.mana_acciones.garrote;
+        actualizarMana();
+        const probabilidadFallida = Math.random();
+        if (probabilidadFallida > 0.8) {
+          mostrarMensaje('¡Fallaste el ataque con el garrote!');
+        } else {
+          const daño = 10;
+          enemigo.vida -= daño;
+          enemigo.vida = Math.max(enemigo.vida, 0);
+          vida_enemigo.text(`${enemigo.vida} HP`);
+          mostrarMensaje(`Atacaste al enemigo con el garrote por ${daño} HP.`);
+        }
+        actualizar_vida();
+      } else {
+        mostrarMensaje('No tienes suficiente maná para usar el garrote.');
+        jugador.Mana = 0;
+      }
+    } else if (jugador.armaActual === 'pistola') {
+      if (jugador.Mana >= jugador.mana_acciones.pistola) {
+        jugador.Mana -= jugador.mana_acciones.pistola;
+        actualizarMana();
+        const probabilidadFallida = Math.random();
+        if (probabilidadFallida > 0.45) {
+          mostrarMensaje('¡Fallaste el disparo con la pistola!');
+        } else {
+          const daño = Math.floor(Math.random() * 16) + 20;
+          enemigo.vida -= daño;
+          enemigo.vida = Math.max(enemigo.vida, 0);
+          vida_enemigo.text(`${enemigo.vida} HP`);
+          mostrarMensaje(`Atacaste al enemigo con la pistola por ${daño} HP.`);
+        }
+        actualizar_vida();
+      } else {
+        mostrarMensaje('No tienes suficiente maná para usar la pistola.');
+        jugador.Mana = 0;
+      }
+    }
+  
+    if (jugador.Mana <= 0 && !enemigoAtacando) {
+      enemigoAtaca();
+      verificarVictoria();
+    } else {
+      botonAtaque.prop('disabled', false);
+    }
+  });
 
   botonDefensa.on('click', () => {
     if (jugador.vida > 0) {

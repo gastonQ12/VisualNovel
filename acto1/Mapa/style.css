@@ -58,15 +58,28 @@ body{
     width: 120px;
     height: 150px;
     position: absolute;
-    left: 40%;
+    left: 20%;
     top: 5%;
+    animation: pulse 1s ease-in-out infinite;
 }
-
 #callejon img{
     animation: none;
     filter: none;
 }
 /* hasta acá */
+@keyframes pulse {
+    0%{
+        filter: drop-shadow(1px 1px 5px rgb(255, 255, 255))
+    }
+    50%{
+        filter: drop-shadow(1px 1px 30px rgb(255, 255, 255))
+    }
+    100%{
+        filter: drop-shadow(1px 1px 5px rgb(255, 255, 255))
+    }
+    
+}
+
 .casita4{
     width: 120px;
     height: 150px;
@@ -81,6 +94,20 @@ body{
     left: 45%;
     bottom: 45%;
 }
+.casita1 img, #callejon img, .casita4 img, .casita5 img, .casita2 img, .casita3 img{
+    width: 100%;
+    height: 100%;
+}
+
+.casita1,.casita2,.casita3,.casita4,.casita5{
+    transition: all 0.8s;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.casita1:hover,.casita2:hover,.casita3:hover,.casita4:hover,.casita5:hover{
+    transform: scale(1.1);
+}
+
 
 .casita1{
     left: 40%;
@@ -138,3 +165,4 @@ div img{
 }
 
 /*   HASTA ACA   */
+

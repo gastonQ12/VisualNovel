@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Black Jack</title>
+</head>
+
+<body>
+    <div class="cont-puntuacion">
+        <p class="score">Puntaje jugador: </p>
+        <p class="scoreN" id="puntaje">0</p>
+    </div>
+    <div class="cont-puntaje-enemigo">
+        <p class="score">Puntaje crupier: </p>
+        <p id="puntaje-enemigo">0</p>
+    </div>
+    <style>
+        #puntaje-enemigo {
+            font-size: 100px;
+            color: white;
+        }
+
+        .cont-puntuacion {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <div class="PlayerTHING"></div>
+    <div class="pCircle"></div>
+    <div class="pCircle2"></div>
+    <div id="contenedor-cartas">
+
+    </div>
+    <div id="contenedor-cartas-enemigo">
+
+    </div>
+
+    <img class="elpeak" src="imgs/jugador.png" alt="">
+    <div class="opSet1">
+        <button class="opc" id="pedir">Pedir</button>
+        <button class="opc" id="quedarse">Quedarse</button>
+    </div>
+
+    <div class="opSet2">
+        <button class="opc" id="Vale1">Vale 1</button>
+        <button class="opc" id="vale11">Vale 11</button>
+    </div>
+    <!-- pantalla de muerte -->
+    <div id="cont-pantalla-muerte" style="display: none;">
+        <h1>¡Perdiste!</h1>
+        
+        <div class="pantalla-muerte"></div>
+    </div>
+    <div id="cont-pantalla-vivo" style="display: none;">
+        <h1 class="Tv">¡Ganaste!</h1>
+        <div class="pantalla-vivo"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

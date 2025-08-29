@@ -23,7 +23,7 @@ document.body.onload = function () {
         localStorage.removeItem("borrado1");
         localStorage.setItem("borrado1", true)
 
-        if (paginaAnterior == "http://127.0.0.1:5500/index.html") {
+        if (paginaAnterior == "https://gastonq12.github.io/VisualNovel/index.html") {
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
             eliminarCookie("estadoNPCs");
@@ -452,18 +452,17 @@ function interrogarSospechosoC() {
 
     henryPedirAllanamiento.addEventListener("click", function () {
         localStorage.setItem('ainterrogar', "Henry Whalls")
-        location.href = "../interrogarComisaria/interrogarC.html"
+        location.href = "../interrogarComisaria/interrogarHenry/index.html"
     });
 
     edgardinterrogar.addEventListener("click", function () {
         localStorage.setItem('ainterrogar', "Edgard Mindguard")
-        location.href = "../interrogarComisaria/interrogarC.html"
-
+        location.href = "../interrogarComisaria/interrogarEdgard/index.html"
     });
 
     sophieinterrogar.addEventListener("click", function () {
         localStorage.setItem('ainterrogar', "Sophie Hawks")
-        location.href = "../interrogarComisaria/interrogarC.html"
+        location.href = "../interrogarComisaria/interrogarSophia/index.html"
     });
     document.getElementById('cover').style.display = "flex";
     document.getElementById('ContSup').style.display = "none";
@@ -487,6 +486,7 @@ function encerrarAalguien() {
     let edgardinterrogar = document.getElementById('d1');
     let sophieinterrogar = document.getElementById('d4');
     let arraySospechosos = JSON.parse(localStorage.getItem('Sospechosos'));
+
 
 /* NICO */
 

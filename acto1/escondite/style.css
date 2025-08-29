@@ -142,6 +142,7 @@ body {
     height: 100px;
     left: 12%;
     top: 250px;
+
 }
 #pistaCarta{
     position: relative;
@@ -244,7 +245,6 @@ body {
     cursor: pointer
 }
 
-.escondites {}
 
 #escondite1 {
     position: relative;
@@ -344,9 +344,6 @@ body {
     border-image: url(img/anillo.png);
 }
 
-.ContenedorGris{
-
-}
 
 .ContenedorGris2 {
     width: 70px;

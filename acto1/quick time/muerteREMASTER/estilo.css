@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: "Karantina", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.holder{
+    display: flex;
+    justify-content: center;
+}
+
+.cover{
+    z-index: -998;
+    width: 2000px;
+    height: 2000px;
+    opacity: 0.5;
+    background-color: black;
+    position: absolute;
+    opacity: 0.5;
+}
+
+.cover2{
+    z-index: -1001;
+    position: absolute;
+    height: 2000px;
+    width: 2000px;
+    background-color: black;
+}
+
+body{
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.random{
+    margin-top: -25%;
+    position: absolute;
+    z-index: -999;
+    animation: ease-in-out 3s tino;
+}
+
+.random2{
+    margin-top: -25%;
+    margin-left: 25%;
+    position: absolute;
+    z-index: -998;
+    animation: ease-in-out 3s tinoCP;
+}
+
+.pete{
+    user-select: none;
+    margin-top: -65%;
+    color: #560C0E;
+    font-size: 275px;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: #3E0000;
+    text-shadow: 0 0 5px #3E0000, 0 0 25px #3E0000, 0 0 25px #3E0000;
+    animation: ease-in-out 5s parpadeo infinite;
+}
+
+.pete2{
+    user-select: none;
+    margin-top: -40%;
+    color: #560C0E;
+    font-size: 275px;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: #3E0000;
+    text-shadow: 0 0 5px #3E0000, 0 0 25px #3E0000, 0 0 25px #3E0000;
+    animation: ease-in-out 0.5s petardo;
+}
+
+.oof{
+    margin-top: -35%;
+    margin-right: 25%;
+    position: absolute;
+    z-index: -1000;
+    animation: ease-in-out 0.5s cumRojo;
+    height: 1700px;
+    width: 1700px;
+}
+
+.cum1{
+    transition: all 0.5s;
+}
+
+.cum1{
+    user-select: none;
+    position: absolute;
+    font-size: 95px;
+    color: white;
+    margin-top: 10%;
+}
+
+.cum2{
+    transition: all 0.5s;
+}
+
+.cum2{
+    user-select: none;
+    position: absolute;
+    font-size: 95px;
+    color: white;
+    margin-top: 15%;
+}
+
+.cum1:hover{
+    cursor: pointer;
+    letter-spacing: 2.5px;
+    transform: scale(1.1);
+    text-shadow: 0 0 5px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff;
+}
+
+.cum2:hover{
+    cursor: pointer;
+    letter-spacing: 2.5px;
+    transform: scale(1.1);
+    text-shadow: 0 0 5px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff;
+}
+
+@keyframes petardo {
+    0%{
+        opacity: 0;
+        letter-spacing: 20px;
+
+    }
+    100%{
+        opacity: 1;
+        letter-spacing: 0px;
+
+    }
+}
+
+@keyframes cumRojo {
+    0%{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes tino {
+    0%{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes tinoCP {
+    0%{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+@keyframes parpadeo {
+    0%{
+        text-shadow: 0 0 5px #3E0000, 0 0 25px #3E0000, 0 0 25px #3E0000;
+    }
+    50%{
+        text-shadow: 0 0 0px #3E0000, 0 0 0px #3E0000, 0 0 0px #3E0000;
+    }
+    100%{
+        text-shadow: 0 0 5px #3E0000, 0 0 25px #3E0000, 0 0 25px #3E0000;
+    }
+}

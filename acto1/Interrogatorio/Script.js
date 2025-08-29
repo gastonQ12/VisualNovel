@@ -14,6 +14,7 @@ cuadro.addEventListener('click', () => {
     setTimeout(() => {
         cuadro.style.display = 'none';
     }, 500); 
+
 });
 
 libroLetras.addEventListener('click', () => {
@@ -45,7 +46,7 @@ document.body.onload = function () {
         localStorage.removeItem("borrado1");
         localStorage.setItem("borrado1", true)
 
-        if (paginaAnterior == "http://127.0.0.1:5500/index.html") {
+        if (paginaAnterior == "https://gastonq12.github.io/VisualNovel/index.html") {
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
             eliminarCookie("estadoNPCs");
@@ -758,6 +759,7 @@ function pistas(aux) {
         }
     }, 500
     );
+
 }
 
 function getAllCookies() {

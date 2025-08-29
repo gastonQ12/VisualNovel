@@ -25,7 +25,7 @@ document.body.onload = function () {
         localStorage.removeItem("borrado2");
         localStorage.setItem("borrado2", true)
 
-        if (paginaAnterior == "http://127.0.0.1:5500/index.html") {
+        if (paginaAnterior == "https://gastonq12.github.io/VisualNovel/index.html") {
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
             eliminarCookie("estadoNPCs");

@@ -221,7 +221,6 @@ document.getElementById("pistaCarta").addEventListener("click", function () {
 })
 
 /* -+-+-+-+-+-+-+-+-+-+-        HASTA ACA         +-+-+-+-+-+-+-+-+-+-+- */
-
 function replandecer() {
     localStorage.setItem("pistasLocalStorage" , pistasEncontradas); 
     document.getElementById('contenedorMapa').style.boxShadow = "0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6)";
