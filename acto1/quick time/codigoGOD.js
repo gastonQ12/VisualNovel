@@ -5,78 +5,66 @@ const botonTexto = document.getElementById("txt");
 const barraVidaEnemigo = document.getElementById("hpChabon");
 const barraVidaJugador = document.getElementById("hpJugador");
 const shadow = document.querySelector('.shadow');
-const parent = shadow.parentNode;
 
-let vidaEnemigo = 100 ;
-let vidaJugador = 100 ;
-var aux = true;
+let vidaEnemigo = 100;
+let vidaJugador = 100;
+
 botonTexto.textContent = tecla.toUpperCase();
 
-// Función que ingresa la tecla y maneja la lógica de la vida
-ingresarTecla(tecla);
+// ---------------- EVENTO TECLA ----------------
+document.addEventListener('keydown', function (event) {
+    if (event.key === tecla) {
+        // Acierta
+        boton.style.backgroundColor = "green";
+        vidaEnemigo -= 10;
+        barraVidaEnemigo.style.background = `linear-gradient(to right, #AE0909 ${vidaEnemigo}%, white ${vidaEnemigo - 100}%)`;
 
-// Obtener cuando la animación de la variable termina
-shadow.addEventListener('animationiteration', function(event) {
+        // Generar nueva letra al acertar
+        tecla = letraRandom();
+        botonTexto.textContent = tecla.toUpperCase();
+
+        reiniciarTimer();
+        checkGameOver();
+    } else {
+        // Si falla → no cambia la letra
+        boton.style.backgroundColor = "red";
+    }
+});
+
+// ---------------- EVENTO ANIMACIÓN ----------------
+shadow.addEventListener('animationiteration', function () {
+    // Si no apretó la tecla a tiempo → pierde vida
+    vidaJugador -= 10;
+    barraVidaJugador.style.background = `linear-gradient(to right, 
+        #AE0909 ${vidaJugador}%, 
+        white ${vidaJugador - 100}%)`;
+
+    if (vidaJugador <= 0) {
+        location.href = "muerteREMASTER/Morir.html"; 
+    }
+
+    // Generar nueva letra SOLO al terminar el ciclo
     tecla = letraRandom();
     botonTexto.textContent = tecla.toUpperCase();
     boton.style.backgroundColor = "red";
-    vidaJugador = vidaJugador - 10;
-    barraVidaJugador.style.background = `linear-gradient(to right, 
-    #AE0909 ${vidaJugador}%, 
-    white ${vidaJugador - 100}%)`;
+
     checkGameOver();
 });
 
-// Función para ingresar la tecla
-function ingresarTecla(tecla) {
-    botonTexto.textContent = tecla.toUpperCase();
-    document.addEventListener('keydown', function(event) {
-        if(tecla == event.key){
-            boton.style.backgroundColor = "green";
-            vidaEnemigo = vidaEnemigo - 10;
-            barraVidaEnemigo.style.background = `linear-gradient(to right, #AE0909 ${vidaEnemigo}%, white ${vidaEnemigo - 100}%)`; 
-            tecla = letraRandom();
-            botonTexto.textContent = tecla.toUpperCase();
-            reiniciarTimer();
-        } else {
-            boton.style.backgroundColor = "red";
-            vidaJugador = vidaJugador - 2;
-
-            // Verificar si el jugador muere
-            if (vidaJugador <= 0) {
-                location.href = "muerteREMASTER/Morir.html";
-            }
-
-            barraVidaJugador.style.background = `linear-gradient(to right, 
-            #AE0909 ${vidaJugador}%, 
-            white ${vidaJugador - 100}%)`;
-
-            tecla = letraRandom();
-            botonTexto.textContent = tecla.toUpperCase();
-        }
-
-        // Verificar si el enemigo muere
-        checkGameOver();
-    });
-}
-
-// Función para verificar si el juego terminó
+// ---------------- FUNCIONES ----------------
 function checkGameOver() {
     if (vidaEnemigo <= 0) {
-        location.href = "../../index.html";  // Redirigir al menú cuando el enemigo muere
+        location.href = "../../index.html";  
     }
 }
 
-// Función para generar la letra random
 function letraRandom() {
     const letras = ['a', 's', 'd', 'w', 'e', 'q', 'f', 'z', 'x', 'c'];
-    const indexRandom = Math.floor(Math.random() * letras.length);
-    return letras[indexRandom];
+    return letras[Math.floor(Math.random() * letras.length)];
 }
 
-// Función para reiniciar el timer de la animación
 function reiniciarTimer() {
-    shadow.style.animation = 'none'; // Pausar animación
-    void shadow.offsetWidth; // Forzar reflow (reinicio de estilo)
-    shadow.style.animation = ''; // Volver a añadir animación CSS
+    shadow.style.animation = 'none';
+    void shadow.offsetWidth; 
+    shadow.style.animation = ''; 
 }

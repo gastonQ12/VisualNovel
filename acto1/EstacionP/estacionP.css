@@ -14,7 +14,15 @@ body {
         background-size: cover;
     }
 }
-
+.swal2-title {
+  filter: drop-shadow(1px 1px 0px #797979);
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: black;
+  font-family: "Karantina", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
 .cuadro_TextEI {
     display: flex;
     justify-content: space-between;

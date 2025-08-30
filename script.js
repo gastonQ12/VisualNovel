@@ -21,6 +21,14 @@ cerconfiguracion.addEventListener("click", () => {
     configuracion.close();
 })
 
+Swal.fire({
+    position: "top",
+    icon: "warning",
+    theme: "dark",
+    title: "El juego no esta terminado, hasta ahora cuenta con el Acto I, dejamos los minijuegos descartados o todavia no implementados en la historia en el menu principal para que puedan jugarlos.",
+    showConfirmButton: true
+});
+
 //CODIGO PARA MOVERTE ENTRE LAS OPCIONES
 var audio = new Audio();
 const botones = document.querySelectorAll('.botones-menu');

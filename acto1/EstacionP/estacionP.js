@@ -413,7 +413,8 @@ function cargadoDePIstas() {
 document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
 
 function pedirOrdenAllanamiento() {
-    let henryPedirAllanamiento = document.getElementById('d2');
+    document.getElementById('d1').style.display = "None";
+    document.getElementById('d4').style.display = "None";
     let arraySospechosos = JSON.parse(localStorage.getItem('Sospechosos'));
 
     const henry = arraySospechosos[1];
@@ -423,15 +424,30 @@ function pedirOrdenAllanamiento() {
         return henry[propiedad] === true ? count + 1 : count;
     }, 0);
 
-    henryPedirAllanamiento.addEventListener("click", function () {
+    let henryPedirAllanamiento = document.getElementById('d2');
+    henryPedirAllanamiento.onclick = function () {
         if (trueCount >= 3) {
             localStorage.setItem('allanamientoHenry', "true");
-            alert("La orden de allanamiento fue aprobada");
+            Swal.fire({
+                position: "top",
+                icon: "success",
+                theme: "dark",
+                title: "Orden de allanamiento emitida, puedes ir al departamento",
+                showConfirmButton: false,
+                timer: 2000
+            });
         } else {
             localStorage.setItem('allanamientoHenry', "false");
-            alert("La orden de allanamiento fue rechazada");
+            Swal.fire({
+                position: "top",
+                icon: "error",
+                theme: "dark",
+                title: "Orden de allanamiento rechazada",
+                showConfirmButton: false,
+                timer: 2000
+            });
         }
-    });
+    };
 
     document.getElementById('cover').style.display = "flex";
     document.getElementById('ContSup').style.display = "none";
@@ -452,26 +468,26 @@ function volverAtras() {
 }
 
 function interrogarSospechosoC() {
-    let henryPedirAllanamiento = document.getElementById('d2');
-    let edgardinterrogar = document.getElementById('d1');
-    let sophieinterrogar = document.getElementById('d4');
+    let henry = document.getElementById('d2');
+    let edgard = document.getElementById('d1');
+    let sophie = document.getElementById('d4');
     let arraySospechosos = JSON.parse(localStorage.getItem('Sospechosos'));
 
+    henry.onclick = function () {
+        localStorage.setItem('ainterrogar', "Henry Whalls");
+        location.href = "../interrogarComisaria/interrogarHenry/index.html";
+    };
 
-    henryPedirAllanamiento.addEventListener("click", function () {
-        localStorage.setItem('ainterrogar', "Henry Whalls")
-        location.href = "../interrogarComisaria/interrogarHenry/index.html"
-    });
+    edgard.onclick = function () {
+        localStorage.setItem('ainterrogar', "Edgard Mindguard");
+        location.href = "../interrogarComisaria/interrogarEdgard/index.html";
+    };
 
-    edgardinterrogar.addEventListener("click", function () {
-        localStorage.setItem('ainterrogar', "Edgard Mindguard")
-        location.href = "../interrogarComisaria/interrogarEdgard/index.html"
-    });
+    sophie.onclick = function () {
+        localStorage.setItem('ainterrogar', "Sophie Hawks");
+        location.href = "../interrogarComisaria/interrogarSophia/index.html";
+    };
 
-    sophieinterrogar.addEventListener("click", function () {
-        localStorage.setItem('ainterrogar', "Sophie Hawks")
-        location.href = "../interrogarComisaria/interrogarSophia/index.html"
-    });
     document.getElementById('cover').style.display = "flex";
     document.getElementById('ContSup').style.display = "none";
     document.getElementById('JAJAS').style.display = "none";
@@ -486,39 +502,36 @@ function interrogarSospechosoC() {
     if (localStorage.getItem('Edgar') !== null) {
         document.getElementById('d1').style.display = "block";
     }
+    return
 }
 
 
 function encerrarAalguien() {
-    let henryPedirAllanamiento = document.getElementById('d2');
-    let edgardinterrogar = document.getElementById('d1');
-    let sophieinterrogar = document.getElementById('d4');
+    let henry = document.getElementById('d2');
+    let edgard = document.getElementById('d1');
+    let sophie = document.getElementById('d4');
     let arraySospechosos = JSON.parse(localStorage.getItem('Sospechosos'));
 
 
     /* NICO */
 
-    henryPedirAllanamiento.addEventListener("click", function () {
-        localStorage.setItem('Acto1T', true)
-        localStorage.setItem('encerrar', "Henry Whalls")
-        localStorage.setItem('Acto1T', "true")
-        location.href = "../../index.html"
-    });
+    henry.onclick = function () {
+        localStorage.setItem('Acto1T', "true");
+        localStorage.setItem('encerrar', "Henry Whalls");
+        location.href = "../../index.html";
+    };
 
-    edgardinterrogar.addEventListener("click", function () {
-        localStorage.setItem('Acto1T', true)
-        localStorage.setItem('encerrar', "Edgard Mindguard")
-        localStorage.setItem('Acto1T', "true")
-        location.href = "../../index.html"
+    edgard.onclick = function () {
+        localStorage.setItem('Acto1T', "true");
+        localStorage.setItem('encerrar', "Edgard Mindguard");
+        location.href = "../../index.html";
+    };
 
-    });
-
-    sophieinterrogar.addEventListener("click", function () {
-        localStorage.setItem('Acto1T', true)
-        localStorage.setItem('encerrar', "Sophie Hawks")
-        localStorage.setItem('Acto1T', "true")
-        location.href = "../../index.html"
-    });
+    sophie.onclick = function () {
+        localStorage.setItem('Acto1T', "true");
+        localStorage.setItem('encerrar', "Sophie Hawks");
+        location.href = "../../index.html";
+    };
 
     /* HASTA ACÁ */
 

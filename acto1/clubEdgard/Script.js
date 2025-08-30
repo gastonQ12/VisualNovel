@@ -196,7 +196,14 @@ function cargadoDePIstas() {
 
 function ganadorPeleaKarma() {
     let karmaAct = parseInt(localStorage.getItem('karma'))
-    alert("Las peleas que puedes evitar te generan Karma")
+    Swal.fire({
+        position: "top",
+        icon: "question",
+        theme: "dark",
+        title: "Las peleas que puedes evitar te generan Karma",
+        showConfirmButton: false,
+        timer: 2000
+    });
     karmaAct += 20
     localStorage.setItem('karma', karmaAct)
     document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
@@ -331,7 +338,7 @@ function editarTexto(event) {
             document.getElementById('opcionesPreguntar').style.pointerEvents = "auto";
 
             boxD.style.pointerEvents = "None"
-        }else{
+        } else {
             boxD.style.pointerEvents = "auto"
             document.getElementById('opcionesPreguntar').style.display = "none";
         }
@@ -354,7 +361,7 @@ function editarTexto(event) {
         } else if (aux == 17) {
             console.log("guardad")
             localStorage.setItem('EdgardSocio', 100);
-        }else if(aux == 27){
+        } else if (aux == 27) {
             localStorage.setItem('clubEdgard', "Terminado")
             location.href = '../Mapa/Mapa.html';
         }
@@ -435,26 +442,26 @@ function caminoElegido() {
 
 
 function opcionesPreguntar(aux) {
-        const opcionesPreguntar = document.getElementById('opcionesPreguntar').style.display = "flex";
-        const botonOpcion2 = document.getElementById('botonOpcion2');
-        const botonOpcion1 = document.getElementById('botonOpcion');
+    const opcionesPreguntar = document.getElementById('opcionesPreguntar').style.display = "flex";
+    const botonOpcion2 = document.getElementById('botonOpcion2');
+    const botonOpcion1 = document.getElementById('botonOpcion');
 
-        const parrafoDentroDelBoton = botonOpcion2.querySelector('p');
-        const parrafoDentroDelBoton1 = botonOpcion1.querySelector('p');
+    const parrafoDentroDelBoton = botonOpcion2.querySelector('p');
+    const parrafoDentroDelBoton1 = botonOpcion1.querySelector('p');
 
-        parrafoDentroDelBoton.innerHTML = '¿Por que esta herido señor? (Pelear)';
-        parrafoDentroDelBoton1.innerHTML = '¿Conoce a Michael Hawks? (Conversar)';
-        // añade eventos de clic para actualizar el diálogo y continuar
-        botonOpcion2.addEventListener("click", function () {
-            localStorage.setItem('caminoPelear', "true")
-            localStorage.setItem("GanadorPelea", "false");
-            caminoElegido();
-        });
+    parrafoDentroDelBoton.innerHTML = '¿Por que esta herido señor? (Pelear)';
+    parrafoDentroDelBoton1.innerHTML = '¿Conoce a Michael Hawks? (Conversar)';
+    // añade eventos de clic para actualizar el diálogo y continuar
+    botonOpcion2.addEventListener("click", function () {
+        localStorage.setItem('caminoPelear', "true")
+        localStorage.setItem("GanadorPelea", "false");
+        caminoElegido();
+    });
 
-        botonOpcion1.addEventListener("click", function () {
-            localStorage.setItem('caminoPelear', "false")
-            caminoElegido();
-        });
+    botonOpcion1.addEventListener("click", function () {
+        localStorage.setItem('caminoPelear', "false")
+        caminoElegido();
+    });
 }
 
 function getCookie(cname) {

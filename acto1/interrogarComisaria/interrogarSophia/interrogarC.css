@@ -44,7 +44,9 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
+.cuadroDialogo p{
+    width: 60%;
+}
 .cuadroDialogo * {
     color: white;
     text-align: center;

@@ -5,14 +5,16 @@ const lists = {
         "1. Claro. Pero… Algo que nos llamó la atención: encontramos un papel con letras antiguas en la escena del crimen. En su casa también encontramos un libro con letras similares. ¿Le dice algo esta coincidencia?",
         "2. Oh… eso… sí, es solo un viejo libro de la biblioteca de mi esposo. Él coleccionaba ese tipo de cosas, ya sabe, antigüedades.",
         "1. Entiendo. Me imagino que entre los amigos de su esposo también compartían gustos similares. Hemos oído que pasaba bastante tiempo con su amigo cercano, [Nombre del amigo]. ¿Diría usted que su esposo confiaba mucho en él?",
-        "2. Sí… eran amigos de toda la vida. Muy cercanos."
+        "2. Sí… eran amigos de toda la vida. Muy cercanos.",
+        "1. ..."
     ]
     ,
     button2: [
         "1. Claro. Es difícil perder a alguien tan importante… pero, señora, debo preguntarle: ¿Su relación con Henry Whalls era solo amistad? Nos consta que se veían con frecuencia, incluso a solas.",
         "2. No… bueno… Éramos amigos, sí. Pero eso no tiene nada que ver con lo que pasó.",
         "1. Comprendo. Solo estamos intentando entender mejor la situación, dado a que parece que el señor Whalls tenía una carta de amor confesando cierto amorío hacia usted y detallando encuentros… más allá de una mera amistad.",
-        "2. Sí… bueno, fue en momentos de debilidad, Michael estaba siempre fuera en el taxi y cuando volvía investigaba cosas antiguas."]
+        "2. Sí… bueno, fue en momentos de debilidad, Michael estaba siempre fuera en el taxi y cuando volvía investigaba cosas antiguas.",
+        "1. ..."]
     ,
     button3: [
         "1. ¿Cree que el señor Whalls lo haya matado? ¿O acaso fue usted porque él descubrió el amorío secreto?",
@@ -48,7 +50,7 @@ document.getElementById("button3").addEventListener("click", () => {
         pregMalas.Sophie = true
         localStorage.setItem('preguntasMalas', JSON.stringify(pregMalas))
     }
-    
+
 });
 
 // Función para iniciar la lista
@@ -57,6 +59,13 @@ function startList(buttonId) {
     currentIndex = 0;
     buttonsDiv.style.display = "none";
     listContainer.style.display = "block";
+    // Detectar quién habla en la PRIMERA línea
+    let indicador = currentList[currentIndex].substring(0, 2).trim();
+    pjHablando = indicador === "1." ? name1 : name2;
+
+    document.getElementById("PJname").textContent = pjHablando;
+    let estadoPJs = document.getElementById("izquierda");
+    estadoPJs.src = './imagenes/sophieInd.png';
 
     listItem.textContent = currentList[currentIndex].slice(3).trim();
 }

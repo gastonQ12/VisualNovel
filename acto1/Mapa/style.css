@@ -1,129 +1,158 @@
-@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
-#aviso{
-    width: 500px;
-    height: 200px;
-    position: absolute;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-    left: 40%;
-    z-index: 22222;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    display: none;
+@import url("https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap");
+#aviso {
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  left: 40%;
+  z-index: 22222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  display: none;
+}
+.noParpadeo {
+  animation: none !important;
+}
+.swal2-title {
+  filter: drop-shadow(1px 1px 0px #797979);
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: black;
+  font-family: "Karantina", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+@keyframes introA {
+  0% {
+    opacity: 0;
+    letter-spacing: 5px;
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 0px;
+  }
 }
 
-@keyframes introA{
-    0%{
-        opacity: 0;
-        letter-spacing: 5px;
-    }
-    100%{
-        opacity: 1;
-        letter-spacing: 0px;
-    }
+#aviso h1 {
+  position: absolute;
+  font-family: "Karantina", system-ui;
+  font-size: 70px;
+  color: white;
+  text-align: center;
+  width: 800px;
+  animation: introA 0.5s ease-in-out;
+}
+body {
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
 }
 
-#aviso h1{
-    position: absolute;
-    font-family: "Karantina", system-ui;
-    font-size: 70px;
-    color: white;
-    text-align: center;
-    width: 800px;
-    animation: introA 0.5s ease-in-out;
+.fondo {
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  height: 100%;
 }
-body{
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 0;
+.casita1 {
+  width: 120px;
+  height: 150px;
+  position: absolute;
 }
 
-.fondo{
-    width: 100%;
-    position: absolute;
-    z-index: -2;
-    height: 100%;
-}
-.casita1{
-    width: 120px;
-    height: 150px;
-    position: absolute;
-}
-
-#callejon{
-    width: 120px;
-    height: 150px;
-    position: absolute;
-    left: 20%;
-    top: 5%;
-    animation: pulse 1s ease-in-out infinite;
+#callejon {
+  width: 120px;
+  height: 150px;
+  position: absolute;
+  left: 20%;
+  top: 5%;
+  animation: pulse 1s ease-in-out infinite;
 }
 
 @keyframes pulse {
-    0%{
-        filter: drop-shadow(1px 1px 5px rgb(255, 255, 255))
-    }
-    50%{
-        filter: drop-shadow(1px 1px 30px rgb(255, 255, 255))
-    }
-    100%{
-        filter: drop-shadow(1px 1px 5px rgb(255, 255, 255))
-    }
-    
+  0% {
+    filter: drop-shadow(1px 1px 5px rgb(255, 255, 255));
+  }
+  50% {
+    filter: drop-shadow(1px 1px 30px rgb(255, 255, 255));
+  }
+  100% {
+    filter: drop-shadow(1px 1px 5px rgb(255, 255, 255));
+  }
 }
-.casita4{
-    width: 120px;
-    height: 150px;
-    position: absolute;
-    left: 70%;
-    bottom: 70%;
+.casita4 {
+  width: 120px;
+  height: 150px;
+  position: absolute;
+  left: 70%;
+  bottom: 70%;
 }
-.casita5{
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    left: 45%;
-    bottom: 45%;
+.casita5 {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 45%;
+  bottom: 45%;
 }
-.casita1 img, #callejon img, .casita4 img, .casita5 img, .casita2 img, .casita3 img{
-    width: 100%;
-    height: 100%;
-}
-
-.casita1,.casita2,.casita3,.casita4,.casita5{
-    transition: all 0.8s;
-    animation: pulse 1s ease-in-out infinite;
-}
-
-.casita1:hover,.casita2:hover,.casita3:hover,.casita4:hover,.casita5:hover{
-    transform: scale(1.1);
+.casita1 img,
+#callejon img,
+.casita4 img,
+.casita5 img,
+.casita2 img,
+.casita3 img {
+  width: 100%;
+  height: 100%;
 }
 
-.casita1{
-    left: 40%;
-    bottom: 150px;
+.casita1,
+.casita2,
+.casita3,
+.casita4,
+.casita5 {
+  transition: all 0.8s;
+  animation: pulse 1s ease-in-out infinite;
 }
 
-.casita2, .casita3{
-    position: absolute;
-    height: 150px;
-    left: 70%;
-    width: 200px;
-    bottom: 280px;
-}
-.casita2{
-    left: 65%;
-    bottom: 200px;
-}
-.casita3{
-    left: 18%;
-    bottom: 180px;
+.casita1:hover,
+.casita2:hover,
+.casita3:hover,
+.casita4:hover,
+.casita5:hover {
+  transform: scale(1.1);
 }
 
-div img{
-    cursor: pointer;
+.casita1 {
+  left: 40%;
+  bottom: 150px;
 }
-img:hover{
-    filter: drop-shadow(1px 1px 25px rgb(255, 255, 255))
+
+.casita2,
+.casita3 {
+  position: absolute;
+  height: 150px;
+  left: 70%;
+  width: 200px;
+  bottom: 280px;
+}
+.casita2 {
+  left: 65%;
+  bottom: 200px;
+}
+.casita3 {
+  left: 18%;
+  bottom: 180px;
+}
+
+div img {
+  cursor: pointer;
+}
+img:hover {
+  filter: drop-shadow(1px 1px 25px rgb(255, 255, 255));
 }

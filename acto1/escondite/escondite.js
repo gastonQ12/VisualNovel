@@ -122,7 +122,6 @@ function salvado(probabilidad) {
     if (probabilidad <= random) {
         location.href = '../muerteREMASTER/casoFallido.html'
     } else {
-        alert("te salvaste"); //cambiar esto 
         clearInterval(intervaloReloj); // Detén el reloj al salvarse
         localStorage.removeItem("Escondite1");
 

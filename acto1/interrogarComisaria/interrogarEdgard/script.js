@@ -65,6 +65,11 @@ function startList(buttonId) {
     currentIndex = 0;
     buttonsDiv.style.display = "none";
     listContainer.style.display = "block";
+    // Detectar quién habla en la PRIMERA línea
+    let indicador = currentList[currentIndex].substring(0, 2).trim();
+    pjHablando = indicador === "1." ? name1 : name2;
+
+    document.getElementById("PJname").textContent = pjHablando;
 
     listItem.textContent = currentList[currentIndex].slice(3).trim();
 }
@@ -74,7 +79,6 @@ listContainer.addEventListener("click", () => {
     let indicador = currentList[currentIndex].substring(0, 2).trim(); // Obtiene "1." o "2."
     pjHablando = indicador === "1." ? name2 : name1;
     document.getElementById("PJname").textContent = pjHablando;
-    console.log(pjHablando);
     currentIndex++;
     if (currentIndex < currentList.length) {
         listItem.textContent = currentList[currentIndex].slice(3).trim();

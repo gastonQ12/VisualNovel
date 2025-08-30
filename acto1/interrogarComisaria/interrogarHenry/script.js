@@ -7,7 +7,8 @@ const lists = {
         "1. Piensa: Notarías que este se pone a la defensiva, su mirada parece perdida y balbucea un poco.",
         "2. Eso… no es lo que parece. Era algo del pasado, algo que… que nunca debió haber ocurrido, la corbata seguramente la deje en algún lugar donde tuvimos un encuentro casual.",
         "1. Según la carta, parecía que sus sentimientos por ella eran profundos. Sin embargo, su arrepentimiento también está claro. ¿Por qué pensó que era necesario confesar esos sentimientos en esa carta?",
-        "2. Estaba confundido… y me sentía culpable. Pero no… no fue por eso que pasó todo esto."
+        "2. Estaba confundido… y me sentía culpable. Pero no… no fue por eso que pasó todo esto.",
+        "1. ..."
     ]
     ,
     button2: [
@@ -18,7 +19,8 @@ const lists = {
         "1. Señor Whells, debe entender que estamos tratando de entender la situación. Las pruebas que tenemos nos señalan a usted. ¿Cree que algo de lo que ha sucedido podría haber llevado a la tragedia?",
         "2. No… no creo que haya sido por eso… Si algo pasó, no fue por mi culpa.",
         "1. ¿Cree que alguien más podría haber hecho esto?",
-        "2. No… no sé qué pensar."
+        "2. No… no sé qué pensar.",
+        "1. ..."
     ]
     ,
     button3: [
@@ -63,6 +65,13 @@ function startList(buttonId) {
     currentIndex = 0;
     buttonsDiv.style.display = "none";
     listContainer.style.display = "block";
+    // Detectar quién habla en la PRIMERA línea
+    let indicador = currentList[currentIndex].substring(0, 2).trim();
+    pjHablando = indicador === "1." ? name1 : name2;
+
+    document.getElementById("PJname").textContent = pjHablando;
+    let estadoPJs = document.getElementById("izquierda");
+    estadoPJs.src = './imagenes/HenryImg.png';
 
     listItem.textContent = currentList[currentIndex].slice(3).trim();
 }

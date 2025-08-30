@@ -8,7 +8,14 @@ document.body.onload = function () {
     var paginaAnterior = document.referrer;
     let op = getCookie("progresoDialogo");
     if (op === "" || parseInt(op) <= 1) {
-        alert("Cuando descubres a un nuevo sospechoso se registra automaticamente en la carpeta de sospechosos.")
+        Swal.fire({
+            position: "top",
+            icon: "question",
+            theme: "dark",
+            title: "Cuando descubres a un nuevo sospechoso se registra automaticamente en la carpeta de sospechosos.",
+            showConfirmButton: false,
+            timer: 4000
+        });
     }
     if (partidaA !== partidaAnti && localStorage.getItem("borrado3") == "false") {
         eliminarCookie("progresoDialogo");
@@ -215,7 +222,7 @@ function cargadoDePIstas() {
     }
 
     /* tercera */
-    if (localStorage.getItem('RadioPropietario') == 100 ) {
+    if (localStorage.getItem('RadioPropietario') == 100) {
         document.getElementById("pista11").style.display = "Block";
     } else {
         document.getElementById("pista11").style.display = "none";
