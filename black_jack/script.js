@@ -7,8 +7,6 @@ const puntaje = document.getElementById('puntaje');
 const puntajeEnemigo = document.getElementById('c');
 const pedir = document.getElementById('pedir');
 const quedarse = document.getElementById('quedarse');
-const vale_11 = document.getElementById('vale11');
-const vale_1 = document.getElementById('vale1');
 let total = 0;
 let aux = 0;
 

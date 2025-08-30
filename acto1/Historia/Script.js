@@ -74,7 +74,9 @@ if(localStorage.getItem('borrado1') == null){
 if(localStorage.getItem('borrado2') == null){
     localStorage.setItem("borrado2", false)    
 }
-
+if(localStorage.getItem("borrado3") == null){
+    localStorage.setItem("borrado3", false)
+}
 
 if (new URL(document.referrer).pathname == '/Demo/acto1/capituloCarga/index.html') {
     localStorage.setItem('codigoPartidaActual', generarClaveAleatoria(7));

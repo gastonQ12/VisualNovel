@@ -10,7 +10,7 @@ document.body.onload = function () {
     if (op === "" || parseInt(op) <= 1) {
         alert("Cuando descubres a un nuevo sospechoso se registra automaticamente en la carpeta de sospechosos.")
     }
-    if (partidaA !== partidaAnti && localStorage.getItem("borrado1") == "false") {
+    if (partidaA !== partidaAnti && localStorage.getItem("borrado3") == "false") {
         eliminarCookie("progresoDialogo");
         eliminarCookie("boxD");
         eliminarCookie("estadoNPCs");
@@ -24,8 +24,8 @@ document.body.onload = function () {
         eliminarCookie("pistas");
         eliminarCookie("pjHablando");
         console.log("cookie eliminada");
-        localStorage.removeItem("borrado1");
-        localStorage.setItem("borrado1", true)
+        localStorage.removeItem("borrado3");
+        localStorage.setItem("borrado3", true)
 
         if (paginaAnterior == "https://gastonq12.github.io/VisualNovel/index.html") {
             eliminarCookie("progresoDialogo");

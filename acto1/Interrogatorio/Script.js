@@ -28,7 +28,6 @@ libroLetras.addEventListener('click', () => {
 
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
-    console.log(paginaAnterior)
     if (partidaA !== partidaAnti && localStorage.getItem("borrado1") == "false") {
         eliminarCookie("progresoDialogo");
         eliminarCookie("boxD");

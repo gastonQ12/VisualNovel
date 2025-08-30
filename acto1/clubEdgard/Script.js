@@ -314,8 +314,6 @@ const dialogos = [
 const nombrePj = [protagonista, "Edgard Mindguard"];                            // nombre de los personajes
 let size = dialogos.length; //tamaño de la lista de dialogos
 var boxD = document.getElementById('cuadroDialogo');
-var fondo = getCookie("fondo");
-body.style.backgroundImage = fondo;
 boxD.addEventListener('click', editarTexto);
 function editarTexto(event) {
     if (aux <= size - 1) {
@@ -330,7 +328,11 @@ function editarTexto(event) {
         aux++
         if (aux === 4) {
             opcionesPreguntar();
+            document.getElementById('opcionesPreguntar').style.pointerEvents = "auto";
+
+            boxD.style.pointerEvents = "None"
         }else{
+            boxD.style.pointerEvents = "auto"
             document.getElementById('opcionesPreguntar').style.display = "none";
         }
         if (aux == 16 && localStorage.getItem("GanadorPelea") === "false") {

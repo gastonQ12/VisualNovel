@@ -3,7 +3,7 @@
     width: 500px;
     height: 200px;
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.692);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
     left: 40%;
     z-index: 22222;
     display: flex;
@@ -13,32 +13,31 @@
     display: none;
 }
 
+@keyframes introA{
+    0%{
+        opacity: 0;
+        letter-spacing: 5px;
+    }
+    100%{
+        opacity: 1;
+        letter-spacing: 0px;
+    }
+}
+
 #aviso h1{
+    position: absolute;
     font-family: "Karantina", system-ui;
     font-size: 70px;
-    color: red;
+    color: white;
     text-align: center;
+    width: 800px;
+    animation: introA 0.5s ease-in-out;
 }
 body{
     background-repeat: no-repeat;
     background-position: center;
     margin: 0;
 }
-
-/* NICO */
-
-.plc img{
-    width: 100%;
-    height: 100%;
-    transition: transform .8s ease;
-    transition: box-shadow .3 ease;
-}
-
-.plc img:hover{
-    transform: scale(1.15);
-}
-
-/* HASTA ACÁ */
 
 .fondo{
     width: 100%;
@@ -52,8 +51,6 @@ body{
     position: absolute;
 }
 
-/* NICO ACÁ tambien  */
-
 #callejon{
     width: 120px;
     height: 150px;
@@ -62,11 +59,7 @@ body{
     top: 5%;
     animation: pulse 1s ease-in-out infinite;
 }
-#callejon img{
-    animation: none;
-    filter: none;
-}
-/* hasta acá */
+
 @keyframes pulse {
     0%{
         filter: drop-shadow(1px 1px 5px rgb(255, 255, 255))
@@ -79,7 +72,6 @@ body{
     }
     
 }
-
 .casita4{
     width: 120px;
     height: 150px;
@@ -108,13 +100,11 @@ body{
     transform: scale(1.1);
 }
 
-
 .casita1{
     left: 40%;
     bottom: 150px;
 }
 
-/* nico */
 .casita2, .casita3{
     position: absolute;
     height: 150px;
@@ -126,43 +116,14 @@ body{
     left: 65%;
     bottom: 200px;
 }
-
-.casita2.no-hover:hover{
-    transform: none;
-    cursor: default;
-}
-/* HASTA ACA */
 .casita3{
     left: 18%;
     bottom: 180px;
 }
 
-/*  NICO  */
-
 div img{
-    width: 100%;
-    height: 100%;
     cursor: pointer;
-    filter: drop-shadow(1px 1px 20px gold);
-    animation: parpadeo 1.5s infinite;
 }
-
-.no-shadow{
-    filter: none;
-    animation: none;
+img:hover{
+    filter: drop-shadow(1px 1px 25px rgb(255, 255, 255))
 }
-
-@keyframes parpadeo {
-    0%{
-        filter: drop-shadow(1px 1px 20px rgba(255, 215, 0 , 0));
-    }
-    50%{
-        filter: drop-shadow(1px 1px 20px gold);
-    }
-    100%{
-        filter: drop-shadow(1px 1px 20px rgba(255, 215, 0, 0));
-    }
-}
-
-/*   HASTA ACA   */
-

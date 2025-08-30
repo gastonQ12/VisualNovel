@@ -1,6 +1,14 @@
 // import { cargarPartida } from '../../script.js';
 let aux = 0;
-
+let preguntasMalas = {
+    Henry: false,
+    Sophie: false,
+    Edgard: false
+}
+let MalasPreg = localStorage.getItem('preguntasMalas')
+if (MalasPreg == null) {
+    localStorage.setItem('preguntasMalas', JSON.stringify(preguntasMalas))
+}
 const partidaA = localStorage.getItem('codigoPartidaActual');
 const partidaAnti = localStorage.getItem('codigoViejo');
 document.body.onload = function () {
@@ -488,7 +496,7 @@ function encerrarAalguien() {
     let arraySospechosos = JSON.parse(localStorage.getItem('Sospechosos'));
 
 
-/* NICO */
+    /* NICO */
 
     henryPedirAllanamiento.addEventListener("click", function () {
         localStorage.setItem('Acto1T', true)
@@ -512,7 +520,7 @@ function encerrarAalguien() {
         location.href = "../../index.html"
     });
 
-/* HASTA ACÁ */
+    /* HASTA ACÁ */
 
     document.getElementById('cover').style.display = "flex";
     document.getElementById('ContSup').style.display = "none";

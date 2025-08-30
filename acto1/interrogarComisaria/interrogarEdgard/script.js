@@ -1,79 +1,90 @@
 const lists = {
     button1: [
-        "1. Bien, vamos a lo importante. Sabemos que tenía una deuda pendiente con el fallecido, Michael, y que estaba muy molesto por ello. Sin embargo, su coartada parece sólida, ya que estuvo en un bar durante el crimen. ¿Puede confirmarnos su presencia en el bar esa noche?",  
+        "1. Bien, vamos a lo importante. Sabemos que tenía una deuda pendiente con el fallecido, Michael, y que estaba muy molesto por ello. Sin embargo, su coartada parece sólida, ya que estuvo en un bar durante el crimen. ¿Puede confirmarnos su presencia en el bar esa noche?",
         "2. Claro, estaba en el bar. Estuve allí toda la noche, bebiendo con algunos amigos. No sé qué pasó con Michael, pero yo no tuve nada que ver.",
-        "1. Entiendo, pero la situación se complica un poco. Encontramos una radio suya en la escena del crimen, y lo más sorprendente es que esa radio fue el arma homicida. ¿Cómo explica que su radio estuviera en la escena, usada como un arma?"
+        "1. Entiendo, pero la situación se complica un poco. Encontramos una radio suya en la escena del crimen, y lo más sorprendente es que esa radio fue el arma homicida. ¿Cómo explica que su radio estuviera en la escena, usada como un arma?",
+        "2. ..."
     ]
-,
-button2: [
-    "1. Bien, vamos a lo importante. Sabemos que tenía una deuda pendiente con el fallecido, Michael, y que estaba muy molesto por ello. Sin embargo, su coartada parece sólida, ya que estuvo en un bar durante el crimen. ¿Puede confirmarnos su presencia en el bar esa noche?",  
-    "2. Claro, estaba en el bar. Estuve allí toda la noche, bebiendo con algunos amigos. No sé qué pasó con Michael, pero yo no tuve nada que ver.",
-    "1. Entiendo, pero la situación se complica un poco. Encontramos una radio suya en la escena del crimen, y lo más sorprendente es que esa radio fue el arma homicida. ¿Cómo explica que su radio estuviera en la escena, usada como un arma?",
-    "2. Eso… eso no tiene sentido. Yo le di la radio a Michael para que la vendiera, para recuperar parte de la deuda. Le dije que la vendiera, nada más. No sé cómo acabó en la escena del crimen.",
-    "1. Si realmente la iba a vender, ¿por qué no hay registro de esa venta? Y más importante aún, ¿No tenía odio hacia el bastardo que le hizo perder dinero?... casi como si quisiera matarlo.",
-    "2. Yo… no sé qué pasó. Yo estaba en el bar, y no tengo idea de cómo acabó en la escena. Solo sé que le di la radio a Michael para intentar recuperar algo del dinero que me debía."
-]
-,
-button3: [
-    "1. Señor Mindguard, la cuestión es que usted asegura estar en el bar, pero la radio que le dio a Michael fue utilizada como arma para matarlo. Además, sabemos que estaba bebiendo esa noche, lo que podría haber afectado su juicio.",  
-    "2. ¡Estaba en el bar! Pregunten a los camareros, a los demás en el local, ¡todos me vieron allí! Yo no maté a Michael, ¡no tengo nada que ver con eso!",
-    "1. De acuerdo, lo que está diciendo es que alguien más pudo haber tenido acceso a la radio y pudo haber matado a Michael. Pero con las pruebas que tenemos, parece haber una conexión entre usted y la escena del crimen. ¿Hay algo que no nos ha contado?",
-    "2. Yo… yo no lo maté. Estaba en el bar. Estuve bebiendo, pero eso no significa que lo haya matado.",
-    "1. Entiendo.",
-    "2. Yo no sé qué más decirles. Solo sé que no maté a Michael.",
-    "1. Bueno, eso será todo por ahora, señor Mindguard. Seguiremos investigando. Gracias por su tiempo."
-]
-  };
+    ,
+    button2: [
+        "1. Bien, vamos a lo importante. Sabemos que tenía una deuda pendiente con el fallecido, Michael, y que estaba muy molesto por ello. Sin embargo, su coartada parece sólida, ya que estuvo en un bar durante el crimen. ¿Puede confirmarnos su presencia en el bar esa noche?",
+        "2. Claro, estaba en el bar. Estuve allí toda la noche, bebiendo con algunos amigos. No sé qué pasó con Michael, pero yo no tuve nada que ver.",
+        "1. Entiendo, pero la situación se complica un poco. Encontramos una radio suya en la escena del crimen, y lo más sorprendente es que esa radio fue el arma homicida. ¿Cómo explica que su radio estuviera en la escena, usada como un arma?",
+        "2. Eso… eso no tiene sentido. Yo le di la radio a Michael para que la vendiera, para recuperar parte de la deuda. Le dije que la vendiera, nada más. No sé cómo acabó en la escena del crimen.",
+        "1. Si realmente la iba a vender, ¿por qué no hay registro de esa venta? Y más importante aún, ¿No tenía odio hacia el bastardo que le hizo perder dinero?... casi como si quisiera matarlo.",
+        "2. Yo… no sé qué pasó. Yo estaba en el bar, y no tengo idea de cómo acabó en la escena. Solo sé que le di la radio a Michael para intentar recuperar algo del dinero que me debía.",
+        "2. ..."
+    ]
+    ,
+    button3: [
+        "1. Señor Mindguard, la cuestión es que usted asegura estar en el bar, pero la radio que le dio a Michael fue utilizada como arma para matarlo. Además, sabemos que estaba bebiendo esa noche, lo que podría haber afectado su juicio.",
+        "2. ¡Estaba en el bar! Pregunten a los camareros, a los demás en el local, ¡todos me vieron allí! Yo no maté a Michael, ¡no tengo nada que ver con eso!",
+        "1. De acuerdo, lo que está diciendo es que alguien más pudo haber tenido acceso a la radio y pudo haber matado a Michael. Pero con las pruebas que tenemos, parece haber una conexión entre usted y la escena del crimen. ¿Hay algo que no nos ha contado?",
+        "2. Yo… yo no lo maté. Estaba en el bar. Estuve bebiendo, pero eso no significa que lo haya matado.",
+        "1. Entiendo.",
+        "2. Yo no sé qué más decirles. Solo sé que no maté a Michael.",
+        "1. Bueno, eso será todo por ahora, señor Mindguard. Seguiremos investigando. Gracias por su tiempo.",
+        "2. ..."
+    ]
+};
+document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
 
-  const name1 = localStorage.getItem("NombrePJ") || "protagonista";
-  const name2 = "Edgard";
-  const buttonsDiv = document.getElementById("buttons");
-  const listContainer = document.getElementById("list-container");
-  const listItem = document.getElementById("list-item");
+const name1 = localStorage.getItem("NombrePJ") || "protagonista";
+const name2 = "Edgard";
+const buttonsDiv = document.getElementById("buttons");
+const listContainer = document.getElementById("list-container");
+const listItem = document.getElementById("list-item");
 
-  let currentList = [];
-  let currentIndex = 0;
+let currentList = [];
+let currentIndex = 0;
 
-  document.getElementById("button1").addEventListener("click", () => {
+document.getElementById("button1").addEventListener("click", () => {
     localStorage.setItem('preguntaLibro', "true");
-    startList("button1")});
-  document.getElementById("button2").addEventListener("click", () =>{
+    startList("button1")
+});
+document.getElementById("button2").addEventListener("click", () => {
     localStorage.setItem('preguntaLetras', "true");
     startList("button2")
 });
-  document.getElementById("button3").addEventListener("click", () => {
+document.getElementById("button3").addEventListener("click", () => {
     localStorage.setItem('amorioSecretoP', "true");
     startList("button3");
-    
+    let pregMalas = JSON.parse(localStorage.getItem('preguntasMalas'))
+
+    if (pregMalas.Edgard == false) {
+        let karmaNew = parseInt(localStorage.getItem('karma'), 10) + 10
+        localStorage.setItem('karma', karmaNew)
+        pregMalas.Edgard = true
+        localStorage.setItem('preguntasMalas', JSON.stringify(pregMalas))
+    }
 });
 
-  // Función para iniciar la lista
-  function startList(buttonId) {
+// Función para iniciar la lista
+function startList(buttonId) {
     currentList = lists[buttonId];
     currentIndex = 0;
     buttonsDiv.style.display = "none";
     listContainer.style.display = "block";
-    
-    listItem.textContent = currentList[currentIndex].slice(3).trim();
-  }
 
-  // Mostrar siguiente elemento de la lista
-  listContainer.addEventListener("click", () => {
+    listItem.textContent = currentList[currentIndex].slice(3).trim();
+}
+
+// Mostrar siguiente elemento de la lista
+listContainer.addEventListener("click", () => {
     let indicador = currentList[currentIndex].substring(0, 2).trim(); // Obtiene "1." o "2."
     pjHablando = indicador === "1." ? name2 : name1;
-    let estadoPJs = document.getElementById("izquierda");
-    estadoPJs.src = './imagenes/mindguard.png'
     document.getElementById("PJname").textContent = pjHablando;
     console.log(pjHablando);
     currentIndex++;
     if (currentIndex < currentList.length) {
         listItem.textContent = currentList[currentIndex].slice(3).trim();
     } else {
-      // Terminar y volver a mostrar botones
-      listContainer.style.display = "none";
-      buttonsDiv.style.display = "flex";
+        // Terminar y volver a mostrar botones
+        listContainer.style.display = "none";
+        buttonsDiv.style.display = "flex";
     }
-  });
+});
+
 
 
 //   resto
@@ -85,6 +96,25 @@ var boxD = document.getElementById('cuadroDialogo');
 var fondo = getCookie("fondo");
 const pagina = document.querySelectorAll('.pagina');
 let numeroPagina = 0;
+
+function mostrarPagina(index) {
+    pagina.forEach((pagina) => {
+        pagina.classList.remove('active');
+    })
+    pagina[index].classList.add('active');
+};
+
+function cambioPaginaT(event) {
+    if (event.key === 'ArrowRight') {
+        numeroPagina = (numeroPagina + 1) % pagina.length;
+        mostrarPagina(numeroPagina);
+    } else if (event.key === 'ArrowLeft') {
+        numeroPagina = (numeroPagina - 1 + pagina.length) % pagina.length;
+        mostrarPagina(numeroPagina);
+    }
+};
+
+document.addEventListener('keydown', cambioPaginaT);
 let estadoNPC = document.getElementById("derecha");
 var estadoNPCs = getCookie("estadoPJs");
 let estadoPJs = document.getElementById("izquierda");
@@ -98,11 +128,20 @@ let preguntasRespondidas = {
 };
 let protagonista = localStorage.getItem('NombrePJ')
 let nombreInterrogado = localStorage.getItem('ainterrogar')
-; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
+    ; //  dialogos (Lau: Haganlo prolijo si agregan mas dialgos, asi no nos mareamos.)
 var derecha = document.getElementById('derS');
 var izquierda = document.getElementById('izqS');
 var hoja = document.querySelector(".Sospechososs");
+derecha.addEventListener("click", moverDer);
+izquierda.addEventListener("click", moverIzq);
 
+function moverDer(event) {
+    hoja.scrollLeft += 150;
+}
+
+function moverIzq(event) {
+    hoja.scrollLeft += -150;
+};
 
 
 body.style.backgroundImage = fondo;
@@ -127,7 +166,7 @@ document.body.onload = function () {
         localStorage.removeItem("borrado1");
         localStorage.setItem("borrado1", true)
 
-        if (paginaAnterior == "http://127.0.0.1:5500/index.html") {
+        if (paginaAnterior == "https://gastonq12.github.io/VisualNovel/index.html") {
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
             eliminarCookie("estadoNPCs");
@@ -164,7 +203,7 @@ document.body.onload = function () {
         mostrarDialogos(aux); // Mostrar el diálogo guardado
     };
 
-    
+
     estadoPJs.style.display = estadoPJsC;
 
     estadoNPC.style.display = 'estadoNPCs';
@@ -478,6 +517,5 @@ function cargadoDePIstas() {
 };
 
 
-document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
 interrogarS();
 
