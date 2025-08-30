@@ -98,7 +98,7 @@ body{
     opacity: 50%;
     z-index: -1;
     transition: all 0.3s linear 2s;
-    animation: 2s cubic-bezier(0, 0.5, 0, 0) 0s infinite normal none running pulse;
+    animation: 1s cubic-bezier(0, 0.5, 0, 0) 0s infinite normal none running pulse;
   }
   
   @keyframes pulse {

@@ -4,8 +4,7 @@ const pedir = document.getElementById('pedir');
 const contenedorJugador = document.getElementById('contenedor-cartas');
 const contenedorEnemigo = document.getElementById('contenedor-cartas-enemigo');
 const quedarse = document.getElementById('quedarse');
-const vale_11 = document.getElementById('vale11');
-const vale_1 = document.getElementById('vale1');
+
 const pantallaMuerte = document.getElementById("cont-pantalla-muerte");
 const pantallaVivo = document.getElementById("cont-pantalla-vivo")
 

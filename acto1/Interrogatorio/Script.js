@@ -7,19 +7,27 @@ const partidaAnti = localStorage.getItem('codigoViejo');
 let cuadro = document.getElementById("cuadro")
 let libroLetras = document.getElementById("libroLetras")
 
+/* NICO TUVO QUE CAMBIAR UNOS VALORES ACÁ */
+
 cuadro.addEventListener('click', () => {
-    cPruebas ++
-    cuadro.style.display = 'none'
+    cPruebas++;
+    setTimeout(() => {
+        cuadro.style.display = 'none';
+    }, 500); 
+
 });
 
 libroLetras.addEventListener('click', () => {
     cPruebas ++
-    libroLetras.style.display = 'none'
+    setTimeout(() => {
+        libroLetras.style.display = 'none';
+    }, 500);
 });
+
+/* HASTA ACA */
 
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
-    console.log(paginaAnterior)
     if (partidaA !== partidaAnti && localStorage.getItem("borrado1") == "false") {
         eliminarCookie("progresoDialogo");
         eliminarCookie("boxD");
@@ -37,7 +45,7 @@ document.body.onload = function () {
         localStorage.removeItem("borrado1");
         localStorage.setItem("borrado1", true)
 
-        if (paginaAnterior == "http://127.0.0.1:5500/index.html") {
+        if (paginaAnterior == "https://gastonq12.github.io/VisualNovel/index.html") {
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
             eliminarCookie("estadoNPCs");
@@ -389,10 +397,48 @@ function caminoElegido() {
 
 }
 
+/* NICO */
+
+function animarBorde(elemento) {
+    // Añadir la clase para la animación
+    elemento.classList.add("animar-borde");
+    setTimeout(() => {
+        elemento.classList.remove("animar-borde");
+    }, 500);
+}
+
+const clues = document.querySelectorAll('.pt');
+
+clues.forEach(pista => {
+    pista.addEventListener('click', () => {
+        if (!pista.classList.contains('anime')) {
+            pista.classList.add('anime'); 
+        }
+        setTimeout(() => {
+            pista.classList.remove('anime');  
+        }, 500);
+    });
+});
+
+clues.forEach(pista => {
+    let hasClicked = false;
+    pista.addEventListener('click', () => {
+        if (!hasClicked) {
+            pista.classList.add('animate');
+            const texto = pista.querySelector('.texto-pista');
+            texto.style.opacity = '1'; 
+            texto.style.animation = 'textDesaparece .5s forwards'; 
+            hasClicked = true;
+        }
+    });
+});
+
+/* HASTA ACA */
+
 const divP = document.getElementById('opcionesPreguntar');
 // const cuadroDialogo = document.getElementById("cuadroDialogo");
 function opcionesPreguntar(auxiliary) {
-    if (auxiliary === true) {
+    if (auxiliary === 24) {
         divP.style.display = "flex";
         boxD.style.display = 'none';
 
@@ -550,7 +596,6 @@ function cambiarFondo(aux) {
 }
 
 function MostrarPjH(lado) {
-
     switch (lado) {
         case 0:
             console.log("entro 0");

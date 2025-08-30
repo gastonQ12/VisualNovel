@@ -21,7 +21,9 @@ body {
     bottom: 0;
 }
 
-
+#LineaDialogo{
+    width: 150px;
+}
 #derecha {
     display: none;
 }
@@ -38,11 +40,13 @@ body {
     height: 170px;
     position: absolute;
     margin-top: -200px;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
 }
-
+.cuadroDialogo p{
+    width: 60%;
+}
 .cuadroDialogo * {
     color: white;
     text-align: center;

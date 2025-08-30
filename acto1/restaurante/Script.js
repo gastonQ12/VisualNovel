@@ -7,8 +7,17 @@ const partidaAnti = localStorage.getItem('codigoViejo');
 document.body.onload = function () {
     var paginaAnterior = document.referrer;
     let op = getCookie("progresoDialogo");
-    
-    if (partidaA !== partidaAnti && localStorage.getItem("borrado1") == "false") {
+    if (op === "" || parseInt(op) <= 1) {
+        Swal.fire({
+            position: "top",
+            icon: "question",
+            theme: "dark",
+            title: "Cuando descubres a un nuevo sospechoso se registra automaticamente en la carpeta de sospechosos.",
+            showConfirmButton: false,
+            timer: 4000
+        });
+    }
+    if (partidaA !== partidaAnti && localStorage.getItem("borrado3") == "false") {
         eliminarCookie("progresoDialogo");
         eliminarCookie("boxD");
         eliminarCookie("estadoNPCs");
@@ -22,10 +31,10 @@ document.body.onload = function () {
         eliminarCookie("pistas");
         eliminarCookie("pjHablando");
         console.log("cookie eliminada");
-        localStorage.removeItem("borrado1");
-        localStorage.setItem("borrado1", true)
+        localStorage.removeItem("borrado3");
+        localStorage.setItem("borrado3", true)
 
-        if (paginaAnterior == "http://127.0.0.1:5500/index.html") {
+        if (paginaAnterior == "https://gastonq12.github.io/VisualNovel/index.html") {
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
             eliminarCookie("estadoNPCs");
@@ -213,7 +222,7 @@ function cargadoDePIstas() {
     }
 
     /* tercera */
-    if (localStorage.getItem('RadioPropietario') == 100 ) {
+    if (localStorage.getItem('RadioPropietario') == 100) {
         document.getElementById("pista11").style.display = "Block";
     } else {
         document.getElementById("pista11").style.display = "none";

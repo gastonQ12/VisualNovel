@@ -74,7 +74,9 @@ if(localStorage.getItem('borrado1') == null){
 if(localStorage.getItem('borrado2') == null){
     localStorage.setItem("borrado2", false)    
 }
-
+if(localStorage.getItem("borrado3") == null){
+    localStorage.setItem("borrado3", false)
+}
 
 if (new URL(document.referrer).pathname == '/Demo/acto1/capituloCarga/index.html') {
     localStorage.setItem('codigoPartidaActual', generarClaveAleatoria(7));
@@ -401,7 +403,40 @@ function cargadoPistas(aux) {
         pistas.style.display = 'none';
     }
 }
+/*            NICO              */
 
+const pistas = document.querySelectorAll('.pt');
+
+// Este código es parte de la animación de las pistas
+pistas.forEach(pista => {
+    const handleClick = () => {
+        if (!pista.classList.contains('animate')) {
+
+            pista.classList.add('animate');  
+            
+            pista.classList.add('disabled'); 
+            setTimeout(() => {
+                pista.classList.remove('animate');
+            }, 500); 
+        }
+    };
+    pista.addEventListener('click', handleClick);
+});
+
+//Este código es parte de la aparición y la animación del texto dentro de la pista
+pistas.forEach(pista => {
+    let hasClicked = false;
+    pista.addEventListener('click', () => {
+        if (!hasClicked) {
+            pista.classList.add('animate');
+            const texto = pista.querySelector('.texto-pista');
+            texto.style.opacity = '1'; 
+            texto.style.animation = 'textDesaparece 1s forwards'; 
+            hasClicked = true;
+        }
+    });
+});
+/*                HASTA ACA                       */
 
 function encontrarPistaBasurero(event) {
     var opacidad = 100 + '%';

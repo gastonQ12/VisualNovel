@@ -14,7 +14,15 @@ body {
         background-size: cover;
     }
 }
-
+.swal2-title {
+  filter: drop-shadow(1px 1px 0px #797979);
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: black;
+  font-family: "Karantina", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
 .cuadro_TextEI {
     display: flex;
     justify-content: space-between;
@@ -28,7 +36,7 @@ body {
 #output{
     font-size:20px; 
     z-index: 100;
-     width: 50%;
+    width: 50%;
 }
 .cuadroDialogo {
     background-image: url(imagenes/rectangulo.png);
@@ -218,7 +226,6 @@ body {
 }
 
 #pista5 {
-   
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
@@ -257,7 +264,6 @@ body {
 }
 
 #pista9 {
-   
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;
@@ -279,7 +285,6 @@ body {
 }
 /*nuevasPistas */
 #pista11 {
- 
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 30;

@@ -11,6 +11,7 @@ document.getElementById('casa4').addEventListener("mouseout", PACasaAmigoOut);
 document.getElementById('casa2').addEventListener("mouseover", PARestauranteOver);
 document.getElementById('casa2').addEventListener("mouseout", PARestauranteOut);
 //hospital
+
 document.getElementById('casa5').addEventListener("mouseover", PAClubOver);
 document.getElementById('casa5').addEventListener("mouseout", PAClubOut);
 //callejon
@@ -19,20 +20,19 @@ document.getElementById('Callejon').addEventListener("mouseout", callejonOut);
 
 
 //PANEL AVISO == PA
-function PARestauranteOver(){
+function PARestauranteOver() {
     document.getElementById("aviso").style.display = 'flex';
     document.getElementById("aviso").innerHTML = '<h1> RESTAURANTE </h1>'
 }
-function PARestauranteOut(){
+function PARestauranteOut() {
     document.getElementById("aviso").style.display = 'none';
-    
 }
 
-function PAClubOver(){
+function PAClubOver() {
     document.getElementById("aviso").style.display = 'flex';
     document.getElementById("aviso").innerHTML = '<h1> CLUB (EDGARD) </h1>'
 }
-function PAClubOut(){
+function PAClubOut() {
     document.getElementById("aviso").style.display = 'none';
 }
 
@@ -43,12 +43,13 @@ function PAPoliciaOver() {
 function PAPoliciaOut() {
     document.getElementById("aviso").style.display = 'none';
 }
-function callejonOver(){
+
+function callejonOver() {
     document.getElementById("aviso").style.display = 'flex';
     document.getElementById("aviso").innerHTML = '<h1> CALLEJON </h1>'
 }
 
-function callejonOut(){
+function callejonOut() {
     document.getElementById("aviso").style.display = 'none';
 }
 
@@ -77,93 +78,187 @@ function PASophieHouseOut() {
 }
 
 
-if(localStorage.getItem('SophieCasa') === 'Terminado'){
+if (localStorage.getItem('SophieCasa') === 'Terminado') {
     document.getElementById('casaSophia').style.opacity = "45%"
 }
 
-function determinarPresionarCasaSophia(){
-    if(localStorage.getItem('SophieCasa') !== 'Terminado'){
+function determinarPresionarCasaSophia() {
+    if (localStorage.getItem('SophieCasa') !== 'Terminado') {
         irCasaSophia();
+    } else {
+        alert('Ya no puedes visitar la casa')
     }
 }
 
 
-function irCasaSophia(){
+function irCasaSophia() {
     location.href = '../Interrogatorio/index.html'
 }
 
-if(localStorage.getItem('Restaurante') === 'Terminado'){
-    document.getElementById('restauranteAmigo').style.opacity = "45%"
-}
+/* NICO CAMBIO VALORES */
 
-function determinarPresionarRestaurante(){
-    if(localStorage.getItem('Restaurante') !== 'Terminado'){
+if (localStorage.getItem('Restaurante') === 'Terminado') {
+    document.getElementById('restauranteAmigo').style.opacity = "45%"
+    document.getElementById('restauranteAmigo').style.transform = "none"
+    document.getElementById('restauranteAmigo').style.cursor = "default"
+}
+if (localStorage.getItem('Restaurante') == 'Terminado') {
+    document.getElementById("casa2").classList.add("noParpadeo")
+}
+function determinarPresionarRestaurante() {
+    if (localStorage.getItem('Restaurante') !== 'Terminado') {
         irRestaurante();
+    } else {
+        Swal.fire({
+            position: "top",
+            icon: "error",
+            theme: "dark",
+            title: "Ya no puedes ir al restaurante",
+            showConfirmButton: false,
+            timer: 2000
+        });
     }
 }
 
-function irCallejon(){
+/* HASTA ACÁ */
+
+function irCallejon() {
     location.href = '../Historia/index.html'
 }
 
+/* nico */
 
-if(localStorage.getItem('escenaDelCrimen') === 'Terminado'){
+document.addEventListener("DOMContentLoaded", function () {
+    const casas = ['casa1', 'casa2', 'casa3', 'casa4', 'casa5'];
+
+    casas.forEach(casaId => {
+        const casa = document.getElementById(casaId).querySelector('img');
+
+        if (localStorage.getItem(casaId) === 'clicked') {
+            casa.classList.add('no-shadow');
+        }
+
+        document.getElementById(casaId).addEventListener("click", function () {
+            if (!localStorage.getItem(casaId)) {
+                casa.classList.add('no-shadow');
+                localStorage.setItem(casaId, 'clicked');
+            }
+
+            switch (casaId) {
+                case 'casa1':
+                    window.location.href = '../EstacionP/estacionP.html';
+                    break;
+                case 'casa2':
+                    determinarPresionarRestaurante();
+                    break;
+                case 'casa3':
+                    determinarPresionarCasaSophia();
+                    break;
+                case 'casa4':
+                    window.location.href = '../escondite/escondite.html';
+                    break;
+                case 'casa5':
+                    determinarPresionarClub();
+                    break;
+                default:
+                    console.error("Casa desconocida: " + casaId);
+                    break;
+            }
+        });
+    });
+});
+
+/* agdsahdafwa */
+
+/* NICO CAMBIO VALORES */
+
+if (localStorage.getItem('escenaDelCrimen') === 'Terminado') {
     document.getElementById('callejon').style.opacity = "65%"
+    document.getElementById('callejon').style.transform = "none"
+    document.getElementById('callejon').style.cursor = "default"
 }
 
-function determinarPresionarCallejon(){
-    if(localStorage.getItem('escenaDelCrimen') !== 'Terminado'){
-        MDN ();
+if (localStorage.getItem('escenaDelCrimen') == 'Terminado') {
+    document.getElementById("callejon").classList.add("noParpadeo")
+}
+
+function determinarPresionarCallejon() {
+    if (localStorage.getItem('escenaDelCrimen') !== 'Terminado') {
+        MDN();
+    } else {
+        document.getElementById("callejon").classList.add("noParpadeo")
+        Swal.fire({
+            position: "top",
+            icon: "error",
+            theme: "dark",
+            title: "Ya no puedes visitar el callejon",
+            showConfirmButton: false,
+            timer: 2000
+        });
     }
 }
-function irRestaurante(){
+
+function irRestaurante() {
     location.href = '../restaurante/index.html'
 }
 
-function irCallejon(){
+function irCallejon() {
     location.href = '../Historia/index.html'
 }
 
 
-if(localStorage.getItem('clubEdgard') === 'Terminado'){
+if (localStorage.getItem('clubEdgard') === 'Terminado') {
     document.getElementById('clubEdgard').style.opacity = "65%"
+    document.getElementById('clubEdgard').style.transform = "none"
+    document.getElementById('clubEdgard').style.cursor = "default"
 }
-
-function determinarPresionarClub(){
-    if(localStorage.getItem('clubEdgard') !== 'Terminado'){
+if (localStorage.getItem('clubEdgard') == 'Terminado') {
+    document.getElementById("casa5").classList.add("noParpadeo")
+}
+function determinarPresionarClub() {
+    if (localStorage.getItem('clubEdgard') !== 'Terminado') {
         irClubEdgard();
+    } else {
+        Swal.fire({
+            position: "top",
+            icon: "error",
+            theme: "dark",
+            title: "Ya no puedes visitar el Club",
+            showConfirmButton: false,
+            timer: 2000
+        });
     }
 }
-function irClubEdgard(){
+function irClubEdgard() {
     location.href = '../clubEdgard/index.html'
 }
-
+/* HASTA ACA */
 verZonas();
-function verZonas(){
+function verZonas() {
     let casaSophie = document.getElementById('casa3');
     let estacionpolicia = document.getElementById('casa1');
     let casaAmigo = document.getElementById('casa4');
     let restaurante = document.getElementById('casa2');
     let club = document.getElementById('casa5');
-    
-    if(localStorage.getItem('SophieCasa') != null){
+
+    if (localStorage.getItem('SophieCasa') != null) {
         casaSophie.style.display = 'block';
-    }else{
+    } else {
         casaSophie.style.display = 'none';
     }
-    if(localStorage.getItem('casaAmigo') != null){
+    if (localStorage.getItem('casaAmigo') != null) {
         casaAmigo.style.display = 'block';
-    }else{
+    } else {
         casaAmigo.style.display = 'none';
     }
-    if(localStorage.getItem('clubEdgard') != null){
+    if (localStorage.getItem('clubEdgard') != null) {
         club.style.display = 'block';
-    }else{
+    } else {
         club.style.display = 'none';
     }
-    if(localStorage.getItem('Restaurante') != null){
+    if (localStorage.getItem('Restaurante') != null) {
         restaurante.style.display = 'block';
-    }else{
+    } else {
         restaurante.style.display = 'none';
     }
 }

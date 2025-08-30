@@ -15,11 +15,19 @@ const configuracion = document.querySelector("#configuracion");
 
 abrconfiguracion.addEventListener("click", () => {
     configuracion.showModal();
-    
+
 })
 cerconfiguracion.addEventListener("click", () => {
     configuracion.close();
 })
+
+Swal.fire({
+    position: "top",
+    icon: "warning",
+    theme: "dark",
+    title: "El juego no esta terminado, hasta ahora cuenta con el Acto I, dejamos los minijuegos descartados o todavia no implementados en la historia en el menu principal para que puedan jugarlos.",
+    showConfirmButton: true
+});
 
 //CODIGO PARA MOVERTE ENTRE LAS OPCIONES
 var audio = new Audio();
@@ -35,7 +43,7 @@ function cambiar_opcion_tecla(event) {
         botonActual = (botonActual - 1 + botones.length) % botones.length;
         botones[botonActual].focus();
         cambiarColorBoton(botonActual);
-        
+
     } else if (key === 'ArrowDown' || key === 'Down') {
         botonActual = (botonActual + 1) % botones.length;
         botones[botonActual].focus();
@@ -44,7 +52,7 @@ function cambiar_opcion_tecla(event) {
     }
 }
 function cambiarColorBoton(indiceBoton) {
-    if(indiceBoton != 10){
+    if (indiceBoton != 10) {
         const botonActual = document.querySelector('.boton-actual');
         if (botonActual) {
             botonActual.classList.remove('boton-actual');
@@ -52,9 +60,8 @@ function cambiarColorBoton(indiceBoton) {
 
         botones[indiceBoton].classList.add('boton-actual');
     }
-    else{
+    else {
         botonActual.classList.remove('boton-actual');
-        
     }
 }
 
@@ -67,8 +74,13 @@ window.onload = function () {
 
 
 //CODIGO FIX BOTONES DUPLICADOS
-document.addEventListener("mousemove", function(event) {
-    cambiarColorBoton(9);
+document.addEventListener("mousemove", function () {
+    // si existe el índice 9 úsalo, si no, pon el primero
+    if (botones[0]) {
+        cambiarColorBoton(0);
+    } else {
+        cambiarColorBoton(0);
+    }
 });
 
 
@@ -77,7 +89,7 @@ document.addEventListener('keydown', cambiar_opcion_tecla);
 //CODIGO PARA QUE EL USARIO NO PUEDA USAR EL MENU PARA ACCEDER A LA CONSOLA
 // document.oncontextmenu = function () { return false }
 
-function nuevaPartida(){
+function nuevaPartida() {
     let codViejo = localStorage.getItem('codigoPartidaActual');
     localStorage.clear();
     localStorage.setItem("codigoViejo", codViejo)
@@ -90,18 +102,18 @@ function cargarPartida() {
 }    var urlAnterior = new URL(window.location);
     var rutaAnterior = urlAnterior.pathname;
 */
-if(localStorage.getItem('ub') !== null){
+if (localStorage.getItem('ub') !== null) {
     localStorage.setItem('ub');
 }
-function cargarPartida(){
-    if(localStorage.getItem('ub') !== null){
-        if(localStorage.getItem("Escondite1") != 1){
+function cargarPartida() {
+    if (localStorage.getItem('ub') !== null) {
+        if (localStorage.getItem("Escondite1") != 1) {
             let ubicacion = localStorage.getItem('ub');
             location.href = ubicacion;
-        }else{
+        } else {
             location.href = "acto1/escondite/escondite.html";
         }
-    }else {
+    } else {
         location.href = "acto1/sin partida guardada/index.html"
     }
 }

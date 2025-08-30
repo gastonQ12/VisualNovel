@@ -40,7 +40,7 @@ body{
     font-style: normal;
     color: white;
     font-size: 100px;
-    margin-bottom: 15%;
+    margin-bottom: 18.5%;
     position: absolute;
     
 }
@@ -51,7 +51,7 @@ body{
 
 .bc{
     position: absolute;
-    margin-top: 15%;
+    margin-top: 18.5%;
     filter: drop-shadow(4px 4px 0px #797979);
     outline: 10px;
     border-color: black;

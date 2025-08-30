@@ -1,58 +1,77 @@
 const lists = {
     button1: [
-"1. ¿Podría contarnos cómo ha sido su relación en los últimos meses?",  
-"2. Bueno… como en cualquier matrimonio, tenemos nuestros altibajos, pero… lo amaba.",  
-"1. Claro. Pero… Algo que nos llamó la atención: encontramos un papel con letras antiguas en la escena del crimen. En su casa también encontramos un libro con letras similares. ¿Le dice algo esta coincidencia?",  
-"2. Oh… eso… sí, es solo un viejo libro de la biblioteca de mi esposo. Él coleccionaba ese tipo de cosas, ya sabe, antigüedades.",  
-"1. Entiendo. Me imagino que entre los amigos de su esposo también compartían gustos similares. Hemos oído que pasaba bastante tiempo con su amigo cercano, [Nombre del amigo]. ¿Diría usted que su esposo confiaba mucho en él?",  
-"2. Sí… eran amigos de toda la vida. Muy cercanos."
-]
-,
-button2: [
-    "1. Claro. Es difícil perder a alguien tan importante… pero, señora, debo preguntarle: ¿Su relación con Henry Whalls era solo amistad? Nos consta que se veían con frecuencia, incluso a solas.",  
-    "2. No… bueno… Éramos amigos, sí. Pero eso no tiene nada que ver con lo que pasó.",  
-    "1. Comprendo. Solo estamos intentando entender mejor la situación, dado a que parece que el señor Whalls tenía una carta de amor confesando cierto amorío hacia usted y detallando encuentros… más allá de una mera amistad.",  
-    "2. Sí… bueno, fue en momentos de debilidad, Michael estaba siempre fuera en el taxi y cuando volvía investigaba cosas antiguas."  ]
-,
-button3: [
-    "1. ¿Cree que el señor Whalls lo haya matado? ¿O acaso fue usted porque él descubrió el amorío secreto?",
-    "2. ¡No! Por supuesto que no, yo nunca haría eso y Whalls… él sería incapaz, bueno, sí… él no lo haría, era su amigo de la infancia y lo quería mucho.",  
-    "1. ¿Tanto como para acostarse con usted?",
-    "2. …",
-    "1. Bueno, terminamos, gracias por venir señora." ]
-  };
+        "1. ¿Podría contarnos cómo ha sido su relación en los últimos meses?",
+        "2. Bueno… como en cualquier matrimonio, tenemos nuestros altibajos, pero… lo amaba.",
+        "1. Claro. Pero… Algo que nos llamó la atención: encontramos un papel con letras antiguas en la escena del crimen. En su casa también encontramos un libro con letras similares. ¿Le dice algo esta coincidencia?",
+        "2. Oh… eso… sí, es solo un viejo libro de la biblioteca de mi esposo. Él coleccionaba ese tipo de cosas, ya sabe, antigüedades.",
+        "1. Entiendo. Me imagino que entre los amigos de su esposo también compartían gustos similares. Hemos oído que pasaba bastante tiempo con su amigo cercano, [Nombre del amigo]. ¿Diría usted que su esposo confiaba mucho en él?",
+        "2. Sí… eran amigos de toda la vida. Muy cercanos.",
+        "1. ..."
+    ]
+    ,
+    button2: [
+        "1. Claro. Es difícil perder a alguien tan importante… pero, señora, debo preguntarle: ¿Su relación con Henry Whalls era solo amistad? Nos consta que se veían con frecuencia, incluso a solas.",
+        "2. No… bueno… Éramos amigos, sí. Pero eso no tiene nada que ver con lo que pasó.",
+        "1. Comprendo. Solo estamos intentando entender mejor la situación, dado a que parece que el señor Whalls tenía una carta de amor confesando cierto amorío hacia usted y detallando encuentros… más allá de una mera amistad.",
+        "2. Sí… bueno, fue en momentos de debilidad, Michael estaba siempre fuera en el taxi y cuando volvía investigaba cosas antiguas.",
+        "1. ..."]
+    ,
+    button3: [
+        "1. ¿Cree que el señor Whalls lo haya matado? ¿O acaso fue usted porque él descubrió el amorío secreto?",
+        "2. ¡No! Por supuesto que no, yo nunca haría eso y Whalls… él sería incapaz, bueno, sí… él no lo haría, era su amigo de la infancia y lo quería mucho.",
+        "1. ¿Tanto como para acostarse con usted?",
+        "2. …",
+        "1. Bueno, terminamos, gracias por venir señora.",
+        "2. ..."
+    ]
+};
 
-  const name1 = localStorage.getItem("NombrePJ") || "protagonista";
-  const name2 = "Sophia";
-  const buttonsDiv = document.getElementById("buttons");
-  const listContainer = document.getElementById("list-container");
-  const listItem = document.getElementById("list-item");
+const name1 = localStorage.getItem("NombrePJ") || "protagonista";
+const name2 = "Sophia";
+const buttonsDiv = document.getElementById("buttons");
+const listContainer = document.getElementById("list-container");
+const listItem = document.getElementById("list-item");
 
-  let currentList = [];
-  let currentIndex = 0;
-
-  document.getElementById("button1").addEventListener("click", () => {
-    startList("button1")});
-  document.getElementById("button2").addEventListener("click", () =>{
+let currentList = [];
+let currentIndex = 0;
+document.getElementById("button1").addEventListener("click", () => {
+    startList("button1")
+});
+document.getElementById("button2").addEventListener("click", () => {
     startList("button2")
 });
-  document.getElementById("button3").addEventListener("click", () => {
+document.getElementById("button3").addEventListener("click", () => {
     startList("button3");
-    
+    let pregMalas = JSON.parse(localStorage.getItem('preguntasMalas'))
+
+    if (pregMalas.Sophie == false) {
+        let karmaNew = parseInt(localStorage.getItem('karma'), 10) + 10
+        localStorage.setItem('karma', karmaNew)
+        pregMalas.Sophie = true
+        localStorage.setItem('preguntasMalas', JSON.stringify(pregMalas))
+    }
+
 });
 
-  // Función para iniciar la lista
-  function startList(buttonId) {
+// Función para iniciar la lista
+function startList(buttonId) {
     currentList = lists[buttonId];
     currentIndex = 0;
     buttonsDiv.style.display = "none";
     listContainer.style.display = "block";
-    
-    listItem.textContent = currentList[currentIndex].slice(3).trim();
-  }
+    // Detectar quién habla en la PRIMERA línea
+    let indicador = currentList[currentIndex].substring(0, 2).trim();
+    pjHablando = indicador === "1." ? name1 : name2;
 
-  // Mostrar siguiente elemento de la lista
-  listContainer.addEventListener("click", () => {
+    document.getElementById("PJname").textContent = pjHablando;
+    let estadoPJs = document.getElementById("izquierda");
+    estadoPJs.src = './imagenes/sophieInd.png';
+
+    listItem.textContent = currentList[currentIndex].slice(3).trim();
+}
+
+// Mostrar siguiente elemento de la lista
+listContainer.addEventListener("click", () => {
     let indicador = currentList[currentIndex].substring(0, 2).trim(); // Obtiene "1." o "2."
     pjHablando = indicador === "1." ? name2 : name1;
     let estadoPJs = document.getElementById("izquierda");
@@ -63,11 +82,11 @@ button3: [
     if (currentIndex < currentList.length) {
         listItem.textContent = currentList[currentIndex].slice(3).trim();
     } else {
-      // Terminar y volver a mostrar botones
-      listContainer.style.display = "none";
-      buttonsDiv.style.display = "flex";
+        // Terminar y volver a mostrar botones
+        listContainer.style.display = "none";
+        buttonsDiv.style.display = "flex";
     }
-  });
+});
 
 
 //   resto
@@ -77,6 +96,25 @@ let aux = 0;
 var fondo = getCookie("fondo");
 const pagina = document.querySelectorAll('.pagina');
 let numeroPagina = 0;
+
+function mostrarPagina(index) {
+    pagina.forEach((pagina) => {
+        pagina.classList.remove('active');
+    })
+    pagina[index].classList.add('active');
+};
+
+function cambioPaginaT(event) {
+    if (event.key === 'ArrowRight') {
+        numeroPagina = (numeroPagina + 1) % pagina.length;
+        mostrarPagina(numeroPagina);
+    } else if (event.key === 'ArrowLeft') {
+        numeroPagina = (numeroPagina - 1 + pagina.length) % pagina.length;
+        mostrarPagina(numeroPagina);
+    }
+};
+
+document.addEventListener('keydown', cambioPaginaT);
 let estadoNPC = document.getElementById("derecha");
 var estadoNPCs = getCookie("estadoPJs");
 var estadoPJsC = getCookie("estadoPJs");
@@ -87,8 +125,23 @@ var derecha = document.getElementById('derS');
 var izquierda = document.getElementById('izqS');
 var hoja = document.querySelector(".Sospechososs");
 
+var derecha = document.getElementById('derS');
+var izquierda = document.getElementById('izqS');
 
+var hoja = document.querySelector(".Sospechososs");
 
+derecha.addEventListener("click", moverDer);
+izquierda.addEventListener("click", moverIzq);
+
+function moverDer(event) {
+    hoja.scrollLeft += 150;
+}
+
+function moverIzq(event) {
+    hoja.scrollLeft += -150;
+}
+
+document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
 body.style.backgroundImage = fondo;
 boxD.addEventListener('click', editarTexto);
 document.body.onload = function () {
@@ -111,7 +164,7 @@ document.body.onload = function () {
         localStorage.removeItem("borrado1");
         localStorage.setItem("borrado1", true)
 
-        if (paginaAnterior == "http://127.0.0.1:5500/index.html") {
+        if (paginaAnterior == "https://gastonq12.github.io/VisualNovel/index.html") {
             eliminarCookie("progresoDialogo");
             eliminarCookie("boxD");
             eliminarCookie("estadoNPCs");
@@ -148,7 +201,7 @@ document.body.onload = function () {
         mostrarDialogos(aux); // Mostrar el diálogo guardado
     };
 
-    
+
     estadoPJs.style.display = estadoPJsC;
 
     estadoNPC.style.display = 'estadoNPCs';
@@ -264,25 +317,6 @@ function getCookie(cname) {
 function crearCookies(aux) {
     document.cookie = "progresoDialogo=" + aux;
 };
-
-function mostrarPagina(index) {
-    pagina.forEach((pagina) => {
-        pagina.classList.remove('active');
-    })
-    pagina[index].classList.add('active');
-};
-
-function cambioPaginaT(event) {
-    if (event.key === 'ArrowRight') {
-        numeroPagina = (numeroPagina + 1) % pagina.length;
-        mostrarPagina(numeroPagina);
-    } else if (event.key === 'ArrowLeft') {
-        numeroPagina = (numeroPagina - 1 + pagina.length) % pagina.length;
-        mostrarPagina(numeroPagina);
-    }
-};
-
-document.addEventListener('keydown', cambioPaginaT);
 
 
 function cambiarColorLabel() {
@@ -437,7 +471,5 @@ function cargadoDePIstas() {
     }
 };
 
-
-document.getElementById("rojo").style.width = localStorage.getItem('karma') + "%"
 interrogarS();
 
