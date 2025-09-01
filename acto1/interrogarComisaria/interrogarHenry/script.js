@@ -71,7 +71,6 @@ function startList(buttonId) {
 
     document.getElementById("PJname").textContent = pjHablando;
     let estadoPJs = document.getElementById("izquierda");
-    estadoPJs.src = '../imagenes/HenryImg.png';
 
     listItem.textContent = currentList[currentIndex].slice(3).trim();
 }
@@ -81,7 +80,6 @@ listContainer.addEventListener("click", () => {
     let indicador = currentList[currentIndex].substring(0, 2).trim(); // Obtiene "1." o "2."
     pjHablando = indicador === "1." ? name2 : name1;
     let estadoPJs = document.getElementById("izquierda");
-    estadoPJs.src = '../imagenes/HenryImg.png'
     document.getElementById("PJname").textContent = pjHablando;
     console.log(pjHablando);
     currentIndex++;
