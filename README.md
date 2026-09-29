@@ -17,3 +17,5 @@ Cuenta con un apartado gráfico de estilo cómic y tiene funcionalidades tales c
        ✔ Sistema de peleas por turnos.
     
 La historia sigue de cerca a un detective en Londres, en la época de 1910, que investiga una serie de asesinatos que, al principio, no parecen estar conectados, pero eventualmente se revela quién lo hizo.
+
+link: https://gastonq12.github.io/VisualNovel/
